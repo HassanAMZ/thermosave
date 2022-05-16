@@ -5,7 +5,7 @@ const projectsData = [
     description: `Facebook CAPI to track iOS14+ user events such as FormSubmission, ThankYouPages on website, the events are deduplicated with an eventID and are sent back to the Facebook Event Manager. 
     
     The setup requires a cloud hosting for GTM server container.`,
-    price: '$300',
+    price: '$400',
     imgSrc: '/static/images/projectImages/FacebookCAPIServerTracking.png',
     href:
       'https://www.upwork.com/services/product/facebook-conversion-api-server-tracking-for-your-lead-generation-wesbite-1439356248607649792',
@@ -27,7 +27,7 @@ const projectsData = [
     description: `Facebook CAPI to track iOS14+ user events such as FormSubmission, ThankYouPages on website, the events are deduplicated with an eventID and are sent back to the Facebook Event Manager. 
     
     The setup requires a cloud hosting for GTM server container.`,
-    price: '$300',
+    price: '$400',
     imgSrc: '/static/images/projectImages/FacebookCAPIServerTracking.png',
     href:
       'https://www.upwork.com/services/product/facebook-conversion-api-server-tracking-via-gtm-for-your-wordpress-store-1449786898515054592',
@@ -38,7 +38,7 @@ const projectsData = [
     description: `Facebook CAPI to track iOS14+ user events such as FormSubmission, ThankYouPages on website, the events are deduplicated with an eventID and are sent back to the Facebook Event Manager. 
     
     The setup requires a cloud hosting for GTM server container.`,
-    price: '$300',
+    price: '$400',
     imgSrc: '/static/images/projectImages/GA4&FbPixelTrackingForEcommerceStore.png',
     href:
       'https://www.upwork.com/services/product/facebook-conversion-api-server-tracking-via-gtm-for-your-shopify-store-1449784162842787840',
