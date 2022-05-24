@@ -26,11 +26,15 @@ To work with clients, usually i require some access to platforms that are necess
 
 You can check the official links for each platform! Kindly use the details mentioned below for access:
 
-**First Name: Hassan**
+**First Name: Shahzada Ali**
 
-**Last Name: Upwork**
+**Last Name: Hassan**
+
+**Agency: [ShahzadaAliHassan Inc.](https://www.upwork.com/ag/shahzadaalihassan/)**
 
 **Email: reactjswebdev@gmail.com**
+
+Country: Pakistan
 
 ### Google Tag Manager
 
