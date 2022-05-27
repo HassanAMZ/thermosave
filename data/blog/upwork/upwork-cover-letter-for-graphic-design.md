@@ -5,7 +5,7 @@ blogID: '00033'
 tags: ['Upwork', 'Cover Letters', 'Graphic Design']
 draft: false
 summary: This cover letter inspired by a top-rated freelancer on Upwork. However, here is the breakdown of the cover letter. These 8 aspects are the most important when writing the cover letter to a Graphic Designs job.
-coverImage: '/static/blog/000330.png'
+coverImage: '/static/blog/00033.png'
 embedId: 'null'
 ---
 

@@ -1,0 +1,127 @@
+import NextLink from 'next/link'
+import Tag from '@/components/Tag'
+import Pagination from '@/components/Pagination'
+import formatDate from '@/lib/utils/formatDate'
+import { useState } from 'react'
+import {
+  Box,
+  Link,
+  Grid,
+  Heading,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Flex,
+  Container,
+  Text,
+  Image,
+} from '@chakra-ui/react'
+import { image as AuthorImage, author } from '@/data/siteMetadata'
+import { SearchIcon, ExternalLinkIcon } from '@chakra-ui/icons'
+
+export default function ListLayout({
+  posts,
+  title,
+  initialDisplayPosts = [],
+  pagination,
+  randomGenerator,
+}) {
+  const [searchValue, setSearchValue] = useState('')
+
+  const filteredBlogPosts = posts.filter((frontMatter) => {
+    const searchContent = frontMatter.title + frontMatter.summary + frontMatter.tags.join(' ')
+    return searchContent.toLowerCase().includes(searchValue.toLowerCase())
+  })
+
+  // If initialDisplayPosts exist, display it if no searchValue is specified
+  const displayPosts =
+    initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredBlogPosts
+
+  return (
+    <>
+      <Container maxW="container.xl" m="0" p="0">
+        <Box py={['5', '6']}>
+          <InputGroup size="md">
+            <Input
+              type="text"
+              onChange={(e) => setSearchValue(e.target.value)}
+              aria-label="Search Blog Post"
+              placeholder="Search Blog Post"
+              borderColor={'teal'}
+              bgColor="white"
+              color="teal"
+              fontWeight={'bold'}
+            />
+            <InputRightElement width="2rem">
+              <SearchIcon color="teal" />
+            </InputRightElement>
+          </InputGroup>
+        </Box>
+
+        <Grid templateColumns="repeat(auto-fit, minmax(250px, 1fr))" gap={5} m="0">
+          {!filteredBlogPosts.length && 'No posts found.'}
+          {displayPosts.map((frontMatter, index) => {
+            const { slug, date, title, summary, tags, coverImage } = frontMatter
+            return (
+              <Grid key={index} gap="3">
+                <Box borderRadius={'25px'} overflow="hidden">
+                  <Image
+                    alt={title}
+                    src={coverImage}
+                    fit={'cover'}
+                    align={'center'}
+                    w={'100%'}
+                    h={'100%'}
+                  />
+                </Box>
+
+                <Tag icon={<ExternalLinkIcon />} text={tags[randomGenerator()]} />
+
+                <NextLink href={`/blog/${slug}`}>
+                  <Link>
+                    <Heading as="h1" textTransform="capitalize" fontSize={['xl']}>
+                      {title}
+                    </Heading>
+                  </Link>
+                </NextLink>
+
+                <Text fontSize={'sm'} fontWeight="light" noOfLines={[2]}>
+                  {summary}
+                </Text>
+
+                <Flex gap="2" align={'center'}>
+                  <Box
+                    w="40px"
+                    h="40px"
+                    borderRadius={'10px'}
+                    overflow="hidden"
+                    borderWidth={'2px'}
+                  >
+                    <Image
+                      alt={title}
+                      src={AuthorImage}
+                      fit={'cover'}
+                      align={'center'}
+                      w={'100%'}
+                      h={'100%'}
+                    />
+                  </Box>
+
+                  <Flex direction={['column']} fontSize={['xs', 'sm']} gap="0">
+                    <Text fontWeight={'extrabold'}>{author}</Text>
+                    <Box as="time" dateTime={date}>
+                      {formatDate(date)}
+                    </Box>
+                  </Flex>
+                </Flex>
+              </Grid>
+            )
+          })}
+        </Grid>
+        {pagination && pagination.totalPages > 1 && !searchValue && (
+          <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
+        )}
+      </Container>
+    </>
+  )
+}

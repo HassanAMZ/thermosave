@@ -17,6 +17,7 @@ const GAPageView = ({ slug }) => {
         direction="row"
         justifyContent="center"
         alignItems="center"
+        width={'fit-content'}
         gap="1"
         fontSize={['xs', 'sm']}
       >
