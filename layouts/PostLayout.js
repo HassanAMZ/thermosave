@@ -83,7 +83,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
               textTransform={'capitalize'}
               fontWeight="bold"
             >
-              <Heading as="h2" py="2" fontSize={['1.75rem', '2.2rem']} align="center">
+              <Heading as="h1" py="2" fontSize={['1.75rem', '2.2rem']} align="center">
                 {title}
               </Heading>
               {tags && (
