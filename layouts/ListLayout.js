@@ -10,15 +10,11 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
   return (
     <>
       <Container maxW="container.xl">
-        <Box py={['5', '6']}>
-          <Heading as="h2" py="3" fontSize={['xl']}>
-            {title}
-          </Heading>
-        </Box>
         <Grid
           templateColumns={{ sm: '1fr', md: '3fr 2fr', lg: 'minmax(220px, 2fr) 1fr' }}
           gap={5}
           m="0"
+          py={[5, 6]}
         >
           <AllBlogPosts
             posts={posts}

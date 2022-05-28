@@ -1,8 +1,6 @@
 import '@/css/tailwind.css'
 import '@/css/global.css'
 import '@/css/prism.css'
-import '@fontsource/raleway/400.css'
-import '@fontsource/open-sans/700.css'
 import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
 import MailChimpHeadCode from '@/components/MailChimpHeadCode'

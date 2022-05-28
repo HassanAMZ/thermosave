@@ -14,11 +14,10 @@ import {
   Flex,
   Container,
   Text,
-  Image,
 } from '@chakra-ui/react'
 import { image as AuthorImage, author } from '@/data/siteMetadata'
 import { SearchIcon, ExternalLinkIcon } from '@chakra-ui/icons'
-
+import Image from 'next/image'
 export default function ListLayout({
   posts,
   title,
@@ -40,6 +39,9 @@ export default function ListLayout({
   return (
     <>
       <Container maxW="container.xl" m="0" p="0">
+        <Heading as="h2" py="3" fontSize={['xl']}>
+          All Posts
+        </Heading>
         <Box py={['5', '6']}>
           <InputGroup size="md">
             <Input
@@ -58,63 +60,65 @@ export default function ListLayout({
           </InputGroup>
         </Box>
 
-        <Grid templateColumns="repeat(auto-fit, minmax(250px, 1fr))" gap={5} m="0">
+        <Grid templateColumns="repeat(auto-fit, minmax(250px, 1fr))" gap={6} m="0">
           {!filteredBlogPosts.length && 'No posts found.'}
           {displayPosts.map((frontMatter, index) => {
             const { slug, date, title, summary, tags, coverImage } = frontMatter
             return (
-              <Grid key={index} gap="3">
-                <Box borderRadius={'25px'} overflow="hidden">
-                  <Image
-                    alt={title}
-                    src={coverImage}
-                    fit={'cover'}
-                    align={'center'}
-                    w={'100%'}
-                    h={'100%'}
-                  />
-                </Box>
+              <NextLink href={`/blog/${slug}`} key={index}>
+                <Link
+                  _hover={{
+                    textDecoration: 'none',
+                  }}
+                >
+                  <Grid gap="5" className="hvr-float">
+                    <Box borderRadius={'25px'} overflow="hidden">
+                      <Image
+                        src={coverImage}
+                        layout="responsive"
+                        width={1920}
+                        height={1080}
+                        alt={title}
+                      />
+                    </Box>
 
-                <Tag icon={<ExternalLinkIcon />} text={tags[randomGenerator()]} />
+                    <Tag icon={<ExternalLinkIcon />} text={tags[randomGenerator()]} />
 
-                <NextLink href={`/blog/${slug}`}>
-                  <Link>
                     <Heading as="h1" textTransform="capitalize" fontSize={['xl']}>
                       {title}
                     </Heading>
-                  </Link>
-                </NextLink>
 
-                <Text fontSize={'sm'} fontWeight="light" noOfLines={[2]}>
-                  {summary}
-                </Text>
+                    <Text fontSize={'sm'} fontWeight="light" noOfLines={[2]}>
+                      {summary}
+                    </Text>
 
-                <Flex gap="2" align={'center'}>
-                  <Box
-                    w="40px"
-                    h="40px"
-                    borderRadius={'10px'}
-                    overflow="hidden"
-                    borderWidth={'2px'}
-                  >
-                    <Image
-                      alt={title}
-                      src={AuthorImage}
-                      fit={'cover'}
-                      align={'center'}
-                      w={'100%'}
-                      h={'100%'}
-                    />
-                  </Box>
+                    <Flex gap="2" align={'center'}>
+                      <Box
+                        w="40px"
+                        h="40px"
+                        borderRadius={'10px'}
+                        overflow="hidden"
+                        borderWidth={'2px'}
+                      >
+                        <Image
+                          src={AuthorImage}
+                          layout="responsive"
+                          width={1080}
+                          height={1080}
+                          alt={title}
+                        />
+                      </Box>
 
-                  <Flex direction={['column']} fontSize={['xs', 'sm']} gap="0">
-                    <Text fontWeight={'extrabold'}>{author}</Text>
-                    <Box as="time" dateTime={date}>
-                      {formatDate(date)}
-                    </Box>
-                  </Flex>
-                </Flex>
-              </Grid>
+                      <Flex direction={['column']} fontSize={['xs', 'sm']} gap="0">
+                        <Text fontWeight={'extrabold'}>{author}</Text>
+                        <Box as="time" dateTime={date}>
+                          {formatDate(date)}
+                        </Box>
+                      </Flex>
+                    </Flex>
+                  </Grid>
+                </Link>
+              </NextLink>
             )
           })}
         </Grid>
