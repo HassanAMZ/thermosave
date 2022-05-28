@@ -2,7 +2,8 @@ const siteMetadata = {
   title: 'Shahzada Ali Hassan - Top Web Analyst On Upwork',
   author: 'Shahzada Ali Hassan',
   headerTitle: 'Shahzada Ali Hassan - Top Web Analyst On Upwork',
-  description: 'Blogs and guides by Shahzada Ali Hassan on Web Analyst',
+  description:
+    'Techincal Guides and Blog on Web ANalytics - Google Tag Manager, Facebook Pixel, Google Analytics and much more',
   language: 'en-us',
   siteUrl: 'https://shahzadaalihassan.com',
   siteDomain: 'shahzadaalihassan.com',
