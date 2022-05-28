@@ -2,37 +2,36 @@ import { Box, Button, Flex, Text } from '@chakra-ui/react'
 import kebabCase from '@/lib/utils/kebabCase'
 import Link from 'next/link'
 
-const Tag = ({ text, icon }) => {
-  function getDarkColor() {
-    var color = '#'
-    for (var i = 0; i < 6; i++) {
-      color += Math.floor(Math.random() * 10)
-    }
-    return color
+const Tag = ({ text, icon, size }) => {
+  function random(number) {
+    return Math.floor(Math.random() * number)
   }
-  let color = getDarkColor()
+  function randomColor() {
+    return 'rgba(' + random(255) + ',' + random(255) + ',' + random(255) + ',0.2)'
+  }
   return (
     <Box pr="2" py="1">
       <Link href={`/tags/${kebabCase(text)}`}>
         <a>
           <Button
-            size="xs"
-            variant="outline"
+            size="xx-small"
             fontWeight={'normal'}
-            px={6}
+            px={3}
+            py={1}
+            bgColor={randomColor()}
             _hover={{ bg: 'teal.500', color: 'white' }}
-            border="1px"
-            borderColor="gray.500"
+            borderWidth="1px"
           >
             <Flex
               justifyContent={'center'}
+              className="hvr-icon-up"
               alignItems={'center'}
-              fontSize={['x-small', 'xs', 'sm']}
+              fontSize={'xx-small'}
             >
               <Text textTransform={'uppercase'} mr="2">
                 {text.split(' ').join('-')}
               </Text>
-              <Box>{icon}</Box>
+              <Box className="hvr-icon">{icon}</Box>
             </Flex>
           </Button>
         </a>

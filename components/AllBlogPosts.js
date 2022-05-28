@@ -18,9 +18,9 @@ import {
 import { image as AuthorImage, author } from '@/data/siteMetadata'
 import { SearchIcon, ExternalLinkIcon } from '@chakra-ui/icons'
 import Image from 'next/image'
+
 export default function ListLayout({
   posts,
-  title,
   initialDisplayPosts = [],
   pagination,
   randomGenerator,
@@ -65,13 +65,13 @@ export default function ListLayout({
           {displayPosts.map((frontMatter, index) => {
             const { slug, date, title, summary, tags, coverImage } = frontMatter
             return (
-              <NextLink href={`/blog/${slug}`} key={index}>
-                <Link
-                  _hover={{
-                    textDecoration: 'none',
-                  }}
-                >
-                  <Grid gap="5" className="hvr-float">
+              <Grid gap="5" className="hvr-float" key={index} justify={'space-between'}>
+                <NextLink href={`/blog/${slug}`}>
+                  <Link
+                    _hover={{
+                      textDecoration: 'none',
+                    }}
+                  >
                     <Box borderRadius={'25px'} overflow="hidden">
                       <Image
                         src={coverImage}
@@ -80,19 +80,27 @@ export default function ListLayout({
                         height={1080}
                         alt={title}
                       />
-                    </Box>
-
-                    <Tag icon={<ExternalLinkIcon />} text={tags[randomGenerator()]} />
-
+                    </Box>{' '}
+                  </Link>
+                </NextLink>
+                <Flex direction={'row'} flexWrap="wrap">
+                  {tags.slice(0, 3).map((tag, index) => (
+                    <Tag key={index} text={tag} icon={<ExternalLinkIcon />} />
+                  ))}
+                </Flex>
+                <NextLink href={`/blog/${slug}`} key={index}>
+                  <Link
+                    _hover={{
+                      textDecoration: 'none',
+                    }}
+                  >
                     <Heading as="h1" textTransform="capitalize" fontSize={['xl']}>
                       {title}
                     </Heading>
-
                     <Text fontSize={'sm'} fontWeight="light" noOfLines={[2]}>
                       {summary}
                     </Text>
-
-                    <Flex gap="2" align={'center'}>
+                    <Flex gap="2" py="3" align={'center'}>
                       <Box
                         w="40px"
                         h="40px"
@@ -116,9 +124,9 @@ export default function ListLayout({
                         </Box>
                       </Flex>
                     </Flex>
-                  </Grid>
-                </Link>
-              </NextLink>
+                  </Link>
+                </NextLink>
+              </Grid>
             )
           })}
         </Grid>

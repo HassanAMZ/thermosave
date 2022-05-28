@@ -55,9 +55,8 @@ export default function NavBar() {
             />
             <HStack spacing={8} alignItems={'center'}>
               <Box
-                display={{ base: 'none', sm: 'block' }}
-                px={1}
-                py={1}
+                px={{ base: '1', sm: '2' }}
+                py={2}
                 textDecoration="none"
                 bgColor="white"
                 color="teal"
@@ -89,12 +88,7 @@ export default function NavBar() {
                   minW={0}
                 > */}
 
-              <Link
-                href="/projects"
-                aria-label="all projects"
-                passHref
-                width={{ base: '100%', sm: 'fit-content' }}
-              >
+              <Link href="/projects" aria-label="all projects" passHref width={['fit-content']}>
                 <ChakraLink textDecoration={'none !important'}>
                   <Button
                     rounded={'full'}
