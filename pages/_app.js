@@ -10,6 +10,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import theme from '@/lib/utils/theme'
 import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
+import { useRouter } from 'next/router'
 
 let GTM_Tracking_ID = siteMetadata.analytics.googleTagManagerID || ''
 const isProduction = process.env.NODE_ENV === 'production'
@@ -20,8 +21,15 @@ if (isProduction) {
 }
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter()
+  const canonicalUrl = (
+    `${siteMetadata.siteUrl}` + (router.asPath === '/' ? '' : router.asPath)
+  ).split('?')[0]
   return (
     <>
+      <Head>
+        <link rel="canonical" href={canonicalUrl} />
+      </Head>
       {/* Google Tag Manager - Global base code */}
       <Script
         id="gtm-script"

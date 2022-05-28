@@ -3,7 +3,7 @@ const siteMetadata = {
   author: 'Shahzada Ali Hassan',
   headerTitle: 'Shahzada Ali Hassan - Top Web Analyst On Upwork',
   description:
-    'Techincal Guides and Blog on Web ANalytics - Google Tag Manager, Facebook Pixel, Google Analytics and much more',
+    'A technical web analytics blog about Google Tag Manager and Google Analytics (other related stuff) created and constantly updated by Shahzada ALi Hassan',
   language: 'en-us',
   siteUrl: 'https://shahzadaalihassan.com',
   siteDomain: 'shahzadaalihassan.com',
