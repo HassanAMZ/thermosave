@@ -60,7 +60,7 @@ export default function ListLayout({
           </InputGroup>
         </Box>
 
-        <Grid templateColumns="repeat(auto-fit, minmax(250px, 1fr))" gap={6} m="0">
+        <Grid templateColumns="repeat(auto-fit, minmax(300px, 1fr))" gap={6} m="0">
           {!filteredBlogPosts.length && 'No posts found.'}
           {displayPosts.map((frontMatter, index) => {
             const { slug, date, title, summary, tags, coverImage } = frontMatter
