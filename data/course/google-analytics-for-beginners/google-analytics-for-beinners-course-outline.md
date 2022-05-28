@@ -13,7 +13,7 @@ Hello, my name is Shahzada Ali Hassan. At Upwork, I work as a web analyst. Googl
 
 ## Welcome to Google Analytics for Beginners
 
-### **Introduction**
+## **Introduction**
 
 I'll walk you through setting up an account, creating views and filters, reading basic reports, creating dashboards, performing basic analysis, and setting up goals and campaign monitoring.
 
@@ -23,7 +23,7 @@ Google Analytics for Beginners explains how to create an account, add tracking c
 
 The course will also show you how to create goals and track campaigns, as well as examine fundamental Audience, Acquisition, and Behavior metrics.
 
-- ### **Unit 1: Introducing Google Analytics**
+- ## **Unit 1: Introducing Google Analytics**
 
   Lesson 1: [Why digital analytics?](/blog/google-analytics/why-digital-analytics)
 
@@ -33,7 +33,7 @@ The course will also show you how to create goals and track campaigns, as well a
 
   Lesson 4: [How to set up views with filters](/blog/google-analytics/how-to-set-up-views-with-filters)
 
-- ### **Unit 2: The Google Analytics Interface**
+- ## **Unit 2: The Google Analytics Interface**
 
   Lesson 1: [Navigating Google Analytics](/blog/google-analytics/navigating-google-analytics)
 
@@ -45,7 +45,7 @@ The course will also show you how to create goals and track campaigns, as well a
 
   Lesson 5: [How to set up dashboards and shortcuts](/blog/google-analytics/how-to-set-up-dashboards-and-shortcuts)
 
-- ### **Unit 3: Basic Reports**
+- ## **Unit 3: Basic Reports**
 
   Lesson 1: [Audience reports](/blog/google-analytics/audience-reports)
 
@@ -53,7 +53,7 @@ The course will also show you how to create goals and track campaigns, as well a
 
   Lesson 3: [Behavior reports](/blog/google-analytics/behavior-reports)
 
-- ### **Unit 4: Basic Campaign and Conversion Tracking**
+- ## **Unit 4: Basic Campaign and Conversion Tracking**
 
   Lesson 1: [How to measure Custom Campaigns](/blog/google-analytics/how-to-measure-custom-campaigns)
 

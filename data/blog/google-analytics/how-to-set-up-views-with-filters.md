@@ -44,7 +44,7 @@ This property is now in "Test View," as you can see. We recommend filtering your
 
 - Now press the "Save" button.
 
-### Creating a Master View
+## Creating a Master View
 
 Let's move on to creating the Master view. All of our reporting and analysis will be done using this view. We may just duplicate and rename the test view.
 
@@ -57,7 +57,7 @@ Let's move on to creating the Master view. All of our reporting and analysis wil
 
 You can see that we've successfully duplicated and created this new view by going to the View menu. All of our settings and filters, such as barring bot traffic, will be included in the new view if we replicate the view.
 
-### Including More Filters
+## Including More Filters
 
 We now have three perspectives to back up our data, test new analytics configurations, and perform daily reporting and analysis.
 

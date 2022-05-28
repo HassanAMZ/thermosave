@@ -15,20 +15,20 @@ This interview was conducted on 14th April 2021. The purpose of this interview w
 
 <YoutubeEmbed embedId="DZCui2Ob9Pk" />
 
-## Table Of Content:
+Table Of Content:
 
 0. [Duration of the Interview](#duration-of-thei-nterview)
 1. [The Interview Pannel](#the-interview-pannel)
 2. [Types of Questions](#types-of-questions)
 3. [Non-Acedamic Questions](#non-acedamic-questions)
 
-### Duration of the Interview
+## Duration of the Interview
 
 ```
 The Duration of the Interview interview was 5 minutes
 ```
 
-### The Interview Pannel
+## The Interview Pannel
 
 There were four members on the interview panel, The supervisor of the Control science and engineering department, along with three members from the CSC Scholarship Council
 
@@ -37,7 +37,7 @@ There were four members on the interview panel, The supervisor of the Control sc
 2. Three members from the CSC Scholarship Council
 ```
 
-### Types of Questions
+## Types of Questions
 
 The interview was divided into two types of questions listed below:
 
@@ -48,7 +48,7 @@ The interview was divided into two types of questions listed below:
 
 The NWPU's Prof. Yu asked the technical/academic questions whereas, other CSC Council members asked non-academic/non-technical questions.
 
-### Non-Acedamic Questions
+## Non-Acedamic Questions
 
 In non-academic/non-technical questions, mentioned below were the three questions asked by the council:
 
@@ -58,7 +58,7 @@ In non-academic/non-technical questions, mentioned below were the three question
 3. Why NPU and what do you know about NPU
 ```
 
-### Academic Questions
+## Academic Questions
 
 ```
 1. Pid controllers Open and close loop systems

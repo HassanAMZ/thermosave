@@ -9,7 +9,7 @@ coverImage: '/static/blog/00012.png'
 embedId: 'null'
 ---
 
-### **Defining Digital Analytics**
+## **Defining Digital Analytics**
 
 Let's start with a definition of "digital analytics" and why it's necessary. So, what exactly is the problem with digital analytics?
 
@@ -23,7 +23,7 @@ We have the concept of a purchasing funnel in marketing. Within the funnel, ther
 
 This process can be difficult to quantify in the offline world. However, in the internet world, we can use digital analytics to track many various components of the funnel. We can track which online behavior resulted in purchases and leverage that information to make more informed decisions about how to reach out to new and existing clients.
 
-### **Digital Analytics in Practice**
+## **Digital Analytics in Practice**
 
 Consider the Udemey as an example of an online store. Its purpose could be to sell more courses. The store might collect and analyze data from their internet advertising campaigns using digital analytics to identify which ones are the most effective and grow those marketing efforts.
 

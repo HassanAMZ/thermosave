@@ -13,11 +13,11 @@ import YoutubeEmbed from '@/components/YoutubeEmbed'
 
 In Numerical Analysis, the Euler method (also called forward Euler method) is a first-order numerical procedure for solving ordinary differential equations (ODEs) with a given initial value. Below is the python code for the Forward Eular method. You can read about it more here on [wikipedia](https://en.wikipedia.org/wiki/Euler_method)
 
-### Youtube Video
+## Youtube Video
 
 <YoutubeEmbed embedId="kDfBqaEBjpg" />
 
-## Table Of Content:
+Table Of Content:
 
 0. [Question Statement](#question-statement)
 1. [Link to Github Repo](#link-to-github-repo)
@@ -25,7 +25,7 @@ In Numerical Analysis, the Euler method (also called forward Euler method) is a 
 3. [Python Code](#python-code)
 4. [Graph Plots](#graph-plots)
 
-### Question Statement
+## Question Statement
 
 Solve the Lorenz equation by using the forward Euler method, backward Euler method, trapezoid method or predictor-corrector method for the parameters sigma=10, rho=28, beta=8/3 and initial values (1, 0, 20). Please use at least two methods and plot the figures of z(x) and z(y).
 
@@ -35,16 +35,16 @@ Solve the Lorenz equation by using the forward Euler method, backward Euler meth
 
 (dz)/(dt) = xy - βz
 
-### Link to github Repo
+## Link to github Repo
 
 You can find the Github Repo link [here](https://github.com/HassanAMZ/numerical-analysis/blob/homework-002/EularMethod.py)
 
-### Download Python File
+## Download Python File
 
 You can find the Download Python File link
 <a href="/static/blog/00010_1.py" download>download</a>
 
-### Python Code
+## Python Code
 
 Below is the python code written on python Version 3.10 and numpy Version 1.21.4
 
@@ -92,6 +92,6 @@ ax2.set_xlabel('Y')
 plt.show()
 ```
 
-### Graph Plots
+## Graph Plots
 
 ![Graph Plots](/static/blog/00010_2.png)

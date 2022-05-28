@@ -9,7 +9,7 @@ coverImage: '/static/blog/00026.png'
 embedId: 'null'
 ---
 
-### Goals in UA
+## Goals in UA
 
 Google Analytics goals allow you to link metrics in your reports to specific business objectives. This is a fantastic approach to use data to figure out if you're on track to fulfil your company objectives.
 
@@ -27,7 +27,7 @@ You must be an Administrator on the View where you want to use Analytics to enab
 
 To begin, select what you want to track depending on your business objectives. Because The Google Store is an eCommerce site, they may track successful checkouts. So, whenever a user reaches the checkout confirmation page, let's set up a goal. We'll also create a funnel visualization to identify whether users are abandoning the process before reaching the confirmation page. This Goal will not track actual income; instead, it will track how far users progress through each stage of the goal and where they may abandon it. It's absolutely optional to create a funnel visualization to track target completions, but it can give a lot of visibility to each phase of the conversion path.
 
-### Setup of Objectives
+## Setup of Objectives
 
 We'll begin by going to the Admin section. Then we'll select "Goals" from the "Views" menu. After that, we'll select "New Goal." Note that based on your business type, your Goal setup may differ from the one for The Google Store. Analytics comes with a number of pre-made business goal templates. We'll choose "Buy item" and click "Continue" since we want to see if customers made it to the Google Store checkout page.
 
@@ -46,11 +46,11 @@ We'll then type the "Order Complete" page's destination URL into the "Destinatio
 
 We don't see any conversion data for this goal if we pick "Equals to," write "forward-slash SubmitOrder," and click "Verify" at the bottom. Because the SubmitOrder page is part of a larger dynamic URL, this is the case. We'll need to utilize a "regular expression" to track this aim, and enter the value "forward slash SubmitOrder" to signal that the URL preceding it can be changeable. When we select "Re-verify," we can see that the conversion rate is now greater than 0, indicating that we will be allowed to track data. Regular expressions will be covered in greater depth in an advanced Analytics course.
 
-### Value of the Goal
+## Value of the Goal
 
 If you want to give the conversion objective a monetary value, turn on the "Value" toggle and enter how much each conversion is worth. You'd utilize this only if each conversion was worth a consistent sum to your company. If each email sign-up is worth $1 to your company, for example, you could specify a goal value of "1." We'll leave this Value set to "Off" for now because we're tracking Google Store order completions and each order is different. We'd have to enable eCommerce tracking, which we cover in our Ecommerce Analytics course if we wanted to track actual revenue from purchases.
 
-### Funnel with a Goal
+## Funnel with a Goal
 
 To add the funnel steps, turn the Funnel switch to "On" after you've double-checked your settings. Each funnel stage indicates a website action that must be completed in order to achieve the Goal. In this situation, we'll need to provide a unique component of the URL for each page the user needs to see before checking out and making a purchase. We can give each phase in our funnel a name and include the URL's unique portion. Move the "Required" toggle to "Yes" if a step is required to fulfill the goal. Set the first step to needed, for example, if we only want users who entered the funnel on the first step to appear in our funnel visualization report.
 

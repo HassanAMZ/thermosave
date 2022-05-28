@@ -13,7 +13,7 @@ embedId: 'null'
 
 Now that you know how Google Analytics works, let’s take a guided tour of the interface.
 
-### If you have numerous accounts, properties, or views set up
+## If you have numerous accounts, properties, or views set up
 
 You can easily switch between them by selecting the pulldown menu in the upper-left corner that contains the title of your View.
 
@@ -33,7 +33,7 @@ This could be data that isn't being collected correctly or a setting that needs 
 
 ![Explanation Picture](/static/blog/00016_2.png)
 
-### Feedback, assistance, and preferences
+## Feedback, assistance, and preferences
 
 Two more icons can be seen at the upper right of your Analytics view:
 
@@ -42,31 +42,31 @@ Two more icons can be seen at the upper right of your Analytics view:
 
 ![Explanation Picture](/static/blog/00016_3.png)
 
-### Customization
+## Customization
 
 You can generate bespoke reports for your business under the Customization area. Customization will be covered in a later course.
 
 ![Explanation Picture](/static/blog/00016_4.png)
 
-### Navigation on the left-hand side
+## Navigation on the left-hand side
 
 You'll use the left-hand navigation to move between reports. Each of these parts will reveal the reports that belong to that segment when you click on it.
 
 ![Explanation Picture](/static/blog/00016_5.png)
 
-### Reports in Real-Time
+## Reports in Real-Time
 
 Real-time reports give you insight into real-time user behavior on your website, such as where visitors are coming from and whether they are converting.
 
 ![Explanation Picture](/static/blog/00016_6.png)
 
-### Audience **Reports**
+## Audience **Reports**
 
 Users' age and gender, where they're from, their interests, how engaged they were, whether they're new or recurring users, and what technology they're using are all shown in audience reports.
 
 ![Explanation Picture](/static/blog/00016_7.png)
 
-### Reports on **Acquisition**
+## Reports on **Acquisition**
 
 Users came to your site through which channels (such as advertising or marketing initiatives), according to acquisition reports. This could encompass a variety of marketing channels, including:
 
@@ -77,25 +77,25 @@ Users came to your site through which channels (such as advertising or marketing
 
 ![Explanation Picture](/static/blog/00016_8.png)
 
-### Reports on Behavior
+## Reports on Behavior
 
 People's behavior on your site is tracked via behavior reports, which show which pages they visited, as well as their landing and exit pages. You can also track what your users looked for on your site and whether they interacted with specific elements with some further effort.
 
 ![Explanation Picture](/static/blog/00016_9.png)
 
-### Reports on Conversions
+## Reports on Conversions
 
 Conversion reports allow you to track website goals in relation to your company's goals.
 
 ![Explanation Picture](/static/blog/00016_10.png)
 
-### Admin
+## Admin
 
 All of your Google Analytics options, including user permissions, tracking code, view settings, and filters, are found under the Admin section.
 
 ![Explanation Picture](/static/blog/00016_11.png)
 
-### Left-hand navigation is collapsed.
+## Left-hand navigation is collapsed.
 
 Use this pointer to make the navigation smaller and give your reports more room.
 

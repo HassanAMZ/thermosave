@@ -24,7 +24,7 @@ We expect you also to know how to use the Audience, Acquisition, and Behavior re
 
 We also demonstrated how to link your Google Ads and Analytics accounts in order to track and optimize Google Ads campaigns.
 
-### Steps to Follow
+## Steps to Follow
 
 But first, let's take a look at a few more methods to use Google Analytics data to better your business.
 

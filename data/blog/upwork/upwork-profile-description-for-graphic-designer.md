@@ -11,7 +11,7 @@ embedId: 'null'
 
 This Profile Description was inspired by a top-rated freelancer on Upwork. However, here is the breakdown of the Profile description for Graphic Designer. These 7 aspects are the most important when writing the profile description.
 
-## Table Of Content:
+Table Of Content:
 
 0. [Example Profile Description](#example-profile-description)
 1. [Authority Building](#authority-building)
@@ -22,7 +22,7 @@ This Profile Description was inspired by a top-rated freelancer on Upwork. Howev
 6. [Call To Action](#call-to-action)
 7. [Video Profile](#video-profile)
 
-### Example Profile Description:
+## Example Profile Description:
 
 ```
 ✅ HIGHLY TRUSTED and HIGHLY-QUALIFIED Graphic Designer on Upwork, specializing in Converting Landing Pages UX/UI Design, App UX/UI Design, Reports and Books Design and Adobe Softwares Expert.
@@ -51,7 +51,7 @@ One of the fastest LEVEL Fiverr Sellers in a month with over 80,000 competitors 
 Hassan
 ```
 
-### Authority Building
+## Authority Building
 
 It is important to build your profile authority with clients as the opening lines of the descriptions are the first thing that they are going to see when sending invites for their Jobs or your cover letters. It's important mention your skills in one readable sentence.
 
@@ -59,7 +59,7 @@ It is important to build your profile authority with clients as the opening line
 ✅ HIGHLY TRUSTED and HIGHLY-QUALIFIED Graphic Designer on Upwork, specializing in Converting Landing Pages UX/UI Design, App UX/UI Design, Reports and Books Design and Adobe Softwares Expert.
 ```
 
-### Work And Experince
+## Work And Experince
 
 The second most important thing in your description right after mentioning your authority is work and experience. Make sure to mention the name of the clients or the companies that you have worked with in the past and also mention your other certifications if you have any.
 
@@ -75,7 +75,7 @@ One of the fastest LEVEL Fiverr Sellers in a month with over 80,000 competitors 
 
 ```
 
-### Skills and Expertise
+## Skills and Expertise
 
 The second most important thing in your description right after mentioning your authority is work and experience. Make sure to mention the name of the clients or the companies that you have worked with in the past and also mention your other certifications if you have any.
 
@@ -87,7 +87,7 @@ If you are a completely new freelancer and you haven't worked with any client ye
 
 ```
 
-### Why choose me
+## Why choose me
 
 The second most important thing in your description right after mentioning your authority is work and experience. Make sure to mention the name of the clients or the companies that you have worked with in the past and also mention your other certifications if you have any.
 
@@ -103,7 +103,7 @@ If you are a completely new freelancer and you haven't worked with any client ye
 
 ```
 
-### Reassurance
+## Reassurance
 
 At the end you need to reassure that why you are going to do the best thing for the client. When the client sees that you will be putting extra effort to get a positive feedback from them then they feel, you are more responsible as you have something to gain from the project too and you're not going to waste their time.
 
@@ -111,7 +111,7 @@ At the end you need to reassure that why you are going to do the best thing for 
 🎯I am new to Upwork, I won't hesitate to go above and beyond in providing the best services to you and get a positive feedback.
 ```
 
-### Call To Action
+## Call To Action
 
 When the client is done reading your profile description then you would want them to do something at the end and that where call-to-action for send you a message, comes in.
 
@@ -121,6 +121,6 @@ When the client is done reading your profile description then you would want the
 Hassan
 ```
 
-### Video Profile
+## Video Profile
 
 Having a video profile makes a huge difference as it provides something for the client to listen and watch. It makes your profile stand out and it is the most important in the whole profile description

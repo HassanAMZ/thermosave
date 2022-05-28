@@ -13,7 +13,7 @@ embedId: 'null '
 
 Google Analytics is a data collection technology that aggregates information into helpful reports.
 
-### Keeping track of a website
+## Keeping track of a website
 
 You must first register a Google Analytics account in order to track a website. Then, on each page of your site, put a little bit of JavaScript tracking code. The tracking code will collect anonymous information on how a user engaged with a webpage every time that user sees it.
 
@@ -21,7 +21,7 @@ The tracking code for the [Shahzadalihassan.com](/) might reveal how many custom
 
 However, the tracking code will collect information from the browser, such as the browser's language setting, browser type (such as Chrome or Safari), and the device and operating system used to visit the [Shahzadalihassan.com](/). It can even collect the "traffic source," which is the source of users' visits to the site. This might be a search engine, a click-through advertisement, or an email marketing campaign.
 
-### Reporting and Processing
+## Reporting and Processing
 
 When the tracking code gathers information, it packages it and transmits it to Google Analytics, where it is processed into reports. Analytics aggregates and organizes data based on specific criteria, such as whether a user's device is a mobile or desktop computer, or which browser they're using.
 

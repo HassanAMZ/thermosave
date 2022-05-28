@@ -11,7 +11,7 @@ embedId: 'null'
 
 Google Ads is a great tool for promoting your business on Google's web domains. To measure the impact of ad campaigns on your business, integrate your Analytics account with Google Ads.
 
-### How to Use Google Ads Analytics
+## How to Use Google Ads Analytics
 
 Google Ads is a text and display advertising system developed by Google that allows businesses to create text and display ads. By matching terms you can bid on with consumers' search queries, text adverts appear next to Google search results. Display advertising is text, image, animation, or video adverts that appear on the Google Display Network, which is a large collection of websites.
 
@@ -36,7 +36,7 @@ Select "Link accounts" in the view where you want the Google Ads data to appear.
 
 ![Explanation Picture](/static/blog/00027_3.png)
 
-### Auto-tagging
+## Auto-tagging
 
 Campaign data is exchanged between the two systems when you link your Google Analytics and Google Ads accounts, but campaign tracking is still required. Although we previously used the URL Builder to manually add campaign tracking tags to Google Ads URLs, there is a better solution. Through a tool called auto-tagging, Google Ads may automatically add a custom campaign tag to your Google Ads URLs. To obtain certain Google Ads dimensions into Google Analytics, you'll need to use auto-tagging. The following are some of the Google Ads dimensions:
 
@@ -52,7 +52,7 @@ All of this information might help you better understand how well your Google Ad
 
 We can locate Google Ads reports under "Acquisition" in the left-hand navigation once we've integrated Google Ads to Analytics.
 
-### Campaigns
+## Campaigns
 
 We can see how well our various Google Ads campaigns are performing by going to the "Campaigns" report. It's worth noting that this report groups Google Ads campaigns by the names they've been given in Google Ads. This is one of the advantages of tying Google Ads and Analytics together.
 
@@ -60,11 +60,11 @@ We can see how well our various Google Ads campaigns are performing by going to 
 
 You may choose between desktop, smartphone, and tablet stats at the top of the report to see how campaigns performed on different devices. The Acquisition metrics in the data table below can be used to see how many clicks each campaign received and the total cost paid for those clicks. The average cost per click (CPC) is displayed. Each campaign's user involvement may be found under Behavior. Using the pulldown menu under Conversions, you can see the conversion rate, the number of actual target completions, and the value of these conversions to your business for each Google Ads campaign.
 
-### Keywords
+## Keywords
 
 Let's take a look at the "Keywords" report now. This might assist you in determining how well specific keywords and ads are doing. If a term generates a lot of traffic yet has a high bounce rate, it could indicate a mismatch between the ad and landing page content. If you have a keyword with a high conversion rate but a low number of impressions (the number of times an ad is displayed), you might want to increase your bid for that keyword so that the ad is displayed more frequently and reaches a wider audience. You may also add "Device Category" as an additional dimension to separate these keywords based on the devices visitors used to click your ad and visit your site.
 
-### Adjustments to bids
+## Adjustments to bids
 
 Let's take a look at the "Bid adjustments" report last. Bid adjustments are a Google Ads feature that adjusts keyword bids automatically based on the user's device, location, or time of day. For example, if the Google Store builds a temporary location to sell products during the holidays, they may wish to add a bid adjustment to boost ad visibility on mobile devices within three miles of the store during operating hours.
 

@@ -34,7 +34,7 @@ Before we go into user access permissions, there are a few things to keep in min
 1. Data from the date the view was created and forward is only included in new views. Past data will not be included when you create a new view.
 2. Only administrators will be able to recover a deleted view within a certain amount of time. Otherwise, the view will be removed permanently.
 
-### Users Permissions
+## Users Permissions
 
 You can give other users permissions at the account, property, or view level. The permissions of each level are inherited from the level above it.
 

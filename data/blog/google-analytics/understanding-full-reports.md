@@ -11,7 +11,7 @@ embedId: 'null'
 
 ## Navigating full reports: Part 1
 
-### Introduction
+## Introduction
 
 A high-level version of the "Audience Overview" report was previously shown to you. There's a link to "see full report" at the bottom of that report, which takes you to expanded versions of each Audience report in the left-hand menu.
 
@@ -33,7 +33,7 @@ The data table can be analyzed in a variety of ways. The data sort is toggled be
 
 It's also possible to filter the data table to focus solely on the most important traffic segments. To include only rows where the primary dimension contains your filter term, use the filter field at the top of the table. If you want to look at data for a certain country, such as India, you can type "India" into the filter field instead of scrolling down the table, and Analytics will only show you data for segments that include the phrase "India." You can apply even more extensive filtering rules by selecting "Advanced" from the drop-down menu next to the search box. In an advanced course, we'll go over sophisticated filtering strategies.
 
-### Visualization of Data
+## Visualization of Data
 
 - There are various alternative visualization options next to the "advanced" link:
 - For most reports, the "data table" view is the default visualization. For the audience and acquisition reports, this puts your data in a table separated by acquisition, behavior, and conversion metrics.

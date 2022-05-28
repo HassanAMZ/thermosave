@@ -11,11 +11,11 @@ embedId: 'null'
 
 Dashboards and shortcuts offer two ways of saving reports and metrics, so you can easily revisit them later. Lets understand the Universal Analytics Dashboard.
 
-### Dashboards and shortcuts are introduced.
+## Dashboards and shortcuts are introduced.
 
 As we've gone over numerous reports, it's become evident that some of these indicators will be more relevant to your company than others. In some circumstances, you may wish to monitor certain data on a regular basis to assess the health of your company or a specific marketing campaign. You may find these metrics fast by using dashboards and shortcuts rather than going to a single report.
 
-### Dashboards
+## Dashboards
 
 Dashboards are adaptable and can be utilized for a variety of tasks. For example, you might use widgets to present summaries of many reports on a single page to obtain a quick overview of how your site is working. You may also compile a list of key business metrics that reflect the status of your company at a glance or compare reports side by side.
 
@@ -41,7 +41,7 @@ If you want to share your dashboard template with a larger audience, select "Sha
 
 ![Explanation Picture](/static/blog/00020_4.png)
 
-### Reports can be saved.
+## Reports can be saved.
 
 Most reports have a "Save" button at the top that allows you to save them for later viewing. Any adjustments you've made to the report are saved with the report when you save it. When you open the report from the Customization area under Saved Reports, for example, if you've filtered the data table, that filter will be applied immediately.
 
