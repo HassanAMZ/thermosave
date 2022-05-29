@@ -8,7 +8,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
   }
 
   return (
-    <>
+
       <Container maxW="container.xl">
         <Grid
           templateColumns={{ sm: '1fr', md: '3fr 2fr', lg: 'minmax(220px, 2fr) 1fr' }}
@@ -25,6 +25,6 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
           <PopularPost posts={posts} initialDisplayPosts={'4'} />
         </Grid>
       </Container>
-    </>
+
   )
 }

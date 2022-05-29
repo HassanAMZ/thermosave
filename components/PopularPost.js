@@ -1,6 +1,6 @@
 import NextLink from 'next/link'
 import formatDate from '@/lib/utils/formatDate'
-import { Box, Link, Heading, Flex, Grid } from '@chakra-ui/react'
+import { Box, Link as ChakraLink, Heading, Flex, Grid } from '@chakra-ui/react'
 import Image from 'next/image'
 export default function PopularPost({ posts }) {
   return (
@@ -8,12 +8,12 @@ export default function PopularPost({ posts }) {
       <Heading as="h2" py="3" fontSize={['xl']}>
         Popular Posts
       </Heading>
-      {posts.slice(0, 4).map((frontMatter, index) => {
+      {posts.slice(0, 5).map((frontMatter, index) => {
         const { slug, date, title, coverImage } = frontMatter
         return (
-          <>
-            <NextLink key={index} href={`/blog/${slug}`}>
-              <Link
+          <Box key={index}>
+            <NextLink href={`/blog/${slug}`} passHref>
+              <ChakraLink
                 _hover={{
                   textDecoration: 'none',
                 }}
@@ -50,9 +50,9 @@ export default function PopularPost({ posts }) {
                     </Box>
                   </Flex>
                 </Grid>
-              </Link>
+              </ChakraLink>
             </NextLink>
-          </>
+          </Box>
         )
       })}
     </Flex>

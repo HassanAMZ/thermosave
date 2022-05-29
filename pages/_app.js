@@ -12,6 +12,7 @@ import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
 import { useRouter } from 'next/router'
 
+
 let GTM_Tracking_ID = siteMetadata.analytics.googleTagManagerID || ''
 const isProduction = process.env.NODE_ENV === 'production'
 if (isProduction) {
@@ -56,8 +57,9 @@ export default function App({ Component, pageProps }) {
           </Head>
 
           <NavBar />
-          <Component {...pageProps} />
-
+      
+            <Component {...pageProps} />
+ 
           <Footer />
         </ChakraProvider>
       </ThemeProvider>

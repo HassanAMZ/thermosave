@@ -122,6 +122,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                 py="2"
                 _hover={{
                   color: 'teal.500',
+                  transform: 'scale(1.01)',
                 }}
               >
                 {/* <Box>

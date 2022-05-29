@@ -1,69 +1,25 @@
-import Link from 'next/link'
-
+import NextLink from 'next/link'
 import { BlogSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-import Comments from '@/components/comments'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import GAPageView from '@/components/GAPageView'
-import { GtmEvent } from '@/lib/googleTagManagerEvents'
-import { useEffect } from 'react'
-import SocialIcon from '@/components/social-icons/index'
 import {
   Box,
   Heading,
-  Input,
-  InputGroup,
-  InputRightElement,
   Link as ChakraLink,
   Grid,
   Flex,
-  UnorderedList,
-  ListItem,
   Button,
   Container,
   Text,
-  VisuallyHidden,
-  Image,
 } from '@chakra-ui/react'
 
 const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
 
 export default function PostLayout({ frontMatter, authorDetails, next, prev, children }) {
   const { slug, fileName, date, title, tags, coverImage, blogID } = frontMatter
-
-  useEffect(() => {
-    GtmEvent('singleBlogPost', blogID, title, {
-      slug,
-      fileName,
-      date,
-      title,
-      tags,
-      tags_1: tags[0],
-      tags_2: tags[1],
-      tags_3: tags[2],
-      coverImage,
-      blogID,
-    })
-  }, [])
-
   const { avatar, name, instagram } = authorDetails[0]
-  useEffect(() => {
-    function readingTime() {
-      const text = document.getElementById('singleBlogPost').innerText
-      const wpm = 225
-      const words = text.trim().split(/\s+/).length
-      const time = Math.ceil(words / wpm)
-      const timeDiv = document.getElementById('time')
-      if (timeDiv !== undefined) {
-        if (timeDiv !== null) {
-          timeDiv.innerText = time
-        }
-      }
-    }
-    readingTime()
-  }, [])
-
   return (
     <>
       <BlogSEO
@@ -101,11 +57,11 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                 align="center"
               >
                 <Flex justify="left" align="center" columnGap="2">
-                  <Link href="/about">
-                    <a>
+                  <NextLink passHref href="/about">
+                    <ChakraLink>
                       <Text textAlign={'center'}>{name}</Text>
-                    </a>
-                  </Link>
+                    </ChakraLink>
+                  </NextLink>
                   <Box as="span">{` • `}</Box>
                   <Text textAlign={'center'} as="time" dateTime={date}>
                     {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
@@ -138,10 +94,10 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                     <Flex justify="space-between" direction={{ base: 'column', sm: 'row' }}>
                       {prev && (
                         <Flex direction="column" align={{ base: 'center', sm: 'start' }} py="2">
-                          <Link
+                          <NextLink
+                            passHref
                             href={`/blog/${prev.slug}`}
                             aria-label="Next Blog"
-                            passHref
                             width={{ base: '100%', sm: 'fit-content' }}
                           >
                             <ChakraLink textDecoration={'none !important'}>
@@ -161,19 +117,18 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                                 Previous Article
                               </Button>
                             </ChakraLink>
-                          </Link>
-
-                          <Link href={`/blog/${prev.slug}`}>
-                            <a>
+                          </NextLink>
+                          <NextLink passHref href={`/blog/${prev.slug}`}>
+                            <ChakraLink>
                               <Text py="2">{prev.title}</Text>
-                            </a>
-                          </Link>
+                            </ChakraLink>
+                          </NextLink>
                         </Flex>
                       )}
                       {next && (
                         <Flex direction="column" align={{ base: 'center', sm: 'end' }} py="2">
-                          <Link href={`/blog/${next.slug}`}>
-                            <a>
+                          <NextLink passHref href={`/blog/${next.slug}`}>
+                            <ChakraLink>
                               <Button
                                 w="fit-content"
                                 colorScheme="teal"
@@ -189,23 +144,23 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                               >
                                 Next Article
                               </Button>
-                            </a>
-                          </Link>
-                          <Link href={`/blog/${next.slug}`}>
-                            <a>
+                            </ChakraLink>
+                          </NextLink>
+                          <NextLink passHref href={`/blog/${next.slug}`}>
+                            <ChakraLink>
                               <Text py="2" textAlign={'end'}>
                                 {next.title}
                               </Text>
-                            </a>
-                          </Link>
+                            </ChakraLink>
+                          </NextLink>
                         </Flex>
                       )}
                     </Flex>
                   )}
                 </Box>
 
-                <Link href="/blog">
-                  <a>
+                <NextLink passHref href="/blog">
+                  <ChakraLink>
                     <Button
                       colorScheme="teal"
                       size="sm"
@@ -221,8 +176,8 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                     >
                       <Text py="2">&larr; Back to the blogs</Text>
                     </Button>
-                  </a>
-                </Link>
+                  </ChakraLink>
+                </NextLink>
               </Box>
             </Flex>
           </Box>

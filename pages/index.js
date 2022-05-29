@@ -58,6 +58,7 @@ export default function Home({ posts, initialDisplayPosts, pagination, tags }) {
           {posts.length > MAX_DISPLAY && (
             <Flex justifyContent={'flex-end'} py={[2, 3]} display={{ base: 'block', sm: 'flex' }}>
               <NextLink
+                passHref
                 href="/blog"
                 aria-label="all posts"
                 width={{ base: '100%', sm: 'fit-content' }}
@@ -107,6 +108,7 @@ export default function Home({ posts, initialDisplayPosts, pagination, tags }) {
           {
             <Flex justifyContent={'flex-end'} py={[2, 3]} display={{ base: 'block', sm: 'flex' }}>
               <NextLink
+                passHref
                 href="/tags"
                 aria-label="all posts"
                 width={{ base: '100%', sm: 'fit-content' }}

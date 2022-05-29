@@ -5,7 +5,7 @@ import formatDate from '@/lib/utils/formatDate'
 import { useState } from 'react'
 import {
   Box,
-  Link,
+  Link as ChakraLink,
   Grid,
   Heading,
   Input,
@@ -66,8 +66,8 @@ export default function ListLayout({
             const { slug, date, title, summary, tags, coverImage } = frontMatter
             return (
               <Grid gap="5" className="hvr-float" key={index} justify={'space-between'}>
-                <NextLink href={`/blog/${slug}`}>
-                  <Link
+                <NextLink passHref href={`/blog/${slug}`}>
+                  <ChakraLink
                     _hover={{
                       textDecoration: 'none',
                     }}
@@ -80,16 +80,16 @@ export default function ListLayout({
                         height={1080}
                         alt={title}
                       />
-                    </Box>{' '}
-                  </Link>
+                    </Box>
+                  </ChakraLink>
                 </NextLink>
                 <Flex direction={'row'} flexWrap="wrap">
-                  {tags.slice(0, 3).map((tag, index) => (
-                    <Tag key={index} text={tag} icon={<ExternalLinkIcon />} />
+                  {tags.slice(0, 3).map((tag) => (
+                    <Tag key={tag} text={tag} icon={<ExternalLinkIcon />} />
                   ))}
                 </Flex>
-                <NextLink href={`/blog/${slug}`} key={index}>
-                  <Link
+                <NextLink passHref href={`/blog/${slug}`} key={index}>
+                  <ChakraLink
                     _hover={{
                       textDecoration: 'none',
                     }}
@@ -124,7 +124,7 @@ export default function ListLayout({
                         </Box>
                       </Flex>
                     </Flex>
-                  </Link>
+                  </ChakraLink>
                 </NextLink>
               </Grid>
             )
