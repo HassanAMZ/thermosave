@@ -1,26 +1,7 @@
 import Link from 'next/link'
-import Tag from '@/components/Tag'
-import GAPageView from '@/components/GAPageView'
-import Pagination from '@/components/Pagination'
-import formatDate from '@/lib/utils/formatDate'
-import { GtmEvent } from '@/lib/googleTagManagerEvents'
-import { useEffect, useState } from 'react'
-import {
-  Box,
-  Heading,
-  Divider,
-  Text,
-  InputGroup,
-  InputRightElement,
-  Flex,
-  UnorderedList,
-  ListItem,
-  Button,
-  Grid,
-  GridItem,
-} from '@chakra-ui/react'
+import { Box, Heading, Divider, Flex, UnorderedList, ListItem, Button } from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
-
+import { useState } from 'react'
 export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }) {
   const [searchValue, setSearchValue] = useState('')
 
@@ -32,37 +13,6 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
   // If initialDisplayPosts exist, display it if no searchValue is specified
   const displayPosts =
     initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredBlogPosts
-
-  useEffect(() => {
-    const [
-      useEffectAllBlogPostIDs,
-      useEffectAllBlogPostSlugs,
-      useEffectDate,
-      useEffectTitleList,
-      useEffectSummary,
-      useEffectTags,
-      useEffectCoverImage,
-      useEffectBlogDetails,
-    ] = [[], [], [], [], [], [], [], {}]
-    displayPosts.map((frontMatter, index) => {
-      useEffectBlogDetails[index] = frontMatter
-      useEffectAllBlogPostIDs[index] = frontMatter.blogID
-      useEffectAllBlogPostSlugs[index] = frontMatter.slug
-      useEffectDate[index] = frontMatter.date
-      useEffectTitleList[index] = frontMatter.title
-      useEffectSummary[index] = frontMatter.summary
-      useEffectTags[index] = frontMatter.tags
-      useEffectCoverImage[index] = frontMatter.coverImage
-    })
-    GtmEvent('allBlogPosts', 'allBlogPosts', useEffectAllBlogPostIDs, {
-      useEffectAllBlogPostIDs,
-      useEffectAllBlogPostSlugs,
-      useEffectDate,
-      useEffectTitleList,
-      useEffectTags,
-      useEffectCoverImage,
-    })
-  }, [])
 
   return (
     <>

@@ -2,19 +2,11 @@ import { PageSEO } from '@/components/SEO'
 import PortfolioIntroductionSummary from '@/components/PortfolioIntroductionSummary'
 import { Box, Flex, Text, Heading } from '@chakra-ui/react'
 import Link from 'next/link'
-
-import { motion } from 'framer-motion'
 export default function AuthorLayout({ children, frontMatter }) {
   const { name } = frontMatter
 
   return (
-      <motion.div
-    initial="hidden"
-    animate="enter"
-    exit="exit"
-    variants={variants}
-    transition={{ type: 'linear' }}
-  >
+    <>
       <PageSEO title={`About - ${name}`} description={`About me - ${name}`} />
       <Box py="4">
         <PortfolioIntroductionSummary />
@@ -31,6 +23,6 @@ export default function AuthorLayout({ children, frontMatter }) {
           </Link>
         </Box>
       </Box>
-    </motion.div>
+    </>
   )
 }

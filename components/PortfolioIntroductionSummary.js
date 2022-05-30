@@ -13,7 +13,6 @@ export default function PortfolioIntroductionSummary() {
             height="32"
             layout="responsive"
             objectFit="contain"
-       
           />
         </Box>
         <Text fontSize={['xs']}>Google Tag Manager Specialist</Text>

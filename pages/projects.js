@@ -2,31 +2,9 @@ import siteMetadata from '@/data/siteMetadata'
 import projectsData from '@/data/projectsData'
 import Card from '@/components/Card'
 import { PageSEO } from '@/components/SEO'
-import { GtmEvent } from '@/lib/googleTagManagerEvents'
-import { useEffect } from 'react'
-
 import { Container, Grid, GridItem } from '@chakra-ui/react'
 
 const Projects = () => {
-  const [allKeys, allTitle, allDescription, allImgSrc, allHref, allPid] = [[], [], [], [], [], []]
-  projectsData.map(({ key, title, description, imgSrc, href, pid }, index) => {
-    allKeys[index] = key
-    allTitle[index] = title
-    allDescription[index] = description
-    allImgSrc[index] = imgSrc
-    allHref[index] = href
-    allPid[index] = pid
-  })
-  useEffect(() => {
-    GtmEvent('allProjects', 'projectPage', allPid, {
-      allKeys,
-      allTitle,
-      allImgSrc,
-      allHref,
-      allPid,
-    })
-  }, [])
-
   return (
     <>
       <PageSEO title={`Projects - ${siteMetadata.author}`} description={siteMetadata.description} />
