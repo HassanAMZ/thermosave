@@ -53,9 +53,8 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
         {...frontMatter}
       />
       <ScrollTopAndComment />
-      <Box bgColor={'gray.50'} py="5">
+      <Box py="5">
         <Container maxW="container.xl">
-          {' '}
           <SimpleGrid
             columns={{ base: 1, lg: 2 }}
             spacing={{ base: 8, md: 10 }}
