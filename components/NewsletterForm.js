@@ -83,7 +83,7 @@ export default function NewsletterForm() {
                   />
                 </Tooltip>
 
-                <Link href="#">
+                <Link href="/">
                   <IconButton
                     aria-label="github"
                     variant="ghost"
@@ -98,7 +98,7 @@ export default function NewsletterForm() {
                   />
                 </Link>
 
-                <Link href="#">
+                <Link href="/">
                   <IconButton
                     aria-label="twitter"
                     variant="ghost"
@@ -112,7 +112,7 @@ export default function NewsletterForm() {
                   />
                 </Link>
 
-                <Link href="#">
+                <Link href="/">
                   <IconButton
                     aria-label="linkedin"
                     variant="ghost"

@@ -94,7 +94,7 @@ export default function ListLayout({
                     _hover={{
                       textDecoration: 'none',
                     }}
-                  > 
+                  >
                     <Heading as="h1" textTransform="capitalize" fontSize={['xl']}>
                       {title}
                     </Heading>

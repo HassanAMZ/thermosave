@@ -141,7 +141,7 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                   </Text>
 
                   <List spacing={2}>
-                    {Object.keys(details).map((ObjectKey,index) => (
+                    {Object.keys(details).map((ObjectKey, index) => (
                       <ListItem key={index}>
                         <Text as={'span'} fontWeight={'bold'}>
                           {ObjectKey} {': '}
