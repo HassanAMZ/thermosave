@@ -4,7 +4,7 @@ import Card from '@/components/Card'
 import { PageSEO } from '@/components/SEO'
 import { Container, Grid, GridItem } from '@chakra-ui/react'
 
-const Projects = () => {
+const ImageGallery = () => {
   return (
     <>
       <PageSEO title={`Projects - ${siteMetadata.author}`} description={siteMetadata.description} />
