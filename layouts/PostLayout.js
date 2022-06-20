@@ -140,13 +140,18 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                   >
                     Product Details
                   </Text>
-                  {/* <ListItem>
-                    <Text as={'span'} fontWeight={'bold'}>
-                      {key}
-                    </Text>
-                    {value}
-                  </ListItem> */}
-                  <List spacing={2}></List>
+
+
+
+                  <List spacing={2}>    
+                    {Object.keys(features).map(key =>
+                    <ListItem>
+                      <Text  as={'span'} fontWeight={'bold'}>
+                        {key} {': '}
+                      </Text>
+                      {features[key]}
+                    </ListItem>
+                  )}</List>
                 </Box>
               </Stack>
 
