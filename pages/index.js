@@ -49,7 +49,6 @@ export default function Home({ posts, initialDisplayProducts, pagination, tags }
       {/* <Container maxW="container.xl">
         <Features />
       </Container> */}
- 
     </Box>
   )
 }

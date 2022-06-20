@@ -18,7 +18,6 @@ import {
 import { image as AuthorImage, author } from '@/data/siteMetadata'
 import { SearchIcon, ExternalLinkIcon } from '@chakra-ui/icons'
 import Image from 'next/image'
-
 export default function ListLayout({
   posts,
   initialDisplayPosts = [],

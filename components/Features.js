@@ -1,8 +1,6 @@
-import { ReactElement } from 'react';
-import { Box, SimpleGrid, Icon, Text, Stack, Flex } from '@chakra-ui/react';
-import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc';
-
-
+import { ReactElement } from 'react'
+import { Box, SimpleGrid, Icon, Text, Stack, Flex } from '@chakra-ui/react'
+import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc'
 
 const Feature = ({ title, text, icon }) => {
   return (
@@ -15,14 +13,15 @@ const Feature = ({ title, text, icon }) => {
         color={'white'}
         rounded={'full'}
         bg={'gray.100'}
-        mb={1}>
+        mb={1}
+      >
         {icon}
       </Flex>
       <Text fontWeight={600}>{title}</Text>
       <Text color={'gray.600'}>{text}</Text>
     </Stack>
-  );
-};
+  )
+}
 
 export default function Features() {
   return (
@@ -51,5 +50,5 @@ export default function Features() {
         />
       </SimpleGrid>
     </Box>
-  );
+  )
 }

@@ -94,11 +94,10 @@ export default function ListLayout({
                     _hover={{
                       textDecoration: 'none',
                     }}
-                  >
+                  > 
                     <Heading as="h1" textTransform="capitalize" fontSize={['xl']}>
                       {title}
                     </Heading>
-                  
                     <Flex gap="2" py="3" align={'center'}>
                       <Box
                         w="40px"
