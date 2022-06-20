@@ -13,12 +13,36 @@ import {
   Button,
   Container,
   Text,
+  chakra,
+  Stack,
+  Image,
+  VStack,
+  SimpleGrid,
+  StackDivider,
+  useColorModeValue,
+  VisuallyHidden,
+  List,
+  ListItem,
 } from '@chakra-ui/react'
 
+import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
+import { MdLocalShipping } from 'react-icons/md'
 const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
 
 export default function PostLayout({ frontMatter, authorDetails, next, prev, children }) {
-  const { slug, fileName, date, title, tags, coverImage, productsID } = frontMatter
+  const {
+    slug,
+    fileName,
+    date,
+    title,
+    tags,
+    coverImage,
+    productsID,
+    description,
+    features,
+    unit,
+    price,
+  } = frontMatter
   const { avatar, name, instagram } = authorDetails[0]
   return (
     <>
@@ -30,53 +54,125 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
       <ScrollTopAndComment />
       <Box bgColor={'gray.50'} py="5">
         <Container maxW="container.xl">
-          <Grid templateRows="repeat(auto-fill, minmax(350px, 30vh))" placeContent={'center'}>
-            <Flex
-              align="center"
-              justify={'center'}
-              direction="column"
-              gap="5"
-              textTransform={'capitalize'}
-              fontWeight="bold"
-            >
-              <Heading as="h1" py="2" fontSize={['1.75rem', '2.2rem']} align="center">
-                {title}
-              </Heading>
-              {tags && (
-                <Flex wrap="wrap" align="center" justify={'center'}>
-                  {tags.map((tag) => (
-                    <Tag key={tag} text={tag} />
-                  ))}
-                </Flex>
-              )}
-              <Flex
-                direction={['column', 'column', 'row', 'row']}
-                justify="left"
-                fontSize="xs"
-                columnGap="2"
-                align="center"
-              >
-                <Flex justify="left" align="center" columnGap="2">
-                  <NextLink passHref href="/about">
-                    <ChakraLink>
-                      <Text textAlign={'center'}>{name}</Text>
-                    </ChakraLink>
-                  </NextLink>
-                  <Box as="span">{` • `}</Box>
-                  <Text textAlign={'center'} as="time" dateTime={date}>
-                    {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
-                  </Text>
-                </Flex>
-                <Flex direction="row" columnGap="2" align={'center'} justify="center">
-                  <Box as="span" id="time"></Box>
-                  <Text>min read</Text>
-
-                  <Box as="span">{` • `}</Box>
-                  <GAPageView slug={slug} />
-                </Flex>
-              </Flex>
+          {' '}
+          <SimpleGrid
+            columns={{ base: 1, lg: 2 }}
+            spacing={{ base: 8, md: 10 }}
+            py={{ base: 18, md: 24 }}
+          >
+            <Flex>
+              <Image
+                rounded={'md'}
+                alt={'product image'}
+                src={coverImage}
+                fit={'cover'}
+                align={'center'}
+                w={'100%'}
+                h={{ base: '100%', sm: '400px', lg: '500px' }}
+              />
             </Flex>
-          </Grid>
+            <Stack spacing={{ base: 6, md: 10 }}>
+              <Box as={'header'}>
+                <Heading
+                  lineHeight={1.1}
+                  fontWeight={600}
+                  fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}
+                >
+                  {title}
+                </Heading>
+                <Text
+                  color={useColorModeValue('gray.900', 'gray.400')}
+                  fontWeight={300}
+                  fontSize={'2xl'}
+                >
+                  {price}
+                  {unit}
+                </Text>
+              </Box>
+
+              <Stack
+                spacing={{ base: 4, sm: 6 }}
+                direction={'column'}
+                divider={<StackDivider borderColor={useColorModeValue('gray.200', 'gray.600')} />}
+              >
+                <VStack spacing={{ base: 4, sm: 6 }}>
+                  <Text
+                    color={useColorModeValue('gray.500', 'gray.400')}
+                    fontSize={'2xl'}
+                    fontWeight={'300'}
+                  >
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                    tempor invidunt ut labore
+                  </Text>
+                  <Text fontSize={'lg'}>{description}</Text>
+                </VStack>
+                <Box>
+                  <Text
+                    fontSize={{ base: '16px', lg: '18px' }}
+                    color={useColorModeValue('yellow.500', 'yellow.300')}
+                    fontWeight={'500'}
+                    textTransform={'uppercase'}
+                    mb={'4'}
+                  >
+                    Features
+                  </Text>
+
+                  <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+                    <List spacing={2}>
+                      <ListItem>Chronograph</ListItem>
+                      <ListItem>Master Chronometer Certified</ListItem>{' '}
+                      <ListItem>Tachymeter</ListItem>
+                    </List>
+                    <List spacing={2}>
+                      <ListItem>Anti‑magnetic</ListItem>
+                      <ListItem>Chronometer</ListItem>
+                      <ListItem>Small seconds</ListItem>
+                    </List>
+                  </SimpleGrid>
+                </Box>
+                <Box>
+                  <Text
+                    fontSize={{ base: '16px', lg: '18px' }}
+                    color={useColorModeValue('yellow.500', 'yellow.300')}
+                    fontWeight={'500'}
+                    textTransform={'uppercase'}
+                    mb={'4'}
+                  >
+                    Product Details
+                  </Text>
+                  {/* <ListItem>
+                    <Text as={'span'} fontWeight={'bold'}>
+                      {key}
+                    </Text>
+                    {value}
+                  </ListItem> */}
+                  <List spacing={2}></List>
+                </Box>
+              </Stack>
+
+              <Button
+                rounded={'none'}
+                w={'full'}
+                mt={8}
+                size={'lg'}
+                py={'7'}
+                bg={useColorModeValue('gray.900', 'gray.50')}
+                color={useColorModeValue('white', 'gray.900')}
+                textTransform={'uppercase'}
+                _hover={{
+                  transform: 'translateY(2px)',
+                  boxShadow: 'lg',
+                }}
+              >
+                Message Now{' '}
+              </Button>
+
+              <Stack direction="row" alignItems="center" justifyContent={'center'}>
+                <MdLocalShipping />
+                <Text>2-3 business days delivery</Text>
+              </Stack>
+            </Stack>
+          </SimpleGrid>
         </Container>
       </Box>
 
