@@ -1,22 +1,22 @@
-
 import {
   Box,
   Flex,
   Container,
-
   Button,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
   MenuDivider,
-  useDisclosure, IconButton,
+  useDisclosure,
+  IconButton,
   useColorModeValue,
   Stack,
   useColorMode,
-  Center, HStack
-} from '@chakra-ui/react';
-import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
+  Center,
+  HStack,
+} from '@chakra-ui/react'
+import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons'
 import headerNavLinks from '@/data/headerNavLinks'
 import Link from 'next/link'
 
@@ -29,20 +29,17 @@ let NavLinks = headerNavLinks.map((link, index) => (
         rounded={'md'}
         _hover={{
           textDecoration: 'none',
-
         }}
-
       >
         {link.title}
       </Box>
     </a>
-  </Link >
+  </Link>
 ))
 
 export default function NavBar() {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const { colorMode, toggleColorMode } = useColorMode()
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
@@ -60,8 +57,6 @@ export default function NavBar() {
               px={{ base: '1', sm: '2' }}
               py={2}
               textDecoration="none"
-
-
               rounded={'md'}
               border="1px"
               textAlign="center"
@@ -83,12 +78,13 @@ export default function NavBar() {
           <Button onClick={toggleColorMode}>
             {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
           </Button>
-        </Flex>{isOpen ? (
+        </Flex>
+        {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack>{NavLinks}</Stack>
           </Box>
         ) : null}
-      </Container >
+      </Container>
     </Box>
-  );
+  )
 }

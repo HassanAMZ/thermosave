@@ -141,12 +141,12 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                   </Text>
 
                   <List spacing={2}>
-                    {Object.keys(details).map((key) => (
-                      <ListItem>
+                    {Object.keys(details).map((ObjectKey,index) => (
+                      <ListItem key={index}>
                         <Text as={'span'} fontWeight={'bold'}>
-                          {key} {': '}
+                          {ObjectKey} {': '}
                         </Text>
-                        {details[key]}
+                        {details[ObjectKey]}
                       </ListItem>
                     ))}
                   </List>
