@@ -152,7 +152,7 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                   </List>
                 </Box>
               </Stack>
-
+         
               <Button
                 rounded={'none'}
                 w={'full'}

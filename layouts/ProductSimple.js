@@ -39,7 +39,7 @@ export default function ProductLayout({ frontMatter, authorDetails, next, prev, 
               <div className="pt-10 pb-8 prose dark:prose-dark max-w-none">{children}</div>
             </div>
             <Comments frontMatter={frontMatter} />
-            <footer>
+            {/* <footer>
               <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
                 {prev && (
                   <div className="pt-4 xl:pt-8">
@@ -62,7 +62,7 @@ export default function ProductLayout({ frontMatter, authorDetails, next, prev, 
                   </div>
                 )}
               </div>
-            </footer>
+            </footer> */}
           </div>
         </div>
       </article>
