@@ -7,6 +7,10 @@ import RecentPosts from '@/components/RecentPosts'
 import { getAllTags } from '@/lib/tags'
 import PreviousClient from '@/components/PreviousClient'
 import Courses from '@/components/Courses'
+import Features from '@/components/Features'
+import Testimonial from '@/components/Testimonial'
+import Statistics from '@/components/Statistics'
+import GridListWithHeading from '@/components/GridListWithHeading'
 import { Flex, Box, Heading, Button, Container, Link as ChakraLink } from '@chakra-ui/react'
 import Hero from '@/components/Hero'
 export const POSTS_PER_PAGE = 5
@@ -33,6 +37,22 @@ export default function Home({ posts, initialDisplayPosts, pagination, tags }) {
 
       <Container maxW="container.xl">
         <Hero />
+      </Container>
+
+      <Container maxW="container.xl">
+        <GridListWithHeading />
+      </Container>
+
+      <Container maxW="container.xl">
+        <Testimonial />
+      </Container>
+
+      <Container maxW="container.xl">
+        <Statistics />
+      </Container>
+
+      <Container maxW="container.xl">
+        <Features />
       </Container>
 
       <Box bgColor={'gray.50'}>

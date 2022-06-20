@@ -8,7 +8,7 @@ export default function PortfolioIntroductionSummary() {
         <Box borderRadius="100" py="3" w="32" bgColor="white">
           <Image
             src="/static/images/avatar.png"
-            alt="Shahzada Ali Hassan"
+            alt="thermosave"
             width="32"
             height="32"
             layout="responsive"
@@ -38,7 +38,7 @@ export default function PortfolioIntroductionSummary() {
           <Box fontSize={['xs', 'sm', 'md']}>Top Rated Freelancer at&nbsp;</Box>
           <Link
             href="https://www.upwork.com/freelancers/~015b35831b56606433"
-            aria-label="Upwork Profile of Shahzada Ali Hassan"
+            aria-label="Upwork Profile of thermosave"
           >
             <a>
               <Box textTransform={'uppercase'} fontWeight="bold">

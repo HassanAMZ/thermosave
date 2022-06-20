@@ -102,7 +102,7 @@ export const ProductsSEO = ({
     authorList = authorDetails.map((author) => {
       return {
         '@type': 'Person',
-        url: ' https://shahzadaalihassan.com/about',
+        url: ' https://thermosave.com/about',
         name: author.name,
       }
     })
@@ -110,7 +110,7 @@ export const ProductsSEO = ({
     authorList = {
       '@type': 'Person',
       name: siteMetadata.author,
-      url: ' https://shahzadaalihassan.com/about',
+      url: ' https://thermosave.com/about',
     }
   }
 

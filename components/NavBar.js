@@ -71,7 +71,7 @@ export default function NavBar() {
                 }}
               >
                 <Link href="/">
-                  <a>Shahzada Ali Hassan</a>
+                  <a>thermosave</a>
                 </Link>
               </Box>
             </HStack>
@@ -109,7 +109,7 @@ export default function NavBar() {
                         position="relative"
                       >
                         <Image
-                          alt="Shahzada Ali Hassan"
+                          alt="thermosave"
                           src="/static/images/avatar.png"
                           layout="fill"
                           objectFit="contain"

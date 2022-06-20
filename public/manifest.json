@@ -4,9 +4,9 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "ShahzadaAliHassan ",
+  "name": "thermosave ",
   "short_name": "SAH",
-  "description": "The app version of ShahzadaAliHassan ",
+  "description": "The app version of thermosave ",
   "icons": [
     {
       "src": "/icon-192x192.png",
