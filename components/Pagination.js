@@ -23,7 +23,7 @@ export default function Pagination({ totalPages, currentPage }) {
         </Button>
       )}
       {prevPage && (
-        <Link href={currentPage - 1 === 1 ? `/blog/` : `/blog/page/${currentPage - 1}`}>
+        <Link href={currentPage - 1 === 1 ? `/products/` : `/products/page/${currentPage - 1}`}>
           <Button
             rounded={'full'}
             size={'lg'}
@@ -59,7 +59,7 @@ export default function Pagination({ totalPages, currentPage }) {
         </Button>
       )}
       {nextPage && (
-        <Link href={`/blog/page/${currentPage + 1}`}>
+        <Link href={`/products/page/${currentPage + 1}`}>
           <Button
             rounded={'full'}
             size={'lg'}

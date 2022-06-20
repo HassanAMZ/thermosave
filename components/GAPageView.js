@@ -3,7 +3,7 @@ import { Box, Flex } from '@chakra-ui/react'
 
 const GAPageView = ({ slug }) => {
   const { data } = useSWR(
-    `/api/page-views?slug=/blog/${encodeURIComponent(slug)}`,
+    `/api/page-views?slug=/products/${encodeURIComponent(slug)}`,
     async (url) => {
       const res = await fetch(url)
       return res.json()

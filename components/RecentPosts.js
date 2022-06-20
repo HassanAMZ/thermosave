@@ -5,14 +5,14 @@ import { useState } from 'react'
 export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }) {
   const [searchValue, setSearchValue] = useState('')
 
-  const filteredBlogPosts = posts.filter((frontMatter) => {
+  const filteredProductsPosts = posts.filter((frontMatter) => {
     const searchContent = frontMatter.title + frontMatter.summary + frontMatter.tags.join(' ')
     return searchContent.toLowerCase().includes(searchValue.toLowerCase())
   })
 
   // If initialDisplayPosts exist, display it if no searchValue is specified
   const displayPosts =
-    initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredBlogPosts
+    initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredProductsPosts
 
   return (
     <>
@@ -22,7 +22,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
         </Heading>
       </Box>
       <UnorderedList listStyleType="none" ml="0">
-        {!filteredBlogPosts.length && 'No posts found.'}
+        {!filteredProductsPosts.length && 'No posts found.'}
         {displayPosts.map((frontMatter, index) => {
           const { slug, date, title, summary, tags } = frontMatter
 
@@ -83,7 +83,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                   </dd>
                 </Box> */}
 
-                <Link href={`/blog/${slug}`}>
+                <Link href={`/products/${slug}`}>
                   <a>
                     <Flex
                       direction="row"

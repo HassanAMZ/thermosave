@@ -101,14 +101,14 @@ inquirer
       .replace(/ /g, '-')
       .replace(/-+/g, '-')
     const frontMatter = genFrontMatter(answers)
-    const filePath = `data/blog/${fileName ? fileName : 'untitled'}.${
+    const filePath = `data/products/${fileName ? fileName : 'untitled'}.${
       answers.extension ? answers.extension : 'md'
     }`
     fs.writeFile(filePath, frontMatter, { flag: 'wx' }, (err) => {
       if (err) {
         throw err
       } else {
-        console.log(`Blog post generated successfully at ${filePath}`)
+        console.log(`Products post generated successfully at ${filePath}`)
       }
     })
   })

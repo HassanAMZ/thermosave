@@ -5,13 +5,13 @@ import Image from './Image'
 import CustomLink from './Link'
 import TOCInline from './TOCInline'
 import Pre from './Pre'
-import { BlogNewsletterForm } from './NewsletterForm'
+import { ProductsNewsletterForm } from './NewsletterForm'
 import { chakra } from '@chakra-ui/react'
 export const MDXComponents = {
   Image,
   TOCInline,
   pre: Pre,
-  BlogNewsletterForm: BlogNewsletterForm,
+  ProductsNewsletterForm: ProductsNewsletterForm,
   code: (props) => (
     <chakra.code
       fontSize={['xs', 'sm', 'md', 'md']}

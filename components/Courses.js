@@ -7,12 +7,12 @@ import { Grid, Flex, Heading, Box, VisuallyHidden, Button, Text, Image } from '@
 
 const Courses = ({ posts }) => {
   let coursesIDs = ['00008']
-  let blogIDs = []
+  let productsIDs = []
   posts.map((frontMatter, index) => {
-    const { slug, date, title, summary, tags, blogID, coverImage } = frontMatter
+    const { slug, date, title, summary, tags, productsID, coverImage } = frontMatter
     coursesIDs.map((coursesID, indexA) => {
-      if (blogID == coursesID) {
-        blogIDs[indexA] = (
+      if (productsID == coursesID) {
+        productsIDs[indexA] = (
           <Flex as="article" key={indexA} direction={['column']} gap="5">
             <Box>
               <VisuallyHidden>Published on</VisuallyHidden>
@@ -27,7 +27,7 @@ const Courses = ({ posts }) => {
             </Box>
             <Box>
               <Heading as="h2" fontSize={['md', 'xl']}>
-                <Link href={`/blog/${slug}`}>
+                <Link href={`/products/${slug}`}>
                   <a>
                     <Text textTransform="capitalize">{title}</Text>
                   </a>
@@ -41,7 +41,7 @@ const Courses = ({ posts }) => {
             </Box>
             <Box noOfLines={[3]}>{summary}</Box>
             <Box width={{ base: '100%', sm: 'fit-content' }}>
-              <Link href={`/blog/${slug}`} aria-label={`Read "${title}"`}>
+              <Link href={`/products/${slug}`} aria-label={`Read "${title}"`}>
                 <a>
                   <Button
                     rounded={'full'}
@@ -69,7 +69,7 @@ const Courses = ({ posts }) => {
       <Heading as="h2" py="3" fontSize={['xl']}>
         Learn Universal Analytics By Google
       </Heading>
-      <Grid className="grid grid-cols-1 gap-1">{blogIDs}</Grid>
+      <Grid className="grid grid-cols-1 gap-1">{productsIDs}</Grid>
     </Box>
   )
 }

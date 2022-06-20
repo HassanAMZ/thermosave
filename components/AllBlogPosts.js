@@ -27,14 +27,14 @@ export default function ListLayout({
 }) {
   const [searchValue, setSearchValue] = useState('')
 
-  const filteredBlogPosts = posts.filter((frontMatter) => {
+  const filteredProductsPosts = posts.filter((frontMatter) => {
     const searchContent = frontMatter.title + frontMatter.summary + frontMatter.tags.join(' ')
     return searchContent.toLowerCase().includes(searchValue.toLowerCase())
   })
 
   // If initialDisplayPosts exist, display it if no searchValue is specified
   const displayPosts =
-    initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredBlogPosts
+    initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredProductsPosts
 
   return (
     <>
@@ -47,8 +47,8 @@ export default function ListLayout({
             <Input
               type="text"
               onChange={(e) => setSearchValue(e.target.value)}
-              aria-label="Search Blog Post"
-              placeholder="Search Blog Post"
+              aria-label="Search Products Post"
+              placeholder="Search Products Post"
               borderColor={'teal'}
               bgColor="white"
               color="teal"
@@ -61,12 +61,12 @@ export default function ListLayout({
         </Box>
 
         <Grid templateColumns="repeat(auto-fit, minmax(300px, 1fr))" gap={6} m="0">
-          {!filteredBlogPosts.length && 'No posts found.'}
+          {!filteredProductsPosts.length && 'No posts found.'}
           {displayPosts.map((frontMatter, index) => {
             const { slug, date, title, summary, tags, coverImage } = frontMatter
             return (
               <Grid gap="5" className="hvr-float" key={index} justify={'space-between'}>
-                <NextLink passHref href={`/blog/${slug}`}>
+                <NextLink passHref href={`/products/${slug}`}>
                   <ChakraLink
                     _hover={{
                       textDecoration: 'none',
@@ -88,7 +88,7 @@ export default function ListLayout({
                     <Tag key={tag} text={tag} icon={<ExternalLinkIcon />} />
                   ))}
                 </Flex>
-                <NextLink passHref href={`/blog/${slug}`} key={index}>
+                <NextLink passHref href={`/products/${slug}`} key={index}>
                   <ChakraLink
                     _hover={{
                       textDecoration: 'none',

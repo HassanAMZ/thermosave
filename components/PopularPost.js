@@ -12,7 +12,7 @@ export default function PopularPost({ posts }) {
         const { slug, date, title, coverImage } = frontMatter
         return (
           <Box key={index}>
-            <NextLink href={`/blog/${slug}`} passHref>
+            <NextLink href={`/products/${slug}`} passHref>
               <ChakraLink
                 _hover={{
                   textDecoration: 'none',

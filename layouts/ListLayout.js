@@ -1,5 +1,5 @@
 import { Box, Heading, Container, Grid, Link as ChakraLink, Button, Flex } from '@chakra-ui/react'
-import AllBlogPosts from '@/components/AllBlogPosts'
+import AllProductsPosts from '@/components/AllProductsPosts'
 import PopularPost from '@/components/PopularPost'
 
 export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }) {
@@ -15,7 +15,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
         m="0"
         py={[5, 6]}
       >
-        <AllBlogPosts
+        <AllProductsPosts
           posts={posts}
           initialDisplayPosts={initialDisplayPosts}
           pagination={pagination}

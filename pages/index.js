@@ -13,8 +13,8 @@ export const POSTS_PER_PAGE = 5
 const MAX_DISPLAY = 5
 
 export async function getStaticProps() {
-  const tags = await getAllTags('blog')
-  const posts = await getAllFilesFrontMatter('blog')
+  const tags = await getAllTags('products')
+  const posts = await getAllFilesFrontMatter('products')
   const initialDisplayPosts = posts.slice(0, POSTS_PER_PAGE)
   const pagination = {
     currentPage: 1,
@@ -59,7 +59,7 @@ export default function Home({ posts, initialDisplayPosts, pagination, tags }) {
             <Flex justifyContent={'flex-end'} py={[2, 3]} display={{ base: 'block', sm: 'flex' }}>
               <NextLink
                 passHref
-                href="/blog"
+                href="/products"
                 aria-label="all posts"
                 width={{ base: '100%', sm: 'fit-content' }}
               >

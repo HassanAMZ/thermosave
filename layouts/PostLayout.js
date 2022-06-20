@@ -1,5 +1,5 @@
 import NextLink from 'next/link'
-import { BlogSEO } from '@/components/SEO'
+import { ProductsSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
@@ -18,12 +18,12 @@ import {
 const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
 
 export default function PostLayout({ frontMatter, authorDetails, next, prev, children }) {
-  const { slug, fileName, date, title, tags, coverImage, blogID } = frontMatter
+  const { slug, fileName, date, title, tags, coverImage, productsID } = frontMatter
   const { avatar, name, instagram } = authorDetails[0]
   return (
     <>
-      <BlogSEO
-        url={`${siteMetadata.siteUrl}/blog/${slug}`}
+      <ProductsSEO
+        url={`${siteMetadata.siteUrl}/products/${slug}`}
         authorDetails={authorDetails}
         {...frontMatter}
       />
@@ -81,7 +81,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
       </Box>
 
       <Container maxW="container.xl">
-        <Box as="article" id="singleBlogPost" py="2">
+        <Box as="article" id="singleProductsPost" py="2">
           <Box>
             <Flex direction="column" py="2">
               <Box as="article">{children}</Box>
@@ -96,8 +96,8 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                         <Flex direction="column" align={{ base: 'center', sm: 'start' }} py="2">
                           <NextLink
                             passHref
-                            href={`/blog/${prev.slug}`}
-                            aria-label="Next Blog"
+                            href={`/products/${prev.slug}`}
+                            aria-label="Next Products"
                             width={{ base: '100%', sm: 'fit-content' }}
                           >
                             <ChakraLink textDecoration={'none !important'}>
@@ -118,7 +118,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                               </Button>
                             </ChakraLink>
                           </NextLink>
-                          <NextLink passHref href={`/blog/${prev.slug}`}>
+                          <NextLink passHref href={`/products/${prev.slug}`}>
                             <ChakraLink>
                               <Text py="2">{prev.title}</Text>
                             </ChakraLink>
@@ -127,7 +127,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                       )}
                       {next && (
                         <Flex direction="column" align={{ base: 'center', sm: 'end' }} py="2">
-                          <NextLink passHref href={`/blog/${next.slug}`}>
+                          <NextLink passHref href={`/products/${next.slug}`}>
                             <ChakraLink>
                               <Button
                                 w="fit-content"
@@ -146,7 +146,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                               </Button>
                             </ChakraLink>
                           </NextLink>
-                          <NextLink passHref href={`/blog/${next.slug}`}>
+                          <NextLink passHref href={`/products/${next.slug}`}>
                             <ChakraLink>
                               <Text py="2" textAlign={'end'}>
                                 {next.title}
@@ -159,7 +159,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                   )}
                 </Box>
 
-                <NextLink passHref href="/blog">
+                <NextLink passHref href="/products">
                   <ChakraLink>
                     <Button
                       colorScheme="teal"
@@ -174,7 +174,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                       _hover={{ bg: 'teal.500' }}
                       my="4"
                     >
-                      <Text py="2">&larr; Back to the blogs</Text>
+                      <Text py="2">&larr; Back to the productss</Text>
                     </Button>
                   </ChakraLink>
                 </NextLink>

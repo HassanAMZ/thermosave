@@ -90,7 +90,7 @@ const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
 
 export default NewsletterForm
 
-export const BlogNewsletterForm = ({ title }) => (
+export const ProductsNewsletterForm = ({ title }) => (
   <Flex align="center" justify="center">
     <Box p="6">
       <NewsletterForm title={title} />

@@ -4,13 +4,13 @@ import Tag from '@/components/Tag'
 import formatDate from '@/lib/utils/formatDate'
 
 const FeaturedPosts = ({ posts }) => {
-  let featuredBlogIDs = ['00003', '00008', '00009']
-  let blogIDs = []
+  let featuredProductsIDs = ['00003', '00008', '00009']
+  let productsIDs = []
   posts.map((frontMatter, index) => {
-    const { slug, date, title, summary, tags, blogID } = frontMatter
-    featuredBlogIDs.map((featuredBlogID, indexA) => {
-      if (blogID == featuredBlogID) {
-        blogIDs[indexA] = (
+    const { slug, date, title, summary, tags, productsID } = frontMatter
+    featuredProductsIDs.map((featuredProductsID, indexA) => {
+      if (productsID == featuredProductsID) {
+        productsIDs[indexA] = (
           <article
             key={index}
             className="flex sm:flex-col flex-col-reverse justify-between borderColorGradient rounded p-2"
@@ -27,7 +27,7 @@ const FeaturedPosts = ({ posts }) => {
 
             <div>
               <h2 className="text-xl font-semibold tracking-tight">
-                <Link href={`/blog/${slug}`} className="text-gray-900 dark:text-gray-100">
+                <Link href={`/products/${slug}`} className="text-gray-900 dark:text-gray-100">
                   {title}
                 </Link>
               </h2>
@@ -45,7 +45,7 @@ const FeaturedPosts = ({ posts }) => {
 
             <div className="text-base sm:block hidden font-medium leading-6">
               <Link
-                href={`/blog/${slug}`}
+                href={`/products/${slug}`}
                 className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                 aria-label={`Read "${title}"`}
               >
@@ -63,7 +63,7 @@ const FeaturedPosts = ({ posts }) => {
         Featured Posts
       </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-1">{blogIDs}</div>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-1">{productsIDs}</div>
     </div>
   )
 }

@@ -6,7 +6,7 @@ import { getAllTags } from '@/lib/tags'
 import { Flex, Box, Heading, Button, Container } from '@chakra-ui/react'
 
 export async function getStaticProps() {
-  const tags = await getAllTags('blog')
+  const tags = await getAllTags('products')
 
   return { props: { tags } }
 }
@@ -15,7 +15,7 @@ export default function Tags({ tags }) {
   const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a])
   return (
     <>
-      <PageSEO title={`Tags - ${siteMetadata.author}`} description="Things I blog about" />
+      <PageSEO title={`Tags - ${siteMetadata.author}`} description="Things I products about" />
       <Container maxW="container.xl">
         <Flex direction={'column'} justifyContent={'left'} my={4}>
           <Heading as="h2" py="3" fontSize={['xl']}>

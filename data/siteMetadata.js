@@ -3,7 +3,7 @@ const siteMetadata = {
   author: 'Nasir Ifran',
   headerTitle: 'Shahzada Ali Hassan - Top Web Analyst On Upwork',
   description:
-    'A technical web analytics blog about Google Tag Manager and Google Analytics (other related stuff) created and constantly updated by Shahzada ALi Hassan',
+    'A technical web analytics products about Google Tag Manager and Google Analytics (other related stuff) created and constantly updated by Shahzada ALi Hassan',
   language: 'en-us',
   siteUrl: 'https://shahzadaalihassan.com',
   siteDomain: 'shahzadaalihassan.com',
@@ -21,7 +21,7 @@ const siteMetadata = {
   locale: 'en-US',
   analytics: {
     // supports plausible, simpleAnalytics or GoogleTagManager
-    plausibleDataDomain: 'ShahzadaAliHassan.com', // e.g. tailwind-nextjs-starter-blog.vercel.app
+    plausibleDataDomain: 'ShahzadaAliHassan.com', // e.g. tailwind-nextjs-starter-products.vercel.app
     simpleAnalytics: false, // true or false
     googleTagManagerID: 'GTM-MCKP7JK', // e.g. GTM-MCKP7JK
   },
