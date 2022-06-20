@@ -7,11 +7,12 @@ import { Container, Grid, GridItem } from '@chakra-ui/react'
 const ImageGallery = () => {
   return (
     <>
-      <PageSEO title={`Projects - ${siteMetadata.author}`} description={siteMetadata.description} />
-      <Container maxW="container.xl" p={{ base: '0', sm: 'auto' }}>
- 
-      </Container>
+      <PageSEO
+        title={`Image Gallery - ${siteMetadata.author}`}
+        description={siteMetadata.description}
+      />
+      <Container maxW="container.xl" p={{ base: '0', sm: 'auto' }}></Container>
     </>
   )
 }
-export default Projects
+export default ImageGallery
