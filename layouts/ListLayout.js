@@ -1,6 +1,6 @@
 import { Box, Heading, Container, Grid, Link as ChakraLink, Button, Flex } from '@chakra-ui/react'
-import AllProductsPosts from '@/components/AllProductsPosts'
-import PopularPost from '@/components/PopularPost'
+import AllProducts from '@/components/AllProducts'
+import PopularProducts from '@/components/PopularProducts'
 
 export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }) {
   const randomGenerator = () => {
@@ -15,13 +15,13 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
         m="0"
         py={[5, 6]}
       >
-        <AllProductsPosts
+        <AllProducts
           posts={posts}
           initialDisplayPosts={initialDisplayPosts}
           pagination={pagination}
           randomGenerator={randomGenerator}
         />
-        <PopularPost posts={posts} initialDisplayPosts={'4'} />
+        <PopularProducts posts={posts} initialDisplayPosts={'4'} />
       </Grid>
     </Container>
   )

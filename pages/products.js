@@ -25,7 +25,7 @@ export default function Products({ posts, initialDisplayPosts, pagination }) {
         posts={posts}
         initialDisplayPosts={initialDisplayPosts}
         pagination={pagination}
-        title="All Posts"
+        title="All Products"
       />
     </>
   )

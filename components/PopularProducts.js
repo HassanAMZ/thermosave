@@ -2,11 +2,11 @@ import NextLink from 'next/link'
 import formatDate from '@/lib/utils/formatDate'
 import { Box, Link as ChakraLink, Heading, Flex, Grid } from '@chakra-ui/react'
 import Image from 'next/image'
-export default function PopularPost({ posts }) {
+export default function PopularProducts({ posts }) {
   return (
     <Flex direction="column" gap="5">
       <Heading as="h2" py="3" fontSize={['xl']}>
-        Popular Posts
+        Popular Products
       </Heading>
       {posts.slice(0, 5).map((frontMatter, index) => {
         const { slug, date, title, coverImage } = frontMatter

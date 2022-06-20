@@ -1,12 +1,7 @@
-
 import { PageSEO } from '@/components/SEO'
-
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
-
 import { getAllTags } from '@/lib/tags'
-
-
 import Features from '@/components/Features'
 import Testimonial from '@/components/Testimonial'
 import Statistics from '@/components/Statistics'
@@ -19,16 +14,16 @@ const MAX_DISPLAY = 5
 export async function getStaticProps() {
   const tags = await getAllTags('products')
   const posts = await getAllFilesFrontMatter('products')
-  const initialDisplayPosts = posts.slice(0, POSTS_PER_PAGE)
+  const initialDisplayProducts = posts.slice(0, POSTS_PER_PAGE)
   const pagination = {
     currentPage: 1,
     totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
   }
 
-  return { props: { initialDisplayPosts, posts, pagination, tags } }
+  return { props: { initialDisplayProducts, posts, pagination, tags } }
 }
 
-export default function Home({ posts, initialDisplayPosts, pagination, tags }) {
+export default function Home({ posts, initialDisplayProducts, pagination, tags }) {
   const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a])
 
   return (
@@ -51,10 +46,10 @@ export default function Home({ posts, initialDisplayPosts, pagination, tags }) {
         <Statistics />
       </Container>
 
-      <Container maxW="container.xl">
+      {/* <Container maxW="container.xl">
         <Features />
-      </Container>
-
+      </Container> */}
+ 
     </Box>
   )
 }

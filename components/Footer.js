@@ -14,7 +14,7 @@ import {
 import { ReactNode } from 'react';
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { BiMailSend } from 'react-icons/bi';
-
+import NewsletterForm from '@/components/NewsletterForm'
 const Logo = (props) => {
   return (
     <svg
@@ -74,7 +74,11 @@ export default function Footer() {
     <Box
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}>
+             <Container maxW="container.xl">
+        <NewsletterForm />
+      </Container>
       <Container as={Stack} maxW={'6xl'} py={10}>
+
         <SimpleGrid
           templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 2fr' }}
           spacing={8}>

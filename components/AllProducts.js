@@ -88,6 +88,7 @@ export default function ListLayout({
                     <Tag key={tag} text={tag} icon={<ExternalLinkIcon />} />
                   ))}
                 </Flex>
+
                 <NextLink passHref href={`/products/${slug}`} key={index}>
                   <ChakraLink
                     _hover={{
@@ -97,9 +98,7 @@ export default function ListLayout({
                     <Heading as="h1" textTransform="capitalize" fontSize={['xl']}>
                       {title}
                     </Heading>
-                    <Text fontSize={'sm'} fontWeight="light" noOfLines={[2]}>
-                      {summary}
-                    </Text>
+                  
                     <Flex gap="2" py="3" align={'center'}>
                       <Box
                         w="40px"

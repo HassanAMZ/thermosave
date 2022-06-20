@@ -24,12 +24,11 @@ import {
   List,
   ListItem,
 } from '@chakra-ui/react'
-
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { MdLocalShipping } from 'react-icons/md'
 const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
 
-export default function PostLayout({ frontMatter, authorDetails, next, prev, children }) {
+export default function ProductsLayout({ frontMatter, authorDetails, next, prev, children }) {
   const {
     slug,
     fileName,
@@ -37,7 +36,9 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
     title,
     tags,
     coverImage,
+    summary,
     productsID,
+    details,
     description,
     features,
     unit,
@@ -104,7 +105,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
                     tempor invidunt ut labore
                   </Text>
-                  <Text fontSize={'lg'}>{description}</Text>
+                  <Text fontSize={'lg'}>{summary}</Text>
                 </VStack>
                 <Box>
                   <Text
@@ -119,14 +120,13 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
 
                   <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
                     <List spacing={2}>
-                      <ListItem>Chronograph</ListItem>
-                      <ListItem>Master Chronometer Certified</ListItem>{' '}
-                      <ListItem>Tachymeter</ListItem>
-                    </List>
-                    <List spacing={2}>
-                      <ListItem>Anti‑magnetic</ListItem>
-                      <ListItem>Chronometer</ListItem>
-                      <ListItem>Small seconds</ListItem>
+                      {features.map((feature, index) => {
+                        return (
+                          <>
+                            <ListItem key={index}>{feature}</ListItem>
+                          </>
+                        )
+                      })}
                     </List>
                   </SimpleGrid>
                 </Box>
@@ -141,17 +141,16 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                     Product Details
                   </Text>
 
-
-
-                  <List spacing={2}>    
-                    {Object.keys(features).map(key =>
-                    <ListItem>
-                      <Text  as={'span'} fontWeight={'bold'}>
-                        {key} {': '}
-                      </Text>
-                      {features[key]}
-                    </ListItem>
-                  )}</List>
+                  <List spacing={2}>
+                    {Object.keys(details).map((key) => (
+                      <ListItem>
+                        <Text as={'span'} fontWeight={'bold'}>
+                          {key} {': '}
+                        </Text>
+                        {details[key]}
+                      </ListItem>
+                    ))}
+                  </List>
                 </Box>
               </Stack>
 
@@ -174,7 +173,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
 
               <Stack direction="row" alignItems="center" justifyContent={'center'}>
                 <MdLocalShipping />
-                <Text>2-3 business days delivery</Text>
+                <Text>7 - 10 business days delivery</Text>
               </Stack>
             </Stack>
           </SimpleGrid>
@@ -182,7 +181,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
       </Box>
 
       <Container maxW="container.xl">
-        <Box as="article" id="singleProductsPost" py="2">
+        <Box as="article" id="singleProductsProducts" py="2">
           <Box>
             <Flex direction="column" py="2">
               <Box as="article">{children}</Box>
