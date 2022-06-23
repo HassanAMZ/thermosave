@@ -10,7 +10,6 @@ const ImageGallery = () => {
         description={siteMetadata.description}
       />
       <ImageCarousel />
-      <Container maxW="container.xl"></Container>
     </>
   )
 }
