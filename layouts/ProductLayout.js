@@ -24,6 +24,7 @@ import {
   List,
   ListItem,
 } from '@chakra-ui/react'
+import SendAMessage from '@/components/SendAMessage'
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { MdLocalShipping } from 'react-icons/md'
 const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
@@ -153,22 +154,7 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                 </Box>
               </Stack>
 
-              <Button
-                rounded={'none'}
-                w={'full'}
-                mt={8}
-                size={'lg'}
-                py={'7'}
-                bg={useColorModeValue('gray.900', 'gray.50')}
-                color={useColorModeValue('white', 'gray.900')}
-                textTransform={'uppercase'}
-                _hover={{
-                  transform: 'translateY(2px)',
-                  boxShadow: 'lg',
-                }}
-              >
-                Message Now{' '}
-              </Button>
+              <SendAMessage />
 
               <Stack direction="row" alignItems="center" justifyContent={'center'}>
                 <MdLocalShipping />

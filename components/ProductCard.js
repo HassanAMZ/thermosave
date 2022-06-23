@@ -15,7 +15,7 @@ import Tag from '@/components/Tag'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import formatDate from '@/lib/utils/formatDate'
 import { image as AuthorImage, author } from '@/data/siteMetadata'
-
+import SendAMessage from '@/components/SendAMessage'
 export default function ProductCard({ slug, date, title, summary, tags, coverImage, price, unit }) {
   return (
     <Center py={12}>
@@ -117,22 +117,7 @@ export default function ProductCard({ slug, date, title, summary, tags, coverIma
               textDecoration: 'none',
             }}
           >
-            <Button
-              rounded={'10'}
-              w={'full'}
-              mt={8}
-              size={'lg'}
-              py={'7'}
-              bg={useColorModeValue('gray.900', 'gray.50')}
-              color={useColorModeValue('white', 'gray.900')}
-              textTransform={'uppercase'}
-              _hover={{
-                transform: 'translateY(2px)',
-                boxShadow: 'lg',
-              }}
-            >
-              Message Now{' '}
-            </Button>
+            <SendAMessage />
           </ChakraLink>
         </NextLink>
       </Box>

@@ -20,7 +20,7 @@ import {
 import React from 'react'
 import { BsGithub, BsLinkedin, BsPerson, BsTwitter } from 'react-icons/bs'
 import { MdEmail, MdOutlineEmail } from 'react-icons/md'
-
+import SendAMessage from '@/components/SendAMessage'
 const confetti = {
   light: {
     primary: '4299E1', // blue.400
@@ -127,22 +127,7 @@ export default function NewsletterForm() {
                 </Link>
               </Stack>
             </Stack>
-            <Button
-              rounded={'10'}
-              w={'full'}
-              mt={8}
-              size={'lg'}
-              py={'7'}
-              bg={useColorModeValue('gray.900', 'gray.50')}
-              color={useColorModeValue('white', 'gray.900')}
-              textTransform={'uppercase'}
-              _hover={{
-                transform: 'translateY(2px)',
-                boxShadow: 'lg',
-              }}
-            >
-              Message Now{' '}
-            </Button>
+            <SendAMessage />
           </VStack>
         </Box>
       </Box>
