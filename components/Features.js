@@ -1,54 +1,121 @@
-import { ReactElement } from 'react'
-import { Box, SimpleGrid, Icon, Text, Stack, Flex } from '@chakra-ui/react'
-import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc'
-
-const Feature = ({ title, text, icon }) => {
-  return (
-    <Stack>
-      <Flex
-        w={16}
-        h={16}
-        align={'center'}
-        justify={'center'}
-        color={'white'}
-        rounded={'full'}
-        bg={'gray.100'}
-        mb={1}
-      >
-        {icon}
-      </Flex>
-      <Text fontWeight={600}>{title}</Text>
-      <Text color={'gray.600'}>{text}</Text>
-    </Stack>
-  )
-}
+import { ReactNode } from 'react'
+import {
+  Stack,
+  useColorModeValue,
+  Container,
+  Box,
+  Flex,
+  Text,
+  Heading,
+  SimpleGrid,
+} from '@chakra-ui/react'
 
 export default function Features() {
   return (
-    <Box p={4}>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
-        <Feature
-          icon={<Icon as={FcAssistant} w={10} h={10} />}
-          title={'Lifetime Support'}
-          text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
-          }
-        />
-        <Feature
-          icon={<Icon as={FcDonate} w={10} h={10} />}
-          title={'Unlimited Donations'}
-          text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
-          }
-        />
-        <Feature
-          icon={<Icon as={FcInTransit} w={10} h={10} />}
-          title={'Instant Delivery'}
-          text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
-          }
-        />
-      </SimpleGrid>
+    <Box bg={useColorModeValue('gray.800', 'white')} position={'relative'}>
+      <Flex
+        flex={1}
+        zIndex={0}
+        display={{ base: 'none', lg: 'flex' }}
+        backgroundImage="url('/templates/stats-grid-with-image.png')"
+        backgroundSize={'cover'}
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat"
+        position={'absolute'}
+        width={'50%'}
+        insetY={0}
+        right={0}
+      >
+        <Flex bgGradient={'linear(to-r, gray.800 10%, transparent)'} w={'full'} h={'full'} />
+      </Flex>
+      <Container maxW="container.xl" zIndex={10} position={'relative'}>
+        <Stack direction={{ base: 'column', lg: 'row' }}>
+          <Stack
+            flex={1}
+            color={useColorModeValue('gray.300', 'gray.800')}
+            justify={{ lg: 'center' }}
+            py={{ base: 4, md: 20, xl: 60 }}
+          >
+            <Box mb={{ base: 8, md: 20 }}>
+              <Text
+                fontFamily={'heading'}
+                fontWeight={700}
+                textTransform={'uppercase'}
+                mb={3}
+                fontSize={'xl'}
+                color={useColorModeValue('gray.50', 'gray.800')}
+              >
+                Technology
+              </Text>
+              <Heading
+                color={useColorModeValue('gray.200', 'gray.800')}
+                mb={5}
+                fontSize={{ base: '3xl', md: '5xl' }}
+              >
+                21st century agriculture
+              </Heading>
+              <Text fontSize={'xl'} color={useColorModeValue('gray.300', 'gray.800')}>
+                The NewLife™ technology allows you to monitor your crops and get complete insights
+                at real time. The proprietary software/hardware ecosystem prevents your plants from
+                getting neglected.
+              </Text>
+            </Box>
+
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+              {stats.map((stat) => (
+                <Box key={stat.title}>
+                  <Text fontFamily={'heading'} fontSize={'3xl'} mb={3}>
+                    {stat.title}
+                  </Text>
+                  <Text fontSize={'xl'}>{stat.content}</Text>
+                </Box>
+              ))}
+            </SimpleGrid>
+          </Stack>
+        </Stack>
+      </Container>
     </Box>
   )
 }
+
+const StatsText = ({ children }) => (
+  <Text as={'span'} fontWeight={700} color={useColorModeValue('gray.100', 'grey.600')}>
+    {children}
+  </Text>
+)
+
+const stats = [
+  {
+    title: '10+',
+    content: (
+      <>
+        <StatsText>Software modules</StatsText> for detailed monitoring and real-time analytics
+      </>
+    ),
+  },
+  {
+    title: '24/7',
+    content: (
+      <>
+        <StatsText>Analytics</StatsText> enabled right in your dashboard without history limitations
+      </>
+    ),
+  },
+  {
+    title: '13%',
+    content: (
+      <>
+        <StatsText>Farms</StatsText> in North America has chosen NewLife™ as their management
+        solution
+      </>
+    ),
+  },
+  {
+    title: '250M+',
+    content: (
+      <>
+        <StatsText>Plants</StatsText> currently connected and monitored by the NewLife™ software
+      </>
+    ),
+  },
+]

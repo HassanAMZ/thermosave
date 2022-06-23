@@ -34,7 +34,9 @@ export default function Home({ posts, initialDisplayProducts, pagination, tags }
         <Hero />
       </Container>
 
-      <Container maxW="container.xl">
+      <Features />
+
+      <Container maxW="container.xl" py="10">
         <FeaturesNew />
       </Container>
 
@@ -42,13 +44,9 @@ export default function Home({ posts, initialDisplayProducts, pagination, tags }
         <Testimonial />
       </Container>
 
-      <Container maxW="container.xl">
+      <Container maxW="container.xl" py="10">
         <Statistics />
       </Container>
-
-      {/* <Container maxW="container.xl">
-        <Features />
-      </Container> */}
     </Box>
   )
 }
