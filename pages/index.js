@@ -44,7 +44,7 @@ export default function Home({ posts, initialDisplayProducts, pagination, tags }
 
       <Features />
 
-      <Container maxW="container.xl" py="10">
+      <Container maxW="container.xl" py={{ base: 4, md: 20, xl: 40 }}>
         <FeaturesNew />
       </Container>
 
