@@ -12,7 +12,6 @@ import {
 } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import Tag from '@/components/Tag'
-import ImageCarousel from '@/components/ImageCarousel'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import formatDate from '@/lib/utils/formatDate'
 import { image as AuthorImage, author } from '@/data/siteMetadata'
@@ -20,7 +19,6 @@ import { image as AuthorImage, author } from '@/data/siteMetadata'
 export default function ProductCard({ slug, date, title, summary, tags, coverImage, price, unit }) {
   return (
     <Center py={12}>
-      <ImageCarousel />
       <Box
         role={'group'}
         p={6}
