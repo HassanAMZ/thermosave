@@ -9,6 +9,7 @@ import {
   VisuallyHidden,
   Input,
   IconButton,
+  Button,
   useColorModeValue,
 } from '@chakra-ui/react'
 import { ReactNode } from 'react'
@@ -106,6 +107,7 @@ export default function Footer() {
             <Link href={'/'}>Privacy Policy</Link>
             <Link href={'/'}>Satus</Link>
           </Stack>
+        
         </SimpleGrid>
       </Container>
     </Box>
