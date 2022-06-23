@@ -6,7 +6,15 @@ import Features from '@/components/Features'
 import Testimonial from '@/components/Testimonial'
 import Statistics from '@/components/Statistics'
 import FeaturesNew from '@/components/FeaturesNew'
-import { Flex, Box, Heading, Button, Container, Link as ChakraLink } from '@chakra-ui/react'
+import {
+  Flex,
+  Box,
+  Heading,
+  Button,
+  Container,
+  Link as ChakraLink,
+  useColorModeValue,
+} from '@chakra-ui/react'
 import Hero from '@/components/Hero'
 export const POSTS_PER_PAGE = 5
 const MAX_DISPLAY = 5
@@ -40,12 +48,10 @@ export default function Home({ posts, initialDisplayProducts, pagination, tags }
         <FeaturesNew />
       </Container>
 
-      <Container maxW="container.xl">
-        <Testimonial />
-      </Container>
+      <Statistics />
 
       <Container maxW="container.xl" py="10">
-        <Statistics />
+        <Testimonial />
       </Container>
     </Box>
   )
