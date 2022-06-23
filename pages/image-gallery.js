@@ -11,9 +11,7 @@ const ImageGallery = () => {
         title={`Image Gallery - ${siteMetadata.author}`}
         description={siteMetadata.description}
       />
-      <Container maxW="container.xl">
-  
-      </Container>
+      <Container maxW="container.xl"></Container>
     </>
   )
 }

@@ -3,18 +3,14 @@ import ProductCard from '@/components/ProductCard'
 import { useState } from 'react'
 import {
   Box,
-
   Grid,
   Heading,
   Input,
   InputGroup,
   InputRightElement,
-
   Container,
-
 } from '@chakra-ui/react'
 import { SearchIcon } from '@chakra-ui/icons'
-
 
 export default function ListLayout({
   posts,

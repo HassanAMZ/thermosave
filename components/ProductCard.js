@@ -64,6 +64,7 @@ export default function ProductCard({ slug, date, title, summary, tags, coverIma
                 <Image
                   rounded={'lg'}
                   t={title}
+                  alt={title}
                   height={230}
                   width={282}
                   objectFit={'cover'}
@@ -101,6 +102,7 @@ export default function ProductCard({ slug, date, title, summary, tags, coverIma
               width={10}
               objectFit={'cover'}
               src={AuthorImage}
+              alt={title}
             />
           </Box>
 
