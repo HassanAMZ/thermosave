@@ -6,6 +6,7 @@ import {
   Grid,
   Heading,
   Input,
+  Flex,
   InputGroup,
   InputRightElement,
   Container,
@@ -52,12 +53,12 @@ export default function ListLayout({
             </InputRightElement>
           </InputGroup>
         </Box>
-        <Grid templateColumns="repeat(auto-fit, minmax(300px, 1fr))" gap={6} m="0">
+        <Grid templateColumns="repeat(auto-fit, minmax(300px, 1fr))" gap={3} m="0">
           {!filteredProductsPosts.length && 'No posts found.'}
           {displayPosts.map((frontMatter, index) => {
             const { slug, date, title, summary, tags, coverImage, price, unit } = frontMatter
             return (
-              <Grid gap="5" className="hvr-float" key={index} justify={'space-between'}>
+           
                 <ProductCard
                   slug={slug}
                   date={date}
@@ -67,8 +68,9 @@ export default function ListLayout({
                   coverImage={coverImage}
                   price={price}
                   unit={unit}
+                  key={index}
                 />
-              </Grid>
+
             )
           })}
         </Grid>

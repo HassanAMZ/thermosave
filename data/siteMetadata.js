@@ -1,27 +1,27 @@
 const siteMetadata = {
-  title: 'thermosave - Top Web Analyst On Upwork',
+  title: 'Thermosave - Top Web Analyst On Upwork',
   author: 'Nasir Ifran',
-  headerTitle: 'thermosave - Top Web Analyst On Upwork',
+  headerTitle: 'Thermosave - Top Web Analyst On Upwork',
   description:
-    'A technical web analytics products about Google Tag Manager and Google Analytics (other related stuff) created and constantly updated by thermosave',
+    'A technical web analytics products about Google Tag Manager and Google Analytics (other related stuff) created and constantly updated by Thermosave',
   language: 'en-us',
-  siteUrl: 'https://thermosave.com',
-  siteDomain: 'thermosave.com',
-  siteRepo: 'https://github.com/HassanAMZ/thermosaveV2',
+  siteUrl: 'https://Thermosave.com',
+  siteDomain: 'Thermosave.com',
+  siteRepo: 'https://github.com/HassanAMZ/ThermosaveV2',
   siteLogo: '/static/images/avatar.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/avatar.png',
   email: 'Reactjswebdev@gmail.com',
   github: 'https://github.com/HassanAMZ',
   twitter: 'https://twitter.com/shahzada_A',
-  facebook: 'https://facebook.com/thermosave',
+  facebook: 'https://facebook.com/Thermosave',
   youtube: 'https://www.youtube.com/channel/UC8tapbraiwvk5nnQW0Eqh9g',
   linkedin: 'https://www.linkedin.com/in/hassanamz',
-  instagram: 'https://instagram.com/thermosave_',
+  instagram: 'https://instagram.com/Thermosave_',
   locale: 'en-US',
   analytics: {
     // supports plausible, simpleAnalytics or GoogleTagManager
-    plausibleDataDomain: 'thermosave.com', // e.g. tailwind-nextjs-starter-products.vercel.app
+    plausibleDataDomain: 'Thermosave.com', // e.g. tailwind-nextjs-starter-products.vercel.app
     simpleAnalytics: false, // true or false
     googleTagManagerID: 'GTM-MCKP7JK', // e.g. GTM-MCKP7JK
   },

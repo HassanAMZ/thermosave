@@ -67,7 +67,7 @@ export default function NavBar() {
               }}
             >
               <Link href="/">
-                <a>thermosave</a>
+                <a>Thermosave</a>
               </Link>
             </Box>
           </HStack>

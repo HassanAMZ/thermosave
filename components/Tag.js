@@ -10,7 +10,7 @@ const Tag = ({ text, icon, size }) => {
     return 'rgba(' + random(255) + ',' + random(255) + ',' + random(255) + ',0.2)'
   }
   return (
-    <Box pr="2" py="1">
+    <Box pr="2" py="1" className="hvr-float">
       <Link href={`/tags/${kebabCase(text)}`}>
         <a>
           <Button
@@ -22,12 +22,7 @@ const Tag = ({ text, icon, size }) => {
             _hover={{ bg: 'teal.500', color: 'white' }}
             borderWidth="1px"
           >
-            <Flex
-              justifyContent={'center'}
-              className="hvr-icon-up"
-              alignItems={'center'}
-              fontSize={'xx-small'}
-            >
+            <Flex justify={'center'} className="hvr-icon-up" align={'center'} fontSize={'xx-small'}>
               <Text textTransform={'uppercase'} mr="2">
                 {text.split(' ').join('-')}
               </Text>

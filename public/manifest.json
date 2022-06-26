@@ -4,9 +4,9 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "thermosave ",
+  "name": "Thermosave ",
   "short_name": "SAH",
-  "description": "The app version of thermosave ",
+  "description": "The app version of Thermosave ",
   "icons": [
     {
       "src": "/icon-192x192.png",
