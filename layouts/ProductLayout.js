@@ -51,6 +51,7 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
     price,
   } = frontMatter
   const { avatar, name, instagram } = authorDetails[0]
+  const imagesList = [coverImage, additionalImage1, additionalImage2]
   return (
     <>
       <ProductsSEO
@@ -66,40 +67,10 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
             spacing={{ base: 8, md: 10 }}
             py={{ base: 18, md: 24 }}
           >
-            <Carousel autoPlay infiniteLoop>
-              <div>
-                <Image
-                  rounded={'md'}
-                  alt={'product image'}
-                  src={coverImage}
-                  fit={'cover'}
-                  align={'center'}
-                  w={'100%'}
-                  h={{ base: '100%', sm: '400px', lg: '500px' }}
-                />
-              </div>
-              <div>
-                <Image
-                  rounded={'md'}
-                  alt={'product image'}
-                  src={additionalImage1}
-                  fit={'cover'}
-                  align={'center'}
-                  w={'100%'}
-                  h={{ base: '100%', sm: '400px', lg: '500px' }}
-                />
-              </div>
-              <div>
-                <Image
-                  rounded={'md'}
-                  alt={'product image'}
-                  src={additionalImage2}
-                  fit={'cover'}
-                  align={'center'}
-                  w={'100%'}
-                  h={{ base: '100%', sm: '400px', lg: '500px' }}
-                />
-              </div>
+            <Carousel showArrows={true} autoPlay={true} infiniteLoop={true} showThumbs={true}>
+              {imagesList.map((url, index) => (
+                <img key={index} src={url} />
+              ))}
             </Carousel>
             <Stack spacing={{ base: 6, md: 10 }}>
               <Box as={'header'}>
