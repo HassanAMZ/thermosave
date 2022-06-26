@@ -60,12 +60,12 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
         {...frontMatter}
       />
       <ScrollTopAndComment />
-      <Box py="5">
+      <Box>
         <Container maxW="container.xl">
           <SimpleGrid
             columns={{ base: 1, lg: 2 }}
             spacing={{ base: 8, md: 10 }}
-            py={{ base: 18, md: 24 }}
+            py={{ base: 6, sm: 12, md: 18, lg: 24 }}
           >
             <Carousel showArrows={true} autoPlay={true} infiniteLoop={true} showThumbs={true}>
               {imagesList.map((url, index) => (
