@@ -24,6 +24,9 @@ import {
   List,
   ListItem,
 } from '@chakra-ui/react'
+import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
+import { Carousel } from 'react-responsive-carousel'
+
 import SendAMessage from '@/components/SendAMessage'
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { MdLocalShipping } from 'react-icons/md'
@@ -37,6 +40,8 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
     title,
     tags,
     coverImage,
+    additionalImage1,
+    additionalImage2,
     summary,
     productsID,
     details,
@@ -61,17 +66,47 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
             spacing={{ base: 8, md: 10 }}
             py={{ base: 18, md: 24 }}
           >
-            <Flex>
-              <Image
-                rounded={'md'}
-                alt={'product image'}
-                src={coverImage}
-                fit={'cover'}
-                align={'center'}
-                w={'100%'}
-                h={{ base: '100%', sm: '400px', lg: '500px' }}
-              />
-            </Flex>
+            <Carousel autoPlay infiniteLoop>
+              <div>
+                <Flex>
+                  <Image
+                    rounded={'md'}
+                    alt={'product image'}
+                    src={coverImage}
+                    fit={'cover'}
+                    align={'center'}
+                    w={'100%'}
+                    h={{ base: '100%', sm: '400px', lg: '500px' }}
+                  />
+                </Flex>
+              </div>
+              <div>
+                <Flex>
+                  <Image
+                    rounded={'md'}
+                    alt={'product image'}
+                    src={additionalImage1}
+                    fit={'cover'}
+                    align={'center'}
+                    w={'100%'}
+                    h={{ base: '100%', sm: '400px', lg: '500px' }}
+                  />
+                </Flex>
+              </div>
+              <div>
+                <Flex>
+                  <Image
+                    rounded={'md'}
+                    alt={'product image'}
+                    src={additionalImage2}
+                    fit={'cover'}
+                    align={'center'}
+                    w={'100%'}
+                    h={{ base: '100%', sm: '400px', lg: '500px' }}
+                  />
+                </Flex>
+              </div>
+            </Carousel>
             <Stack spacing={{ base: 6, md: 10 }}>
               <Box as={'header'}>
                 <Heading

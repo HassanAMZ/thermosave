@@ -8,5 +8,5 @@
 [Linkedin](https://www.linkedin.com/in/hassanamz)
 [Youtube](https://www.youtube.com/channel/UC8tapbraiwvk5nnQW0Eqh9g)
 [siteRepo](https://github.com/HassanAMZ/Thermosave)
-[image](https://Thermosave.com/static/images/avatar.png)
-[socialBanner](https://Thermosave.com/static/images/avatar.png)
+[image](https://Thermosave.org/static/images/avatar.png)
+[socialBanner](https://Thermosave.org/static/images/avatar.png)

@@ -58,19 +58,17 @@ export default function ListLayout({
           {displayPosts.map((frontMatter, index) => {
             const { slug, date, title, summary, tags, coverImage, price, unit } = frontMatter
             return (
-           
-                <ProductCard
-                  slug={slug}
-                  date={date}
-                  title={title}
-                  summary={summary}
-                  tags={tags}
-                  coverImage={coverImage}
-                  price={price}
-                  unit={unit}
-                  key={index}
-                />
-
+              <ProductCard
+                slug={slug}
+                date={date}
+                title={title}
+                summary={summary}
+                tags={tags}
+                coverImage={coverImage}
+                price={price}
+                unit={unit}
+                key={index}
+              />
             )
           })}
         </Grid>

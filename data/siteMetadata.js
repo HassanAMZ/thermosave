@@ -5,8 +5,8 @@ const siteMetadata = {
   description:
     'A technical web analytics products about Google Tag Manager and Google Analytics (other related stuff) created and constantly updated by Thermosave',
   language: 'en-us',
-  siteUrl: 'https://Thermosave.com',
-  siteDomain: 'Thermosave.com',
+  siteUrl: 'https://Thermosave.org',
+  siteDomain: 'Thermosave.org',
   siteRepo: 'https://github.com/HassanAMZ/ThermosaveV2',
   siteLogo: '/static/images/avatar.png',
   image: '/static/images/avatar.png',
@@ -21,7 +21,7 @@ const siteMetadata = {
   locale: 'en-US',
   analytics: {
     // supports plausible, simpleAnalytics or GoogleTagManager
-    plausibleDataDomain: 'Thermosave.com', // e.g. tailwind-nextjs-starter-products.vercel.app
+    plausibleDataDomain: 'Thermosave.org', // e.g. tailwind-nextjs-starter-products.vercel.app
     simpleAnalytics: false, // true or false
     googleTagManagerID: 'GTM-MCKP7JK', // e.g. GTM-MCKP7JK
   },

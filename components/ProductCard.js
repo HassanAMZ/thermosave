@@ -16,7 +16,22 @@ import { ExternalLinkIcon } from '@chakra-ui/icons'
 import formatDate from '@/lib/utils/formatDate'
 import { image as AuthorImage, author } from '@/data/siteMetadata'
 import SendAMessage from '@/components/SendAMessage'
-export default function ProductCard({ slug, date, title, summary, tags, coverImage, price, unit }) {
+import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
+import { Carousel } from 'react-responsive-carousel'
+
+export default function ProductCard({
+  slug,
+  additionalImage1,
+  additionalImage2,
+  date,
+  title,
+  summary,
+  tags,
+  coverImage,
+  price,
+  unit,
+}) {
+  let imagesList = [coverImage, additionalImage1, additionalImage2]
   return (
     <Flex
       m={2}
@@ -31,23 +46,30 @@ export default function ProductCard({ slug, date, title, summary, tags, coverIma
     >
       <NextLink passHref href={`/products/${slug}`}>
         <ChakraLink
-          pt="3"
           _hover={{
             textDecoration: 'none',
           }}
         >
-          <Flex justify="center" align="center">
-            <Image
-              className="hvr-float"
-              rounded={'lg'}
-              t={title}
-              alt={title}
-              height={230}
-              width={282}
-              objectFit={'cover'}
-              src={coverImage}
-            />
-          </Flex>
+          <Carousel autoPlay="true" infiniteLoop="true">
+            {imagesList.map((image, index) => {
+              return (
+                <div key={index}>
+                  <Flex justify="center" align="center">
+                    <Image
+                      className="hvr-float"
+                      rounded={'lg'}
+                      t={title}
+                      alt={title}
+                      height={230}
+                      width={282}
+                      objectFit={'cover'}
+                      src={image}
+                    />
+                  </Flex>
+                </div>
+              )
+            })}
+          </Carousel>
         </ChakraLink>
       </NextLink>
 

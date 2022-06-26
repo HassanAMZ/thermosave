@@ -14,7 +14,7 @@ const Tag = ({ text, icon, size }) => {
       <Link href={`/tags/${kebabCase(text)}`}>
         <a>
           <Button
-            size="xx-small"
+            size="sm"
             fontWeight={'normal'}
             px={3}
             py={1}
