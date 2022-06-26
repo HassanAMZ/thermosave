@@ -68,43 +68,37 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
           >
             <Carousel autoPlay infiniteLoop>
               <div>
-                <Flex>
-                  <Image
-                    rounded={'md'}
-                    alt={'product image'}
-                    src={coverImage}
-                    fit={'cover'}
-                    align={'center'}
-                    w={'100%'}
-                    h={{ base: '100%', sm: '400px', lg: '500px' }}
-                  />
-                </Flex>
+                <Image
+                  rounded={'md'}
+                  alt={'product image'}
+                  src={coverImage}
+                  fit={'cover'}
+                  align={'center'}
+                  w={'100%'}
+                  h={{ base: '100%', sm: '400px', lg: '500px' }}
+                />
               </div>
               <div>
-                <Flex>
-                  <Image
-                    rounded={'md'}
-                    alt={'product image'}
-                    src={additionalImage1}
-                    fit={'cover'}
-                    align={'center'}
-                    w={'100%'}
-                    h={{ base: '100%', sm: '400px', lg: '500px' }}
-                  />
-                </Flex>
+                <Image
+                  rounded={'md'}
+                  alt={'product image'}
+                  src={additionalImage1}
+                  fit={'cover'}
+                  align={'center'}
+                  w={'100%'}
+                  h={{ base: '100%', sm: '400px', lg: '500px' }}
+                />
               </div>
               <div>
-                <Flex>
-                  <Image
-                    rounded={'md'}
-                    alt={'product image'}
-                    src={additionalImage2}
-                    fit={'cover'}
-                    align={'center'}
-                    w={'100%'}
-                    h={{ base: '100%', sm: '400px', lg: '500px' }}
-                  />
-                </Flex>
+                <Image
+                  rounded={'md'}
+                  alt={'product image'}
+                  src={additionalImage2}
+                  fit={'cover'}
+                  align={'center'}
+                  w={'100%'}
+                  h={{ base: '100%', sm: '400px', lg: '500px' }}
+                />
               </div>
             </Carousel>
             <Stack spacing={{ base: 6, md: 10 }}>

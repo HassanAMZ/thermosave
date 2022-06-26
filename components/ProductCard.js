@@ -7,9 +7,9 @@ import {
   Flex,
   Text,
   Stack,
-  Image,
   Button,
 } from '@chakra-ui/react'
+import Image from 'next/image'
 import NextLink from 'next/link'
 import Tag from '@/components/Tag'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
@@ -33,7 +33,6 @@ export default function ProductCard({
 }) {
   return (
     <Flex
-      m={2}
       className="hvr-float"
       w="full"
       direction="column"
@@ -50,24 +49,23 @@ export default function ProductCard({
             textDecoration: 'none',
           }}
         >
-          <Carousel>
-            <div>
-              <Image
-                className="hvr-float"
-                rounded={'lg'}
-                t={title}
-                alt={title}
-                height={250}
-                width={250}
-                objectFit={'cover'}
-                src={coverImage}
-              />
-            </div>
-          </Carousel>
+          <Box
+            width={{
+              base: '300px',
+              sm: '270px',
+              md: '400px',
+              lg: '320px',
+            }}
+            borderRadius={'15px'}
+            overflow="hidden"
+            className="hvr-float"
+          >
+            <Image src={coverImage} layout="responsive" width={1920} height={1080} alt={title} />
+          </Box>
         </ChakraLink>
       </NextLink>
 
-      <Stack pt={10} align={'center'}>
+      <Stack pt={3} align={'center'}>
         <Text className="hvr-float" color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
           Brand
         </Text>
@@ -91,8 +89,8 @@ export default function ProductCard({
             className="hvr-float"
             rounded={'lg'}
             t={title}
-            height={10}
-            width={10}
+            height={30}
+            width={30}
             objectFit={'cover'}
             src={AuthorImage}
             alt={title}

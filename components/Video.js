@@ -6,7 +6,7 @@ const Video = ({ videoSource }) => {
   useEffect(() => {
     setTimeout(() => {
       videoRef.current.play()
-    }, 2000)
+    }, 500)
   }, [])
 
   return (
