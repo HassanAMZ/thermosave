@@ -222,7 +222,7 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                           >
                             <ChakraLink textDecoration={'none !important'}>
                               <Button
-                                colorScheme="teal"
+                                colorScheme="red"
                                 size="sm"
                                 w="fit-content"
                                 textTransform={'uppercase'}
@@ -230,8 +230,8 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                                 rounded={'full'}
                                 fontWeight={'normal'}
                                 px={6}
-                                bg={'teal.400'}
-                                _hover={{ bg: 'teal.500' }}
+                                bg={'red.400'}
+                                _hover={{ bg: 'red.500' }}
                                 my="4"
                               >
                                 Previous Article
@@ -251,15 +251,15 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                             <ChakraLink>
                               <Button
                                 w="fit-content"
-                                colorScheme="teal"
+                                colorScheme="red"
                                 size="sm"
                                 textTransform={'uppercase'}
                                 variant="solid"
                                 rounded={'full'}
                                 fontWeight={'normal'}
                                 px={6}
-                                bg={'teal.400'}
-                                _hover={{ bg: 'teal.500' }}
+                                bg={'red.400'}
+                                _hover={{ bg: 'red.500' }}
                                 my="4"
                               >
                                 Next Article
@@ -282,7 +282,7 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                 <NextLink passHref href="/products">
                   <ChakraLink>
                     <Button
-                      colorScheme="teal"
+                      colorScheme="red"
                       size="sm"
                       w="100%"
                       textTransform={'uppercase'}
@@ -290,8 +290,8 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                       rounded={'full'}
                       fontWeight={'normal'}
                       px={6}
-                      bg={'teal.400'}
-                      _hover={{ bg: 'teal.500' }}
+                      bg={'red.400'}
+                      _hover={{ bg: 'red.500' }}
                       my="4"
                     >
                       <Text py="2">&larr; Back to the productss</Text>

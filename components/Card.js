@@ -54,9 +54,9 @@ const Card = ({ title, description, imgSrc, href, pid, price }) => (
             size={'lg'}
             fontWeight={'normal'}
             px={6}
-            colorScheme={'teal'}
-            bg={'teal.400'}
-            _hover={{ bg: 'teal.500' }}
+            colorScheme={'red'}
+            bg={'red.400'}
+            _hover={{ bg: 'red.500' }}
             my="4"
           >
             Continue ({price}) &rarr;

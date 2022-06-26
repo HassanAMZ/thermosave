@@ -73,7 +73,7 @@ const SignInForm = () => {
           />
           <FormErrorMessage>{errors.password && errors.password.message}</FormErrorMessage>
         </FormControl>
-        <Button mt={4} w={['full']} colorScheme="teal" isLoading={isSubmitting} type="submit">
+        <Button mt={4} w={['full']} colorScheme="red" isLoading={isSubmitting} type="submit">
           Submit
         </Button>
 
@@ -81,7 +81,7 @@ const SignInForm = () => {
           Signed In User
         </Heading>
 
-        <Button mt={4} w={['full']} colorScheme="teal" onClick={logout}>
+        <Button mt={4} w={['full']} colorScheme="red" onClick={logout}>
           Sign Out
         </Button>
       </form>

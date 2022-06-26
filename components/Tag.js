@@ -19,7 +19,7 @@ const Tag = ({ text, icon, size }) => {
             px={3}
             py={1}
             bgColor={randomColor()}
-            _hover={{ bg: 'teal.500', color: 'white' }}
+            _hover={{ bg: 'red.500', color: 'white' }}
             borderWidth="1px"
           >
             <Flex justify={'center'} className="hvr-icon-up" align={'center'} fontSize={'xx-small'}>

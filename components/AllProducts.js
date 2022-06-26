@@ -43,13 +43,13 @@ export default function ListLayout({
               onChange={(e) => setSearchValue(e.target.value)}
               aria-label="Search Products"
               placeholder="Search Products"
-              borderColor={'teal'}
+              borderColor={'red'}
               bgColor="white"
-              color="teal"
+              color="red"
               fontWeight={'bold'}
             />
             <InputRightElement width="2rem">
-              <SearchIcon color="teal" />
+              <SearchIcon color="red" />
             </InputRightElement>
           </InputGroup>
         </Box>

@@ -48,9 +48,9 @@ const Courses = ({ posts }) => {
                     size={'lg'}
                     fontWeight={'normal'}
                     px={6}
-                    colorScheme={'teal'}
-                    bg={'teal.400'}
-                    _hover={{ bg: 'teal.500', textDecoration: 'none' }}
+                    colorScheme={'red'}
+                    bg={'red.400'}
+                    _hover={{ bg: 'red.500', textDecoration: 'none' }}
                     width="100%"
                     my="4"
                   >

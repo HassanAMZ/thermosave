@@ -31,15 +31,15 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
             orderNumber = (
               <Button
                 size={['x-small', 'sm']}
-                colorScheme="teal"
+                colorScheme="red"
                 textTransform={'uppercase'}
                 variant="solid"
                 px="2"
                 py="1"
                 key={index}
                 fontWeight={'normal'}
-                bg={'teal.400'}
-                _hover={{ bg: 'teal.500' }}
+                bg={'red.400'}
+                _hover={{ bg: 'red.500' }}
                 border="1px"
                 borderColor={'gray.500'}
               >
@@ -56,7 +56,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                 py="1"
                 key={index}
                 fontWeight={'normal'}
-                _hover={{ bg: 'teal.500', color: 'white' }}
+                _hover={{ bg: 'red.500', color: 'white' }}
                 border="1px"
                 borderColor={'gray.500'}
               >
@@ -71,7 +71,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                 key={index}
                 py="2"
                 _hover={{
-                  color: 'teal.500',
+                  color: 'red.500',
                   transform: 'scale(1.01)',
                 }}
               >

@@ -5,13 +5,13 @@ html {
 ::-moz-selection {
   /* Code for Firefox */
   color: white;
-  background: teal;
+  background: red;
 }
 
 ::selection {
   /* Code for Firefox */
   color: white;
-  background: teal;
+  background: red;
 }
 
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
@@ -39,7 +39,7 @@ input:-webkit-autofill:focus {
 /* This will work on Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: teal;
+  scrollbar-color: red;
 }
 
 /* Targtes on Chrome, Edge, and Safari */
@@ -52,7 +52,7 @@ input:-webkit-autofill:focus {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: teal;
+  background-color: red;
   border-radius: 0px;
 }
 

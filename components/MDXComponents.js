@@ -32,21 +32,21 @@ export const MDXComponents = {
   a: (props) => (
     <chakra.a
       fontSize={['sm', 'md', 'md']}
-      color="teal"
+      color="red"
       fontWeight="semibold"
       textTransform="capitalize"
       textDecoration="underline"
       textDecorationStyle="dotted"
-      _hover={{ color: 'teal.900' }}
+      _hover={{ color: 'red.900' }}
       {...props}
     />
   ),
 
   ul: (props) => (
-    <chakra.ul fontSize={['sm', 'md', 'md']} color="teal" fontWeight="semibold" {...props} />
+    <chakra.ul fontSize={['sm', 'md', 'md']} color="red" fontWeight="semibold" {...props} />
   ),
   li: (props) => (
-    <chakra.li fontSize={['sm', 'md', 'md']} color="teal" fontWeight="semibold" {...props} />
+    <chakra.li fontSize={['sm', 'md', 'md']} color="red" fontWeight="semibold" {...props} />
   ),
   wrapper: ({ components, layout, ...rest }) => {
     const Layout = require(`../layouts/${layout}`).default

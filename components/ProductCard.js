@@ -21,17 +21,16 @@ import { Carousel } from 'react-responsive-carousel'
 
 export default function ProductCard({
   slug,
+  coverImage,
   additionalImage1,
   additionalImage2,
   date,
   title,
   summary,
   tags,
-  coverImage,
   price,
   unit,
 }) {
-  let imagesList = [coverImage, additionalImage1, additionalImage2]
   return (
     <Flex
       m={2}
@@ -46,29 +45,24 @@ export default function ProductCard({
     >
       <NextLink passHref href={`/products/${slug}`}>
         <ChakraLink
+          pt="2"
           _hover={{
             textDecoration: 'none',
           }}
         >
-          <Carousel autoPlay="true" infiniteLoop="true">
-            {imagesList.map((image, index) => {
-              return (
-                <div key={index}>
-                  <Flex justify="center" align="center">
-                    <Image
-                      className="hvr-float"
-                      rounded={'lg'}
-                      t={title}
-                      alt={title}
-                      height={230}
-                      width={282}
-                      objectFit={'cover'}
-                      src={image}
-                    />
-                  </Flex>
-                </div>
-              )
-            })}
+          <Carousel>
+            <div>
+              <Image
+                className="hvr-float"
+                rounded={'lg'}
+                t={title}
+                alt={title}
+                height={250}
+                width={250}
+                objectFit={'cover'}
+                src={coverImage}
+              />
+            </div>
           </Carousel>
         </ChakraLink>
       </NextLink>

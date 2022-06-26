@@ -69,7 +69,7 @@ const SignUpForm = () => {
           />
           <FormErrorMessage>{errors.password && errors.password.message}</FormErrorMessage>
         </FormControl>
-        <Button mt={4} w={['full']} colorScheme="teal" isLoading={isSubmitting} type="submit">
+        <Button mt={4} w={['full']} colorScheme="red" isLoading={isSubmitting} type="submit">
           Sign Up
         </Button>
       </form>
