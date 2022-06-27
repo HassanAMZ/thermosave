@@ -26,7 +26,7 @@ const Feature = ({ text, icon, iconBg }) => {
 
 export default function FeaturesNew() {
   return (
-    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+    <SimpleGrid alignItems={'center'} columns={{ base: 1, md: 2 }} spacing={10}>
       <Stack spacing={4}>
         <Text
           textTransform={'uppercase'}
@@ -40,10 +40,10 @@ export default function FeaturesNew() {
         >
           Our Story
         </Text>
-        <Heading>A digital Product design agency</Heading>
+        <Heading>An Energy Saving Company</Heading>
         <Text color={'gray.500'} fontSize={'lg'}>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-          invidunt ut labore
+          Thermosave is dedicated to come up with solutions to all the heat losses issues in the
+          industries by 2030
         </Text>
         <Stack
           spacing={4}
@@ -52,25 +52,25 @@ export default function FeaturesNew() {
           <Feature
             icon={<Icon as={IoAnalyticsSharp} color={'yellow.500'} w={5} h={5} />}
             iconBg={useColorModeValue('yellow.100', 'yellow.900')}
-            text={'Business Planning'}
+            text={'Analyzing the Root Cause of Heat Loss'}
           />
           <Feature
             icon={<Icon as={IoLogoBitcoin} color={'green.500'} w={5} h={5} />}
             iconBg={useColorModeValue('green.100', 'green.900')}
-            text={'Financial Planning'}
+            text={'Resolving the Heat Lose Causes'}
           />
           <Feature
             icon={<Icon as={IoSearchSharp} color={'purple.500'} w={5} h={5} />}
             iconBg={useColorModeValue('purple.100', 'purple.900')}
-            text={'Market Analysis'}
+            text={'Monitor & Improve'}
           />
         </Stack>
       </Stack>
       <Flex>
         <Image
-          rounded={'md'}
+          rounded={'lg'}
           alt={'feature image'}
-          src={'/static/products/00012.png'}
+          src={'/static/images/features-new.png'}
           objectFit={'cover'}
         />
       </Flex>

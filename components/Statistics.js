@@ -56,9 +56,9 @@ export default function Statistics() {
             spacing={{ base: 5, lg: 8 }}
             color={useColorModeValue('gray.300', 'gray.800')}
           >
-            <StatsCard title={'We serve'} stat={'50,000 people'} />
-            <StatsCard title={'In'} stat={'30 different countries'} />
-            <StatsCard title={'Who speak'} stat={'100 different languages'} />
+            <StatsCard title={'We serve'} stat={'200+ companies'} />
+            <StatsCard title={'In'} stat={'15 different cities'} />
+            <StatsCard title={'with'} stat={'6+ custom products'} />
           </SimpleGrid>
         </Box>
       </Container>

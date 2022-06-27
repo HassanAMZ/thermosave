@@ -40,8 +40,7 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
     title,
     tags,
     coverImage,
-    additionalImage1,
-    additionalImage2,
+    applications,
     summary,
     productsID,
     details,
@@ -49,9 +48,10 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
     features,
     unit,
     price,
+    currency,
+    caousalImages,
   } = frontMatter
   const { avatar, name, instagram } = authorDetails[0]
-  const imagesList = [coverImage, additionalImage1, additionalImage2]
   return (
     <>
       <ProductsSEO
@@ -59,7 +59,7 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
         authorDetails={authorDetails}
         {...frontMatter}
       />
-      <ScrollTopAndComment />
+
       <Box>
         <Container maxW="container.xl">
           <SimpleGrid
@@ -68,7 +68,7 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
             py={{ base: 6, sm: 12, md: 18, lg: 24 }}
           >
             <Carousel showArrows={true} autoPlay={true} infiniteLoop={true} showThumbs={true}>
-              {imagesList.map((url, index) => (
+              {caousalImages.map((url, index) => (
                 <img key={index} src={url} />
               ))}
             </Carousel>
@@ -86,8 +86,7 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                   fontWeight={300}
                   fontSize={'2xl'}
                 >
-                  {price}
-                  {unit}
+                  {price}&nbsp; {currency}&nbsp; {unit}
                 </Text>
               </Box>
 
@@ -97,14 +96,13 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                 divider={<StackDivider borderColor={useColorModeValue('gray.200', 'gray.600')} />}
               >
                 <VStack spacing={{ base: 4, sm: 6 }}>
-                  <Text
+                  {/* <Text
                     color={useColorModeValue('gray.500', 'gray.400')}
                     fontSize={'2xl'}
                     fontWeight={'300'}
                   >
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                    tempor invidunt ut labore
-                  </Text>
+                
+                  </Text> */}
                   <Text fontSize={'lg'}>{summary}</Text>
                 </VStack>
                 <Box>
@@ -151,6 +149,30 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                       </ListItem>
                     ))}
                   </List>
+                </Box>
+
+                <Box>
+                  <Text
+                    fontSize={{ base: '16px', lg: '18px' }}
+                    color={useColorModeValue('yellow.500', 'yellow.300')}
+                    fontWeight={'500'}
+                    textTransform={'uppercase'}
+                    mb={'4'}
+                  >
+                    Applications
+                  </Text>
+
+                  <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+                    <List spacing={2}>
+                      {applications.map((application, index) => {
+                        return (
+                          <>
+                            <ListItem key={index}>{application}</ListItem>
+                          </>
+                        )
+                      })}
+                    </List>
+                  </SimpleGrid>
                 </Box>
               </Stack>
 

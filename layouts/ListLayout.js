@@ -21,7 +21,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
           pagination={pagination}
           randomGenerator={randomGenerator}
         />
-        <PopularProducts posts={posts} initialDisplayPosts={'4'} />
+        <PopularProducts posts={posts} layout={'1fr'} initialDisplayPosts={'4'} />
       </Grid>
     </Container>
   )

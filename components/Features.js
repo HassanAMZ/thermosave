@@ -30,19 +30,19 @@ export default function Features() {
                 fontSize={'xl'}
                 color={useColorModeValue('gray.50', 'gray.800')}
               >
-                Technology
+                Our Company
               </Text>
               <Heading
                 color={useColorModeValue('gray.200', 'gray.800')}
                 mb={5}
                 fontSize={{ base: '3xl', md: '5xl' }}
               >
-                21st century agriculture
+                21st Century Technology
               </Heading>
               <Text fontSize={'xl'} color={useColorModeValue('gray.300', 'gray.800')}>
-                The NewLife™ technology allows you to monitor your crops and get complete insights
-                at real time. The proprietary software/hardware ecosystem prevents your plants from
-                getting neglected.
+                Thermosave brings the solutions of all heat losses by bringing the removatble
+                thermal jackets based on self extengutior thermal cloths, and cutting edge electric
+                heaters line-up for advance needs.
               </Text>
             </Box>
 
@@ -74,7 +74,8 @@ const stats = [
     title: '10+',
     content: (
       <>
-        <StatsText>Software modules</StatsText> for detailed monitoring and real-time analytics
+        <StatsText>Years Of Excellence</StatsText> in polymer industry, saving cost and energy every
+        day.
       </>
     ),
   },
@@ -82,24 +83,24 @@ const stats = [
     title: '24/7',
     content: (
       <>
-        <StatsText>Analytics</StatsText> enabled right in your dashboard without history limitations
+        <StatsText>Service</StatsText> provided to the clients throughout the year.
       </>
     ),
   },
   {
-    title: '13%',
+    title: '20%+',
     content: (
       <>
-        <StatsText>Farms</StatsText> in North America has chosen NewLife™ as their management
-        solution
+        <StatsText>Energy Saving</StatsText>recorded in high energy consuming machines
       </>
     ),
   },
   {
-    title: '250M+',
+    title: '100+',
     content: (
       <>
-        <StatsText>Plants</StatsText> currently connected and monitored by the NewLife™ software
+        <StatsText>Satisfied Clients</StatsText> thorughout Pakistan with collaboration extending
+        soon to China.
       </>
     ),
   },

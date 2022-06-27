@@ -6,6 +6,7 @@ import Features from '@/components/Features'
 import Testimonial from '@/components/Testimonial'
 import Statistics from '@/components/Statistics'
 import FeaturesNew from '@/components/FeaturesNew'
+import PopularProducts from '@/components/PopularProducts'
 import {
   Flex,
   Box,
@@ -37,20 +38,22 @@ export default function Home({ posts, initialDisplayProducts, pagination, tags }
   return (
     <Box>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-
       <Container maxW="container.xl">
         <Hero />
       </Container>
 
       <Features />
 
-      <Container maxW="container.xl" py={{ base: 4, md: 20, xl: 40 }}>
+      <Container maxW="container.xl" py={{ base: 4, md: 20, xl: 32 }}>
         <FeaturesNew />
       </Container>
-
       <Statistics />
 
-      <Container maxW="container.xl" py="10">
+      <Container maxW="container.xl">
+        <PopularProducts posts={posts} layout={'1fr 1fr'} initialDisplayPosts={'4'} />
+      </Container>
+
+      <Container maxW="container.xl" py={{ base: 4, md: 20, xl: 32 }}>
         <Testimonial />
       </Container>
     </Box>
