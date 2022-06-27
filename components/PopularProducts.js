@@ -29,7 +29,7 @@ export default function PopularProducts({ posts, layout }) {
                       lg: '120px 1fr',
                     }}
                   >
-                    <Box borderRadius={'15px'} overflow="hidden">
+                    <Box borderRadius={'15px'} bg="white" overflow="hidden">
                       <Image
                         src={coverImage}
                         layout="responsive"

@@ -1,13 +1,11 @@
 import {
   Box,
   Link as ChakraLink,
-  Center,
   useColorModeValue,
   Heading,
   Flex,
   Text,
   Stack,
-  Button,
 } from '@chakra-ui/react'
 import Image from 'next/image'
 import NextLink from 'next/link'
@@ -16,20 +14,16 @@ import { ExternalLinkIcon } from '@chakra-ui/icons'
 import formatDate from '@/lib/utils/formatDate'
 import { image as AuthorImage, author } from '@/data/siteMetadata'
 import SendAMessage from '@/components/SendAMessage'
-import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
-import { Carousel } from 'react-responsive-carousel'
 
 export default function ProductCard({
   slug,
   coverImage,
-  additionalImage1,
-  additionalImage2,
   date,
   title,
-  summary,
   tags,
   price,
   unit,
+  currency,
 }) {
   return (
     <Flex
@@ -70,15 +64,12 @@ export default function ProductCard({
       </NextLink>
 
       <Stack pt={3} align={'center'}>
-        <Text className="hvr-float" color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
-          Brand
-        </Text>
         <Heading className="hvr-float" fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
           {title}
         </Heading>
         <Stack direction={'row'} align={'center'}>
           <Text className="hvr-float" fontWeight={800} fontSize={'xl'}>
-            {price}
+            {price}&nbsp; {currency}&nbsp; {unit}
           </Text>
         </Stack>
       </Stack>
@@ -108,16 +99,7 @@ export default function ProductCard({
           </Box>
         </Flex>
       </Flex>
-      <NextLink passHref href={`/products/${slug}`}>
-        <ChakraLink
-          className="hvr-float"
-          _hover={{
-            textDecoration: 'none',
-          }}
-        >
-          <SendAMessage />
-        </ChakraLink>
-      </NextLink>
+      <SendAMessage />
     </Flex>
   )
 }
