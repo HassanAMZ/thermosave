@@ -53,6 +53,7 @@ export default function Hero() {
         <Stack spacing={{ base: 4, sm: 6 }} direction={{ base: 'column', sm: 'row' }}>
           <a href={`tel:${+923340250893}`}>
             <Button
+              width="full"
               rounded={'full'}
               size={'lg'}
               fontWeight={'normal'}

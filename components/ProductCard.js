@@ -30,14 +30,12 @@ export default function ProductCard({
       className="hvr-float"
       w="full"
       direction="column"
-      bg={useColorModeValue('gray.100', 'gray.800')}
       boxShadow={'2xl'}
       rounded={'lg'}
       justify={'space-between'}
       align="center"
-      _hover={{
-        bg: useColorModeValue('gray.50', 'gray.900'),
-      }}
+      bg={useColorModeValue('gray.100', 'gray.900')}
+      _hover={{ bg: useColorModeValue('gray.300', 'gray.700') }}
     >
       <NextLink passHref href={`/products/${slug}`}>
         <ChakraLink
@@ -56,7 +54,6 @@ export default function ProductCard({
             bg={useColorModeValue('white', 'white')}
             borderRadius={'15px'}
             overflow="hidden"
-            className="hvr-float"
           >
             <Image src={coverImage} layout="responsive" width={600} height={450} alt={title} />
           </Box>

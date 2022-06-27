@@ -1,18 +1,15 @@
 import NextLink from 'next/link'
 import formatDate from '@/lib/utils/formatDate'
-import { Box, Link as ChakraLink, Heading, Flex, Grid } from '@chakra-ui/react'
+import { Box, Link as ChakraLink, Heading, Flex, Grid, useColorModeValue } from '@chakra-ui/react'
 import Image from 'next/image'
 export default function PopularProducts({ posts, layout }) {
   return (
     <Flex direction="column" gap="5">
-      <Heading as="h2" py="3" fontSize={['xl']}>
-        Popular Products
-      </Heading>
       <Grid templateColumns={{ base: '1fr', sm: layout }} gap="2">
         {posts.slice(0, 5).map((frontMatter, index) => {
           const { slug, date, title, coverImage } = frontMatter
           return (
-            <Box key={index}>
+            <Box borderRadius={'15px'} key={index} bg={'gray.100'} _hover={{ bg: 'gray.300' }}>
               <NextLink href={`/products/${slug}`} passHref>
                 <ChakraLink
                   _hover={{

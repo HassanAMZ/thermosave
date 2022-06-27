@@ -21,7 +21,12 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
           pagination={pagination}
           randomGenerator={randomGenerator}
         />
-        <PopularProducts posts={posts} layout={'1fr'} initialDisplayPosts={'4'} />
+        <Box>
+          <Heading as="h2" py="3" fontSize={['xl']}>
+            Popular Products
+          </Heading>
+          <PopularProducts posts={posts} layout={'1fr'} initialDisplayPosts={'4'} />
+        </Box>
       </Grid>
     </Container>
   )
