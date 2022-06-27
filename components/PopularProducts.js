@@ -9,7 +9,13 @@ export default function PopularProducts({ posts, layout }) {
         {posts.slice(0, 5).map((frontMatter, index) => {
           const { slug, date, title, coverImage } = frontMatter
           return (
-            <Box borderRadius={'15px'} key={index} bg={'gray.100'} _hover={{ bg: 'gray.300' }}>
+            <Box
+              borderColor="red.300"
+              borderWidth="thin"
+              borderRadius={'15px'}
+              key={index}
+              _hover={{ bg: 'red.300' }}
+            >
               <NextLink href={`/products/${slug}`} passHref>
                 <ChakraLink
                   _hover={{

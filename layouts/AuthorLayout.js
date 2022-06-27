@@ -10,10 +10,6 @@ export default function AuthorLayout({ children, frontMatter }) {
       <PageSEO title={`About - ${name}`} description={`About me - ${name}`} />
       <Box py="4">
         <PortfolioIntroductionSummary />
-        {/* <Heading as="h2" py="3" fontSize={['xl']}>
-          A Quick Introduction
-        </Heading> 
-        <Box>{children}</Box> */}
       </Box>
     </>
   )

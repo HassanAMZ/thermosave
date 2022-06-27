@@ -3,23 +3,17 @@ import {
   Flex,
   Container,
   Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   useDisclosure,
   IconButton,
   useColorModeValue,
   Stack,
   useColorMode,
-  Center,
   HStack,
 } from '@chakra-ui/react'
 import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons'
 import headerNavLinks from '@/data/headerNavLinks'
 import Link from 'next/link'
-
+import Logo from '@/components/Logo'
 let NavLinks = headerNavLinks.map((link, index) => (
   <Link key={index} href={link.href}>
     <a>
@@ -53,23 +47,7 @@ export default function NavBar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box
-              px={{ base: '1', sm: '2' }}
-              py={2}
-              textDecoration="none"
-              rounded={'md'}
-              border="1px"
-              textAlign="center"
-              _hover={{
-                textDecoration: 'none',
-
-                border: '1px',
-              }}
-            >
-              <Link href="/">
-                <a>Thermosave</a>
-              </Link>
-            </Box>
+            <Logo />
           </HStack>
           <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
             {NavLinks}

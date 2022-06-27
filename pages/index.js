@@ -42,26 +42,26 @@ export default function Home({ posts, initialDisplayProducts, pagination, tags }
         <Hero />
       </Container>
 
+      <Box>
+        <Features />
+      </Box>
+
       <Container maxW="container.xl" py={{ base: 4, md: 20, xl: 32 }}>
-        <Heading as="h2" textAlign={'center'} fontSize={'4xl'} fontWeight={'bold'}>
+        <Heading pb={8} as="h2" textAlign={'center'} fontSize={'4xl'} fontWeight={'bold'}>
           All Products
         </Heading>
         <PopularProducts posts={posts} layout={'1fr 1fr'} initialDisplayPosts={'4'} />
       </Container>
 
-      <Box py={{ base: 4, md: 20, xl: 32 }}>
-        <Features />
-      </Box>
-
-      <Container maxW="container.xl">
-        <FeaturesNew />
-      </Container>
-
-      <Box py={{ base: 4, md: 20, xl: 32 }}>
+      <Box>
         <Statistics />
       </Box>
 
       <Container maxW="container.xl" py={{ base: 4, md: 20, xl: 32 }}>
+        <FeaturesNew />
+      </Container>
+
+      <Container id="testimonial" maxW="container.xl" py={{ base: 4, md: 20, xl: 32 }}>
         <Testimonial />
       </Container>
     </Box>

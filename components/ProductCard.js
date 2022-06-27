@@ -12,9 +12,9 @@ import NextLink from 'next/link'
 import Tag from '@/components/Tag'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import formatDate from '@/lib/utils/formatDate'
-import { image as AuthorImage, author } from '@/data/siteMetadata'
+import Logo from '@/components/Logo'
 import SendAMessage from '@/components/SendAMessage'
-
+import { author } from '@/data/siteMetadata'
 export default function ProductCard({
   slug,
   coverImage,
@@ -27,6 +27,8 @@ export default function ProductCard({
 }) {
   return (
     <Flex
+      borderColor="red.300"
+      borderWidth="thin"
       className="hvr-float"
       w="full"
       direction="column"
@@ -76,19 +78,7 @@ export default function ProductCard({
         ))}
       </Flex>
       <Flex gap="2" py="3" align={'center'}>
-        <Box>
-          <Image
-            className="hvr-float"
-            rounded={'lg'}
-            t={title}
-            height={30}
-            width={30}
-            objectFit={'cover'}
-            src={AuthorImage}
-            alt={title}
-          />
-        </Box>
-
+        <Logo />
         <Flex direction={['column']} fontSize={['xs', 'sm']} gap="0">
           <Text fontWeight={'extrabold'}>{author}</Text>
           <Box as="time" dateTime={date}>

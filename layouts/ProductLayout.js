@@ -1,9 +1,7 @@
 import NextLink from 'next/link'
+import Image from 'next/image'
 import { ProductsSEO } from '@/components/SEO'
-import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-import ScrollTopAndComment from '@/components/ScrollTopAndComment'
-import GAPageView from '@/components/GAPageView'
 import {
   Box,
   Heading,
@@ -13,45 +11,32 @@ import {
   Button,
   Container,
   Text,
-  chakra,
   Stack,
-  Image,
   VStack,
   SimpleGrid,
   StackDivider,
   useColorModeValue,
-  VisuallyHidden,
   List,
   ListItem,
 } from '@chakra-ui/react'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 import { Carousel } from 'react-responsive-carousel'
-
 import SendAMessage from '@/components/SendAMessage'
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { MdLocalShipping } from 'react-icons/md'
-const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
 
 export default function ProductsLayout({ frontMatter, authorDetails, next, prev, children }) {
   const {
     slug,
-    fileName,
-    date,
     title,
-    tags,
-    coverImage,
     applications,
     summary,
-    productsID,
     details,
-    description,
     features,
     unit,
     price,
     currency,
     caousalImages,
   } = frontMatter
-  const { avatar, name, instagram } = authorDetails[0]
   return (
     <>
       <ProductsSEO
@@ -59,7 +44,6 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
         authorDetails={authorDetails}
         {...frontMatter}
       />
-
       <Box>
         <Container maxW="container.xl">
           <SimpleGrid
@@ -89,20 +73,12 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                   {price}&nbsp; {currency}&nbsp; {unit}
                 </Text>
               </Box>
-
               <Stack
                 spacing={{ base: 4, sm: 6 }}
                 direction={'column'}
                 divider={<StackDivider borderColor={useColorModeValue('gray.200', 'gray.600')} />}
               >
                 <VStack spacing={{ base: 4, sm: 6 }}>
-                  {/* <Text
-                    color={useColorModeValue('gray.500', 'gray.400')}
-                    fontSize={'2xl'}
-                    fontWeight={'300'}
-                  >
-                
-                  </Text> */}
                   <Text fontSize={'lg'}>{summary}</Text>
                 </VStack>
                 <Box>
@@ -115,7 +91,6 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                   >
                     Features
                   </Text>
-
                   <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
                     <List spacing={2}>
                       {features.map((feature, index) => {
@@ -138,7 +113,6 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                   >
                     Product Details
                   </Text>
-
                   <List spacing={2}>
                     {Object.keys(details).map((ObjectKey, index) => (
                       <ListItem key={index}>
@@ -150,7 +124,6 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                     ))}
                   </List>
                 </Box>
-
                 <Box>
                   <Text
                     fontSize={{ base: '16px', lg: '18px' }}
@@ -161,7 +134,6 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                   >
                     Applications
                   </Text>
-
                   <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
                     <List spacing={2}>
                       {applications.map((application, index) => {
@@ -175,9 +147,7 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                   </SimpleGrid>
                 </Box>
               </Stack>
-
               <SendAMessage />
-
               <Stack direction="row" alignItems="center" justifyContent={'center'}>
                 <MdLocalShipping />
                 <Text>7 - 10 business days delivery</Text>
@@ -192,8 +162,6 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
           <Box>
             <Flex direction="column" py="2">
               <Box as="article">{children}</Box>
-
-              {/* <Comments frontMatter={frontMatter} /> */}
 
               <Box>
                 <Box py="2">
@@ -211,23 +179,53 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                               <Button
                                 colorScheme="red"
                                 size="sm"
-                                w="fit-content"
+                                w="100%"
                                 textTransform={'uppercase'}
                                 variant="solid"
                                 rounded={'full'}
                                 fontWeight={'normal'}
                                 px={6}
                                 bg={'red.400'}
-                                _hover={{ bg: 'red.500' }}
+                                _hover={{ bg: 'red.500', textDecoration: 'none' }}
                                 my="4"
                               >
-                                Previous Article
+                                Previous Product
                               </Button>
                             </ChakraLink>
                           </NextLink>
                           <NextLink passHref href={`/products/${prev.slug}`}>
-                            <ChakraLink>
-                              <Text py="2">{prev.title}</Text>
+                            <ChakraLink px="2" _hover={{ textDecoration: 'none' }}>
+                              <Box borderColor="red.300" borderWidth="thin" borderRadius={'15px'}>
+                                <Grid
+                                  gap="5"
+                                  templateColumns={{
+                                    base: '150px 1fr',
+                                    sm: '170px 1fr',
+                                    md: '140px 1fr',
+                                    lg: '120px 1fr',
+                                  }}
+                                >
+                                  <Image
+                                    src={prev.coverImage}
+                                    layout="responsive"
+                                    width={600}
+                                    height={450}
+                                    alt={prev.title}
+                                  />
+
+                                  <Flex direction={'column'} justify="center">
+                                    <Heading
+                                      as="h3"
+                                      px="2"
+                                      textTransform="capitalize"
+                                      fontSize="sm"
+                                      overflow="hidden"
+                                    >
+                                      {prev.title}
+                                    </Heading>
+                                  </Flex>
+                                </Grid>
+                              </Box>
                             </ChakraLink>
                           </NextLink>
                         </Flex>
@@ -237,7 +235,7 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                           <NextLink passHref href={`/products/${next.slug}`}>
                             <ChakraLink>
                               <Button
-                                w="fit-content"
+                                w="100%"
                                 colorScheme="red"
                                 size="sm"
                                 textTransform={'uppercase'}
@@ -246,18 +244,46 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                                 fontWeight={'normal'}
                                 px={6}
                                 bg={'red.400'}
-                                _hover={{ bg: 'red.500' }}
+                                _hover={{ bg: 'red.500', textDecoration: 'none' }}
                                 my="4"
                               >
-                                Next Article
+                                Next Product
                               </Button>
                             </ChakraLink>
                           </NextLink>
                           <NextLink passHref href={`/products/${next.slug}`}>
-                            <ChakraLink>
-                              <Text py="2" textAlign={'end'}>
-                                {next.title}
-                              </Text>
+                            <ChakraLink _hover={{ textDecoration: 'none' }}>
+                              <Box borderColor="red.300" borderWidth="thin" borderRadius={'15px'}>
+                                <Grid
+                                  gap="5"
+                                  templateColumns={{
+                                    base: '150px 1fr',
+                                    sm: '170px 1fr',
+                                    md: '140px 1fr',
+                                    lg: '120px 1fr',
+                                  }}
+                                >
+                                  <Image
+                                    src={next.coverImage}
+                                    layout="responsive"
+                                    width={600}
+                                    height={450}
+                                    alt={next.title}
+                                  />
+
+                                  <Flex direction={'column'} justify="center">
+                                    <Heading
+                                      as="h3"
+                                      px="2"
+                                      textTransform="capitalize"
+                                      fontSize="sm"
+                                      overflow="hidden"
+                                    >
+                                      {next.title}
+                                    </Heading>
+                                  </Flex>
+                                </Grid>
+                              </Box>
                             </ChakraLink>
                           </NextLink>
                         </Flex>
@@ -278,7 +304,7 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                       fontWeight={'normal'}
                       px={6}
                       bg={'red.400'}
-                      _hover={{ bg: 'red.500' }}
+                      _hover={{ bg: 'red.500', textDecoration: 'none' }}
                       my="4"
                     >
                       <Text py="2">&larr; Back to the productss</Text>
