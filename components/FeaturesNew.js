@@ -1,7 +1,5 @@
 import {
-  Container,
   SimpleGrid,
-  Image,
   Flex,
   Heading,
   Text,
@@ -12,7 +10,7 @@ import {
 } from '@chakra-ui/react'
 import Link from 'next/link'
 import { IoAnalyticsSharp, IoLogoBitcoin, IoSearchSharp } from 'react-icons/io5'
-
+import Image from 'next/image'
 const Feature = ({ text, icon, iconBg }) => {
   return (
     <Stack direction={'row'} align={'center'}>
@@ -67,14 +65,14 @@ export default function FeaturesNew() {
             />
           </Stack>
         </Stack>
-        <Flex>
-          <Image
-            rounded={'lg'}
-            alt={'feature image'}
-            src={'/static/images/features-new.png'}
-            objectFit={'cover'}
-          />
-        </Flex>
+        <Image
+          rounded={'lg'}
+          alt={'feature image'}
+          src={'/static/images/features-new.png'}
+          layout="responsive"
+          width={1080}
+          height={1080}
+        />
       </SimpleGrid>
     </Link>
   )
