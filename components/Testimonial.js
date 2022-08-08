@@ -11,29 +11,26 @@ import {
 
 const testimonials = [
   {
-    name: 'Malta Industries, Karachi',
+    name: 'Al Khair Five Star Forms, Lahore, Punjab',
     role: 'Owner',
     content:
       'Its really easy to work with Nasir, we have been working for about 3 years now, helping me save over a 30k PKR Monthly on 3 machines',
-    avatar:
-      'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
+    avatar: '/static/previousClients/AlKhair.jpg',
   },
   {
-    name: 'Dawlance, Karachi.',
+    name: 'Paragon Plastic Industries, Rawalpindi.',
     role: 'General Manager',
     content:
       'Our engineering team confirmed 1.3 Unit energy saved per hour on a single extruder machine, that implies to about 20nits per hour on 16 different machines.',
-    avatar:
-      'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
+    avatar: '/static/previousClients/ParagonPlastics.jpg',
   },
-  // {
-  //   name: 'Darcy L.',
-  //   role: 'Movie star',
-  //   content:
-  //     "Thank you for making it painless, pleasant and most of all, hassle free! I'm good to go. No matter where you go, EEZY is the coolest, most happening thing around! I love EEZY!",
-  //   avatar:
-  //     'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80',
-  // },
+  {
+    name: 'Gondal Precast, Gujrat.',
+    role: 'Manager',
+    content:
+      'Amazing working experince with Nasir and the team, exceptional Product Quality and Outstanding Savings',
+    avatar: '/static/previousClients/GondalPrecast.png',
+  },
   // {
   //   name: 'Daniel T.',
   //   role: 'Musician',
