@@ -102,7 +102,7 @@ export const ProductsSEO = ({
     authorList = authorDetails.map((author) => {
       return {
         '@type': 'Person',
-        url: ' https://Thermosave.org/about',
+        url: ' https://thermosave.pk/about',
         name: author.name,
       }
     })
