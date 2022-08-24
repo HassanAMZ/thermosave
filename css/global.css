@@ -191,3 +191,21 @@ button:focus {
   -webkit-animation-timing-function: ease-out;
   animation-timing-function: ease-out;
 }
+
+/* Hero Section Start */
+
+@keyframes textAnimate {
+  0% {
+    stroke-dasharray: 0 50%;
+    stroke-dashoffset: 20%;
+    fill: hsl(189, 68%, 75%);
+  }
+
+  100% {
+    stroke-dasharray: 50% 0;
+    stroke-dashoffstet: -20%;
+    fill: hsla(189, 68%, 75%, 0%);
+  }
+}
+
+/* Hero Section End */

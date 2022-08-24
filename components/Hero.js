@@ -13,86 +13,90 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import Video from '@/components/Video'
+import Head from 'next/head'
 import Link from 'next/link'
+import { useEffect } from 'react'
 export default function Hero() {
+  useEffect(() => {
+    var i = 0
+    var txt = 'Investment!' /* The text */
+    var speed = 50 /* The speed/duration of the effect in milliseconds */
+
+    function typeWriter() {
+      if (i < txt.length) {
+        document.getElementById('typing_text').innerHTML += txt.charAt(i)
+        i++
+        setTimeout(typeWriter, speed)
+      }
+    }
+    typeWriter()
+  }, [])
+
   return (
-    <Stack
-      align={'center'}
-      spacing={{ base: 8, md: 10 }}
-      py={{ base: 20, md: 28 }}
-      direction={{ base: 'column', md: 'row' }}
-    >
-      <Stack flex={1} spacing={{ base: 5, md: 10 }}>
-        <Heading lineHeight={1.1} fontWeight={600} fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}>
-          <Text
-            as={'span'}
-            position={'relative'}
-            _after={{
-              content: "''",
-              width: 'full',
-              height: '30%',
-              position: 'absolute',
-              bottom: 1,
-              left: 0,
-              bg: 'red.400',
-              zIndex: -1,
-            }}
+    <>
+      <Stack
+        align={'center'}
+        spacing={{ base: 8, md: 10 }}
+        py={{ base: 20, md: 28 }}
+        direction={{ base: 'column', md: 'row' }}
+      >
+        <Stack flex={1} spacing={{ base: 5, md: 10 }}>
+          <Heading
+            fontWeight={600}
+            fontSize={{ base: '4xl', sm: '5xl', md: '6xl', lg: '7xl' }}
+            lineHeight={'110%'}
           >
-            Save with,
+            Saving is the Best <Text id="typing_text" color={'red.400'}></Text>
+          </Heading>
+          <Text color={'gray.500'} fontSize={{ base: 'sm', sm: 'md', md: 'lg' }}>
+            A new name but a familiar face with the experience of ten years of serving to polymer
+            industry now in your region with professionals and capable team which observe keenly
+            think wisely, and deliver perfectly.
           </Text>
-          <br />
-          <Text as={'span'} color={'red.400'}>
-            Style & Safety
-          </Text>
-        </Heading>
-        <Text color={'gray.500'}>
-          A new name but a familiar face with the experience of ten years of serving to polymer
-          industry now in your region with professionals and capable team which observe keenly think
-          wisely, and deliver perfectly
-        </Text>
-        <Stack spacing={{ base: 4, sm: 6 }} direction={{ base: 'column', sm: 'row' }}>
-          <a href={`tel:${+923340250893}`}>
-            <Button
-              width="full"
-              rounded={'full'}
-              size={'lg'}
-              fontWeight={'normal'}
-              px={6}
-              colorScheme={'red'}
-              bg={'red.400'}
-              _hover={{ bg: 'red.500' }}
-            >
-              Call Now
-            </Button>
-          </a>
-          <Link passHref href="/products">
-            <Button rounded={'full'} size={'lg'} fontWeight={'normal'} px={6}>
-              Check Our Products
-            </Button>
-          </Link>
+          <Stack spacing={{ base: 4, sm: 6 }} direction={'row'}>
+            <a href={`tel:${+923340250893}`}>
+              <Button
+                width="full"
+                rounded={'full'}
+                size={'lg'}
+                fontWeight={'normal'}
+                px={6}
+                colorScheme={'red'}
+                bg={'red.400'}
+                _hover={{ bg: 'red.500' }}
+              >
+                Call Now
+              </Button>
+            </a>
+            <Link passHref href="/products">
+              <Button rounded={'full'} size={'lg'} fontWeight={'normal'} px={6}>
+                Check Our Products
+              </Button>
+            </Link>
+          </Stack>
         </Stack>
+        <Flex flex={1} justify={'center'} align={'center'} position={'relative'} w={'full'}>
+          <Blob
+            w={'150%'}
+            h={'150%'}
+            position={'absolute'}
+            top={'-20%'}
+            left={0}
+            zIndex={-1}
+            color={useColorModeValue('red.50', 'red.400')}
+          />
+          <Box
+            position={'relative'}
+            rounded={'2xl'}
+            boxShadow={'2xl'}
+            width={'full'}
+            overflow={'hidden'}
+          >
+            <Video videoSource="/static/videos/00001.mp4" />
+          </Box>
+        </Flex>
       </Stack>
-      <Flex flex={1} justify={'center'} align={'center'} position={'relative'} w={'full'}>
-        <Blob
-          w={'150%'}
-          h={'150%'}
-          position={'absolute'}
-          top={'-20%'}
-          left={0}
-          zIndex={-1}
-          color={useColorModeValue('red.50', 'red.400')}
-        />
-        <Box
-          position={'relative'}
-          rounded={'2xl'}
-          boxShadow={'2xl'}
-          width={'full'}
-          overflow={'hidden'}
-        >
-          <Video videoSource="/static/videos/00001.mp4" />
-        </Box>
-      </Flex>
-    </Stack>
+    </>
   )
 }
 
