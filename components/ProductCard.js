@@ -63,16 +63,16 @@ export default function ProductCard({
       </NextLink>
 
       <Stack pt={3} align={'center'}>
-        <Heading className="hvr-float" fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
+        <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
           {title}
         </Heading>
-        <Stack direction={'row'} align={'center'}>
+        {/* <Stack direction={'row'} align={'center'}>
           <Text className="hvr-float" fontWeight={800} fontSize={'xl'}>
             {price}&nbsp; {currency}&nbsp; {unit}
           </Text>
-        </Stack>
+        </Stack> */}
       </Stack>
-      <Flex className="hvr-float" align="center" justify="center" direction={'row'} flexWrap="wrap">
+      <Flex align="center" justify="center" direction={'row'} flexWrap="wrap">
         {tags.slice(0, 3).map((tag) => (
           <Tag key={tag} text={tag} icon={<ExternalLinkIcon />} />
         ))}

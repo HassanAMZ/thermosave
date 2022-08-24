@@ -65,13 +65,13 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                 >
                   {title}
                 </Heading>
-                <Text
+                {/* <Text
                   color={useColorModeValue('gray.900', 'gray.400')}
                   fontWeight={300}
                   fontSize={'2xl'}
                 >
                   {price}&nbsp; {currency}&nbsp; {unit}
-                </Text>
+                </Text> */}
               </Box>
               <Stack
                 spacing={{ base: 4, sm: 6 }}
@@ -170,10 +170,11 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                       {prev && (
                         <Flex direction="column" align={{ base: 'center', sm: 'start' }} py="2">
                           <NextLink
+                            flex="auto"
                             passHref
+                            alignSelf=" stretch"
                             href={`/products/${prev.slug}`}
-                            aria-label="Next Products"
-                            width={{ base: '100%', sm: 'fit-content' }}
+                            aria-label="Previous Product"
                           >
                             <ChakraLink textDecoration={'none !important'}>
                               <Button
@@ -307,7 +308,7 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
                       _hover={{ bg: 'red.500', textDecoration: 'none' }}
                       my="4"
                     >
-                      <Text py="2">&larr; Back to the productss</Text>
+                      <Text py="2">&larr; Back to the products</Text>
                     </Button>
                   </ChakraLink>
                 </NextLink>
