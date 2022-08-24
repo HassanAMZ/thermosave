@@ -1,7 +1,9 @@
 import NextLink from 'next/link'
 import formatDate from '@/lib/utils/formatDate'
-import { Box, Link as ChakraLink, Heading, Flex, Grid, useColorModeValue } from '@chakra-ui/react'
+import { Box, Link as ChakraLink, Heading, Flex, Grid, Text } from '@chakra-ui/react'
 import Image from 'next/image'
+import Logo from '@/components/Logo'
+import { author } from '@/data/siteMetadata'
 export default function PopularProducts({ posts, layout }) {
   return (
     <Flex direction="column" gap="5">
@@ -41,7 +43,7 @@ export default function PopularProducts({ posts, layout }) {
                         alt={title}
                       />
                     </Box>
-                    <Flex direction={'column'} justify="center">
+                    <Flex direction={'column'} justify="center" align="left">
                       <Heading
                         as="h1"
                         textTransform="capitalize"
@@ -49,9 +51,15 @@ export default function PopularProducts({ posts, layout }) {
                       >
                         {title}
                       </Heading>
-                      <Box as="time" dateTime={date} fontSize={{ sm: 'xs', md: 'sm', lg: 'md' }}>
-                        {formatDate(date)}
-                      </Box>
+                      <Flex gap="2" align={'center'}>
+                        <Logo />
+                        <Flex direction={['column']} fontSize={['xs', 'sm']} gap="0">
+                          <Text fontWeight={'extrabold'}>{author}</Text>
+                          <Box as="time" dateTime={date}>
+                            {formatDate(date)}
+                          </Box>
+                        </Flex>
+                      </Flex>
                     </Flex>
                   </Grid>
                 </ChakraLink>
