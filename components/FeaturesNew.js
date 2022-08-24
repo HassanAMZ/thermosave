@@ -43,8 +43,9 @@ export default function FeaturesNew() {
           <Text color={'gray.500'} fontSize={'lg'}>
             Thermosave is dedicated to come up with solutions to all the heat losses issues in the
             industries by 2030
-          </Text>
+          </Text>{' '}
           <Stack
+            display={{ base: 'none', md: 'block' }}
             spacing={4}
             divider={<StackDivider borderColor={useColorModeValue('gray.100', 'gray.700')} />}
           >
@@ -64,7 +65,7 @@ export default function FeaturesNew() {
               text={'Monitor & Improve'}
             />
           </Stack>
-        </Stack>
+        </Stack>{' '}
         <Image
           rounded={'lg'}
           alt={'feature image'}
@@ -73,6 +74,27 @@ export default function FeaturesNew() {
           width={1080}
           height={1080}
         />
+        <Stack
+          display={{ base: 'block', md: 'none' }}
+          spacing={4}
+          divider={<StackDivider borderColor={useColorModeValue('gray.100', 'gray.700')} />}
+        >
+          <Feature
+            icon={<Icon as={IoAnalyticsSharp} color={'yellow.500'} w={5} h={5} />}
+            iconBg={useColorModeValue('yellow.100', 'yellow.900')}
+            text={'Analyzing the Root Cause of Heat Loss'}
+          />
+          <Feature
+            icon={<Icon as={IoLogoBitcoin} color={'green.500'} w={5} h={5} />}
+            iconBg={useColorModeValue('green.100', 'green.900')}
+            text={'Resolving the Heat Lose Causes'}
+          />
+          <Feature
+            icon={<Icon as={IoSearchSharp} color={'red.500'} w={5} h={5} />}
+            iconBg={useColorModeValue('red.100', 'red.900')}
+            text={'Monitor & Improve'}
+          />
+        </Stack>
       </SimpleGrid>
     </Link>
   )
