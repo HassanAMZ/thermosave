@@ -1,6 +1,6 @@
 const siteMetadata = {
   title: 'Thermosave -  Energy Saving Company',
-  author: 'Nasir Ifran',
+  author: 'ThermoSave',
   headerTitle: 'Thermosave - Energy Saving Company',
   description:
     'A technical web analytics products about Google Tag Manager and Google Analytics (other related stuff) created and constantly updated by Thermosave',
