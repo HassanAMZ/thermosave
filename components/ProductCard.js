@@ -8,7 +8,7 @@ export default function ProductCard({ slug, coverImage, title, tags, summary }) 
     <Box
       color={useColorModeValue('gray.100', 'white')}
       bgColor={useColorModeValue('gray.800', 'gray.800')}
-      className=" rounded-lg  border border-white-200 shadow-md"
+      className="rounded-lg"
     >
       <NextLink passHref href={`/products/${slug}`}>
         <ChakraLink
