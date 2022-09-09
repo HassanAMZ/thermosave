@@ -23,6 +23,7 @@ const Tag = ({ text, icon, size }) => {
             fontWeight={'normal'}
             px={2}
             py={1}
+            color="black"
             bgColor={getRandomColor()}
             _hover={{ bg: 'red.500', color: 'white' }}
           >
