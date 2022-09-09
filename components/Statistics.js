@@ -7,6 +7,7 @@ import {
   StatNumber,
   useColorModeValue,
   Container,
+  Text,
 } from '@chakra-ui/react'
 
 function StatsCard(props) {
@@ -48,7 +49,11 @@ export default function Statistics() {
           px={{ base: 2, sm: 12, md: 17 }}
           color={useColorModeValue('gray.300', 'gray.800')}
         >
-          <chakra.h1 textAlign={'center'} fontSize={'4xl'} py={10} fontWeight={'bold'}>
+          <Text className="text-center">
+            Thermosave is dedicated to come up with solutions to all the heat losses issues in the
+            industries by 2030
+          </Text>
+          <chakra.h1 textAlign={'center'} fontSize={'4xl'} pb={10} fontWeight={'bold'}>
             What is our company doing?
           </chakra.h1>
           <SimpleGrid

@@ -39,11 +39,8 @@ export default function FeaturesNew() {
           >
             Our Story
           </Text>
-          <Heading>An Energy Saving Company</Heading>
-          <Text color={'gray.500'} fontSize={'lg'}>
-            Thermosave is dedicated to come up with solutions to all the heat losses issues in the
-            industries by 2030
-          </Text>{' '}
+          <Heading className="capitalize">Our 3 Step process for working</Heading>
+
           <Stack
             display={{ base: 'none', md: 'block' }}
             spacing={4}
@@ -65,7 +62,7 @@ export default function FeaturesNew() {
               text={'Monitor & Improve'}
             />
           </Stack>
-        </Stack>{' '}
+        </Stack>
         <Image
           rounded={'lg'}
           alt={'feature image'}

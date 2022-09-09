@@ -6,27 +6,28 @@ const Tag = ({ text, icon, size }) => {
   function random(number) {
     return Math.floor(Math.random() * number)
   }
-  function randomColor() {
-    return 'rgba(' + random(255) + ',' + random(255) + ',' + random(255) + ',0.2)'
+  function getRandomColor() {
+    var letters = 'BCDEF'.split('')
+    var color = '#'
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * letters.length)]
+    }
+    return color
   }
   return (
     <Box pr="2" py="1">
       <Link href={`/tags/${kebabCase(text)}`}>
         <a>
           <Button
-            size="sm"
+            size={{ base: 'xs', sm: 'sm' }}
             fontWeight={'normal'}
-            px={3}
+            px={2}
             py={1}
-            bgColor={randomColor()}
+            bgColor={getRandomColor()}
             _hover={{ bg: 'red.500', color: 'white' }}
-            borderWidth="1px"
           >
             <Flex justify={'center'} align={'center'} fontSize={'xx-small'}>
-              <Text textTransform={'uppercase'} mr="2">
-                {text.split(' ').join('-')}
-              </Text>
-              <Box>{icon}</Box>
+              <Text textTransform={'uppercase'}>{text.split(' ').join('-')}</Text>
             </Flex>
           </Button>
         </a>

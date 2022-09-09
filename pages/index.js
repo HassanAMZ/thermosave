@@ -6,12 +6,12 @@ import Features from '@/components/Features'
 import Testimonial from '@/components/Testimonial'
 import Statistics from '@/components/Statistics'
 import FeaturesNew from '@/components/FeaturesNew'
-import PopularProducts from '@/components/PopularProducts'
+import ProductCard from '@/components/ProductCard'
 import {
   Flex,
   Box,
   Heading,
-  Button,
+  Grid,
   Container,
   Link as ChakraLink,
   useColorModeValue,
@@ -33,8 +33,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ posts, initialDisplayProducts, pagination, tags }) {
-  const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a])
-
   return (
     <Box>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
@@ -50,7 +48,24 @@ export default function Home({ posts, initialDisplayProducts, pagination, tags }
         <Heading pb={8} as="h2" textAlign={'center'} fontSize={'4xl'} fontWeight={'bold'}>
           All Products
         </Heading>
-        <PopularProducts posts={posts} layout={'1fr 1fr'} initialDisplayPosts={'4'} />
+        <Grid templateColumns="repeat(auto-fit, minmax(300px, 1fr))" gap={3} m="0">
+          {initialDisplayProducts.map((frontMatter, index) => {
+            const { slug, date, title, summary, tags, coverImage, price, unit } = frontMatter
+            return (
+              <ProductCard
+                slug={slug}
+                date={date}
+                title={title}
+                summary={summary}
+                tags={tags}
+                coverImage={coverImage}
+                price={price}
+                unit={unit}
+                key={index}
+              />
+            )
+          })}
+        </Grid>{' '}
       </Container>
 
       <Box>

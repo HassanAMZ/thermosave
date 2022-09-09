@@ -93,7 +93,6 @@ function TestimonialCard(props) {
         <chakra.p fontWeight={'bold'} fontSize={14}>
           {name}
           <chakra.span fontWeight={'medium'} color={'gray.500'}>
-            {' '}
             - {role}
           </chakra.span>
         </chakra.p>
@@ -137,8 +136,8 @@ export default function Testimonial() {
           fontWeight={'medium'}
           color={useColorModeValue('gray.500', 'gray.400')}
         >
-          See why over{' '}
-          <chakra.strong color={useColorModeValue('gray.700', 'gray.50')}>200+</chakra.strong>{' '}
+          See why over
+          <chakra.strong color={useColorModeValue('gray.700', 'gray.50')}>200+</chakra.strong>
           clients work with us
         </chakra.h2>
       </Box>
