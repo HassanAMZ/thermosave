@@ -30,7 +30,7 @@ const Card = ({ slug, coverImage, title, tags, summary }) => {
             </Heading>
           </CustomLink>
           <Flex align="center" justify="left" direction={'row'} flexWrap="wrap">
-            {tags.slice(0, 3).map((tag) => (
+            {tags.map((tag) => (
               <Tag key={tag} text={tag} icon={<ExternalLinkIcon />} />
             ))}
           </Flex>
