@@ -10,8 +10,8 @@ const ImageGallery = () => {
         title={`Image Gallery - ${siteMetadata.author}`}
         description={siteMetadata.description}
       />
-
-      <ImageCarousel />
+      Under Construction
+      {/* <ImageCarousel /> */}
     </>
   )
 }
