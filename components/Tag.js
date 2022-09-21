@@ -19,15 +19,15 @@ const Tag = ({ text, icon, size }) => {
       <Link href={`/tags/${kebabCase(text)}`}>
         <a>
           <Button
-            size={{ base: 'xs', sm: 'sm' }}
-            fontWeight={'normal'}
+            size="xs"
+            fontWeight={'bold'}
             px={2}
             py={1}
-            color="black"
-            bgColor={getRandomColor()}
+            color="red.500"
+            bgColor="white"
             _hover={{ bg: 'red.500', color: 'white' }}
           >
-            <Flex justify={'center'} align={'center'} fontSize={'xx-small'}>
+            <Flex justify={'center'} align={'center'}>
               <Text textTransform={'uppercase'}>{text.split(' ').join('-')}</Text>
             </Flex>
           </Button>

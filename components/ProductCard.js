@@ -1,7 +1,8 @@
 import CustomLink from '@/components/Link'
 import { Text, Flex, Box, useColorModeValue, Heading } from '@chakra-ui/react'
 import SendAMessage from '@/components/SendAMessage'
-import { FaArrowRight } from 'react-icons/fa'
+import Tag from '@/components/Tag'
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 const Card = ({ slug, coverImage, title, tags, summary }) => {
   return (
     <Flex
@@ -9,8 +10,8 @@ const Card = ({ slug, coverImage, title, tags, summary }) => {
       bgColor={useColorModeValue('white', 'white')}
       className="bg-white flex justify-between flex-col rounded-lg border border-gray-200 shadow-md dark:border-gray-700"
     >
-      <CustomLink href={`/blog/${slug}`}>
-        <div className="rounded-t-lg overflow-hidden  w-auto h-full bg-white">
+      <CustomLink href={`/products/${slug}`}>
+        <div className="rounded-t-lg overflow-hidden flex items-center justify-center w-auto">
           <img className="rounded-t-lg bg-white" src={coverImage} alt="" />
         </div>
       </CustomLink>
@@ -19,7 +20,7 @@ const Card = ({ slug, coverImage, title, tags, summary }) => {
         bgColor={useColorModeValue('gray.200', 'gray.800')}
       >
         <div className="p-5">
-          <CustomLink href={`/blog/${slug}`}>
+          <CustomLink href={`/products/${slug}`}>
             <Heading
               fontSize="2xl"
               color={useColorModeValue('gray.800', 'white')}
@@ -28,6 +29,11 @@ const Card = ({ slug, coverImage, title, tags, summary }) => {
               {title}
             </Heading>
           </CustomLink>
+          <Flex align="center" justify="left" direction={'row'} flexWrap="wrap">
+            {tags.slice(0, 3).map((tag) => (
+              <Tag key={tag} text={tag} icon={<ExternalLinkIcon />} />
+            ))}
+          </Flex>
           <Text
             noOfLines={2}
             color={useColorModeValue('gray.800', 'white')}

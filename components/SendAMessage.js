@@ -4,7 +4,7 @@ import { Button, Center, Text, useColorModeValue } from '@chakra-ui/react'
 export default function SendAMessage() {
   return (
     <a href={`tel:${+923340250893}`}>
-      <Center p={4}>
+      <Center p={4} px={2}>
         <Button
           rounded={'10'}
           w={'full'}
