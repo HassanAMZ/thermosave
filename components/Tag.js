@@ -20,6 +20,7 @@ const Tag = ({ text, icon, size }) => {
         <a>
           <Button
             size="xs"
+            className="border border-red-500"
             fontWeight={'bold'}
             px={2}
             py={1}

@@ -21,9 +21,7 @@ let NavLinks = headerNavLinks.map((link, index) => (
         px={2}
         py={1}
         rounded={'md'}
-        _hover={{
-          textDecoration: 'none',
-        }}
+        _hover={{ bg: 'red.500', color: 'white', textDecoration: 'none' }}
       >
         {link.title}
       </Box>
@@ -58,7 +56,7 @@ export default function NavBar() {
           </Button>
         </Flex>
         {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }}>
+          <Box pb={4} display={{ md: 'none' }} onClick={isOpen ? onClose : onOpen}>
             <Stack>{NavLinks}</Stack>
           </Box>
         ) : null}
