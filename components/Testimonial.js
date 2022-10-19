@@ -2,7 +2,7 @@ import {
   Avatar,
   Box,
   chakra,
-  Container,
+  Image,
   Flex,
   Icon,
   SimpleGrid,
@@ -21,8 +21,8 @@ const testimonials = [
     name: 'Paragon Plastic Industries, Rawalpindi.',
     role: 'General Manager',
     content:
-      'Our engineering team confirmed 1.3 Unit energy saved per hour on a single extruder machine, that implies to about 20nits per hour on 16 different machines.',
-    avatar: '/static/previousClients/ParagonPlastics.jpg',
+      'Our engineering team confirmed 1.3 Unit energy saved per hour on a injection molding machine, that implies to about 20nits per hour on 5 different machines, with the saving of 30k.',
+    avatar: '/static/previousClients/ParagonPlastics.png',
   },
   {
     name: 'Gondal Precast, Gujrat.',
@@ -97,12 +97,14 @@ function TestimonialCard(props) {
           </chakra.span>
         </chakra.p>
       </Flex>
-      <Avatar
+      <Image
         src={avatar}
         height={'80px'}
         width={'80px'}
         alignSelf={'center'}
         m={{ base: '0 0 35px 0', md: '0 0 0 50px' }}
+        alt="Dan Abramov"
+        rounded={'10'}
       />
     </Flex>
   )
