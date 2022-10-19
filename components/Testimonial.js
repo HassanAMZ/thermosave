@@ -14,7 +14,7 @@ const testimonials = [
     name: 'Al Khair Five Star Forms, Lahore, Punjab',
     role: 'Owner',
     content:
-      'Its really easy to work with Nasir, we have been working for about 3 years now, helping me save over a 30k PKR Monthly on 3 machines',
+      'Its really easy to work with Nasir, we have been working for about 3 years now, helping me save over a 200k PKR Monthly on 08 machines.',
     avatar: '/static/previousClients/AlKhair.jpg',
   },
   {
