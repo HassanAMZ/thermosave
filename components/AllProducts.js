@@ -3,7 +3,7 @@ import Pagination from '@/components/Pagination'
 import ProductCard from '@/components/ProductCard'
 import { useState } from 'react'
 import { Search } from 'lucide-react'
-import { Input } from '@/components/components/ui/input'
+import { Input } from '@/components/ui/input'
 
 export default function ListLayout({ posts, initialDisplayPosts = [], pagination }) {
   const [searchValue, setSearchValue] = useState('')

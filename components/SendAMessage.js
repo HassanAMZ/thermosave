@@ -1,5 +1,5 @@
 import { FaPhone } from 'react-icons/fa'
-import { Button } from '@/components/components/ui/button'
+import { Button } from '@/components/ui/button'
 
 export default function SendAMessage() {
   return (

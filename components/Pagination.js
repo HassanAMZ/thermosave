@@ -1,5 +1,5 @@
 import Link from '@/components/Link'
-import { Button } from '@/components/components/ui/button'
+import { Button } from '@/components/ui/button'
 import { cn } from '@/components/lib/utils'
 
 export default function Pagination({ totalPages, currentPage }) {

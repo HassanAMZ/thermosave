@@ -2,7 +2,7 @@
 import Video from '@/components/Video'
 import Link from 'next/link'
 import { useEffect } from 'react'
-import { Button } from '@/components/components/ui/button'
+import { Button } from '@/components/ui/button'
 
 export default function Hero() {
   useEffect(() => {

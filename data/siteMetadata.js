@@ -20,10 +20,9 @@ const siteMetadata = {
   instagram: 'https://instagram.com/Thermosave_',
   locale: 'en-US',
   analytics: {
-    // supports plausible, simpleAnalytics or GoogleTagManager
+    // supports plausible, simpleAnalytics
     plausibleDataDomain: 'Thermosave.pk', // e.g. tailwind-nextjs-starter-products.vercel.app
     simpleAnalytics: false, // true or false
-    googleTagManagerID: 'GTM-K8FLM8W', // e.g.    GTM-K8FLM8W
   },
 
   comment: {

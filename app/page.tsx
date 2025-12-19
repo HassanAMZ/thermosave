@@ -1,4 +1,3 @@
-import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import { getAllTags } from '@/lib/tags'
@@ -7,12 +6,13 @@ import Testimonial from '@/components/Testimonial'
 import Statistics from '@/components/Statistics'
 import FeaturesNew from '@/components/FeaturesNew'
 import ProductCard from '@/components/ProductCard'
-import Hero from '@/components/Hero'
+import { HeroSection } from '@/components/ui/hero-section-1'
+import type { Metadata } from 'next'
 
 export const POSTS_PER_PAGE = 5
 const MAX_DISPLAY = 5
 
-export const metadata = {
+export const metadata: Metadata = {
   title: siteMetadata.title,
   description: siteMetadata.description,
 }
@@ -34,10 +34,7 @@ export default async function Home() {
 
   return (
     <div>
-      <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div className="container mx-auto max-w-7xl">
-        <Hero />
-      </div>
+      <HeroSection />
 
       <div>
         <Features />
@@ -47,17 +44,14 @@ export default async function Home() {
         <h2 className="pb-8 text-center text-4xl font-bold">All Products</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 m-0">
           {initialDisplayProducts.map((frontMatter, index) => {
-            const { slug, date, title, summary, tags, coverImage, price, unit } = frontMatter
+            const { slug, title, summary, tags, coverImage } = frontMatter
             return (
               <ProductCard
                 slug={slug}
-                date={date}
                 title={title}
                 summary={summary}
                 tags={tags}
                 coverImage={coverImage}
-                price={price}
-                unit={unit}
                 key={index}
               />
             )

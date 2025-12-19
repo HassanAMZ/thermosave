@@ -1,4 +1,4 @@
-import { Button } from '@/components/components/ui/button'
+import { Button } from '@/components/ui/button'
 import kebabCase from '@/lib/utils/kebabCase'
 import Link from 'next/link'
 

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { BsLinkedin, BsPhone, BsWhatsapp } from 'react-icons/bs'
 import Logo from '@/components/Logo'
-import { Button } from '@/components/components/ui/button'
+import { Button } from '@/components/ui/button'
 import { cn } from '@/components/lib/utils'
 
 const ListHeader = ({ children, className }) => {

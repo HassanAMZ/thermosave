@@ -5,7 +5,7 @@ import siteMetadata from '@/data/siteMetadata'
 import ImageCarousel from '@/components/ImageCarousel'
 import SendAMessage from '@/components/SendAMessage'
 import { MdLocalShipping } from 'react-icons/md'
-import { Button } from '@/components/components/ui/button'
+import { Button } from '@/components/ui/button'
 
 export default function ProductsLayout({ frontMatter, authorDetails, next, prev, children }) {
   const {
