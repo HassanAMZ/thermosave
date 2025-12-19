@@ -6,16 +6,16 @@ const Card = ({ title, description, imgSrc, href, pid, price }) => (
   <Flex direction="column" pb="5">
     {href ? (
       <Link href={href} aria-label={`Link to ${title}`}>
-        <a>
-          <Image
-            alt={title}
-            src={imgSrc}
-            width="2000px"
-            height="1500px"
-            layout="responsive"
-            objectFit="contain"
-          />
-        </a>
+
+        <Image
+          alt={title}
+          src={imgSrc}
+          width="2000px"
+          height="1500px"
+          layout="responsive"
+          objectFit="contain"
+        />
+
       </Link>
     ) : (
       <Image
@@ -32,9 +32,9 @@ const Card = ({ title, description, imgSrc, href, pid, price }) => (
       {href ? (
         <>
           <Link href={href} aria-label={`Link to ${title}`}>
-            <a>
-              <Text>{title}</Text>
-            </a>
+
+            <Text>{title}</Text>
+
           </Link>
         </>
       ) : (
@@ -47,21 +47,21 @@ const Card = ({ title, description, imgSrc, href, pid, price }) => (
 
     {href && (
       <Link href={href} aria-label={`Link to ${title}`}>
-        <a>
-          <Button
-            m="3"
-            rounded={'full'}
-            size={'lg'}
-            fontWeight={'normal'}
-            px={6}
-            colorScheme={'red'}
-            bg={'red.400'}
-            _hover={{ bg: 'red.500' }}
-            my="4"
-          >
-            Continue ({price}) &rarr;
-          </Button>
-        </a>
+
+        <Button
+          m="3"
+          rounded={'full'}
+          size={'lg'}
+          fontWeight={'normal'}
+          px={6}
+          colorScheme={'red'}
+          bg={'red.400'}
+          _hover={{ bg: 'red.500' }}
+          my="4"
+        >
+          Continue ({price}) &rarr;
+        </Button>
+
       </Link>
     )}
   </Flex>

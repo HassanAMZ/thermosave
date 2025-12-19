@@ -26,9 +26,9 @@ const Courses = ({ posts }) => {
             <Box>
               <Heading as="h2" fontSize={['md', 'xl']}>
                 <Link href={`/products/${slug}`}>
-                  <a>
-                    <Text textTransform="capitalize">{title}</Text>
-                  </a>
+
+                  <Text textTransform="capitalize">{title}</Text>
+
                 </Link>
               </Heading>
               <Flex direction={'row'} flexWrap="wrap" my={[1]}>
@@ -40,21 +40,21 @@ const Courses = ({ posts }) => {
             <Box noOfLines={[3]}>{summary}</Box>
             <Box width={{ base: '100%', sm: 'fit-content' }}>
               <Link href={`/products/${slug}`} aria-label={`Read "${title}"`}>
-                <a>
-                  <Button
-                    rounded={'full'}
-                    size={'lg'}
-                    fontWeight={'normal'}
-                    px={6}
-                    colorScheme={'red'}
-                    bg={'red.400'}
-                    _hover={{ bg: 'red.500', textDecoration: 'none' }}
-                    width="100%"
-                    my="4"
-                  >
-                    Get the course &rarr;
-                  </Button>
-                </a>
+
+                <Button
+                  rounded={'full'}
+                  size={'lg'}
+                  fontWeight={'normal'}
+                  px={6}
+                  colorScheme={'red'}
+                  bg={'red.400'}
+                  _hover={{ bg: 'red.500', textDecoration: 'none' }}
+                  width="100%"
+                  my="4"
+                >
+                  Get the course &rarr;
+                </Button>
+
               </Link>
             </Box>
           </Flex>

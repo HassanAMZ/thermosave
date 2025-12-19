@@ -84,32 +84,32 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                 </Box> */}
 
                 <Link href={`/products/${slug}`}>
-                  <a>
+
+                  <Flex
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    gap="2"
+                  >
                     <Flex
                       direction="row"
                       alignItems="center"
                       justifyContent="space-between"
-                      gap="2"
+                      gap="3"
                     >
-                      <Flex
-                        direction="row"
-                        alignItems="center"
-                        justifyContent="space-between"
-                        gap="3"
+                      <Box> {orderNumber}</Box>
+                      <Heading
+                        as="h2"
+                        fontSize={['sm', 'md', 'xl']}
+                        textTransform="capitalize"
+                        noOfLines={'1'}
                       >
-                        <Box> {orderNumber}</Box>
-                        <Heading
-                          as="h2"
-                          fontSize={['sm', 'md', 'xl']}
-                          textTransform="capitalize"
-                          noOfLines={'1'}
-                        >
-                          {title}
-                        </Heading>
-                      </Flex>
-                      <ExternalLinkIcon />
+                        {title}
+                      </Heading>
                     </Flex>
-                  </a>
+                    <ExternalLinkIcon />
+                  </Flex>
+
                 </Link>
 
                 {/* <div className="flex flex-wrap">
@@ -123,9 +123,9 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
               </ListItem>
               <Divider />
             </Box>
-          )
+          );
         })}
       </UnorderedList>
     </>
-  )
+  );
 }
