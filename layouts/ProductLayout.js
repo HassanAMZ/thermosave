@@ -2,27 +2,10 @@ import NextLink from 'next/link'
 import Image from 'next/image'
 import { ProductsSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
-import {
-  Box,
-  Heading,
-  Link as ChakraLink,
-  Grid,
-  Flex,
-  Button,
-  Container,
-  Text,
-  Stack,
-  VStack,
-  SimpleGrid,
-  StackDivider,
-  useColorModeValue,
-  List,
-  ListItem,
-} from '@chakra-ui/react'
-import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
-import { Carousel } from 'react-responsive-carousel'
+import ImageCarousel from '@/components/ImageCarousel'
 import SendAMessage from '@/components/SendAMessage'
 import { MdLocalShipping } from 'react-icons/md'
+import { Button } from '@/components/components/ui/button'
 
 export default function ProductsLayout({ frontMatter, authorDetails, next, prev, children }) {
   const {
@@ -37,6 +20,9 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
     currency,
     caousalImages,
   } = frontMatter
+
+  const carouselImages = caousalImages?.map((url) => ({ src: url, alt: title })) || []
+
   return (
     <>
       <ProductsSEO
@@ -44,279 +30,155 @@ export default function ProductsLayout({ frontMatter, authorDetails, next, prev,
         authorDetails={authorDetails}
         {...frontMatter}
       />
-      <Box>
-        <Container maxW="container.xl">
-          <SimpleGrid
-            columns={{ base: 1, lg: 2 }}
-            spacing={{ base: 8, md: 10 }}
-            py={{ base: 6, sm: 12, md: 18, lg: 24 }}
-          >
-            <Carousel showArrows={true} autoPlay={true} infiniteLoop={true} showThumbs={true}>
-              {caousalImages.map((url, index) => (
-                <img key={index} src={url} />
-              ))}
-            </Carousel>
-            <Stack spacing={{ base: 6, md: 10 }}>
-              <Box as={'header'}>
-                <Heading
-                  lineHeight={1.1}
-                  fontWeight={600}
-                  fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}
-                >
+      <div>
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 py-6 sm:py-12 md:py-18 lg:py-24">
+            <ImageCarousel images={carouselImages} />
+            <div className="space-y-6 md:space-y-10">
+              <header>
+                <h1 className="leading-tight font-semibold text-2xl sm:text-4xl lg:text-5xl">
                   {title}
-                </Heading>
-                {/* <Text
-                  color={useColorModeValue('gray.900', 'gray.400')}
-                  fontWeight={300}
-                  fontSize={'2xl'}
-                >
-                  {price}&nbsp; {currency}&nbsp; {unit}
-                </Text> */}
-              </Box>
-              <Stack
-                spacing={{ base: 4, sm: 6 }}
-                direction={'column'}
-                divider={<StackDivider borderColor={useColorModeValue('gray.200', 'gray.600')} />}
-              >
-                <VStack spacing={{ base: 4, sm: 6 }}>
-                  <Text fontSize={'lg'}>{summary}</Text>
-                </VStack>
-                <Box>
-                  <Text
-                    fontSize={{ base: '16px', lg: '18px' }}
-                    color={useColorModeValue('yellow.500', 'yellow.300')}
-                    fontWeight={'500'}
-                    textTransform={'uppercase'}
-                    mb={'4'}
-                  >
+                </h1>
+              </header>
+              <div className="space-y-4 sm:space-y-6 flex flex-col">
+                <div className="border-b border-gray-200 dark:border-gray-600"></div>
+                <div className="space-y-4 sm:space-y-6">
+                  <p className="text-lg">{summary}</p>
+                </div>
+                <div className="border-b border-gray-200 dark:border-gray-600"></div>
+                <div>
+                  <p className="text-base lg:text-lg text-yellow-500 dark:text-yellow-300 font-medium uppercase mb-4">
                     Features
-                  </Text>
-                  <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-                    <List spacing={2}>
-                      {features.map((feature, index) => {
-                        return (
-                          <>
-                            <ListItem key={index}>{feature}</ListItem>
-                          </>
-                        )
-                      })}
-                    </List>
-                  </SimpleGrid>
-                </Box>
-                <Box>
-                  <Text
-                    fontSize={{ base: '16px', lg: '18px' }}
-                    color={useColorModeValue('yellow.500', 'yellow.300')}
-                    fontWeight={'500'}
-                    textTransform={'uppercase'}
-                    mb={'4'}
-                  >
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <ul className="space-y-2">
+                      {features?.map((feature, index) => (
+                        <li key={index}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <div className="border-b border-gray-200 dark:border-gray-600"></div>
+                <div>
+                  <p className="text-base lg:text-lg text-yellow-500 dark:text-yellow-300 font-medium uppercase mb-4">
                     Product Details
-                  </Text>
-                  <List spacing={2}>
-                    {Object.keys(details).map((ObjectKey, index) => (
-                      <ListItem key={index}>
-                        <Text as={'span'} fontWeight={'bold'}>
-                          {ObjectKey} {': '}
-                        </Text>
-                        {details[ObjectKey]}
-                      </ListItem>
-                    ))}
-                  </List>
-                </Box>
-                <Box>
-                  <Text
-                    fontSize={{ base: '16px', lg: '18px' }}
-                    color={useColorModeValue('yellow.500', 'yellow.300')}
-                    fontWeight={'500'}
-                    textTransform={'uppercase'}
-                    mb={'4'}
-                  >
+                  </p>
+                  <ul className="space-y-2">
+                    {details &&
+                      Object.keys(details).map((ObjectKey, index) => (
+                        <li key={index}>
+                          <span className="font-bold">{ObjectKey}: </span>
+                          {details[ObjectKey]}
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+                <div className="border-b border-gray-200 dark:border-gray-600"></div>
+                <div>
+                  <p className="text-base lg:text-lg text-yellow-500 dark:text-yellow-300 font-medium uppercase mb-4">
                     Applications
-                  </Text>
-                  <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-                    <List spacing={2}>
-                      {applications.map((application, index) => {
-                        return (
-                          <>
-                            <ListItem key={index}>{application}</ListItem>
-                          </>
-                        )
-                      })}
-                    </List>
-                  </SimpleGrid>
-                </Box>
-              </Stack>
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <ul className="space-y-2">
+                      {applications?.map((application, index) => (
+                        <li key={index}>{application}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
               <SendAMessage />
-              <Stack direction="row" alignItems="center" justifyContent={'center'}>
+              <div className="flex flex-row items-center justify-center">
                 <MdLocalShipping />
-                <Text>7 - 10 business days delivery</Text>
-              </Stack>
-            </Stack>
-          </SimpleGrid>
-        </Container>
-      </Box>
+                <p className="ml-2">7 - 10 business days delivery</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <Container maxW="container.xl">
-        <Box as="article" id="singleProductsProducts" py="2">
-          <Box>
-            <Flex direction="column" py="2">
-              <Box as="article">{children}</Box>
+        <div className="container mx-auto max-w-7xl">
+          <article id="singleProductsProducts" className="py-2">
+            <div>
+              <div className="flex flex-col py-2">
+                <article>{children}</article>
 
-              <Box>
-                <Box py="2">
-                  {(next || prev) && (
-                    <Flex justify="space-between" direction={{ base: 'column', sm: 'row' }}>
-                      {prev && (
-                        <Flex direction="column" align={{ base: 'center', sm: 'start' }} py="2">
-                          <NextLink
-                            flex="auto"
-                            passHref
-                            alignSelf=" stretch"
-                            href={`/products/${prev.slug}`}
-                            aria-label="Previous Product"
-                          >
-                            <ChakraLink textDecoration={'none !important'}>
-                              <Button
-                                colorScheme="red"
-                                size="sm"
-                                w="100%"
-                                textTransform={'uppercase'}
-                                variant="solid"
-                                rounded={'full'}
-                                fontWeight={'normal'}
-                                px={6}
-                                bg={'red.400'}
-                                _hover={{ bg: 'red.500', textDecoration: 'none' }}
-                                my="4"
-                              >
+                <div>
+                  <div className="py-2">
+                    {(next || prev) && (
+                      <div className="flex justify-between flex-col sm:flex-row">
+                        {prev && (
+                          <div className="flex flex-col items-center sm:items-start py-2">
+                            <NextLink
+                              href={`/products/${prev.slug}`}
+                              aria-label="Previous Product"
+                              className="w-full"
+                            >
+                              <Button className="w-full uppercase rounded-full px-6 my-4" size="sm">
                                 Previous Product
                               </Button>
-                            </ChakraLink>
-                          </NextLink>
-                          <NextLink passHref href={`/products/${prev.slug}`}>
-                            <ChakraLink px="2" _hover={{ textDecoration: 'none' }}>
-                              <Box borderColor="red.300" borderWidth="thin" borderRadius={'15px'}>
-                                <Grid
-                                  gap="5"
-                                  templateColumns={{
-                                    base: '150px 1fr',
-                                    sm: '170px 1fr',
-                                    md: '140px 1fr',
-                                    lg: '120px 1fr',
-                                  }}
-                                >
+                            </NextLink>
+                            <NextLink href={`/products/${prev.slug}`} className="block">
+                              <div className="border border-red-300 rounded-[15px]">
+                                <div className="grid gap-5 grid-cols-[150px_1fr] sm:grid-cols-[170px_1fr] md:grid-cols-[140px_1fr] lg:grid-cols-[120px_1fr]">
                                   <Image
                                     src={prev.coverImage}
-                                    layout="responsive"
                                     width={600}
                                     height={450}
                                     alt={prev.title}
+                                    style={{ width: '100%', height: 'auto' }}
                                   />
-
-                                  <Flex direction={'column'} justify="center">
-                                    <Heading
-                                      as="h3"
-                                      px="2"
-                                      textTransform="capitalize"
-                                      fontSize="sm"
-                                      overflow="hidden"
-                                    >
+                                  <div className="flex flex-col justify-center">
+                                    <h3 className="px-2 capitalize text-sm overflow-hidden">
                                       {prev.title}
-                                    </Heading>
-                                  </Flex>
-                                </Grid>
-                              </Box>
-                            </ChakraLink>
-                          </NextLink>
-                        </Flex>
-                      )}
-                      {next && (
-                        <Flex direction="column" align={{ base: 'center', sm: 'end' }} py="2">
-                          <NextLink passHref href={`/products/${next.slug}`}>
-                            <ChakraLink>
-                              <Button
-                                w="100%"
-                                colorScheme="red"
-                                size="sm"
-                                textTransform={'uppercase'}
-                                variant="solid"
-                                rounded={'full'}
-                                fontWeight={'normal'}
-                                px={6}
-                                bg={'red.400'}
-                                _hover={{ bg: 'red.500', textDecoration: 'none' }}
-                                my="4"
-                              >
+                                    </h3>
+                                  </div>
+                                </div>
+                              </div>
+                            </NextLink>
+                          </div>
+                        )}
+                        {next && (
+                          <div className="flex flex-col items-center sm:items-end py-2">
+                            <NextLink href={`/products/${next.slug}`} className="w-full">
+                              <Button className="w-full uppercase rounded-full px-6 my-4" size="sm">
                                 Next Product
                               </Button>
-                            </ChakraLink>
-                          </NextLink>
-                          <NextLink passHref href={`/products/${next.slug}`}>
-                            <ChakraLink _hover={{ textDecoration: 'none' }}>
-                              <Box borderColor="red.300" borderWidth="thin" borderRadius={'15px'}>
-                                <Grid
-                                  gap="5"
-                                  templateColumns={{
-                                    base: '150px 1fr',
-                                    sm: '170px 1fr',
-                                    md: '140px 1fr',
-                                    lg: '120px 1fr',
-                                  }}
-                                >
+                            </NextLink>
+                            <NextLink href={`/products/${next.slug}`} className="block">
+                              <div className="border border-red-300 rounded-[15px]">
+                                <div className="grid gap-5 grid-cols-[150px_1fr] sm:grid-cols-[170px_1fr] md:grid-cols-[140px_1fr] lg:grid-cols-[120px_1fr]">
                                   <Image
                                     src={next.coverImage}
-                                    layout="responsive"
                                     width={600}
                                     height={450}
                                     alt={next.title}
+                                    style={{ width: '100%', height: 'auto' }}
                                   />
-
-                                  <Flex direction={'column'} justify="center">
-                                    <Heading
-                                      as="h3"
-                                      px="2"
-                                      textTransform="capitalize"
-                                      fontSize="sm"
-                                      overflow="hidden"
-                                    >
+                                  <div className="flex flex-col justify-center">
+                                    <h3 className="px-2 capitalize text-sm overflow-hidden">
                                       {next.title}
-                                    </Heading>
-                                  </Flex>
-                                </Grid>
-                              </Box>
-                            </ChakraLink>
-                          </NextLink>
-                        </Flex>
-                      )}
-                    </Flex>
-                  )}
-                </Box>
+                                    </h3>
+                                  </div>
+                                </div>
+                              </div>
+                            </NextLink>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
 
-                <NextLink passHref href="/products">
-                  <ChakraLink>
-                    <Button
-                      colorScheme="red"
-                      size="sm"
-                      w="100%"
-                      textTransform={'uppercase'}
-                      variant="solid"
-                      rounded={'full'}
-                      fontWeight={'normal'}
-                      px={6}
-                      bg={'red.400'}
-                      _hover={{ bg: 'red.500', textDecoration: 'none' }}
-                      my="4"
-                    >
-                      <Text py="2">&larr; Back to the products</Text>
+                  <NextLink href="/products" className="block">
+                    <Button className="w-full uppercase rounded-full px-6 my-4" size="sm">
+                      <span className="py-2">&larr; Back to the products</span>
                     </Button>
-                  </ChakraLink>
-                </NextLink>
-              </Box>
-            </Flex>
-          </Box>
-        </Box>
-      </Container>
+                  </NextLink>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
     </>
   )
 }

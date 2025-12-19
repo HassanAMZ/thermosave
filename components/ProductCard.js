@@ -1,51 +1,35 @@
 import CustomLink from '@/components/Link'
-import { Text, Flex, Box, useColorModeValue, Heading } from '@chakra-ui/react'
 import SendAMessage from '@/components/SendAMessage'
 import Tag from '@/components/Tag'
-import { ExternalLinkIcon } from '@chakra-ui/icons'
+import { ExternalLink } from 'lucide-react'
+
 const Card = ({ slug, coverImage, title, tags, summary }) => {
   return (
-    <Flex
-      color={useColorModeValue('gray.800', 'white')}
-      bgColor={useColorModeValue('white', 'white')}
-      className="bg-white flex justify-between flex-col rounded-lg border border-gray-200 shadow-md dark:border-gray-700"
-    >
+    <div className="bg-white dark:bg-white flex justify-between flex-col rounded-lg border border-gray-200 shadow-md dark:border-gray-700 text-gray-800 dark:text-white">
       <CustomLink href={`/products/${slug}`}>
         <div className="rounded-t-lg overflow-hidden flex items-center justify-center w-auto">
           <img className="rounded-t-lg bg-white" src={coverImage} alt="" />
         </div>
       </CustomLink>
-      <Box
-        color={useColorModeValue('gray.800', 'white')}
-        bgColor={useColorModeValue('gray.200', 'gray.800')}
-      >
+      <div className="bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-white">
         <div className="p-5">
           <CustomLink href={`/products/${slug}`}>
-            <Heading
-              fontSize="2xl"
-              color={useColorModeValue('gray.800', 'white')}
-              bgColor={useColorModeValue('gray.200', 'gray.800')}
-            >
+            <h2 className="text-2xl text-gray-800 dark:text-white bg-gray-200 dark:bg-gray-800">
               {title}
-            </Heading>
+            </h2>
           </CustomLink>
-          <Flex align="center" justify="left" direction={'row'} flexWrap="wrap">
+          <div className="flex items-center justify-left flex-row flex-wrap">
             {tags.map((tag) => (
-              <Tag key={tag} text={tag} icon={<ExternalLinkIcon />} />
+              <Tag key={tag} text={tag} icon={<ExternalLink className="w-3 h-3" />} />
             ))}
-          </Flex>
-          <Text
-            noOfLines={2}
-            color={useColorModeValue('gray.800', 'white')}
-            bgColor={useColorModeValue('gray.200', 'gray.800')}
-            className="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-3"
-          >
+          </div>
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-3">
             {summary}
-          </Text>
+          </p>
           <SendAMessage />
         </div>
-      </Box>
-    </Flex>
+      </div>
+    </div>
   )
 }
 

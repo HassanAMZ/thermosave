@@ -1,110 +1,99 @@
-import {
-  Box,
-  chakra,
-  Container,
-  SimpleGrid,
-  Stack,
-  Text,
-  VisuallyHidden,
-  Input,
-  IconButton,
-  Button,
-  useColorModeValue,
-} from '@chakra-ui/react'
 import Link from 'next/link'
 import { BsLinkedin, BsPhone, BsWhatsapp } from 'react-icons/bs'
-import Image from 'next/image'
 import Logo from '@/components/Logo'
-import NewsletterForm from '@/components/NewsletterForm'
+import { Button } from '@/components/components/ui/button'
+import { cn } from '@/components/lib/utils'
 
-const ListHeader = ({ children }) => {
-  return (
-    <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
-      {children}
-    </Text>
-  )
+const ListHeader = ({ children, className }) => {
+  return <h3 className={cn('font-medium text-lg mb-2', className)}>{children}</h3>
 }
 
 export default function Footer() {
   return (
     <>
-      <NewsletterForm />
-
-      <Box
-        bg={useColorModeValue('gray.50', 'gray.900')}
-        color={useColorModeValue('gray.700', 'gray.200')}
-      >
-        <Container as={Stack} maxW={'6xl'} py={10}>
-          <SimpleGrid templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 2fr' }} spacing={8}>
-            <Stack spacing={6}>
+      <div className="bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-200">
+        <div className="container mx-auto max-w-6xl py-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="space-y-6">
               <Logo className="hvr-float" />
 
-              <Text fontSize={'sm'}>© 2022 ThermoSave. All rights reserved</Text>
-              <Stack direction={'row'} spacing={6}>
-                <Link passHref href={`tel:${+923340250893}`}>
-                  <IconButton
-                    color={useColorModeValue('gray.800', 'gray.300')}
+              <p className="text-sm">© 2022 ThermoSave. All rights reserved</p>
+              <div className="flex flex-row space-x-6">
+                <Link href={`tel:${+923340250893}`}>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-full hover:bg-red-500 hover:text-white"
                     aria-label="Phone"
-                    size="md"
-                    icon={<BsPhone size="28px" />}
-                    _hover={{
-                      bg: 'red.500',
-                      color: useColorModeValue('gray.700', 'white'),
-                    }}
-                    isRound
-                  />
+                  >
+                    <BsPhone size="20px" />
+                  </Button>
                 </Link>
-                <Link
-                  passHref
-                  target="_blank"
-                  href="https://www.linkedin.com/in/irfan-nasir-16aa5bb6/"
-                >
-                  <IconButton
-                    color={useColorModeValue('gray.800', 'gray.300')}
+                <Link target="_blank" href="https://www.linkedin.com/in/irfan-nasir-16aa5bb6/">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-full hover:bg-red-500 hover:text-white"
                     aria-label="linkedin"
-                    size="md"
-                    icon={<BsLinkedin size="28px" />}
-                    _hover={{
-                      bg: 'red.500',
-                      color: useColorModeValue('gray.700', 'white'),
-                    }}
-                    isRound
-                  />
+                  >
+                    <BsLinkedin size="20px" />
+                  </Button>
                 </Link>
-                <Link passHref target="_blank" href="https://wa.me/923340250893">
-                  <IconButton
-                    color={useColorModeValue('gray.800', 'gray.300')}
+                <Link target="_blank" href="https://wa.me/923340250893">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-full hover:bg-red-500 hover:text-white"
                     aria-label="WhatsApp"
-                    size="md"
-                    icon={<BsWhatsapp size="28px" />}
-                    _hover={{
-                      bg: 'red.500',
-                      color: useColorModeValue('gray.700', 'white'),
-                    }}
-                    isRound
-                  />
+                  >
+                    <BsWhatsapp size="20px" />
+                  </Button>
                 </Link>
-              </Stack>
-            </Stack>
-            <Stack align={'flex-start'}>
+              </div>
+            </div>
+            <div className="space-y-4">
               <ListHeader>Company</ListHeader>
-              <Link href={'/contact'}>About us</Link>
-              <Link href={'/products'}>Products</Link>
-              <Link href={'/contact'}>Contact us</Link>
-              <Link href={'/contact'}>Pricing</Link>
-              <Link href={'/#testimonial'}>Testimonials</Link>
-            </Stack>
-            <Stack align={'flex-start'}>
+              <div className="flex flex-col space-y-2">
+                <Link href={'/contact'} className="hover:text-red-500">
+                  About us
+                </Link>
+                <Link href={'/products'} className="hover:text-red-500">
+                  Products
+                </Link>
+                <Link href={'/contact'} className="hover:text-red-500">
+                  Contact us
+                </Link>
+                <Link href={'/contact'} className="hover:text-red-500">
+                  Pricing
+                </Link>
+                <Link href={'/#testimonial'} className="hover:text-red-500">
+                  Testimonials
+                </Link>
+              </div>
+            </div>
+            <div className="space-y-4">
               <ListHeader>Support</ListHeader>
-              <Link href={'/contact'}>Help Center</Link>
-              <Link href={'/contact'}>Terms of Service</Link>
-              <Link href={'/contact'}>Legal</Link>
-              <Link href={'/contact'}>Privacy Policy</Link>
-              <Link href={'/contact'}>Satus</Link>
-            </Stack>
-          </SimpleGrid>
-        </Container>
-      </Box>
+              <div className="flex flex-col space-y-2">
+                <Link href={'/contact'} className="hover:text-red-500">
+                  Help Center
+                </Link>
+                <Link href={'/contact'} className="hover:text-red-500">
+                  Terms of Service
+                </Link>
+                <Link href={'/contact'} className="hover:text-red-500">
+                  Legal
+                </Link>
+                <Link href={'/contact'} className="hover:text-red-500">
+                  Privacy Policy
+                </Link>
+                <Link href={'/contact'} className="hover:text-red-500">
+                  Status
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

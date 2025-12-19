@@ -1,4 +1,3 @@
-import GAPageView from '@/components/GAPageView'
 import Link from 'next/link'
 import Tag from '@/components/Tag'
 import formatDate from '@/lib/utils/formatDate'
@@ -22,7 +21,6 @@ const Courses = ({ posts }) => {
                 fontSize={['x-small', 'xs', 'sm']}
               >
                 <Box dateTime={date}>{formatDate(date)}</Box>
-                <GAPageView slug={slug} />
               </Flex>
             </Box>
             <Box>

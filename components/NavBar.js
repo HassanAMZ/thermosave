@@ -1,66 +1,81 @@
-import {
-  Box,
-  Flex,
-  Container,
-  Button,
-  useDisclosure,
-  IconButton,
-  useColorModeValue,
-  Stack,
-  useColorMode,
-  HStack,
-} from '@chakra-ui/react'
-import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons'
+'use client'
+import { useState } from 'react'
+import { useTheme } from 'next-themes'
+import { Moon, Sun, Menu, X } from 'lucide-react'
 import headerNavLinks from '@/data/headerNavLinks'
 import Link from 'next/link'
 import Logo from '@/components/Logo'
-let NavLinks = headerNavLinks.map((link, index) => (
-  <Link key={index} href={link.href}>
-    <a>
-      <Box
-        px={2}
-        py={1}
-        rounded={'md'}
-        _hover={{ bg: 'red.500', color: 'white', textDecoration: 'none' }}
-      >
-        {link.title}
-      </Box>
-    </a>
+import { Button } from '@/components/components/ui/button'
+import { Sheet, SheetContent, SheetTrigger } from '@/components/components/ui/sheet'
+import { cn } from '@/components/lib/utils'
+
+const NavLinks = headerNavLinks.map((link, index) => (
+  <Link
+    key={index}
+    href={link.href}
+    className="px-2 py-1 rounded-md hover:bg-red-500 hover:text-white transition-colors"
+  >
+    {link.title}
   </Link>
 ))
 
 export default function NavBar() {
-  const { colorMode, toggleColorMode } = useColorMode()
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { theme, setTheme, resolvedTheme } = useTheme()
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <Box bg={useColorModeValue('gray.100', 'gray.900')}>
-      <Container maxW="container.xl">
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <IconButton
-            size={'md'}
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label={'Open Menu'}
-            display={{ md: 'none' }}
-            onClick={isOpen ? onClose : onOpen}
-          />
-          <HStack spacing={8} alignItems={'center'}>
-            <Logo />
-          </HStack>
-          <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
-            {NavLinks}
-          </HStack>
+    <nav className="bg-gray-100 dark:bg-gray-900 border-b">
+      <div className="container mx-auto max-w-7xl">
+        <div className="flex h-16 items-center justify-between">
+          {/* Mobile Menu Button */}
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild className="md:hidden">
+              <Button variant="ghost" size="icon">
+                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+              <div className="flex flex-col space-y-4 mt-8">
+                {headerNavLinks.map((link, index) => (
+                  <Link
+                    key={index}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="px-2 py-1 rounded-md hover:bg-red-500 hover:text-white transition-colors"
+                  >
+                    {link.title}
+                  </Link>
+                ))}
+              </div>
+            </SheetContent>
+          </Sheet>
 
-          <Button onClick={toggleColorMode}>
-            {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+          {/* Logo */}
+          <div className="flex items-center">
+            <Logo />
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-4">{NavLinks}</nav>
+
+          {/* Theme Toggle */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() =>
+              setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')
+            }
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' || resolvedTheme === 'dark' ? (
+              <Sun className="h-5 w-5" />
+            ) : (
+              <Moon className="h-5 w-5" />
+            )}
           </Button>
-        </Flex>
-        {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }} onClick={isOpen ? onClose : onOpen}>
-            <Stack>{NavLinks}</Stack>
-          </Box>
-        ) : null}
-      </Container>
-    </Box>
+        </div>
+      </div>
+    </nav>
   )
 }

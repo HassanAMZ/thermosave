@@ -7,20 +7,17 @@ import Testimonial from '@/components/Testimonial'
 import Statistics from '@/components/Statistics'
 import FeaturesNew from '@/components/FeaturesNew'
 import ProductCard from '@/components/ProductCard'
-import {
-  Flex,
-  Box,
-  Heading,
-  Grid,
-  Container,
-  Link as ChakraLink,
-  useColorModeValue,
-} from '@chakra-ui/react'
 import Hero from '@/components/Hero'
+
 export const POSTS_PER_PAGE = 5
 const MAX_DISPLAY = 5
 
-export async function getStaticProps() {
+export const metadata = {
+  title: siteMetadata.title,
+  description: siteMetadata.description,
+}
+
+async function getData() {
   const tags = await getAllTags('products')
   const posts = await getAllFilesFrontMatter('products')
   const initialDisplayProducts = posts.slice(0, POSTS_PER_PAGE)
@@ -29,26 +26,26 @@ export async function getStaticProps() {
     totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
   }
 
-  return { props: { initialDisplayProducts, posts, pagination, tags } }
+  return { initialDisplayProducts, posts, pagination, tags }
 }
 
-export default function Home({ posts, initialDisplayProducts, pagination, tags }) {
+export default async function Home() {
+  const { initialDisplayProducts, posts, pagination, tags } = await getData()
+
   return (
-    <Box>
+    <div>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <Container maxW="container.xl">
+      <div className="container mx-auto max-w-7xl">
         <Hero />
-      </Container>
+      </div>
 
-      <Box>
+      <div>
         <Features />
-      </Box>
+      </div>
 
-      <Container maxW="container.xl" py={{ base: 4, md: 20, xl: 32 }}>
-        <Heading pb={8} as="h2" textAlign={'center'} fontSize={'4xl'} fontWeight={'bold'}>
-          All Products
-        </Heading>
-        <Grid templateColumns="repeat(auto-fit, minmax(300px, 1fr))" gap={3} m="0">
+      <div className="container mx-auto max-w-7xl py-4 md:py-20 xl:py-32">
+        <h2 className="pb-8 text-center text-4xl font-bold">All Products</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 m-0">
           {initialDisplayProducts.map((frontMatter, index) => {
             const { slug, date, title, summary, tags, coverImage, price, unit } = frontMatter
             return (
@@ -65,20 +62,20 @@ export default function Home({ posts, initialDisplayProducts, pagination, tags }
               />
             )
           })}
-        </Grid>{' '}
-      </Container>
+        </div>
+      </div>
 
-      <Box>
+      <div>
         <Statistics />
-      </Box>
+      </div>
 
-      <Container maxW="container.xl" py={{ base: 4, md: 20, xl: 32 }}>
+      <div className="container mx-auto max-w-7xl py-4 md:py-20 xl:py-32">
         <FeaturesNew />
-      </Container>
+      </div>
 
-      <Container id="testimonial" maxW="container.xl" py={{ base: 4, md: 20, xl: 32 }}>
+      <div id="testimonial" className="container mx-auto max-w-7xl py-4 md:py-20 xl:py-32">
         <Testimonial />
-      </Container>
-    </Box>
+      </div>
+    </div>
   )
 }

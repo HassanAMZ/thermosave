@@ -1,10 +1,13 @@
 import siteMetadata from '@/data/siteMetadata'
 import { PageSEO } from '@/components/SEO'
-import { Container, Image } from '@chakra-ui/react'
-import ImageCarousel from '@/components/ImageCarousel'
 import Link from '@/components/Link'
 
-const ImageGallery = () => {
+export const metadata = {
+  title: `Image Gallery - ${siteMetadata.author}`,
+  description: siteMetadata.description,
+}
+
+export default function ImageGallery() {
   return (
     <>
       <PageSEO
@@ -31,8 +34,6 @@ const ImageGallery = () => {
           </Link>
         </div>
       </div>
-      {/* <ImageCarousel /> */}
     </>
   )
 }
-export default ImageGallery

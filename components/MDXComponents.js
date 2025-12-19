@@ -1,52 +1,68 @@
+'use client'
 /* eslint-disable react/display-name */
 import { useMemo } from 'react'
 import { getMDXComponent } from 'mdx-bundler/client'
-import Image from './Image'
 import CustomLink from './Link'
 import TOCInline from './TOCInline'
 import Pre from './Pre'
-import { chakra } from '@chakra-ui/react'
+import { cn } from '@/components/lib/utils'
+import Image from 'next/image'
+
 export const MDXComponents = {
-  Image,
+  Image: Image,
   TOCInline,
   pre: Pre,
   code: (props) => (
-    <chakra.code
-      fontSize={['xs', 'sm', 'md', 'md']}
-      lineHeight="1.3"
-      whiteSpace="pre-wrap"
-      py="2"
-      wordBreak="break-word"
+    <code
+      className={cn(
+        'text-xs sm:text-sm md:text-md leading-tight whitespace-pre-wrap py-2 break-words',
+        props.className
+      )}
       {...props}
     />
   ),
 
-  p: (props) => <chakra.p fontSize={['sm', 'md', 'md']} py="2" fontWeight="medium" {...props} />,
-  h1: (props) => <chakra.h1 fontWeight="bold" py="2" fontSize="3xl" {...props} />,
-  h2: (props) => <chakra.h2 fontWeight="bold" py="2" fontSize={['xl', '2xl', '2xl']} {...props} />,
-  h3: (props) => <chakra.h3 fontWeight="bold" py="2" fontSize={['xl', '2xl', '2xl']} {...props} />,
-  h4: (props) => <chakra.h4 fontWeight="bold" py="2" fontSize={['xl', '2xl', '2xl']} {...props} />,
-  h5: (props) => <chakra.h5 fontWeight="bold" py="2" fontSize={['xl', '2xl', '2xl']} {...props} />,
-  h6: (props) => <chakra.h6 fontWeight="bold" py="2" fontSize={['xl', '2xl', '2xl']} {...props} />,
+  p: (props) => (
+    <p className={cn('text-sm md:text-md py-2 font-medium', props.className)} {...props} />
+  ),
+  h1: (props) => <h1 className={cn('font-bold py-2 text-3xl', props.className)} {...props} />,
+  h2: (props) => (
+    <h2 className={cn('font-bold py-2 text-xl md:text-2xl', props.className)} {...props} />
+  ),
+  h3: (props) => (
+    <h3 className={cn('font-bold py-2 text-xl md:text-2xl', props.className)} {...props} />
+  ),
+  h4: (props) => (
+    <h4 className={cn('font-bold py-2 text-xl md:text-2xl', props.className)} {...props} />
+  ),
+  h5: (props) => (
+    <h5 className={cn('font-bold py-2 text-xl md:text-2xl', props.className)} {...props} />
+  ),
+  h6: (props) => (
+    <h6 className={cn('font-bold py-2 text-xl md:text-2xl', props.className)} {...props} />
+  ),
 
   a: (props) => (
-    <chakra.a
-      fontSize={['sm', 'md', 'md']}
-      color="red"
-      fontWeight="semibold"
-      textTransform="capitalize"
-      textDecoration="underline"
-      textDecorationStyle="dotted"
-      _hover={{ color: 'red.900' }}
+    <a
+      className={cn(
+        'text-sm md:text-md text-red-600 font-semibold capitalize underline decoration-dotted hover:text-red-900',
+        props.className
+      )}
       {...props}
     />
   ),
 
   ul: (props) => (
-    <chakra.ul fontSize={['sm', 'md', 'md']} color="red" fontWeight="semibold" {...props} />
+    <ul
+      className={cn('text-sm md:text-md text-red-600 font-semibold', props.className)}
+      {...props}
+    />
   ),
   li: (props) => (
-    <chakra.li fontSize={['sm', 'md', 'md']} color="red" fontWeight="semibold" {...props} />
+    <li
+      className={cn('text-sm md:text-md text-red-600 font-semibold', props.className)}
+      {...props}
+    />
   ),
   wrapper: ({ components, layout, ...rest }) => {
     const Layout = require(`../layouts/${layout}`).default

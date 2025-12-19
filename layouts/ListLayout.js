@@ -1,33 +1,20 @@
-import { Box, Heading, Container, Grid, Link as ChakraLink, Button, Flex } from '@chakra-ui/react'
 import AllProducts from '@/components/AllProducts'
 import PopularProducts from '@/components/PopularProducts'
 
 export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }) {
-  const randomGenerator = () => {
-    return Math.floor(Math.random() * (2 - 0 + 1)) + 0
-  }
-
   return (
-    <Container maxW="container.xl">
-      <Grid
-        templateColumns={{ sm: '1fr', md: '3fr 2fr', lg: 'minmax(220px, 2fr) 1fr' }}
-        gap={5}
-        m="0"
-        py={[5, 6]}
-      >
+    <div className="container mx-auto max-w-7xl">
+      <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] lg:grid-cols-[minmax(220px,2fr)_1fr] gap-5 m-0 py-5 md:py-6">
         <AllProducts
           posts={posts}
           initialDisplayPosts={initialDisplayPosts}
           pagination={pagination}
-          randomGenerator={randomGenerator}
         />
-        <Box>
-          <Heading as="h2" py="3" fontSize={['xl']}>
-            Popular Products
-          </Heading>
+        <div>
+          <h2 className="py-3 text-xl">Popular Products</h2>
           <PopularProducts posts={posts} layout={'1fr'} initialDisplayPosts={'4'} />
-        </Box>
-      </Grid>
-    </Container>
+        </div>
+      </div>
+    </div>
   )
 }

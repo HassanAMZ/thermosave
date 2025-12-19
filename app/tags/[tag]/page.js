@@ -7,47 +7,52 @@ import { getAllTags } from '@/lib/tags'
 import kebabCase from '@/lib/utils/kebabCase'
 import fs from 'fs'
 import path from 'path'
+import { notFound } from 'next/navigation'
 
 const root = process.cwd()
 
-export async function getStaticPaths() {
+export async function generateStaticParams() {
   const tags = await getAllTags('products')
+  return Object.keys(tags).map((tag) => ({
+    tag,
+  }))
+}
 
+export async function generateMetadata({ params }) {
+  const tag = params.tag
   return {
-    paths: Object.keys(tags).map((tag) => ({
-      params: {
-        tag,
-      },
-    })),
-    fallback: false,
+    title: `${tag} - ${siteMetadata.author}`,
+    description: `${tag} tags - ${siteMetadata.author}`,
   }
 }
 
-export async function getStaticProps({ params }) {
+export default async function TagPage({ params }) {
+  const tag = params.tag
   const allPosts = await getAllFilesFrontMatter('products')
   const filteredPosts = allPosts.filter(
-    (post) => post.draft !== true && post.tags.map((t) => kebabCase(t)).includes(params.tag)
+    (post) => post.draft !== true && post.tags.map((t) => kebabCase(t)).includes(tag)
   )
 
-  // rss
-  const rss = generateRss(filteredPosts, `tags/${params.tag}/feed.xml`)
-  const rssPath = path.join(root, 'public', 'tags', params.tag)
+  if (filteredPosts.length === 0) {
+    notFound()
+  }
+
+  // Generate RSS
+  const rss = generateRss(filteredPosts, `tags/${tag}/feed.xml`)
+  const rssPath = path.join(root, 'public', 'tags', tag)
   fs.mkdirSync(rssPath, { recursive: true })
   fs.writeFileSync(path.join(rssPath, 'feed.xml'), rss)
 
-  return { props: { posts: filteredPosts, tag: params.tag } }
-}
-
-export default function Tag({ posts, tag }) {
   // Capitalize first letter and convert space to dash
   const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
+
   return (
     <>
       <TagSEO
         title={`${tag} - ${siteMetadata.author}`}
         description={`${tag} tags - ${siteMetadata.author}`}
       />
-      <ListLayout posts={posts} title={title} />
+      <ListLayout posts={filteredPosts} title={title} />
     </>
   )
 }

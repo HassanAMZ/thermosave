@@ -1,16 +1,17 @@
+'use client'
+import { usePathname } from 'next/navigation'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
 import Script from 'next/script'
 
-const CommonSEO = ({ title, description, ogType, ogImage, twImage }) => {
-  const router = useRouter()
+const CommonSEO = ({ title, description, ogType, ogImage, twImage, pathname }) => {
+  const path = pathname || usePathname()
   return (
     <Head>
       <title>{title}</title>
       <meta name="robots" content="follow, index" />
       <meta name="description" content={description} />
-      <meta property="og:url" content={`${siteMetadata.siteUrl}${router.asPath}`} />
+      <meta property="og:url" content={`${siteMetadata.siteUrl}${path}`} />
       <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content={siteMetadata.title} />
       <meta property="og:description" content={description} />
@@ -29,7 +30,7 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage }) => {
   )
 }
 
-export const PageSEO = ({ title, description }) => {
+export const PageSEO = ({ title, description, pathname }) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   return (
@@ -39,14 +40,15 @@ export const PageSEO = ({ title, description }) => {
       ogType="website"
       ogImage={ogImageUrl}
       twImage={twImageUrl}
+      pathname={pathname}
     />
   )
 }
 
-export const TagSEO = ({ title, description }) => {
+export const TagSEO = ({ title, description, pathname }) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-  const router = useRouter()
+  const path = pathname || usePathname()
   return (
     <>
       <CommonSEO
@@ -55,13 +57,14 @@ export const TagSEO = ({ title, description }) => {
         ogType="website"
         ogImage={ogImageUrl}
         twImage={twImageUrl}
+        pathname={path}
       />
       <Head>
         <link
           rel="alternate"
           type="application/rss+xml"
           title={`${description} - RSS feed`}
-          href={`${siteMetadata.siteUrl}${router.asPath}/feed.xml`}
+          href={`${siteMetadata.siteUrl}${path}/feed.xml`}
         />
       </Head>
     </>
@@ -77,18 +80,19 @@ export const ProductsSEO = ({
   url,
   images = [],
   coverImage,
+  pathname,
 }) => {
   const timeStampInSecond = new Date() / 1000
   const timeStampInSeconds = timeStampInSecond.toFixed(0)
-  const router = useRouter()
+  const path = pathname || usePathname()
   const publishedAt = new Date(date).toISOString()
   const modifiedAt = new Date(lastmod || date).toISOString()
   let imagesArr =
     images.length === 0
       ? [siteMetadata.socialBanner]
       : typeof images === 'string'
-      ? [images]
-      : images
+        ? [images]
+        : images
 
   const featuredImages = imagesArr.map((img) => {
     return {
@@ -147,11 +151,12 @@ export const ProductsSEO = ({
         ogType="article"
         ogImage={featuredImages}
         twImage={twImageUrl}
+        pathname={path}
       />
       <Head>
         {date && <meta property="article:published_time" content={publishedAt} />}
         {lastmod && <meta property="article:modified_time" content={modifiedAt} />}
-        <link rel="canonical" href={`${siteMetadata.siteUrl}${router.asPath}`} />
+        <link rel="canonical" href={`${siteMetadata.siteUrl}${path}`} />
       </Head>
       <Script
         id="structuredData"

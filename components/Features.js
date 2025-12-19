@@ -1,72 +1,40 @@
-import { ReactNode } from 'react'
-import {
-  Stack,
-  useColorModeValue,
-  Container,
-  Box,
-  Flex,
-  Text,
-  Heading,
-  SimpleGrid,
-} from '@chakra-ui/react'
-
 export default function Features() {
   return (
-    <Box bg={useColorModeValue('gray.800', 'white')} position={'relative'}>
-      <Container maxW="container.xl" zIndex={10} position={'relative'}>
-        <Stack direction={{ base: 'column', lg: 'row' }}>
-          <Stack
-            flex={1}
-            color={useColorModeValue('gray.300', 'gray.800')}
-            justify={{ lg: 'center' }}
-            py={{ base: 4, md: 20, xl: 40 }}
-          >
-            <Box mb={{ base: 8, md: 20 }}>
-              <Text
-                fontFamily={'heading'}
-                fontWeight={700}
-                textTransform={'uppercase'}
-                mb={3}
-                fontSize={'xl'}
-                color={useColorModeValue('gray.50', 'gray.800')}
-              >
+    <div className="bg-gray-800 dark:bg-white relative">
+      <div className="container mx-auto max-w-7xl z-10 relative">
+        <div className="flex flex-col lg:flex-row">
+          <div className="flex-1 text-gray-300 dark:text-gray-800 flex flex-col justify-center py-4 md:py-20 xl:py-40">
+            <div className="mb-8 md:mb-20">
+              <p className="font-heading font-bold uppercase mb-3 text-xl text-gray-50 dark:text-gray-800">
                 Our Company
-              </Text>
-              <Heading
-                color={useColorModeValue('gray.200', 'gray.800')}
-                mb={5}
-                fontSize={{ base: '3xl', md: '5xl' }}
-              >
+              </p>
+              <h2 className="text-gray-200 dark:text-gray-800 mb-5 text-3xl md:text-5xl">
                 21st Century Technology
-              </Heading>
-              <Text fontSize={'xl'} color={useColorModeValue('gray.300', 'gray.800')}>
+              </h2>
+              <p className="text-xl text-gray-300 dark:text-gray-800">
                 Thermosave brings the solutions of all heat losses by bringing the removatble
                 thermal jackets based on self extengutior thermal cloths, and cutting edge electric
                 heaters line-up for advance needs.
-              </Text>
-            </Box>
+              </p>
+            </div>
 
-            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               {stats.map((stat) => (
-                <Box key={stat.title}>
-                  <Text fontFamily={'heading'} fontSize={'3xl'} mb={3}>
-                    {stat.title}
-                  </Text>
-                  <Text fontSize={'xl'}>{stat.content}</Text>
-                </Box>
+                <div key={stat.title}>
+                  <p className="font-heading text-3xl mb-3">{stat.title}</p>
+                  <p className="text-xl">{stat.content}</p>
+                </div>
               ))}
-            </SimpleGrid>
-          </Stack>
-        </Stack>
-      </Container>
-    </Box>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 
 const StatsText = ({ children }) => (
-  <Text as={'span'} fontWeight={700} color={useColorModeValue('gray.100', 'grey.600')}>
-    {children}
-  </Text>
+  <span className="font-bold text-gray-100 dark:text-gray-600">{children}</span>
 )
 
 const stats = [

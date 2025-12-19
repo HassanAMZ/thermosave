@@ -1,40 +1,21 @@
 import Link from '@/components/Link'
-import { Box, Button, Flex } from '@chakra-ui/react'
+import { Button } from '@/components/components/ui/button'
+import { cn } from '@/components/lib/utils'
+
 export default function Pagination({ totalPages, currentPage }) {
   const prevPage = parseInt(currentPage) - 1 > 0
   const nextPage = parseInt(currentPage) + 1 <= parseInt(totalPages)
 
   return (
-    <Flex as="nav" direction="row" justify="space-between" align="center" py="6">
+    <nav className="flex flex-row justify-between items-center py-6">
       {!prevPage && (
-        <Button
-          rel="previous"
-          rounded={'full'}
-          size={'lg'}
-          fontWeight={'normal'}
-          px={6}
-          colorScheme={'red'}
-          bg={'red.400'}
-          _hover={{ bg: 'red.500' }}
-          my="4"
-          isDisabled={!prevPage}
-        >
+        <Button rel="previous" className="rounded-full px-6 my-4" size="lg" disabled={!prevPage}>
           Previous
         </Button>
       )}
       {prevPage && (
         <Link href={currentPage - 1 === 1 ? `/products/` : `/products/page/${currentPage - 1}`}>
-          <Button
-            rounded={'full'}
-            size={'lg'}
-            fontWeight={'normal'}
-            px={6}
-            colorScheme={'red'}
-            bg={'red.400'}
-            _hover={{ bg: 'red.500' }}
-            my="4"
-            rel="previous"
-          >
+          <Button className="rounded-full px-6 my-4" size="lg" rel="previous">
             Previous
           </Button>
         </Link>
@@ -43,38 +24,17 @@ export default function Pagination({ totalPages, currentPage }) {
         {currentPage} of {totalPages}
       </span>
       {!nextPage && (
-        <Button
-          rounded={'full'}
-          size={'lg'}
-          fontWeight={'normal'}
-          px={6}
-          colorScheme={'red'}
-          bg={'red.400'}
-          _hover={{ bg: 'red.500' }}
-          my="4"
-          rel="next"
-          isDisabled={!nextPage}
-        >
+        <Button className="rounded-full px-6 my-4" size="lg" rel="next" disabled={!nextPage}>
           Next
         </Button>
       )}
       {nextPage && (
         <Link href={`/products/page/${currentPage + 1}`}>
-          <Button
-            rounded={'full'}
-            size={'lg'}
-            fontWeight={'normal'}
-            px={6}
-            colorScheme={'red'}
-            bg={'red.400'}
-            _hover={{ bg: 'red.500' }}
-            my="4"
-            rel="next"
-          >
+          <Button className="rounded-full px-6 my-4" size="lg" rel="next">
             Next
           </Button>
         </Link>
       )}
-    </Flex>
+    </nav>
   )
 }

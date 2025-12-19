@@ -1,17 +1,17 @@
 const fs = require('fs')
-const globby = require('globby')
+const { globby } = require('globby')
 const prettier = require('prettier')
 const siteMetadata = require('../data/siteMetadata')
 
 ;(async () => {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js')
   const pages = await globby([
-    'pages/*.js',
+    'app/**/page.js',
     'data/products/**/*.mdx',
     'data/products/**/*.md',
     'public/tags/**/*.xml',
-    '!pages/_*.js',
-    '!pages/api',
+    '!app/**/_*.js',
+    '!app/api',
   ])
 
   const sitemap = `
@@ -19,17 +19,27 @@ const siteMetadata = require('../data/siteMetadata')
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             ${pages
               .map((page) => {
-                const path = page
-                  .replace('pages/', '/')
+                let path = page
+                  .replace('app/', '/')
+                  .replace('/page.js', '')
                   .replace('data/products', '/products')
                   .replace('public/', '/')
                   .replace('.js', '')
                   .replace('.mdx', '')
                   .replace('.md', '')
                   .replace('/feed.xml', '')
+                // Handle index route
+                if (path === '/' || path === '') {
+                  path = '/'
+                }
                 const route = path === '/index' ? '' : path
-                if (page === `pages/404.js` || page === `pages/products/[...slug].js`) {
-                  return
+                // Skip dynamic routes and 404
+                if (
+                  page.includes('[...slug]') ||
+                  page.includes('not-found') ||
+                  page.includes('404')
+                ) {
+                  return ''
                 }
                 return `
                         <url>
@@ -37,15 +47,16 @@ const siteMetadata = require('../data/siteMetadata')
                         </url>
                     `
               })
+              .filter(Boolean)
               .join('')}
         </urlset>
     `
 
-  const formatted = prettier.format(sitemap, {
-    ...prettierConfig,
+  const formatted = await prettier.format(sitemap, {
+    ...(prettierConfig || {}),
     parser: 'html',
   })
 
   // eslint-disable-next-line no-sync
-  fs.writeFileSync('public/sitemap.xml', formatted)
+  fs.writeFileSync('public/sitemap.xml', formatted || sitemap)
 })()

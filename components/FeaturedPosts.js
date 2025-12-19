@@ -1,4 +1,3 @@
-import GAPageView from '@/components/GAPageView'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import formatDate from '@/lib/utils/formatDate'
@@ -21,7 +20,6 @@ const FeaturedPosts = ({ posts }) => {
                 <time className="pb-3 sm:block hidden" dateTime={date}>
                   {formatDate(date)}
                 </time>
-                <GAPageView slug={slug} />
               </div>
             </div>
 

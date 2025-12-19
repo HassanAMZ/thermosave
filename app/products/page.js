@@ -5,7 +5,12 @@ import { PageSEO } from '@/components/SEO'
 
 export const POSTS_PER_PAGE = 6
 
-export async function getStaticProps() {
+export const metadata = {
+  title: `Products - ${siteMetadata.author}`,
+  description: siteMetadata.description,
+}
+
+async function getData() {
   const posts = await getAllFilesFrontMatter('products')
   const initialDisplayPosts = posts.slice(0, POSTS_PER_PAGE)
   const pagination = {
@@ -13,10 +18,12 @@ export async function getStaticProps() {
     totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
   }
 
-  return { props: { initialDisplayPosts, posts, pagination } }
+  return { initialDisplayPosts, posts, pagination }
 }
 
-export default function Products({ posts, initialDisplayPosts, pagination }) {
+export default async function ProductsPage() {
+  const { posts, initialDisplayPosts, pagination } = await getData()
+
   return (
     <>
       <PageSEO title={`Products - ${siteMetadata.author}`} description={siteMetadata.description} />

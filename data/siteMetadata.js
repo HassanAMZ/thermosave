@@ -25,11 +25,6 @@ const siteMetadata = {
     simpleAnalytics: false, // true or false
     googleTagManagerID: 'GTM-K8FLM8W', // e.g.    GTM-K8FLM8W
   },
-  newsletter: {
-    // supports mailchimp, buttondown, convertkit
-    // Please add your .env file and modify it according to your selection
-    provider: 'mailchimp',
-  },
 
   comment: {
     // Select a provider and use the environment variables associated to it
