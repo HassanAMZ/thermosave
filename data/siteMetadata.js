@@ -1,9 +1,9 @@
 const siteMetadata = {
-  title: 'Thermosave -  Energy Saving Company',
+  title: 'ThermoSave — Energy-Saving Heaters & Insulation for Plastic Plants',
   author: 'ThermoSave',
-  headerTitle: 'Thermosave - Energy Saving Company',
+  headerTitle: 'ThermoSave',
   description:
-    'A technical web analytics products about Google Tag Manager and Google Analytics (other related stuff) created and constantly updated by Thermosave',
+    'Cut plant electricity bills by 20%+ with industrial heaters and thermal insulation jackets for injection molding, blow molding, and extrusion machines across Pakistan.',
   language: 'en-us',
   siteUrl: 'https://thermosave.pk',
   siteDomain: 'thermosave.pk',
@@ -11,7 +11,7 @@ const siteMetadata = {
   siteLogo: '/static/images/avatar.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/avatar.png',
-  email: 'Reactjswebdev@gmail.com',
+  email: 'thermosavenasir@gmail.com',
   github: 'https://github.com/HassanAMZ',
   twitter: 'https://twitter.com/shahzada_A',
   facebook: 'https://facebook.com/Thermosave',

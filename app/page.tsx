@@ -1,111 +1,76 @@
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
-import { getAllTags } from '@/lib/tags'
-import Features from '@/components/Features'
-import Testimonial from '@/components/Testimonial'
-import Statistics from '@/components/Statistics'
-import FeaturesNew from '@/components/FeaturesNew'
-import ProductCard from '@/components/ProductCard'
-import { CommerceHero } from '@/components/ui/commerce-hero'
+import {
+  LandingAgitate,
+  LandingFAQ,
+  LandingFinalCTA,
+  LandingHero,
+  LandingProblem,
+  LandingProducts,
+  LandingProof,
+  LandingSolution,
+  StickyContact,
+  type LandingProduct,
+} from '@/components/landing'
 import type { Metadata } from 'next'
-
-export const POSTS_PER_PAGE = 5
 
 export const metadata: Metadata = {
   title: siteMetadata.title,
   description: siteMetadata.description,
 }
 
-async function getData() {
-  const tags = await getAllTags('products')
-  const posts = await getAllFilesFrontMatter('products')
-  const initialDisplayProducts = posts.slice(0, POSTS_PER_PAGE)
-  const pagination = {
-    currentPage: 1,
-    totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
-  }
+const PRODUCT_COPY: Record<string, { benefit: string; title?: string }> = {
+  'mica-band-heaters': {
+    benefit:
+      'SS-jacketed mica band heaters with Ni20Cr80 winding — faster heat-up, less impair on barrels and nozzles.',
+  },
+  'ceramic-band-heater': {
+    benefit:
+      'Ceramic band heaters up to 1600°F and 45 W/in² — Made in Japan, built for demanding plastic machines.',
+  },
+  'thermal-insolations': {
+    title: 'Thermal Insulation Jackets',
+    benefit:
+      'Removable, self-extinguishing thermal jackets with high-temp cloth systems rated up to 2000°C.',
+  },
+}
 
+const PRODUCT_ORDER = ['mica-band-heaters', 'ceramic-band-heater', 'thermal-insolations'] as const
+
+async function getLandingProducts(): Promise<LandingProduct[]> {
+  const posts = await getAllFilesFrontMatter('products')
   const published = posts.filter((product) => product.draft !== true)
 
-  const preferredSlugs = [
-    'mica-band-heaters',
-    'ceramic-band-heater',
-    'thermal-insolations',
-    'insulated-heaters',
-  ]
+  const products: LandingProduct[] = []
 
-  const featuredFromPreferred = preferredSlugs
-    .map((slug) => published.find((product) => product.slug === slug))
-    .filter(Boolean)
-
-  const featuredCategories = (
-    featuredFromPreferred.length >= 4
-      ? featuredFromPreferred.slice(0, 4)
-      : [
-          ...featuredFromPreferred,
-          ...published.filter(
-            (product) => !featuredFromPreferred.some((item) => item.slug === product.slug)
-          ),
-        ].slice(0, 4)
-  ).map((product) => ({
-    title: product.title as string,
-    image: product.coverImage as string,
-    href: `/products/${product.slug}`,
-  }))
-
-  // Keep a full 4-up grid: if fewer than 4 published products, add an All Products card
-  if (featuredCategories.length < 4) {
-    featuredCategories.push({
-      title: 'All Products',
-      image: '/static/products/00001.png',
-      href: '/products',
+  for (const slug of PRODUCT_ORDER) {
+    const product = published.find((item) => item.slug === slug)
+    if (!product) continue
+    products.push({
+      slug,
+      title: PRODUCT_COPY[slug]?.title ?? (product.title as string),
+      coverImage: product.coverImage as string,
+      benefit: PRODUCT_COPY[slug]?.benefit ?? (product.summary as string),
     })
   }
 
-  return { initialDisplayProducts, posts, pagination, tags, featuredCategories }
+  return products
 }
 
 export default async function Home() {
-  const { initialDisplayProducts, featuredCategories } = await getData()
+  const products = await getLandingProducts()
 
   return (
-    <div>
-      <CommerceHero categories={featuredCategories} />
-
-      <div>
-        <Features />
-      </div>
-
-      <div className="container mx-auto max-w-7xl py-4 md:py-20 xl:py-32">
-        <h2 className="pb-8 text-center text-4xl font-bold">All Products</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 m-0">
-          {initialDisplayProducts.map((frontMatter, index) => {
-            const { slug, title, summary, tags, coverImage } = frontMatter
-            return (
-              <ProductCard
-                slug={slug}
-                title={title}
-                summary={summary}
-                tags={tags}
-                coverImage={coverImage}
-                key={index}
-              />
-            )
-          })}
-        </div>
-      </div>
-
-      <div>
-        <Statistics />
-      </div>
-
-      <div className="container mx-auto max-w-7xl py-4 md:py-20 xl:py-32">
-        <FeaturesNew />
-      </div>
-
-      <div id="testimonial" className="container mx-auto max-w-7xl py-4 md:py-20 xl:py-32">
-        <Testimonial />
-      </div>
+    <div className="landing-page">
+      <LandingHero />
+      <LandingProblem />
+      <LandingAgitate />
+      <LandingSolution />
+      <LandingProof />
+      <LandingProducts products={products} />
+      <LandingFAQ />
+      <LandingFinalCTA />
+      <StickyContact />
     </div>
   )
 }

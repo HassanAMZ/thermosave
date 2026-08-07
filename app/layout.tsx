@@ -4,12 +4,23 @@ import '@/css/prism.css'
 import { ThemeProvider } from 'next-themes'
 import siteMetadata from '@/data/siteMetadata'
 import Footer from '@/components/Footer'
-import { Inter } from 'next/font/google'
+import { Archivo, IBM_Plex_Sans } from 'next/font/google'
 import { Navbar } from '@/components/ui/navbar-1'
 import { Toaster } from '@/components/ui/sonner'
 import type { Metadata } from 'next'
 
-const inter = Inter({ subsets: ['latin'] })
+const display = Archivo({
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+})
+
+const sans = IBM_Plex_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-body',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -71,7 +82,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang={siteMetadata.language || 'en'} suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${sans.variable} ${display.variable} ${sans.className} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <Navbar />
           <main>{children}</main>

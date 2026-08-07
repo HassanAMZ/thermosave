@@ -40,8 +40,9 @@
 
   /* Font families */
   --font-family-sans:
-    Inter, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji';
+    var(--font-body), 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-family-display: var(--font-display), Archivo, ui-sans-serif, system-ui, sans-serif;
 
   /* Colors - Primary (red) - using standard Tailwind color scale */
   --color-primary-50: oklch(0.97 0.013 17.38);
@@ -140,7 +141,7 @@
 
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --font-sans: Inter, sans-serif;
+  --font-sans: var(--font-body), 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
 
   --font-mono: JetBrains Mono, monospace;
 
@@ -262,7 +263,7 @@
 
   --destructive-foreground: oklch(1.0000 0 0);
 
-  --font-sans: Inter, sans-serif;
+  --font-sans: var(--font-body), 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
 
   --font-serif: Source Serif 4, serif;
 
@@ -370,7 +371,7 @@
 
   --radius: 0.375rem;
 
-  --font-sans: Inter, sans-serif;
+  --font-sans: var(--font-body), 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
 
   --font-serif: Source Serif 4, serif;
 
@@ -420,7 +421,7 @@
 }
 
 @theme inline {
-  --font-sans: Inter, sans-serif;
+  --font-sans: var(--font-body), 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
   --font-mono: JetBrains Mono, monospace;
   --font-serif: Source Serif 4, serif;
   --radius: 0.375rem;

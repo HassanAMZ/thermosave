@@ -33,7 +33,7 @@ const products: { title: string; href: string; description: string; image: strin
     image: '/static/products/00002.png',
   },
   {
-    title: 'Thermal Insolation Jackets',
+    title: 'Thermal Insulation Jackets',
     href: '/products/thermal-insolations',
     description: 'Thermal insulation products to cut heat loss and operating cost.',
     image: '/static/products/00003.jpeg',
