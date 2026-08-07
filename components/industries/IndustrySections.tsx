@@ -32,10 +32,30 @@ function StoryImage({ photo, priority = false }: { photo: IndustryPhoto; priorit
   )
 }
 
-/** Videos + gallery right after hero — visual proof before long reading */
+/** Plant video + gallery dump — after story splits, one uniform tile grid */
 export function IndustryMedia({ industry }: IndustryProps) {
-  const featured = industry.videos[0]
-  const rest = industry.videos.slice(1)
+  type MediaTile =
+    | { kind: 'video'; playbackId: string; title: string; durationLabel: string }
+    | { kind: 'photo'; src: string; alt: string; caption: string }
+
+  const tiles: MediaTile[] = [
+    ...industry.videos.map((video) => ({
+      kind: 'video' as const,
+      playbackId: video.playbackId,
+      title: video.title,
+      durationLabel: video.durationLabel,
+    })),
+    ...industry.gallery.map((photo) => ({
+      kind: 'photo' as const,
+      src: photo.src,
+      alt: photo.alt,
+      caption: photo.caption,
+    })),
+  ]
+
+  if (tiles.length === 0) {
+    return null
+  }
 
   return (
     <section className="bg-[#f4f2ee] py-16 md:py-24">
@@ -48,7 +68,7 @@ export function IndustryMedia({ industry }: IndustryProps) {
           transition={{ duration: 0.5 }}
         >
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">
-            Watch first
+            Plant proof
           </p>
           <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">
             {industry.mediaTitle}
@@ -58,74 +78,48 @@ export function IndustryMedia({ industry }: IndustryProps) {
           </p>
         </motion.div>
 
-        {featured ? (
-          <motion.div
-            className="mt-10 flex flex-col items-center text-center"
-            initial={{ opacity: 0.4, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <IndustryMuxPlayer playbackId={featured.playbackId} title={featured.title} />
-            <p className="mt-3 text-sm font-medium text-stone-800">
-              {featured.title}
-              <span className="ml-2 text-xs uppercase tracking-[0.14em] text-stone-500">
-                {featured.durationLabel}
-              </span>
-            </p>
-          </motion.div>
-        ) : null}
-
-        {rest.length > 0 ? (
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 sm:justify-items-center">
-            {rest.map((video, index) => (
-              <motion.div
-                key={video.playbackId}
-                className="flex w-full max-w-md flex-col items-center text-center"
-                initial={{ opacity: 0.4, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.06 }}
-              >
-                <IndustryMuxPlayer playbackId={video.playbackId} title={video.title} />
-                <p className="mt-3 text-sm font-medium text-stone-800">
-                  {video.title}
-                  <span className="ml-2 text-xs uppercase tracking-[0.14em] text-stone-500">
-                    {video.durationLabel}
-                  </span>
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        ) : null}
-
-        {industry.gallery.length > 0 ? (
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {industry.gallery.map((photo, index) => (
-              <motion.figure
-                key={photo.src}
-                className="overflow-hidden rounded-sm border border-stone-200 bg-[#faf9f7]"
-                initial={{ opacity: 0.4, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.04 }}
-              >
+        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          {tiles.map((tile, index) => (
+            <motion.figure
+              key={tile.kind === 'video' ? tile.playbackId : tile.src}
+              className="overflow-hidden rounded-sm border border-stone-200 bg-[#faf9f7]"
+              initial={{ opacity: 0.4, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: index * 0.04 }}
+            >
+              {tile.kind === 'video' ? (
+                <IndustryMuxPlayer
+                  playbackId={tile.playbackId}
+                  title={tile.title}
+                  variant="tile"
+                />
+              ) : (
                 <div className="relative aspect-[4/3] w-full">
                   <Image
-                    src={photo.src}
-                    alt={photo.alt}
+                    src={tile.src}
+                    alt={tile.alt}
                     fill
                     className="object-cover"
                     sizes="(max-width: 640px) 100vw, 50vw"
                   />
                 </div>
-                <figcaption className="border-t border-stone-200 px-4 py-3 text-sm text-stone-600">
-                  {photo.caption}
-                </figcaption>
-              </motion.figure>
-            ))}
-          </div>
-        ) : null}
+              )}
+              <figcaption className="border-t border-stone-200 px-4 py-3 text-sm text-stone-600">
+                {tile.kind === 'video' ? (
+                  <>
+                    {tile.title}
+                    <span className="ml-2 text-xs uppercase tracking-[0.14em] text-stone-500">
+                      {tile.durationLabel}
+                    </span>
+                  </>
+                ) : (
+                  tile.caption
+                )}
+              </figcaption>
+            </motion.figure>
+          ))}
+        </div>
       </div>
     </section>
   )

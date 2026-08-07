@@ -29,10 +29,10 @@ export default function ExtrusionBlowMouldingPage() {
   return (
     <div>
       <IndustryHero industry={industry} />
-      <IndustryMedia industry={industry} />
       <IndustryProblem industry={industry} />
       <IndustryAgitate industry={industry} />
       <IndustryMechanism industry={industry} />
+      <IndustryMedia industry={industry} />
       <IndustryOffer industry={industry} />
       <LandingProof />
       <IndustryFaq industry={industry} />

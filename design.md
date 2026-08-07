@@ -16,7 +16,7 @@ Not heaters. We sell *stopping electricity waste thrown away as heat* for plasti
 Trust and numbers beat hype. CTA is always a conversation (assessment, call, WhatsApp) — never fake checkout urgency.
 
 **Audience media preference (Pakistan plant buyers):**  
-Many decision-makers skim on phone and trust **what they can see on a real machine** more than long English paragraphs. Prefer plant **video + photos first**, then short captions and headlines. Save dense technical prose for FAQ / assessment follow-up — not for the middle of the scroll.
+Many decision-makers skim on phone and trust **what they can see on a real machine** more than long English paragraphs. Prefer plant **photos in every story split**, then a Mux + gallery dump — short captions and headlines, not essays. Save dense technical prose for FAQ / assessment follow-up.
 
 **Funnel tone (PAS for industrial B2B):**
 
@@ -99,10 +99,10 @@ Industry pages **hook by process**; product pages **sell the tool**; contact **c
 | Brunson / Hormozi | Our section |
 |-------------------|-------------|
 | Hook | Dark hero: brand + outcome H1 + CTA + dominant plant visual |
-| Proof first (PK audience) | Mux videos + plant photos immediately after hero on industry pages |
-| Story — problem | Split: plant photo + short headline/copy |
+| Story — problem | Split: plant photo + short headline/copy (right after hero) |
 | Story — agitate | Split: photo + short copy + **stat tiles** (PKR / %) |
 | Epiphany / mechanism | Split: install photo + short how-it-works + CTAs |
+| Plant proof dump | Mux videos + gallery photos in one uniform tile grid |
 | Grand Slam Offer | Offer bullets + CTAs |
 | Objection kill | FAQ |
 | Close | FinalCTA + StickyContact |
@@ -367,17 +367,17 @@ Job: route buyers who think in **machine / process** language (extrusion blow mo
 
 ### Industry page (`/industries/[slug]`)
 
-**Visual-first order** (Pakistan: watch/see before read):
+**Section order** (story splits first, media dump after):
 
 1. IndustryHero — full-bleed plant photo, brand, outcome H1, Assessment / Call / WhatsApp, TrustBar  
-2. **IndustryMedia first** — Mux plant videos (featured large + supporting clips) + photo strip  
-3. Problem / Agitate / Mechanism as **split layouts**: real plant photo (≈ half width) + short headline + ≤2 sentences (+ stat tiles on Agitate)  
+2. Problem / Agitate / Mechanism as **split layouts**: real plant photo (≈ half width) + short headline + ≤2 sentences (+ stat tiles on Agitate)  
+3. **IndustryMedia** — Mux plant videos + gallery photos in **one uniform 4:3 tile grid** (video is a grid cell, not a giant portrait player)  
 4. Offer stack + CTAs + linked products  
 5. LandingProof  
 6. Industry FAQ (ok to be text-heavy — optional reading)  
 7. FinalCTA + StickyContact  
 
-Do **not** stack three text-only PAS sections before any media. Conversion copy + Mux IDs + story images live in `data/industries.ts`.
+Do **not** stack three text-only PAS sections — every story split pairs with a plant still. Conversion copy + Mux IDs + story images live in `data/industries.ts`.
 
 ### Visual-first section pattern
 
@@ -398,7 +398,7 @@ On mobile: image/video above copy. Never a full-width text block with no adjacen
 | Hero video (homepage) | `/static/videos/00001.mp4` — low opacity under dark overlays |
 | Products | `/static/products/` |
 | Industry photos | `/static/industries/[slug]/` |
-| Industry plant video | Mux **Playback** IDs (not Asset IDs) in `data/industries.ts` via `@mux/mux-player-react`; plant clips are portrait `239/425` |
+| Industry plant video | Mux **Playback** IDs (not Asset IDs) in `data/industries.ts` via `@mux/mux-player-react`; source is portrait `239/425`, displayed as **4:3 tiles** in the IndustryMedia grid |
 | Client logos | `/static/previousClients/` (AlKhair, ParagonPlastics, GondalPrecast) |
 | Logo | `/static/images/logo.png` |
 
@@ -406,8 +406,9 @@ Product photography on light tiles; hero/final CTA stay atmospheric dark. Indust
 
 **Industry media rules**
 
-- Put Mux / photo proof **immediately after the hero** when plant footage exists  
-- Story sections (problem / agitate / mechanism) always pair with a dedicated plant still  
+- After hero: story splits (problem → agitate → mechanism), then the plant proof dump  
+- Story sections always pair with a dedicated plant still — never text-only PAS  
+- In IndustryMedia, Mux clips share the **same 4:3 tile grid** as gallery photos (no oversized portrait video)  
 - Prefer short captions under images over long body paragraphs  
 - Stat tiles > multi-sentence agitate blocks  
 - Homepage may keep shorter text PAS (shared pattern); industry pages are stricter about visual density
@@ -447,7 +448,7 @@ Product photography on light tiles; hero/final CTA stay atmospheric dark. Indust
 **Do**
 
 - Lead with outcomes and measured savings  
-- Lead industry pages with video/photos; keep story copy short  
+- Pair every industry story section with a plant still; dump Mux + gallery after mechanism  
 - Use Archivo + IBM Plex Sans  
 - Use heat `#c45c1a` for primary actions  
 - Keep nav dark and integrated with heroes  
@@ -456,7 +457,8 @@ Product photography on light tiles; hero/final CTA stay atmospheric dark. Indust
 
 **Don’t**
 
-- Stack text-only Problem → Agitate → Mechanism before plant media on industry pages  
+- Stack text-only Problem → Agitate → Mechanism (no plant stills) on industry pages
+- Oversized portrait Mux player outside the gallery tile grid  
 - White opaque navbar over dark hero  
 - Purple SaaS gradients or Inter-by-default  
 - Fake urgency / squeeze pages for pricing  

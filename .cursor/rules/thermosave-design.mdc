@@ -13,7 +13,7 @@ Before changing or adding UI, read and follow **[`design.md`](../../design.md)**
 2. **Fonts** — Archivo (`--font-display`) for brand/headings; IBM Plex Sans for body.
 3. **Primary CTAs** — heat fill `#c45c1a`, not default blue `--primary`, on marketing and global nav.
 4. **Nav** — dark chrome that integrates with heroes (transparent over homepage / industry detail heroes at top; solid dark when scrolled / on other pages). Never a solid white bar over the dark hero.
-5. **Tone** — engineer-to-engineer; numbers over hype; CTAs are assessment / call / WhatsApp. Follow **Hormozi value equation + Brunson Hook→Story→Offer** in `design.md` §1b. For Pakistan industry pages: **video/photos first, short copy** — never text-only PAS stacks before plant media.
+5. **Tone** — engineer-to-engineer; numbers over hype; CTAs are assessment / call / WhatsApp. Follow **Hormozi value equation + Brunson Hook→Story→Offer** in `design.md` §1b. For Pakistan industry pages: **story splits (photo + short copy) after hero, then Mux/gallery dump**; never text-only PAS; videos sit in the same tile grid as photos.
 6. **Reuse** — prefer `components/landing/*`, `components/products/*`, `components/industries/*`, and `components/landing/constants.ts` over duplicating patterns.
 7. **Research online** — before writing or expanding an industry/process page, search current process + heat-loss + jacket data online; compress into short plant copy and stats. See `design.md` §1c and `AGENTS.md`.
 

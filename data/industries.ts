@@ -1,6 +1,6 @@
 /**
  * Industry pages — Hook by process (Brunson) + Hormozi value stack.
- * Visual-first for Pakistan plant buyers: media before long copy.
+ * Visual-first for Pakistan plant buyers: photo+copy story splits, then media dump.
  * Product tools stay in `data/products.ts` / `data/productMarketing.ts`.
  */
 

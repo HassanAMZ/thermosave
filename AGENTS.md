@@ -19,7 +19,7 @@ When adding or rewriting an **industry / process page**, **do research online** 
 1. Search how that machine/process loses heat (hopper dryers, extruders, EBM, etc.) and what insulation jackets typically change (surface temp, % heat loss, energy per kg dried).
 2. Prefer engineer-facing sources (OEM dryer docs, insulation jacket makers, plastics process guides) over generic marketing blogs.
 3. Translate findings into short, plant-language copy and **callout stats** — never paste long research prose into the page.
-4. Keep Pakistan buyer preference: **Mux plant video + photos first**, ≤ ~2 sentences per story section (`design.md` §1 / §1b).
+4. Keep Pakistan buyer preference: **story splits with plant photos after hero, then Mux + gallery dump**; ≤ ~2 sentences per story section (`design.md` §1 / §1b). Videos share the gallery tile grid.
 5. Wire Mux **Playback** IDs (not Asset IDs) in `data/industries.ts`; add the route under `app/industries/[slug]/` and nav/footer links.
 
 If research contradicts an existing number on the site, flag it and align with measured ThermoSave client proof where we have it.
