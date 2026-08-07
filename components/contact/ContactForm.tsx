@@ -37,7 +37,7 @@ const initial: FormState = {
 
 function buildMessage(data: FormState) {
   const lines = [
-    'ThermoSave — energy-loss assessment request',
+    'ThermoSave energy-loss assessment request',
     '',
     `Name: ${data.name.trim()}`,
     `Plant / company: ${data.plant.trim()}`,
@@ -88,11 +88,10 @@ export function ContactForm() {
       return
     }
 
-    const subject = encodeURIComponent('ThermoSave — energy-loss assessment')
+    const subject = encodeURIComponent('ThermoSave energy-loss assessment')
     const body = encodeURIComponent(buildMessage(data))
     const cc = encodeURIComponent(EMAIL_CC)
     window.location.href = `mailto:${EMAIL}?cc=${cc}&subject=${subject}&body=${body}`
-
   }
 
   const fieldClass =
@@ -197,7 +196,7 @@ export function ContactForm() {
           value={data.notes}
           onChange={(e) => update('notes', e.target.value)}
           className="min-h-[100px] rounded-sm border-stone-300 bg-white text-stone-900 placeholder:text-stone-400 focus-visible:ring-[#c45c1a]"
-          placeholder="Machine count, barrel sizes, heaters vs jackets — whatever helps."
+          placeholder="Machine count, barrel sizes, heaters or jackets. Whatever helps."
         />
       </div>
 
@@ -224,8 +223,8 @@ export function ContactForm() {
       </div>
 
       <p className="text-sm leading-relaxed text-stone-500">
-        WhatsApp is the fastest path for plant buyers in Pakistan. We reply with sizing questions —
-        no gated brochure, no fake checkout.
+        WhatsApp is fastest for most plant buyers in Pakistan. We reply with sizing questions. No
+        brochure gate.
       </p>
     </form>
   )

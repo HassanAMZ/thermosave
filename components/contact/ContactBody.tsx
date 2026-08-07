@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Mail, MessageCircle, Phone } from 'lucide-react'
 import { ContactForm } from './ContactForm'
@@ -14,15 +15,34 @@ import {
 const STEPS = [
   {
     title: 'Share the plant',
-    body: 'Call, WhatsApp, or the form — machines, city, and what heats the melt.',
+    body: 'Call, WhatsApp, or the form. Tell us machines, city, and what heats the melt.',
   },
   {
     title: 'We size the loss',
-    body: 'Photos or a short site call. Clear picture of radiant waste vs. jackets / bands.',
+    body: 'Send photos or hop on a short site call. We show where heat leaves the barrel.',
   },
   {
-    title: 'Quote & lead time',
-    body: 'Sized jackets or heaters, typical 7–10 day lead. Install guidance included.',
+    title: 'Quote and lead time',
+    body: 'Sized jackets or heaters. Typical 7 to 10 day lead. Install help included.',
+  },
+] as const
+
+const PLANT_STILLS = [
+  {
+    src: '/static/products/00003-2.jpeg',
+    alt: 'Insulation jackets on a plastic plant barrel',
+  },
+  {
+    src: '/static/industries/extrusion-blow-moulding/machine-full.jpg',
+    alt: 'Extrusion blow moulding machine with ThermoSave jackets',
+  },
+  {
+    src: '/static/products/00003-5.jpeg',
+    alt: 'Jacketed heater bands on plant equipment',
+  },
+  {
+    src: '/static/industries/extrusion-blow-moulding/install.jpg',
+    alt: 'Jacket install on a production floor',
   },
 ] as const
 
@@ -31,8 +51,39 @@ const channelClass =
 
 export function ContactBody() {
   return (
-    <section className="bg-[#f4f2ee] py-16 md:py-24">
+    <section className="bg-[#f4f2ee] py-20 md:py-28">
       <div className="container mx-auto max-w-7xl px-4">
+        <motion.div
+          className="mb-12 md:mb-16"
+          initial={{ opacity: 0.4, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.45 }}
+        >
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">
+            Same jackets. Real plants.
+          </p>
+          <h2 className="mt-3 max-w-2xl font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight text-[#0c1014] sm:text-3xl">
+            What you get after the call looks like this.
+          </h2>
+          <div className="mt-6 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
+            {PLANT_STILLS.map((still) => (
+              <div
+                key={still.src}
+                className="relative aspect-[4/3] overflow-hidden rounded-sm bg-stone-200"
+              >
+                <Image
+                  src={still.src}
+                  alt={still.alt}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <motion.div
             className="lg:col-span-5"
@@ -45,8 +96,7 @@ export function ContactBody() {
               How the assessment works
             </h2>
             <p className="mt-3 max-w-md text-base leading-relaxed text-stone-600">
-              Same conversation every CTA on the site points to — plant language, measured
-              savings, no hard sell.
+              Three short steps. Plant talk. Clear numbers. No pressure.
             </p>
 
             <ol className="mt-8 space-y-6">
@@ -123,7 +173,7 @@ export function ContactBody() {
                 Request an assessment
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-stone-600">
-                Fills a WhatsApp (or email) message with your plant details — we pick it up from
+                We open WhatsApp (or email) with your plant details ready. Then we take it from
                 there.
               </p>
               <div className="mt-6">

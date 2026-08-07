@@ -9,19 +9,28 @@ import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL } from '@/components/landing/con
 export function ContactHero() {
   return (
     <section className="relative isolate -mt-16 overflow-hidden bg-[#0c1014] pt-24 pb-16 text-stone-100 md:pt-28 md:pb-20">
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(196,92,26,0.22),transparent_55%)]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.07]"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.35) 1px, transparent 1px)',
-          backgroundSize: '48px 48px',
-        }}
-        aria-hidden
-      />
+      <div className="absolute inset-0 -z-10" aria-hidden>
+        <video
+          className="h-full w-full object-cover opacity-35"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/static/products/00003-2.jpeg"
+        >
+          <source src="/static/videos/00001.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0c1014] via-[#0c1014]/92 to-[#0c1014]/70" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(196,92,26,0.22),transparent_55%)]" />
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.35) 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
+          }}
+        />
+      </div>
 
       <div className="container relative mx-auto max-w-7xl px-4">
         <motion.div
@@ -37,8 +46,8 @@ export function ContactHero() {
             Free energy-loss assessment for your plant.
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-stone-300 md:text-lg">
-            Tell us what you run — barrels, dies, hoppers — and we&apos;ll map where heat leaves as
-            wasted kWh. Call, WhatsApp, or send the short form below.
+            Tell us what you run: barrels, dies, hoppers. We map where heat leaves as wasted kWh.
+            Call, WhatsApp, or use the short form below.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -49,7 +58,7 @@ export function ContactHero() {
             >
               <a href={`tel:${PHONE_TEL}`}>
                 <Phone className="h-4 w-4" />
-                Call — {PHONE_DISPLAY}
+                Call {PHONE_DISPLAY}
               </a>
             </Button>
             <Button
