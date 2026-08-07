@@ -6,10 +6,11 @@ const Logo = () => {
   return (
     <Link
       href="/"
-      className="px-1 sm:px-2 py-2 text-decoration-none rounded-md text-center hover:text-decoration-none hover:cursor-pointer"
+      className="rounded-sm px-1 py-2 text-center hover:cursor-pointer sm:px-2"
+      aria-label="ThermoSave home"
     >
       <Image
-        className="rounded-lg"
+        className="rounded-sm"
         height={30}
         width={30}
         style={{ objectFit: 'cover' }}

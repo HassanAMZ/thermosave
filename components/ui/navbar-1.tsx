@@ -4,10 +4,15 @@ import * as React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu } from 'lucide-react'
+import { Menu, Phone } from 'lucide-react'
 
 import { cn } from '@/components/lib/utils'
 import Logo from '@/components/Logo'
+import {
+  PHONE_DISPLAY,
+  PHONE_TEL,
+  WHATSAPP_URL,
+} from '@/components/landing/constants'
 import { Button } from '@/components/ui/button'
 import {
   NavigationMenu,
@@ -24,7 +29,7 @@ const products: { title: string; href: string; description: string; image: strin
   {
     title: 'Mica Band Heaters',
     href: '/products/mica-band-heaters',
-    description: 'SS jacketed mica band heaters with Ni20Cr80 winding for faster heat-up.',
+    description: 'SS-jacketed mica bands with Ni20Cr80 winding — fast heat-up for barrels and nozzles.',
     image: '/static/products/00001.png',
   },
   {
@@ -36,13 +41,13 @@ const products: { title: string; href: string; description: string; image: strin
   {
     title: 'Thermal Insulation Jackets',
     href: '/products/thermal-insolations',
-    description: 'Thermal insulation products to cut heat loss and operating cost.',
+    description: 'Removable jackets that keep heat in the melt — cut hall heat and kWh.',
     image: '/static/products/00003.jpeg',
   },
   {
     title: 'All Products',
     href: '/products',
-    description: 'Browse the full ThermoSave catalog for the plastic industry.',
+    description: 'Browse mica, ceramic, and insulation jackets for plastic plants.',
     image: '/static/products/00001.png',
   },
 ]
@@ -51,8 +56,14 @@ const industries = [
   {
     title: 'Extrusion Blow Moulding',
     href: '/industries/extrusion-blow-moulding',
-    description: 'Insulation jackets for EBM barrels and die heads — cut continuous heat loss.',
+    description: 'Jackets for EBM barrels and die heads — cut continuous heat loss.',
     image: '/static/industries/extrusion-blow-moulding/machine-full.jpg',
+  },
+  {
+    title: 'Extrusion Lines',
+    href: '/industries/extrusion-lines',
+    description: 'Jackets for continuous extruder barrels — pipe, profile, film, compounding.',
+    image: '/static/industries/extrusion-lines/machine-full.jpg',
   },
   {
     title: 'All Industries',
@@ -69,6 +80,9 @@ const mobileLinks = [
   { href: '/image-gallery', title: 'Gallery' },
   { href: '/contact', title: 'Contact Us' },
 ]
+
+const navLinkClass =
+  'bg-transparent text-stone-300 hover:bg-white/10 hover:text-white focus:bg-white/10 focus:text-white data-[active]:bg-white/10 data-[state=open]:bg-white/10 data-[state=open]:text-white'
 
 export function Navbar() {
   const pathname = usePathname()
@@ -101,11 +115,11 @@ export function Navbar() {
       )}
     >
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5">
           <Logo />
           <Link
             href="/"
-            className="hidden font-[family-name:var(--font-display)] text-sm font-semibold tracking-tight text-stone-100 sm:inline"
+            className="hidden font-[family-name:var(--font-display)] text-sm font-semibold tracking-tight text-[#f0a060] sm:inline"
           >
             ThermoSave
           </Link>
@@ -118,10 +132,7 @@ export function Navbar() {
                 <NavigationMenuLink asChild>
                   <Link
                     href="/"
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      'bg-transparent text-stone-200 hover:bg-white/10 hover:text-white focus:bg-white/10 focus:text-white data-[active]:bg-white/10'
-                    )}
+                    className={cn(navigationMenuTriggerStyle(), navLinkClass, 'rounded-sm')}
                   >
                     Home
                   </Link>
@@ -129,16 +140,16 @@ export function Navbar() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent text-stone-200 hover:bg-white/10 hover:text-white focus:bg-white/10 focus:text-white data-[state=open]:bg-white/10 data-[state=open]:text-white">
+                <NavigationMenuTrigger className={cn(navLinkClass, 'rounded-sm')}>
                   Products
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                  <ul className="grid gap-2 p-3 md:w-[500px] md:grid-cols-2 lg:w-[580px]">
                     <li className="row-span-3 md:col-span-2 lg:col-span-1 lg:row-span-3">
                       <NavigationMenuLink asChild>
                         <Link
                           href="/products"
-                          className="flex h-full min-h-[180px] w-full select-none flex-col justify-end overflow-hidden rounded-md bg-gradient-to-b from-muted/50 to-muted no-underline outline-none focus:shadow-md"
+                          className="flex h-full min-h-[180px] w-full select-none flex-col justify-end overflow-hidden rounded-sm border border-white/10 bg-[#12161c] no-underline outline-none transition-colors hover:border-white/20 focus:border-white/20"
                         >
                           <div className="relative h-28 w-full">
                             <Image
@@ -148,37 +159,41 @@ export function Navbar() {
                               className="object-cover"
                               sizes="240px"
                             />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#12161c] via-[#12161c]/40 to-transparent" />
                           </div>
-                          <div className="p-6 pt-4">
-                            <div className="mb-2 text-lg font-medium">All Products</div>
-                            <p className="text-sm leading-tight text-muted-foreground">
-                              Industrial heaters, insulation, and energy-saving systems from
-                              ThermoSave.
+                          <div className="p-5 pt-3">
+                            <div className="mb-1.5 font-[family-name:var(--font-display)] text-base font-semibold tracking-tight text-stone-100">
+                              All Products
+                            </div>
+                            <p className="text-sm leading-snug text-stone-400">
+                              Mica, ceramic, and insulation jackets sized for plastic plants.
                             </p>
                           </div>
                         </Link>
                       </NavigationMenuLink>
                     </li>
-                    {products.map((product) => (
-                      <ListItem
-                        key={product.title}
-                        title={product.title}
-                        href={product.href}
-                        image={product.image}
-                      >
-                        {product.description}
-                      </ListItem>
-                    ))}
+                    {products
+                      .filter((p) => p.href !== '/products')
+                      .map((product) => (
+                        <ListItem
+                          key={product.title}
+                          title={product.title}
+                          href={product.href}
+                          image={product.image}
+                        >
+                          {product.description}
+                        </ListItem>
+                      ))}
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent text-stone-200 hover:bg-white/10 hover:text-white focus:bg-white/10 focus:text-white data-[state=open]:bg-white/10 data-[state=open]:text-white">
+                <NavigationMenuTrigger className={cn(navLinkClass, 'rounded-sm')}>
                   Industries
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[320px] gap-2 p-4">
+                  <ul className="grid w-[340px] gap-1 p-3">
                     {industries.map((industry) => (
                       <ListItem
                         key={industry.title}
@@ -197,10 +212,7 @@ export function Navbar() {
                 <NavigationMenuLink asChild>
                   <Link
                     href="/image-gallery"
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      'bg-transparent text-stone-200 hover:bg-white/10 hover:text-white focus:bg-white/10 focus:text-white data-[active]:bg-white/10'
-                    )}
+                    className={cn(navigationMenuTriggerStyle(), navLinkClass, 'rounded-sm')}
                   >
                     Gallery
                   </Link>
@@ -211,10 +223,7 @@ export function Navbar() {
                 <NavigationMenuLink asChild>
                   <Link
                     href="/contact"
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      'bg-transparent text-stone-200 hover:bg-white/10 hover:text-white focus:bg-white/10 focus:text-white data-[active]:bg-white/10'
-                    )}
+                    className={cn(navigationMenuTriggerStyle(), navLinkClass, 'rounded-sm')}
                   >
                     Contact
                   </Link>
@@ -225,9 +234,18 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
+          <a
+            href={`tel:${PHONE_TEL}`}
+            className="hidden items-center gap-1.5 rounded-sm px-2 py-1.5 text-sm text-stone-300 transition-colors hover:bg-white/10 hover:text-white lg:inline-flex"
+            aria-label={`Call ${PHONE_DISPLAY}`}
+          >
+            <Phone className="h-3.5 w-3.5 text-[#f0a060]" aria-hidden />
+            <span className="font-medium tabular-nums">{PHONE_DISPLAY}</span>
+          </a>
+
           <Button
             asChild
-            className="hidden rounded-sm bg-[#c45c1a] text-white shadow-none hover:bg-[#a84c14] md:inline-flex"
+            className="hidden h-9 rounded-sm bg-[#c45c1a] px-4 text-sm font-semibold text-white shadow-none hover:bg-[#a84c14] md:inline-flex"
           >
             <Link href="/contact">Get Assessment</Link>
           </Button>
@@ -237,7 +255,7 @@ export function Navbar() {
               <Button
                 variant="outline"
                 size="icon"
-                className="border-white/20 bg-transparent text-stone-100 hover:bg-white/10 hover:text-white md:hidden"
+                className="rounded-sm border-white/20 bg-transparent text-stone-100 hover:bg-white/10 hover:text-white md:hidden"
                 aria-label="Open menu"
               >
                 <Menu className="h-5 w-5" />
@@ -245,11 +263,11 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-[min(100%,20rem)] border-white/10 bg-[#0c1014] text-stone-100"
+              className="w-[min(100%,20rem)] border-white/10 bg-[#0c1014] text-stone-100 [&>button]:text-stone-300 [&>button]:hover:text-white [&>button]:hover:opacity-100"
             >
               <SheetHeader>
-                <SheetTitle className="font-[family-name:var(--font-display)] text-stone-100">
-                  Menu
+                <SheetTitle className="font-[family-name:var(--font-display)] text-left text-stone-100">
+                  <span className="text-[#f0a060]">ThermoSave</span>
                 </SheetTitle>
               </SheetHeader>
               <nav className="mt-8 flex flex-col gap-1">
@@ -258,37 +276,41 @@ export function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="rounded-sm px-3 py-2 text-sm font-medium text-stone-200 hover:bg-white/10 hover:text-white"
+                    className="rounded-sm px-3 py-2.5 text-sm font-medium text-stone-200 hover:bg-white/10 hover:text-white"
                   >
                     {link.title}
                   </Link>
                 ))}
+
                 <div className="mt-4 border-t border-white/10 pt-4">
-                  <p className="mb-2 px-3 text-xs font-medium uppercase tracking-wide text-stone-500">
+                  <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">
                     Products
                   </p>
-                  {products.map((product) => (
-                    <Link
-                      key={product.href}
-                      href={product.href}
-                      onClick={() => setOpen(false)}
-                      className="flex items-center gap-3 rounded-sm px-3 py-2 text-sm text-stone-200 hover:bg-white/10 hover:text-white"
-                    >
-                      <span className="relative size-10 shrink-0 overflow-hidden rounded-sm border border-white/10 bg-white/5">
-                        <Image
-                          src={product.image}
-                          alt={product.title}
-                          fill
-                          className="object-cover"
-                          sizes="40px"
-                        />
-                      </span>
-                      <span>{product.title}</span>
-                    </Link>
-                  ))}
+                  {products
+                    .filter((p) => p.href !== '/products')
+                    .map((product) => (
+                      <Link
+                        key={product.href}
+                        href={product.href}
+                        onClick={() => setOpen(false)}
+                        className="flex items-center gap-3 rounded-sm px-3 py-2 text-sm text-stone-200 hover:bg-white/10 hover:text-white"
+                      >
+                        <span className="relative size-10 shrink-0 overflow-hidden rounded-sm border border-white/10 bg-[#12161c]">
+                          <Image
+                            src={product.image}
+                            alt={product.title}
+                            fill
+                            className="object-cover"
+                            sizes="40px"
+                          />
+                        </span>
+                        <span>{product.title}</span>
+                      </Link>
+                    ))}
                 </div>
+
                 <div className="mt-4 border-t border-white/10 pt-4">
-                  <p className="mb-2 px-3 text-xs font-medium uppercase tracking-wide text-stone-500">
+                  <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">
                     Industries
                   </p>
                   {industries.map((industry) => (
@@ -298,7 +320,7 @@ export function Navbar() {
                       onClick={() => setOpen(false)}
                       className="flex items-center gap-3 rounded-sm px-3 py-2 text-sm text-stone-200 hover:bg-white/10 hover:text-white"
                     >
-                      <span className="relative size-10 shrink-0 overflow-hidden rounded-sm border border-white/10 bg-white/5">
+                      <span className="relative size-10 shrink-0 overflow-hidden rounded-sm border border-white/10 bg-[#12161c]">
                         <Image
                           src={industry.image}
                           alt={industry.title}
@@ -311,14 +333,40 @@ export function Navbar() {
                     </Link>
                   ))}
                 </div>
-                <Button
-                  asChild
-                  className="mt-6 rounded-sm bg-[#c45c1a] text-white hover:bg-[#a84c14]"
-                >
-                  <Link href="/contact" onClick={() => setOpen(false)}>
-                    Get Assessment
-                  </Link>
-                </Button>
+
+                <div className="mt-6 flex flex-col gap-2 border-t border-white/10 pt-4">
+                  <Button
+                    asChild
+                    className="h-11 rounded-sm bg-[#c45c1a] font-semibold text-white shadow-none hover:bg-[#a84c14]"
+                  >
+                    <Link href="/contact" onClick={() => setOpen(false)}>
+                      Get Assessment
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="h-11 rounded-sm border-stone-400/70 bg-transparent text-stone-100 hover:bg-white/10 hover:text-white"
+                  >
+                    <a href={`tel:${PHONE_TEL}`} onClick={() => setOpen(false)}>
+                      Call — {PHONE_DISPLAY}
+                    </a>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="h-11 rounded-sm border-[#25D366]/50 bg-transparent text-stone-100 hover:bg-[#25D366]/10 hover:text-white"
+                  >
+                    <a
+                      href={WHATSAPP_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setOpen(false)}
+                    >
+                      WhatsApp
+                    </a>
+                  </Button>
+                </div>
               </nav>
             </SheetContent>
           </Sheet>
@@ -342,17 +390,17 @@ const ListItem = React.forwardRef<React.ElementRef<'a'>, ListItemProps>(
             ref={ref}
             href={href ?? '#'}
             className={cn(
-              'flex select-none items-start gap-3 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+              'flex select-none items-start gap-3 rounded-sm p-3 leading-none no-underline outline-none transition-colors hover:bg-white/10 focus:bg-white/10',
               className
             )}
             {...props}
           >
-            <span className="relative size-12 shrink-0 overflow-hidden rounded-md border border-border bg-muted">
+            <span className="relative size-12 shrink-0 overflow-hidden rounded-sm border border-white/10 bg-[#12161c]">
               <Image src={image} alt={title ?? ''} fill className="object-cover" sizes="48px" />
             </span>
-            <span className="min-w-0 space-y-1">
-              <span className="block text-sm font-medium leading-none">{title}</span>
-              <span className="line-clamp-2 block text-sm leading-snug text-muted-foreground">
+            <span className="min-w-0 space-y-1.5">
+              <span className="block text-sm font-medium leading-none text-stone-100">{title}</span>
+              <span className="line-clamp-2 block text-sm leading-snug text-stone-400">
                 {children}
               </span>
             </span>
