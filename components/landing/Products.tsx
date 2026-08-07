@@ -19,7 +19,7 @@ type LandingProductsProps = {
 
 export function LandingProducts({ products }: LandingProductsProps) {
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-[#f4f2ee] py-20 md:py-28">
       <div className="container mx-auto max-w-7xl px-4">
         <motion.div
           className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"

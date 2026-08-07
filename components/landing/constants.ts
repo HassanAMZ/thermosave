@@ -9,7 +9,7 @@ export const TRUST_STATS = [
   { value: '10+', label: 'Years' },
   { value: '200+', label: 'Clients' },
   { value: '20%+', label: 'Avg. Energy Saved' },
-  { value: 'Made in Japan', label: 'Heaters & Materials' },
+  { value: 'Made in Pakistan', label: 'Heaters & Jackets' },
 ] as const
 
 export const CITIES = [

@@ -46,7 +46,7 @@ const products: NavItem[] = [
   {
     title: 'Ceramic Band Heaters',
     href: '/products/ceramic-band-heater',
-    description: 'High-temp ceramic bands up to 1600°F — Made in Japan, open for install.',
+    description: 'High-temp ceramic bands up to 1600°F. Made in Pakistan. Opens for install.',
     image: '/static/products/cutouts/00002.png',
     imageFit: 'contain',
   },

@@ -6,6 +6,7 @@ import {
   LandingFAQ,
   LandingFinalCTA,
   LandingHero,
+  LandingMedia,
   LandingProblem,
   LandingProducts,
   LandingProof,
@@ -48,6 +49,7 @@ export default function Home() {
       <LandingProblem />
       <LandingAgitate />
       <LandingSolution />
+      <LandingMedia />
       <LandingProof />
       <LandingProducts products={products} />
       <LandingFAQ />

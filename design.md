@@ -53,7 +53,7 @@ Use these frameworks whenever writing landing, product, or **industry** pages. A
 | Lever | ThermoSave application |
 |-------|------------------------|
 | Dream Outcome | Lower kWh / cooler hall / safer touch surfaces / longer heater life — *without* changing output |
-| Perceived Likelihood | Named plants, measured PKR/units, photos & Mux plant video, Made in Japan materials, 200+ installs |
+| Perceived Likelihood | Named plants, measured PKR/units, photos & Mux plant video, Made in Pakistan, 200+ installs |
 | Time Delay | Months payback (not years); typical 7–10 day lead time; assessment → sized jackets |
 | Effort & Sacrifice | Removable jackets; no process change; Call / WhatsApp / free assessment — no fake checkout |
 
@@ -209,10 +209,11 @@ Alternate for skimability:
 2. Light surface problem  
 3. Dark soft agitate  
 4. White solution  
-5. Light surface proof  
-6. White products  
-7. Light surface FAQ  
-8. Dark ink final CTA  
+5. Light surface plant proof dump  
+6. White named-plant proof  
+7. Light surface products  
+8. White FAQ  
+9. Dark ink final CTA  
 
 ---
 
@@ -302,7 +303,7 @@ Industrial = restrained. Prefer `rounded-sm` for buttons/tiles; avoid pill (`rou
 
 ### Trust bar
 
-Reuse `components/landing/TrustBar.tsx` with `tone="dark" | "light"`. Stats: 10+ Years · 200+ Clients · 20%+ Avg. Energy Saved · Made in Japan.
+Reuse `components/landing/TrustBar.tsx` with `tone="dark" | "light"`. Stats: 10+ Years · 200+ Clients · 20%+ Avg. Energy Saved · Made in Pakistan.
 
 ### Sticky contact
 
@@ -387,17 +388,18 @@ Logo + wordmark stay readable on dark. Do not reintroduce a solid white header o
 
 Order in `app/page.tsx`:
 
-1. Hero + dual CTA + trust bar  
-2. Problem (3 pains)  
-3. Agitate (cost of inaction + numbers)  
-4. Solution (3-step process + product tools)  
-5. Proof (stats, logos, cities)  
-6. Products grid  
-7. FAQ  
-8. Final CTA  
-9. StickyContact  
+1. Hero + dual CTA + trust bar (full-bleed plant video)  
+2. Problem — **story split**: plant photo + short copy (+ compact pain list)  
+3. Agitate — **story split**: plant photo + short copy + **stat tiles**  
+4. Solution / mechanism — **story split**: install photo + how-it-works + CTAs, then 3 steps + product tools  
+5. Plant proof dump — Mux + plant photos in a uniform tile grid (`LandingMedia` → `/image-gallery`)  
+6. Proof (named-plant stats, logos, cities)  
+7. Products grid  
+8. FAQ  
+9. Final CTA  
+10. StickyContact  
 
-Reference: `components/landing/*`
+Same visual rule as industry pages: **do not** stack text-only PAS. Pair every story section with a plant still. Reference: `components/landing/*`
 
 ### Interior pages (products, contact, gallery)
 
@@ -411,12 +413,12 @@ Reference: `components/landing/*`
 
 Commitment rung — assessment conversation. Order via `components/contact/*`:
 
-1. ContactHero — dark ink, brand + assessment H1 + Call / WhatsApp + TrustBar (nav transparent over hero)  
-2. ContactBody — how-it-works steps + direct lines (phone / WhatsApp / email from `constants.ts`) + assessment form (WhatsApp primary submit, email alternate)  
+1. ContactHero — dark ink + plant video/photo plane, brand + assessment H1 + Call / WhatsApp + TrustBar (nav transparent over hero)  
+2. ContactBody — plant still strip (4:3 tiles) + how-it-works steps + direct lines (phone / WhatsApp / email from `constants.ts`) + assessment form (WhatsApp primary submit, email alternate)  
 3. LandingProof  
 4. StickyContact  
 
-Do **not** use the old AuthorLayout / PortfolioIntroductionSummary stub. Form opens WhatsApp (or mailto) with plant details — no fake checkout.
+Do **not** use the old AuthorLayout / PortfolioIntroductionSummary stub. Form opens WhatsApp (or mailto) with plant details. No fake checkout. Plain English (§1d): no em dashes in customer-facing copy.
 
 ### Products collection (`/products`)
 
@@ -548,7 +550,7 @@ Product photography on light tiles; hero/final CTA stay atmospheric dark. Indust
 - In IndustryMedia, Mux clips share the **same 4:3 tile grid** as gallery photos (no oversized portrait video); portrait footage uses contain + ink bars, not cover crop  
 - Prefer short captions under images over long body paragraphs  
 - Stat tiles > multi-sentence agitate blocks  
-- Homepage may keep shorter text PAS (shared pattern); industry pages are stricter about visual density
+- Homepage follows the same photo-first story splits + plant proof dump; keep copy shorter than industry pages, but never drop the images
 
 ---
 
@@ -568,7 +570,7 @@ Product photography on light tiles; hero/final CTA stay atmospheric dark. Indust
 |---------|----------|
 | Design system (this doc) | `/design.md` |
 | Agent enforcement | `.cursor/rules/thermosave-design.mdc` |
-| Landing sections | `components/landing/` |
+| Landing sections | `components/landing/` (incl. `Media.tsx` plant proof dump) |
 | Product marketing UI | `components/products/` |
 | Industry marketing UI | `components/industries/` |
 | Industry copy + Mux IDs | `data/industries.ts` |

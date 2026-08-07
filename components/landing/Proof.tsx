@@ -40,7 +40,7 @@ const callouts = [
 
 export function LandingProof() {
   return (
-    <section id="proof" className="bg-[#f4f2ee] py-20 md:py-28">
+    <section id="proof" className="bg-white py-20 md:py-28">
       <div className="container mx-auto max-w-7xl px-4">
         <motion.div
           className="max-w-2xl"

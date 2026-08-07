@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowUpRight, ClipboardCheck, LineChart, ShieldCheck } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL } from './constants'
 
 const steps = [
   {
@@ -28,13 +30,13 @@ const tools = [
     title: 'Mica Band Heaters',
     benefit: 'Heat barrels and nozzles fast. Tight fit. Less waste.',
     href: '/products/mica-band-heaters',
-    image: '/static/products/00001.png',
+    image: '/static/products/cutouts/00001.png',
   },
   {
     title: 'Ceramic Band Heaters',
-    benefit: 'High heat up to 1600°F. Made in Japan. Built for hard-running zones.',
+    benefit: 'High heat up to 1600°F. Made in Pakistan. Built for hard-running zones.',
     href: '/products/ceramic-band-heater',
-    image: '/static/products/00002.png',
+    image: '/static/products/cutouts/00002.png',
   },
   {
     title: 'Thermal Insulation Jackets',
@@ -48,30 +50,81 @@ export function LandingSolution() {
   return (
     <section className="bg-white py-20 md:py-28">
       <div className="container mx-auto max-w-7xl px-4">
-        <motion.div
-          className="max-w-2xl"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.5 }}
-        >
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">
-            How ThermoSave works
-          </p>
-          <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">
-            We measure first. Then we fix the loss.
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-stone-600">
-            We work like a plant engineer. Check the floor. Fix the heat leak. Show you the result.
-          </p>
-        </motion.div>
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <motion.figure
+            className="overflow-hidden rounded-sm border border-stone-200 bg-[#0c1014]"
+            initial={{ opacity: 0.4, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="relative aspect-[4/5] w-full sm:aspect-[5/6]">
+              <Image
+                src="/static/industries/extrusion-blow-moulding/install.jpg"
+                alt="ThermoSave jackets being fitted on plant equipment"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <figcaption className="border-t border-stone-200 bg-[#faf9f7] px-4 py-3 text-sm text-stone-600">
+              Fitted on the machine. Removable for maintenance.
+            </figcaption>
+          </motion.figure>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-3">
+          <motion.div
+            initial={{ opacity: 0.4, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5, delay: 0.06 }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">
+              How ThermoSave works
+            </p>
+            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">
+              We measure first. Then we fix the loss.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-stone-600 md:text-lg">
+              Jackets and band heaters keep heat in the melt. Your process stays the same. Your
+              bill goes down.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Button
+                asChild
+                size="lg"
+                className="h-12 rounded-sm bg-[#c45c1a] px-6 text-base font-semibold text-white shadow-none hover:bg-[#a84c14]"
+              >
+                <Link href="/contact">Get a Free Heat Check</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="h-12 rounded-sm border-stone-300 px-6 text-base"
+              >
+                <a href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="h-12 rounded-sm border-stone-300 px-6 text-base"
+              >
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                  WhatsApp
+                </a>
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="mt-16 grid gap-8 border-t border-stone-200 pt-12 md:grid-cols-3">
           {steps.map((step, index) => (
             <motion.div
               key={step.title}
               className="relative"
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0.4, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
@@ -92,7 +145,7 @@ export function LandingSolution() {
 
         <motion.div
           className="mt-16 border-t border-stone-200 pt-12"
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0.4, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.5 }}
