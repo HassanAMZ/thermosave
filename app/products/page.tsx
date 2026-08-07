@@ -2,10 +2,11 @@ import { getAllFilesFrontMatter } from '@/lib/mdx'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayout'
 import { PageSEO } from '@/components/SEO'
+import type { Metadata } from 'next'
 
 export const POSTS_PER_PAGE = 6
 
-export const metadata = {
+export const metadata: Metadata = {
   title: `Products - ${siteMetadata.author}`,
   description: siteMetadata.description,
 }
@@ -26,7 +27,11 @@ export default async function ProductsPage() {
 
   return (
     <>
-      <PageSEO title={`Products - ${siteMetadata.author}`} description={siteMetadata.description} />
+      <PageSEO
+        title={`Products - ${siteMetadata.author}`}
+        description={siteMetadata.description}
+        pathname={undefined as any}
+      />
 
       <ListLayout
         posts={posts}

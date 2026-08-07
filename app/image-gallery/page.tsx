@@ -1,8 +1,9 @@
 import siteMetadata from '@/data/siteMetadata'
 import { PageSEO } from '@/components/SEO'
 import Link from '@/components/Link'
+import type { Metadata } from 'next'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: `Image Gallery - ${siteMetadata.author}`,
   description: siteMetadata.description,
 }
@@ -13,6 +14,7 @@ export default function ImageGallery() {
       <PageSEO
         title={`Image Gallery - ${siteMetadata.author}`}
         description={siteMetadata.description}
+        pathname={undefined as any}
       />
       <div className="flex h-[80vh] flex-col items-center justify-center md:justify-center md:items-center md:flex-row md:space-x-6 md:mt-24">
         <div className="pt-6 pb-8 space-x-2 md:space-y-5">

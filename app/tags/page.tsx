@@ -3,8 +3,9 @@ import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllTags } from '@/lib/tags'
+import type { Metadata } from 'next'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: `Tags - ${siteMetadata.author}`,
   description: 'Things I products about',
 }
@@ -20,7 +21,11 @@ export default async function TagsPage() {
 
   return (
     <>
-      <PageSEO title={`Tags - ${siteMetadata.author}`} description="Things I products about" />
+      <PageSEO
+        title={`Tags - ${siteMetadata.author}`}
+        description="Things I products about"
+        pathname={undefined as any}
+      />
       <div className="container mx-auto max-w-7xl">
         <div className="flex flex-col justify-left my-4">
           <h2 className="py-3 text-xl">Top Tags</h2>
@@ -31,7 +36,7 @@ export default async function TagsPage() {
               return (
                 <div key={tag}>
                   <div className="flex justify-center items-center">
-                    <Tag text={tag} key={index} icon={` (${tags[tag]})`} />
+                    <Tag text={tag} key={index} icon={` (${tags[tag]})`} size={undefined as any} />
                   </div>
                 </div>
               )

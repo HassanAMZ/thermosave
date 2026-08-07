@@ -2,6 +2,7 @@ import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import ListLayout from '@/layouts/ListLayout'
+import type { Metadata } from 'next'
 
 export const POSTS_PER_PAGE = 6
 
@@ -13,14 +14,18 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata(): Promise<Metadata> {
   return {
     title: siteMetadata.title,
     description: siteMetadata.description,
   }
 }
 
-export default async function ProductsPagePage({ params }) {
+export default async function ProductsPagePage({
+  params,
+}: {
+  params: Promise<{ page: string }>
+}) {
   const { page } = await params
   const pageNumber = parseInt(page)
   const posts = await getAllFilesFrontMatter('products')
@@ -35,7 +40,11 @@ export default async function ProductsPagePage({ params }) {
 
   return (
     <>
-      <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
+      <PageSEO
+        title={siteMetadata.title}
+        description={siteMetadata.description}
+        pathname={undefined as any}
+      />
       <ListLayout
         posts={posts}
         initialDisplayPosts={initialDisplayPosts}

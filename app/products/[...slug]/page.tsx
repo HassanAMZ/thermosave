@@ -4,6 +4,7 @@ import generateRss from '@/lib/generate-rss'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
 import { formatSlug, getAllFilesFrontMatter, getFileBySlug, getFiles } from '@/lib/mdx'
 import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
 
 const DEFAULT_LAYOUT = 'ProductLayout'
 
@@ -18,13 +19,17 @@ export async function generateStaticParams() {
   })
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string[] }>
+}): Promise<Metadata> {
   const resolvedParams = await params
   const slug = resolvedParams?.slug ? resolvedParams.slug.join('/') : ''
 
   try {
     const post = await getFileBySlug('products', slug)
-    const { frontMatter } = post
+    const { frontMatter } = post as any
 
     if (frontMatter.draft) {
       return {
@@ -36,14 +41,18 @@ export async function generateMetadata({ params }) {
       title: frontMatter.title,
       description: frontMatter.summary || frontMatter.description,
     }
-  } catch (error) {
+  } catch {
     return {
       title: 'Product Not Found',
     }
   }
 }
 
-export default async function ProductPage({ params }) {
+export default async function ProductPage({
+  params,
+}: {
+  params: Promise<{ slug: string[] }>
+}) {
   const resolvedParams = await params
   const slug = resolvedParams?.slug ? resolvedParams.slug.join('/') : ''
 
@@ -53,10 +62,10 @@ export default async function ProductPage({ params }) {
     const prev = allPosts[postIndex + 1] || null
     const next = allPosts[postIndex - 1] || null
     const post = await getFileBySlug('products', slug)
-    const authorList = post.frontMatter.authors || ['default']
+    const authorList = (post as any).frontMatter.authors || ['default']
     const authorPromise = authorList.map(async (author) => {
       const authorResults = await getFileBySlug('authors', [author])
-      return authorResults.frontMatter
+      return (authorResults as any).frontMatter
     })
     const authorDetails = await Promise.all(authorPromise)
 
@@ -64,7 +73,7 @@ export default async function ProductPage({ params }) {
     const rss = generateRss(allPosts)
     fs.writeFileSync('./public/feed.xml', rss)
 
-    const { mdxSource, toc, frontMatter } = post
+    const { mdxSource, toc, frontMatter } = post as any
 
     if (frontMatter.draft) {
       return (

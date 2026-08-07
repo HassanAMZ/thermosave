@@ -8,6 +8,7 @@ import kebabCase from '@/lib/utils/kebabCase'
 import fs from 'fs'
 import path from 'path'
 import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
 
 const root = process.cwd()
 
@@ -18,7 +19,11 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ tag: string }>
+}): Promise<Metadata> {
   const { tag } = await params
   return {
     title: `${tag} - ${siteMetadata.author}`,
@@ -26,7 +31,11 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export default async function TagPage({ params }) {
+export default async function TagPage({
+  params,
+}: {
+  params: Promise<{ tag: string }>
+}) {
   const { tag } = await params
   const allPosts = await getAllFilesFrontMatter('products')
   const filteredPosts = allPosts.filter(
@@ -51,8 +60,9 @@ export default async function TagPage({ params }) {
       <TagSEO
         title={`${tag} - ${siteMetadata.author}`}
         description={`${tag} tags - ${siteMetadata.author}`}
+        pathname={undefined as any}
       />
-      <ListLayout posts={filteredPosts} title={title} />
+      <ListLayout posts={filteredPosts} title={title} pagination={undefined as any} />
     </>
   )
 }

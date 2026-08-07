@@ -1,9 +1,10 @@
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
 import { getFileBySlug } from '@/lib/mdx'
+import type { Metadata } from 'next'
 
 const DEFAULT_LAYOUT = 'AuthorLayout'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Contact',
   description: 'Contact ThermoSave',
 }
@@ -15,7 +16,7 @@ async function getData() {
 
 export default async function ContactPage() {
   const authorDetails = await getData()
-  const { mdxSource, frontMatter } = authorDetails
+  const { mdxSource, frontMatter } = authorDetails as any
 
   return (
     <div className="container mx-auto max-w-7xl">
