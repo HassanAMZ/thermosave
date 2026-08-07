@@ -65,6 +65,17 @@ Use these frameworks whenever writing landing, product, or **industry** pages. A
 
 **One-liner for agents:** Lead with the dream outcome in plant language, prove it with numbers and media, then stack the offer so the only remaining friction is “call us.”
 
+### 1c. Research online (agents — industry pages)
+
+When creating or expanding an **industry / process** page (`/industries/[slug]`, `data/industries.ts`):
+
+1. **Research online first** — machine heat loss, typical insulation / jacket savings, surface-temp or kWh claims from OEM and jacket makers.  
+2. Prefer engineer-facing sources; do not invent percentages.  
+3. Compress into Hormozi/Brunson structure: short headlines, callout stats, plant video/photos — not essay-length research dumps.  
+4. Mux **Playback** ID + stills in `public/static/industries/[slug]/`; register nav + footer links.  
+
+Also noted in `AGENTS.md` and `.cursor/rules/thermosave-design.mdc`.
+
 ### Russell Brunson — Hook → Story → Offer
 
 Every marketing surface should resolve this sequence:
@@ -464,4 +475,4 @@ When you ship a new pattern that should become standard:
 3. Prefer extracting a shared component under `components/landing/` or `components/ui/`  
 4. Keep this file and the Cursor rule in sync  
 
-Last aligned with: homepage PAS funnel + products/industry conversion pages + Hormozi×Brunson ideology (2026).
+Last aligned with: homepage PAS funnel + products/industry conversion pages + Hormozi×Brunson ideology + hoppers industry + agent online-research rule (2026).

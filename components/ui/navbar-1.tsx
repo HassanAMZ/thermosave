@@ -66,6 +66,12 @@ const industries = [
     image: '/static/industries/extrusion-lines/machine-full.jpg',
   },
   {
+    title: 'Hoppers & Hopper Dryers',
+    href: '/industries/hoppers',
+    description: 'Jackets for hopper dryer shells — keep drying heat in the resin bed.',
+    image: '/static/industries/hoppers/machine-full.jpg',
+  },
+  {
     title: 'All Industries',
     href: '/industries',
     description: 'Browse processes we outfit — start with the machine on your floor.',
