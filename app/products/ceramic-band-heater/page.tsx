@@ -1,15 +1,17 @@
 import ProductLayout from '@/layouts/ProductLayout'
 import { getProduct, getProductNeighbors } from '@/data/products'
+import { getProductMarketing } from '@/data/productMarketing'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 
 const SLUG = 'ceramic-band-heater'
 
 const product = getProduct(SLUG)
+const marketing = getProductMarketing(SLUG)
 
 export const metadata: Metadata = {
-  title: product?.title ?? 'Product',
-  description: product?.summary,
+  title: marketing?.seoTitle ?? product?.title ?? 'Product',
+  description: marketing?.seoDescription ?? product?.summary,
 }
 
 export default function ProductPage() {

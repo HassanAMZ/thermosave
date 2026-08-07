@@ -1,5 +1,6 @@
 import siteMetadata from '@/data/siteMetadata'
-import { getPublishedProducts } from '@/data/products'
+import { getPublishedProducts, PUBLISHED_PRODUCT_ORDER } from '@/data/products'
+import { getProductMarketing } from '@/data/productMarketing'
 import {
   LandingAgitate,
   LandingFAQ,
@@ -19,36 +20,19 @@ export const metadata: Metadata = {
   description: siteMetadata.description,
 }
 
-const PRODUCT_COPY: Record<string, { benefit: string; title?: string }> = {
-  'mica-band-heaters': {
-    benefit:
-      'SS-jacketed mica band heaters with Ni20Cr80 winding — faster heat-up, less impair on barrels and nozzles.',
-  },
-  'ceramic-band-heater': {
-    benefit:
-      'Ceramic band heaters up to 1600°F and 45 W/in² — Made in Japan, built for demanding plastic machines.',
-  },
-  'thermal-insolations': {
-    title: 'Thermal Insulation Jackets',
-    benefit:
-      'Removable, self-extinguishing thermal jackets with high-temp cloth systems rated up to 2000°C.',
-  },
-}
-
-const PRODUCT_ORDER = ['mica-band-heaters', 'ceramic-band-heater', 'thermal-insolations'] as const
-
 function getLandingProducts(): LandingProduct[] {
   const published = getPublishedProducts()
   const products: LandingProduct[] = []
 
-  for (const slug of PRODUCT_ORDER) {
+  for (const slug of PUBLISHED_PRODUCT_ORDER) {
     const product = published.find((item) => item.slug === slug)
     if (!product) continue
+    const marketing = getProductMarketing(slug)
     products.push({
       slug,
-      title: PRODUCT_COPY[slug]?.title ?? product.title,
+      title: marketing?.displayTitle ?? product.title,
       coverImage: product.coverImage,
-      benefit: PRODUCT_COPY[slug]?.benefit ?? product.summary,
+      benefit: marketing?.benefit ?? product.summary,
     })
   }
 

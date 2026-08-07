@@ -246,6 +246,32 @@ Reference: `components/landing/*`
 - Lead with outcome or clear technical title; keep contact paths obvious  
 - Reuse product benefit lines from landing where possible  
 
+### Products collection (`/products`)
+
+Order in `app/products/page.tsx` via `components/products/*`:
+
+1. Dark ink CollectionHero + dual CTA + TrustBar  
+2. ProductChooser (which offer / value ladder)  
+3. ProductGrid (benefit tiles → PDP)  
+4. Proof (shared LandingProof)  
+5. CollectionFAQ  
+6. FinalCTA + StickyContact  
+
+Conversion copy: `data/productMarketing.ts`. Catalog specs/images: `data/products.ts`.
+
+### Product PDP (`/products/[slug]`)
+
+Order in `layouts/ProductLayout.tsx`:
+
+1. ProductHero (carousel + outcome H1 + Assessment / Call / WhatsApp + TrustBar)  
+2. Problem → Agitate → Mechanism  
+3. Specs (features / details / applications)  
+4. Offer stack + CTAs  
+5. Product proof points + LandingProof  
+6. Related products (value ladder)  
+7. Product FAQ  
+8. FinalCTA + StickyContact  
+
 ### Hero budget (marketing)
 
 First viewport: **brand + one headline + one supporting sentence + CTA group + dominant visual**. No stats strips, schedules, or promo chips overlaid on hero media. Trust bar may sit *under* the CTA group as part of the first composition.
@@ -321,4 +347,4 @@ When you ship a new pattern that should become standard:
 3. Prefer extracting a shared component under `components/landing/` or `components/ui/`  
 4. Keep this file and the Cursor rule in sync  
 
-Last aligned with: homepage PAS funnel + dark industrial chrome (2026).
+Last aligned with: homepage PAS funnel + products collection/PDP conversion pages (2026).

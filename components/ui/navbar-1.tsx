@@ -28,9 +28,9 @@ const products: { title: string; href: string; description: string; image: strin
     image: '/static/products/00001.png',
   },
   {
-    title: 'Ceramic Band Heater',
+    title: 'Ceramic Band Heaters',
     href: '/products/ceramic-band-heater',
-    description: 'High-temp ceramic band heaters for demanding industrial applications.',
+    description: 'High-temp ceramic bands up to 1600°F — Made in Japan, open for install.',
     image: '/static/products/00002.png',
   },
   {

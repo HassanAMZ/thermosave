@@ -1,4 +1,5 @@
 import kebabCase from '@/lib/utils/kebabCase'
+import { getProductMarketing } from '@/data/productMarketing'
 
 export type Product = {
   slug: string
@@ -23,6 +24,7 @@ export type Product = {
  * Product catalog — source of truth for listing pages.
  * Each published product also needs a dedicated page at
  * `app/products/<slug>/page.tsx`. Keep those in sync manually.
+ * Conversion copy for published items lives in `data/productMarketing.ts`.
  */
 export const products: Product[] = [
   {
@@ -30,10 +32,10 @@ export const products: Product[] = [
     title: 'Mica Band Heaters',
     date: '2022-07-01',
     productsID: '00001',
-    tags: ['mica band', 'electrical heaters', 'Made in japan', 'Barrel Heaters'],
+    tags: ['mica band', 'electrical heaters', 'Made in Japan', 'Barrel Heaters'],
     draft: false,
     summary:
-      'Conventional SS-jacketed mica band heaters available in precise lengths. Non-magnetic steel jacket with non-magnetic Ni20Cr80 winding enables the heaters to take less impair and less heating time.',
+      'SS-jacketed mica band heaters with Ni20Cr80 winding — faster heat-up, less impair on barrels and nozzles. Custom lengths and nozzle heaters.',
     coverImage: '/static/products/00001.png',
     carouselImages: [
       '/static/products/00001.png',
@@ -47,26 +49,26 @@ export const products: Product[] = [
     price: 35,
     unit: 'Sq - Inch',
     currency: 'PKR',
-    features: ['Best In Quality', 'Made in Japan'],
-    details: { 'Nozzel Heaters': 'All types', Length: 'Custom Length' },
+    features: ['Made in Japan', 'Fast heat-up', 'Custom lengths', 'Nozzle heaters available'],
+    details: { 'Nozzle Heaters': 'All types', Length: 'Custom length', Construction: 'SS jacket, Ni20Cr80 winding' },
     applications: [
       'Injection Molding',
       'Blow Molding',
-      'Blown Film Moulding',
-      'Granaulaters',
+      'Blown Film',
+      'Granulators',
       'Ovens',
       'All Types of Extruders',
     ],
   },
   {
     slug: 'ceramic-band-heater',
-    title: 'Ceramic Band Heater',
+    title: 'Ceramic Band Heaters',
     date: '2022-07-01',
     productsID: '00002',
-    tags: ['Ceramic Band Heater', 'electrical heaters', 'Made in japan', 'Barrel Heaters'],
+    tags: ['Ceramic Band Heater', 'electrical heaters', 'Made in Japan', 'Barrel Heaters'],
     draft: false,
     summary:
-      'Ceramic band heaters are designed with inner resistance coils spirally wound which are uniformly threaded through interlocking ceramic tiles. The ceramic tiles are encased by a stainless-steel sheath with a layer of insulated between both parts Due to their construction, ceramic band heaters can fully open for easy installation and removal. Ceramic band heaters can operate at temperature up to 1600F and handle watt densities of up to 45w/in2.',
+      'Ceramic band heaters up to 1600°F and 45 W/in² — interlocking tiles, stainless sheath, opens fully for install. Made in Japan, repairable.',
     coverImage: '/static/products/00002.png',
     carouselImages: [
       '/static/products/00002.png',
@@ -79,33 +81,35 @@ export const products: Product[] = [
     unit: 'Sq - Inch',
     currency: 'PKR',
     features: [
-      'Best In Quality',
-      'Good conductor of heat as compared to metal',
       'Made in Japan',
-      'enhanced heat arising',
-      'better heat preserver',
-      'Repairable',
-      'New Spiral Wire is available',
+      'Up to 1600°F / 45 W/in²',
+      'Opens fully for install',
+      'Better heat retention toward the barrel',
+      'Repairable — replacement spiral wire available',
     ],
-    details: { Length: 'Custom Length' },
+    details: {
+      Length: 'Custom length',
+      'Max temperature': 'Up to 1600°F',
+      'Watt density': 'Up to 45 W/in²',
+    },
     applications: [
       'Injection Molding',
       'Blow Molding',
-      'Blown Film Moulding',
-      'Granaulaters',
+      'Blown Film',
+      'Granulators',
       'Ovens',
       'All Types of Extruders',
     ],
   },
   {
     slug: 'thermal-insolations',
-    title: 'Thermal Insolation Jackets',
+    title: 'Thermal Insulation Jackets',
     date: '2022-07-01',
     productsID: '00003',
-    tags: ['Thermal Insolations', 'electrical insolators', 'Made in japan'],
+    tags: ['Thermal Insulation', 'electrical insulators', 'Made in Japan'],
     draft: false,
     summary:
-      'Thermal jackets are removable and built from self-extinguishing high-temperature cloths such as ceramic cloth (up to 1,250°C) and silicon-coated alumina cloth (up to 2,000°C).',
+      'Removable thermal insulation jackets — self-extinguishing high-temp cloth systems. Up to ~40% energy savings and ~70% less heat loss on the heated zone.',
     coverImage: '/static/products/00003.jpeg',
     carouselImages: [
       '/static/products/00003.jpeg',
@@ -117,31 +121,33 @@ export const products: Product[] = [
       '/static/products/00003-6.jpeg',
       '/static/products/00003-7.jpeg',
       '/static/products/00003-8.jpeg',
-      '/static/products/00003-9.jpeg',
     ],
     embedId: 'null',
     price: 40,
     unit: 'Sq - Inch',
     currency: 'PKR',
     features: [
-      'An Absolute Burn Protection',
-      'A New Pleasant Look for Machine',
-      'In case of any shutdown or electricity failure, provides 10m Max heating time for machine',
-      '1KW/hour saving on 10KW Load',
-      'Upto 40% saving in Energy Costs',
-      'Upto 70% Saving in Heat Losses',
-      'Helpful for PLC & Hydrolic Oils',
+      'Operator burn protection',
+      'Up to ~40% energy cost savings on the heated zone',
+      'Up to ~70% reduction in heat losses',
+      '~1 kW/hour saving example on a 10 kW load',
+      'Helps protect PLC and hydraulic oils from excess ambient heat',
+      'Holds heat longer during short power interruptions',
     ],
-    details: { Length: 'Custom Length' },
+    details: {
+      Length: 'Custom length',
+      'Ceramic cloth': 'Up to 1,250°C',
+      'Silicon-coated alumina cloth': 'Up to 2,000°C',
+    },
     applications: [
       'Injection Molding',
-      'Blow Film Molding',
-      'Blown Moulding',
+      'Blow Molding',
+      'Blown Film',
       'Tape Lines',
       'Line Extruders',
-      'Granaulaters',
+      'Granulators',
       'Ovens',
-      'Pip Lines',
+      'Pipe Lines',
       'Woven Sack Units',
       'Monofilament Units',
     ],
@@ -151,7 +157,7 @@ export const products: Product[] = [
     title: 'Purging Rings',
     date: '2022-06-01',
     productsID: '00004',
-    tags: ['Ceramic Band Heater', 'electrical heaters', 'Made in japan'],
+    tags: ['Ceramic Band Heater', 'electrical heaters', 'Made in Japan'],
     draft: true,
     summary: 'Coming soon.',
     coverImage: '/static/products/coming_soon.png',
@@ -169,7 +175,7 @@ export const products: Product[] = [
     title: 'Insulated Heater',
     date: '2022-06-01',
     productsID: '00005',
-    tags: ['Ceramic Band Heater', 'electrical heaters', 'Made in japan'],
+    tags: ['Ceramic Band Heater', 'electrical heaters', 'Made in Japan'],
     draft: true,
     summary: 'Coming soon.',
     coverImage: '/static/products/coming_soon.png',
@@ -187,7 +193,7 @@ export const products: Product[] = [
     title: 'Workshop for Fabrication',
     date: '2022-06-01',
     productsID: '00006',
-    tags: ['Ceramic Band Heater', 'electrical heaters', 'Made in japan'],
+    tags: ['Ceramic Band Heater', 'electrical heaters', 'Made in Japan'],
     draft: true,
     summary: 'Coming soon.',
     coverImage: '/static/products/coming_soon.png',
@@ -220,10 +226,10 @@ export const products: Product[] = [
   },
   {
     slug: 'removeable-insulators',
-    title: 'Removeable Insulators',
+    title: 'Removable Insulators',
     date: '2022-06-01',
     productsID: '00009',
-    tags: ['Thermal Insolations', 'electrical insolators', 'Made in japan'],
+    tags: ['Thermal Insulation', 'electrical insulators', 'Made in Japan'],
     draft: true,
     summary: 'Coming soon.',
     coverImage: '/static/products/coming_soon.png',
@@ -241,7 +247,7 @@ export const products: Product[] = [
     title: 'Cladding',
     date: '2022-06-01',
     productsID: '00010',
-    tags: ['Thermal Insolations', 'electrical insolators', 'Made in japan'],
+    tags: ['Thermal Insulation', 'electrical insulators', 'Made in Japan'],
     draft: true,
     summary: 'Coming soon.',
     coverImage: '/static/products/coming_soon.png',
@@ -259,7 +265,7 @@ export const products: Product[] = [
     title: 'Waste Heat Recovery System',
     date: '2022-06-01',
     productsID: '00011',
-    tags: ['Thermal Insolations', 'electrical insolators', 'Made in japan'],
+    tags: ['Thermal Insulation', 'electrical insulators', 'Made in Japan'],
     draft: true,
     summary: 'Coming soon.',
     coverImage: '/static/products/coming_soon.png',
@@ -274,24 +280,50 @@ export const products: Product[] = [
   },
 ]
 
+/** Preferred display order for published catalog (value ladder). */
+export const PUBLISHED_PRODUCT_ORDER = [
+  'mica-band-heaters',
+  'ceramic-band-heater',
+  'thermal-insolations',
+] as const
+
 function dateSortDesc(a: string, b: string) {
   if (a > b) return -1
   if (a < b) return 1
   return 0
 }
 
-/** Published products for catalog / landing / tags (newest first). */
+/** Published products for catalog / landing / tags (ladder order, then newest). */
 export function getPublishedProducts(): Product[] {
-  return products
-    .filter((product) => !product.draft)
-    .sort((a, b) => dateSortDesc(a.date, b.date))
+  const published = products.filter((product) => !product.draft)
+  const orderIndex = new Map(
+    PUBLISHED_PRODUCT_ORDER.map((slug, index) => [slug, index] as const)
+  )
+
+  return published.sort((a, b) => {
+    const ai = orderIndex.get(a.slug as (typeof PUBLISHED_PRODUCT_ORDER)[number])
+    const bi = orderIndex.get(b.slug as (typeof PUBLISHED_PRODUCT_ORDER)[number])
+    if (ai !== undefined && bi !== undefined) return ai - bi
+    if (ai !== undefined) return -1
+    if (bi !== undefined) return 1
+    return dateSortDesc(a.date, b.date)
+  })
 }
 
 export function getProduct(slug: string): Product | undefined {
   return products.find((product) => product.slug === slug)
 }
 
-export type ProductNeighbor = Pick<Product, 'slug' | 'title' | 'coverImage'>
+export function getDisplayTitle(product: Product): string {
+  return getProductMarketing(product.slug)?.displayTitle ?? product.title
+}
+
+export type ProductNeighbor = {
+  slug: string
+  title: string
+  coverImage: string
+  benefit?: string
+}
 
 /** Prev/next among published products only (catalog order). */
 export function getProductNeighbors(slug: string): {
@@ -304,10 +336,16 @@ export function getProductNeighbors(slug: string): {
     return { prev: null, next: null }
   }
 
-  const toNeighbor = (product: Product | undefined): ProductNeighbor | null =>
-    product
-      ? { slug: product.slug, title: product.title, coverImage: product.coverImage }
-      : null
+  const toNeighbor = (product: Product | undefined): ProductNeighbor | null => {
+    if (!product) return null
+    const marketing = getProductMarketing(product.slug)
+    return {
+      slug: product.slug,
+      title: marketing?.displayTitle ?? product.title,
+      coverImage: product.coverImage,
+      benefit: marketing?.benefit,
+    }
+  }
 
   return {
     prev: toNeighbor(published[index + 1]),

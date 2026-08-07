@@ -1,38 +1,38 @@
 import { getPublishedProducts } from '@/data/products'
-import siteMetadata from '@/data/siteMetadata'
-import ListLayout from '@/layouts/ListLayout'
 import { PageSEO } from '@/components/SEO'
+import { StickyContact, LandingFinalCTA, LandingProof } from '@/components/landing'
+import {
+  CollectionHero,
+  ProductChooser,
+  ProductGrid,
+  CollectionFAQ,
+} from '@/components/products'
 import type { Metadata } from 'next'
 
-export const POSTS_PER_PAGE = 6
-
 export const metadata: Metadata = {
-  title: `Products - ${siteMetadata.author}`,
-  description: siteMetadata.description,
+  title: 'Products — Heaters & Insulation That Stop Barrel Heat Waste',
+  description:
+    'Mica and ceramic band heaters plus removable thermal insulation jackets for plastic plants in Pakistan. Free energy loss assessment.',
 }
 
 export default function ProductsPage() {
-  const posts = getPublishedProducts()
-  const initialDisplayPosts = posts.slice(0, POSTS_PER_PAGE)
-  const pagination = {
-    currentPage: 1,
-    totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
-  }
+  const products = getPublishedProducts()
 
   return (
     <>
       <PageSEO
-        title={`Products - ${siteMetadata.author}`}
-        description={siteMetadata.description}
-        pathname={undefined as any}
+        title="Products — Heaters & Insulation That Stop Barrel Heat Waste | ThermoSave"
+        description="Mica and ceramic band heaters plus removable thermal insulation jackets for plastic plants in Pakistan. Free energy loss assessment."
+        pathname="/products"
       />
 
-      <ListLayout
-        posts={posts}
-        initialDisplayPosts={initialDisplayPosts}
-        pagination={pagination}
-        title="All Products"
-      />
+      <CollectionHero />
+      <ProductChooser products={products} />
+      <ProductGrid products={products} />
+      <LandingProof />
+      <CollectionFAQ />
+      <LandingFinalCTA />
+      <StickyContact />
     </>
   )
 }
