@@ -9,8 +9,8 @@ import { TrustBar } from './TrustBar'
 
 export function LandingHero() {
   return (
-    <section className="relative isolate min-h-[min(100svh,920px)] overflow-hidden bg-[#0c1014] text-stone-100">
-      {/* Full-bleed visual plane */}
+    <section className="relative isolate -mt-16 min-h-[min(100svh,920px)] overflow-hidden bg-[#0c1014] text-stone-100">
+      {/* Full-bleed visual plane — extends under sticky nav */}
       <div className="absolute inset-0 -z-10">
         <video
           className="h-full w-full object-cover opacity-40"

@@ -3,6 +3,7 @@
 import * as React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Menu } from 'lucide-react'
 
 import { cn } from '@/components/lib/utils'
@@ -54,14 +55,40 @@ const mobileLinks = [
 ]
 
 export function Navbar() {
+  const pathname = usePathname()
   const [open, setOpen] = React.useState(false)
+  const [scrolled, setScrolled] = React.useState(false)
+
+  const isHome = pathname === '/'
+  const overHero = isHome && !scrolled
+
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  React.useEffect(() => {
+    setOpen(false)
+  }, [pathname])
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+    <header
+      className={cn(
+        'sticky top-0 z-50 w-full transition-[background-color,border-color,backdrop-filter] duration-300',
+        overHero
+          ? 'border-b border-transparent bg-transparent'
+          : 'border-b border-white/10 bg-[#0c1014]/95 backdrop-blur supports-[backdrop-filter]:bg-[#0c1014]/90'
+      )}
+    >
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4">
         <div className="flex items-center gap-2">
           <Logo />
-          <Link href="/" className="hidden text-sm font-semibold tracking-tight sm:inline">
+          <Link
+            href="/"
+            className="hidden font-[family-name:var(--font-display)] text-sm font-semibold tracking-tight text-stone-100 sm:inline"
+          >
             ThermoSave
           </Link>
         </div>
@@ -71,14 +98,22 @@ export function Navbar() {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/" className={navigationMenuTriggerStyle()}>
+                  <Link
+                    href="/"
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      'bg-transparent text-stone-200 hover:bg-white/10 hover:text-white focus:bg-white/10 focus:text-white data-[active]:bg-white/10'
+                    )}
+                  >
                     Home
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="bg-transparent text-stone-200 hover:bg-white/10 hover:text-white focus:bg-white/10 focus:text-white data-[state=open]:bg-white/10 data-[state=open]:text-white">
+                  Products
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                     <li className="row-span-3 md:col-span-2 lg:col-span-1 lg:row-span-3">
@@ -122,7 +157,13 @@ export function Navbar() {
 
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/image-gallery" className={navigationMenuTriggerStyle()}>
+                  <Link
+                    href="/image-gallery"
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      'bg-transparent text-stone-200 hover:bg-white/10 hover:text-white focus:bg-white/10 focus:text-white data-[active]:bg-white/10'
+                    )}
+                  >
                     Gallery
                   </Link>
                 </NavigationMenuLink>
@@ -130,7 +171,13 @@ export function Navbar() {
 
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/contact" className={navigationMenuTriggerStyle()}>
+                  <Link
+                    href="/contact"
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      'bg-transparent text-stone-200 hover:bg-white/10 hover:text-white focus:bg-white/10 focus:text-white data-[active]:bg-white/10'
+                    )}
+                  >
                     Contact
                   </Link>
                 </NavigationMenuLink>
@@ -140,19 +187,32 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Button asChild className="hidden md:inline-flex">
-            <Link href="/contact">Get Started</Link>
+          <Button
+            asChild
+            className="hidden rounded-sm bg-[#c45c1a] text-white shadow-none hover:bg-[#a84c14] md:inline-flex"
+          >
+            <Link href="/contact">Get Assessment</Link>
           </Button>
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="md:hidden" aria-label="Open menu">
+              <Button
+                variant="outline"
+                size="icon"
+                className="border-white/20 bg-transparent text-stone-100 hover:bg-white/10 hover:text-white md:hidden"
+                aria-label="Open menu"
+              >
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[min(100%,20rem)]">
+            <SheetContent
+              side="right"
+              className="w-[min(100%,20rem)] border-white/10 bg-[#0c1014] text-stone-100"
+            >
               <SheetHeader>
-                <SheetTitle>Menu</SheetTitle>
+                <SheetTitle className="font-[family-name:var(--font-display)] text-stone-100">
+                  Menu
+                </SheetTitle>
               </SheetHeader>
               <nav className="mt-8 flex flex-col gap-1">
                 {mobileLinks.map((link) => (
@@ -160,13 +220,13 @@ export function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground"
+                    className="rounded-sm px-3 py-2 text-sm font-medium text-stone-200 hover:bg-white/10 hover:text-white"
                   >
                     {link.title}
                   </Link>
                 ))}
-                <div className="mt-4 border-t border-border pt-4">
-                  <p className="mb-2 px-3 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                <div className="mt-4 border-t border-white/10 pt-4">
+                  <p className="mb-2 px-3 text-xs font-medium uppercase tracking-wide text-stone-500">
                     Products
                   </p>
                   {products.map((product) => (
@@ -174,9 +234,9 @@ export function Navbar() {
                       key={product.href}
                       href={product.href}
                       onClick={() => setOpen(false)}
-                      className="flex items-center gap-3 rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                      className="flex items-center gap-3 rounded-sm px-3 py-2 text-sm text-stone-200 hover:bg-white/10 hover:text-white"
                     >
-                      <span className="relative size-10 shrink-0 overflow-hidden rounded-md border border-border bg-muted">
+                      <span className="relative size-10 shrink-0 overflow-hidden rounded-sm border border-white/10 bg-white/5">
                         <Image
                           src={product.image}
                           alt={product.title}
@@ -189,9 +249,12 @@ export function Navbar() {
                     </Link>
                   ))}
                 </div>
-                <Button asChild className="mt-6">
+                <Button
+                  asChild
+                  className="mt-6 rounded-sm bg-[#c45c1a] text-white hover:bg-[#a84c14]"
+                >
                   <Link href="/contact" onClick={() => setOpen(false)}>
-                    Get Started
+                    Get Assessment
                   </Link>
                 </Button>
               </nav>
@@ -223,13 +286,7 @@ const ListItem = React.forwardRef<React.ElementRef<'a'>, ListItemProps>(
             {...props}
           >
             <span className="relative size-12 shrink-0 overflow-hidden rounded-md border border-border bg-muted">
-              <Image
-                src={image}
-                alt={title ?? ''}
-                fill
-                className="object-cover"
-                sizes="48px"
-              />
+              <Image src={image} alt={title ?? ''} fill className="object-cover" sizes="48px" />
             </span>
             <span className="min-w-0 space-y-1">
               <span className="block text-sm font-medium leading-none">{title}</span>
