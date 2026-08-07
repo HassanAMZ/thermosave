@@ -96,15 +96,16 @@ export function Navbar() {
   const [open, setOpen] = React.useState(false)
   const [scrolled, setScrolled] = React.useState(false)
 
-  // Transparent over dark heroes; solid on light interiors (e.g. product PDPs) or when scrolled.
+  // Keep in sync with design.md §7 DARK_HERO_ROUTES — any new dark-ink hero must be listed here.
   const hasDarkHero =
     pathname === '/' ||
-    pathname === '/contact' ||
     pathname === '/products' ||
     pathname === '/industries' ||
     pathname.startsWith('/industries/') ||
     pathname === '/clients' ||
-    pathname.startsWith('/clients/')
+    pathname.startsWith('/clients/') ||
+    pathname === '/image-gallery' ||
+    pathname === '/contact'
   const overHero = hasDarkHero && !scrolled
 
   React.useEffect(() => {

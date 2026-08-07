@@ -12,6 +12,15 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 Also follow **`design.md`** and **`.cursor/rules/thermosave-design.mdc`**.
 
+## Global navbar (required for every marketing page)
+
+**Source of truth:** `design.md` §7 + `components/ui/navbar-1.tsx` (mounted once in `app/layout.tsx`).
+
+- **One nav only** — never invent a second header, white bar, or page-local nav for gallery, contact, or any new route.
+- **Canonical links** (desktop + mobile + footer must stay aligned): Home `/` · Products `/products` (+ PDP dropdown) · Industries `/industries` (+ slug dropdown) · Clientele `/clients` · Gallery `/image-gallery` · Contact `/contact` · Get Assessment CTA → `/contact`.
+- **Transparent vs solid:** dark-ink heroes use transparent nav at top (hero `-mt-16`); scroll or light interiors (e.g. product PDPs) use solid `bg-[#0c1014]/95`. Route list lives as `hasDarkHero` in `navbar-1.tsx` and must match **DARK_HERO_ROUTES** in `design.md` §7.
+- **New dark-hero page:** (1) add path to `hasDarkHero`, (2) hero `relative isolate -mt-16 … bg-[#0c1014]` + top padding, (3) update `design.md` §7 registry. **New top-level section:** also update desktop menu, `mobileLinks`, and `components/Footer.tsx`.
+
 ## Research online (required for industry / process work)
 
 When adding or rewriting an **industry / process page**, **do research online** before locking copy or stats:

@@ -8,7 +8,7 @@ import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL } from '@/components/landing/con
 
 export function ContactHero() {
   return (
-    <section className="relative overflow-hidden bg-[#0c1014] pt-24 pb-16 text-stone-100 md:pt-28 md:pb-20">
+    <section className="relative isolate -mt-16 overflow-hidden bg-[#0c1014] pt-24 pb-16 text-stone-100 md:pt-28 md:pb-20">
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(196,92,26,0.22),transparent_55%)]"
         aria-hidden

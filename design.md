@@ -90,10 +90,11 @@ Every marketing surface should resolve this sequence:
 |------|-------------|-----|
 | Awareness / industry | `/industries`, `/industries/[slug]` | “This is *my* machine / process” |
 | Social proof / clientele | `/clients`, `/clients/[slug]` | “Plants like mine already run this” |
+| Proof dump / gallery | `/image-gallery` | Wall of plant Mux + photos (likelihood) |
 | Product tools | `/products`, `/products/[slug]` | Choose mica / ceramic / jackets |
 | Commitment | `/contact` | Assessment conversation |
 
-Industry pages **hook by process**; clientele pages **prove with named plants**; product pages **sell the tool**; contact **closes**. Cross-link both ways.
+Industry pages **hook by process**; clientele pages **prove with named plants**; gallery **dumps plant media**; product pages **sell the tool**; contact **closes**. Cross-link both ways.
 
 ### How this maps to our section order
 
@@ -284,19 +285,60 @@ Native `<details>` / `<summary>` with stone dividers — keep light and technica
 
 ## 7. Navigation (site chrome)
 
+**One global nav only:** `components/ui/navbar-1.tsx`, mounted in `app/layout.tsx`. Never invent a second header, white bar, or page-local nav. `components/NavBar.js` is a thin re-export — do not fork it.
+
 Nav is part of the **industrial dark chrome**, not a white strip floating above the hero.
+
+### Canonical nav IA (keep desktop + mobile + footer aligned)
+
+| Label | Route | Pattern |
+|-------|-------|---------|
+| Home | `/` | Simple link |
+| Products | `/products` + PDP dropdown | Mega-menu (mica / ceramic / jackets + All Products) |
+| Industries | `/industries` + slug dropdown | Mega-menu (process pages + All Industries) |
+| Clientele | `/clients` | Simple link (case grid; detail at `/clients/[slug]`) |
+| Gallery | `/image-gallery` | Simple link |
+| Contact | `/contact` | Simple link |
+| Get Assessment | `/contact` | Heat primary CTA (desktop); also in mobile sheet |
+
+Phone (`tel:`) and WhatsApp stay visible in the chrome / mobile sheet. Source of truth for numbers: `components/landing/constants.ts`.
+
+When you add a **top-level** marketing section, update all three: desktop `NavigationMenu` items, `mobileLinks`, and `components/Footer.tsx`. When you add an industry/product/client slug, register it in the relevant dropdown (and footer) arrays in `navbar-1.tsx`.
+
+### Chrome states
 
 | State | Treatment |
 |-------|-----------|
-| Dark-hero routes at top of page (`/`, `/products`, `/industries`, `/industries/[slug]`, `/clients`, `/clients/[slug]`) | Transparent over the hero plane — hero uses `-mt-16` so ink/photo/video runs under the sticky header (one composition) |
+| Dark-hero route at top of page (see registry below) | Transparent over the hero — hero uses `-mt-16` so ink/photo/video runs under the sticky header (one composition) |
 | Scrolled, or light-interior routes (e.g. product PDPs) | Solid `bg-[#0c1014]/95` + backdrop blur + `border-white/10` |
-| Links | Light stone / white; hover: white / soft wash — include **Clientele** (`/clients`) alongside Products / Industries |
+| Links | Light stone / white; hover: white / soft wash |
 | Primary nav CTA | Heat fill (“Get Assessment”), not default blue |
 | Mobile sheet | Dark ink panel, light text, heat CTA |
 
-Interior pages that open with a light background (product PDPs) keep the solid dark nav (brand chrome). All dark collection and case heroes pull content under a transparent bar.
-
 Logo + wordmark stay readable on dark. Do not reintroduce a solid white header on marketing pages.
+
+### DARK_HERO_ROUTES (must match `hasDarkHero` in `navbar-1.tsx`)
+
+| Route | Hero component | Notes |
+|-------|----------------|-------|
+| `/` | `components/landing/Hero.tsx` | Full-bleed video |
+| `/products` | `CollectionHero` | Collection only — **not** `/products/[slug]` |
+| `/industries` | `IndustriesHero` | |
+| `/industries/[slug]` | `IndustryHero` | |
+| `/clients` | `ClientsHero` | |
+| `/clients/[slug]` | `ClientCaseSections` hero | |
+| `/image-gallery` | `GalleryHero` | |
+| `/contact` | `ContactHero` | |
+
+**Solid by default (no transparent top):** product PDPs and any future page that opens on a light (`--ts-surface`) hero.
+
+### Agent checklist — new marketing page
+
+1. Reuse the global `Navbar` from layout — do not add another header.  
+2. If the page opens with a **dark ink hero**: add the path to `hasDarkHero` in `navbar-1.tsx`, give the hero `relative isolate -mt-16 … bg-[#0c1014]` + `pt-24 md:pt-28`, and update this registry.  
+3. If the page opens on a **light** surface: leave `hasDarkHero` alone; keep solid dark nav + normal top padding.  
+4. If it is a **new top-level** destination: add it to the canonical IA table above, desktop nav, `mobileLinks`, and Footer.  
+5. Never ship a white/opaque nav over a dark hero.
 
 ---
 
@@ -324,6 +366,7 @@ Reference: `components/landing/*`
 - Prefer `--ts-surface` / white section rhythm  
 - Lead with outcome or clear technical title; keep contact paths obvious  
 - Reuse product benefit lines from landing where possible  
+- Gallery (`/image-gallery`) is a **proof dump** with soft filters — see Gallery template below  
 
 ### Contact (`/contact`)
 
@@ -419,6 +462,20 @@ Job: raise **perceived likelihood** (Hormozi) with named factories and plant vid
 
 Wire Mux **Playback** IDs in `data/clients.ts`. Prefer plant stills under `/public/static/clients/[slug]/` when available; Mux thumbnail URLs (`image.mux.com`) are fine as interim covers.
 
+### Gallery (`/image-gallery`)
+
+Hormozi **perceived likelihood** page — not a product taxonomy. Soft filters only (`All` · `Video` · `Plants` · `Process`); no hard SKU/city folders.
+
+Order via `components/gallery/*` + `data/gallery.ts`:
+
+1. Dark GalleryHero (brand + “plant proof” H1 + Assessment / Call + TrustBar)  
+2. GalleryGrid — soft filter chips + **one uniform 4:3 tile grid** (Mux videos + plant stills; videos are grid cells)  
+3. GalleryOffer + CTAs  
+4. LandingProof  
+5. FinalCTA + StickyContact  
+
+Aggregate from `data/industries.ts` + `data/clients.ts` (+ verified Mux depot extras). Deduplicate by playback ID / image `src`. **Exclude** product cutouts — those stay on PDPs. Caption links to `/clients/[slug]` or `/industries/[slug]` when sourced.
+
 ### Visual-first section pattern
 
 ```
@@ -478,6 +535,8 @@ Product photography on light tiles; hero/final CTA stay atmospheric dark. Indust
 | Industry copy + Mux IDs | `data/industries.ts` |
 | Clientele / case study UI | `components/clients/` |
 | Client case copy + Mux IDs | `data/clients.ts` |
+| Gallery UI | `components/gallery/` |
+| Gallery tile aggregator | `data/gallery.ts` |
 | Contact page UI | `components/contact/` |
 | Contact/stats constants | `components/landing/constants.ts` |
 | Global nav | `components/ui/navbar-1.tsx` |
@@ -495,7 +554,8 @@ Product photography on light tiles; hero/final CTA stay atmospheric dark. Indust
 - Pair every industry story section with a plant still; dump Mux + gallery after mechanism  
 - Use Archivo + IBM Plex Sans  
 - Use heat `#c45c1a` for primary actions  
-- Keep nav dark and integrated with heroes  
+- Keep nav dark and integrated with heroes; register every dark-hero route in `hasDarkHero` + §7  
+- Keep desktop nav, `mobileLinks`, and Footer IA in sync when adding top-level pages  
 - Alternate dark / light section rhythm  
 - Offer Call + WhatsApp + assessment form path  
 
@@ -503,7 +563,8 @@ Product photography on light tiles; hero/final CTA stay atmospheric dark. Indust
 
 - Stack text-only Problem → Agitate → Mechanism (no plant stills) on industry pages
 - Oversized portrait Mux player outside the gallery tile grid  
-- White opaque navbar over dark hero  
+- White opaque navbar over dark hero, or a second/page-local header  
+- Shipping a dark-ink hero without adding its path to `hasDarkHero` (gallery/contact-class bug)  
 - Purple SaaS gradients or Inter-by-default  
 - Fake urgency / squeeze pages for pricing  
 - Emotional “bleeding money!!” copy  
