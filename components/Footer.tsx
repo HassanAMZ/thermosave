@@ -33,6 +33,9 @@ const navigation = {
     { name: 'Buhader Ind LHR', href: '/clients/buhader-ind-lhr' },
     { name: 'Eagry Force Multan', href: '/clients/eagry-force-multan' },
     { name: 'Shaigan Pharma RPI', href: '/clients/shaigan-pharma-rpi' },
+    { name: 'Time Star LHR', href: '/clients/time-star-lhr' },
+    { name: 'Al-Khair Five Star Foam', href: '/clients/al-khair-five-star-foam-lhr' },
+    { name: 'Major Electrical Sargodha', href: '/clients/major-electrical-sargodha' },
     { name: `Call ${PHONE_DISPLAY}`, href: `tel:${PHONE_TEL}` },
   ],
 } as const

@@ -95,7 +95,16 @@ export function LandingProof() {
               <p className="mt-1 text-sm text-stone-600">{item.detail}</p>
               <p className="mt-5 flex-1 text-[15px] leading-relaxed text-stone-700">&ldquo;{item.quote}&rdquo;</p>
               <p className="mt-4 text-sm font-semibold text-stone-900">
-                {item.client}
+                {item.client === 'Al Khair Five Star Forms, Lahore' ? (
+                  <Link
+                    href="/clients/al-khair-five-star-foam-lhr"
+                    className="hover:text-[#c45c1a] hover:underline"
+                  >
+                    {item.client}
+                  </Link>
+                ) : (
+                  item.client
+                )}
                 <span className="font-normal text-stone-500"> — {item.role}</span>
               </p>
             </motion.article>

@@ -56,8 +56,13 @@ export type ClientCase = {
 const BUHADER_PLAYBACK = 'bLcNlAcFRAoU83Vm7bkmzUiTWUr6GyyOzoHjjLpoSyA'
 const EAGRY_PLAYBACK = '0101j2IZzUa3e7MusvCYxQsrTK2PptM8vfua02qLTSuBMU'
 const SHAIGAN_PLAYBACK = 'zEyP4vjITj022ZxZKqiPh901xGUoIMG4HjTLPFkiwvWiQ'
+const ALKHAIR_PLAYBACK_1 = 'O3TM6avTXvBhuGgroU02Y6qOaLA01tE013xeFz53wxCjs4'
+const ALKHAIR_PLAYBACK_2 = 'cvzFaxncAbU7b5x4uRj3Oz00uDNFkLpLTZGYXYmxrrTY'
+const MAJOR_PLAYBACK = '8qNAy1VYboZyrjBS9s900pgAN01f01NILbUeqMAmrJfqAA'
 const EAGRY_IMG = '/static/clients/eagry-force-multan'
 const SHAIGAN_IMG = '/static/clients/shaigan-pharma-rpi'
+const TIMESTAR_IMG = '/static/clients/time-star-lhr'
+const ALKHAIR_IMG = '/static/clients/al-khair-five-star-foam-lhr'
 
 export const clients: ClientCase[] = [
   {
@@ -259,6 +264,247 @@ export const clients: ClientCase[] = [
       {
         q: 'How do we start for a pharma or specialty line?',
         a: 'Same path as plastics: free assessment, photos or a short site call, then sized jackets. Call / WhatsApp — no gated brochure.',
+      },
+    ],
+  },
+  {
+    slug: 'time-star-lhr',
+    name: 'Time Star LHR',
+    shortName: 'Time Star',
+    location: 'Lahore',
+    benefit:
+      'Barrel jackets on a Lahore plastics line — ThermoSave labels on the machine, heat kept in the melt.',
+    coverImage: `${TIMESTAR_IMG}/barrel-jacket.jpg`,
+    seoTitle: 'Time Star LHR Case Study | ThermoSave',
+    seoDescription:
+      'ThermoSave insulation jackets at Time Star, Lahore — plant photos of a real barrel install. Free energy-loss assessment for plastic manufacturers in Pakistan.',
+    headline: 'Lahore floor, jackets on the barrel — heat stays in the process.',
+    subhead:
+      'Time Star LHR runs ThermoSave removable insulation on process equipment. See the plant stills, then size the same jackets for your line.',
+    storyTitle: 'Labeled jackets on a real Lahore machine.',
+    story:
+      'At Time Star in Lahore, ThermoSave quilted jackets wrap the heated barrel so radiant loss drops and the hall stays cooler. Same removable, labeled fit we install across 200+ plants — sized to the machine, off for maintenance.',
+    stats: [
+      { value: 'Lahore', label: 'Plant location' },
+      { value: 'Barrel', label: 'Jacketed process heat' },
+      { value: 'Labeled', label: 'ThermoSave plant fit' },
+      { value: 'Removable', label: 'Maintenance-friendly' },
+    ],
+    mediaTitle: 'Plant proof from Time Star LHR',
+    mediaSubhead: 'Floor photos — jackets on real equipment, ThermoSave labels visible.',
+    videos: [],
+    gallery: [
+      {
+        src: `${TIMESTAR_IMG}/barrel-jacket.jpg`,
+        alt: 'ThermoSave insulation jacket on barrel at Time Star Lahore',
+        caption: 'Barrel jacket with ThermoSave label — Lahore plant',
+      },
+      {
+        src: `${TIMESTAR_IMG}/plant-floor-1.jpg`,
+        alt: 'Plant floor with ThermoSave jacketed barrel at Time Star LHR',
+        caption: 'Jacketed barrel on the production floor',
+      },
+      {
+        src: `${TIMESTAR_IMG}/plant-floor-2.jpg`,
+        alt: 'ThermoSave insulation install at Time Star Lahore',
+        caption: 'Removable quilted jacket on process equipment',
+      },
+      {
+        src: `${TIMESTAR_IMG}/packing-floor.jpg`,
+        alt: 'Time Star packing floor with injection machines in Lahore',
+        caption: 'Time Star packing line — Lahore plant',
+      },
+    ],
+    offerTitle: 'What we deliver for plants like Time Star',
+    offerBullets: [
+      'Custom removable insulation jackets sized to barrels, die heads, or hoppers',
+      'Free energy-loss assessment — Call / WhatsApp, no fake checkout',
+      'Plant-ready labeled fit — jackets come off for maintenance without cutting',
+      'Named Lahore proof plus 200+ installs — measured PKR only when we have meter data',
+    ],
+    faqs: [
+      {
+        q: 'Do you have video for every plant?',
+        a: 'Where clients allow it, we add Mux plant clips. Time Star is photo-led for now — same jackets, same sizing path. Send a clip anytime and we’ll wire it in.',
+      },
+      {
+        q: 'Will jackets block access for maintenance?',
+        a: 'No. Removable fit — take jackets off, service the barrel, put them back. Same pattern across our Lahore installs.',
+      },
+      {
+        q: 'How do we get jackets sized for our machine?',
+        a: 'Free assessment via Call / WhatsApp. Share machine photos or a short site visit — we size jackets to your barrel and ship typically in 7–10 days.',
+      },
+    ],
+  },
+  {
+    slug: 'al-khair-five-star-foam-lhr',
+    name: 'Al-Khair Five Star Foam LHR',
+    shortName: 'Al-Khair',
+    location: 'Lahore',
+    benefit:
+      'Foam extrusion jackets in Lahore — 200k+ PKR / month saved across 8 machines, plant video included.',
+    coverImage: `${ALKHAIR_IMG}/extruder-jackets-1.jpg`,
+    seoTitle: 'Al-Khair Five Star Foam LHR Case Study | ThermoSave',
+    seoDescription:
+      'ThermoSave insulation jackets at Al-Khair Five Star Foam, Lahore — 200k+ PKR monthly savings across 8 machines. Plant photos and video of a real extruder install.',
+    headline: 'Lahore foam line — jackets on the extruder, 200k+ PKR / month saved.',
+    subhead:
+      'Al-Khair Five Star Foam runs ThermoSave removable insulation across heated barrels. Measured savings on 8 machines — see the plant stills and clips, then size yours.',
+    storyTitle: 'Named foam plant. Metered savings. Real jackets.',
+    story:
+      'At Al-Khair Five Star Foam in Lahore, ThermoSave quilted jackets wrap the extruder barrel so heat stays in the process. Owner-reported savings: over 200k PKR monthly across 8 machines — three years of working together.',
+    stats: [
+      { value: '200k+', label: 'PKR / month saved' },
+      { value: '8', label: 'Machines jacketed' },
+      { value: 'Lahore', label: 'Foam plant' },
+      { value: '3 yrs', label: 'Working relationship' },
+    ],
+    mediaTitle: 'Plant proof from Al-Khair Five Star Foam',
+    mediaSubhead: 'Two Mux clips plus floor photos — jackets on a real foam extruder line.',
+    videos: [
+      {
+        playbackId: ALKHAIR_PLAYBACK_1,
+        title: 'Al-Khair Five Star Foam LHR — plant install 1',
+        durationLabel: '1:11',
+      },
+      {
+        playbackId: ALKHAIR_PLAYBACK_2,
+        title: 'Al-Khair Five Star Foam LHR — plant install 2',
+        durationLabel: '1:15',
+      },
+    ],
+    gallery: [
+      {
+        src: `${ALKHAIR_IMG}/extruder-jackets-1.jpg`,
+        alt: 'ThermoSave jackets on foam extruder barrel at Al-Khair Lahore',
+        caption: 'Full barrel run — ThermoSave jackets on foam extruder',
+      },
+      {
+        src: `${ALKHAIR_IMG}/extruder-jackets-2.jpg`,
+        alt: 'Insulated extruder line at Al-Khair Five Star Foam',
+        caption: 'Quilted jackets along the extruder barrel',
+      },
+      {
+        src: `${ALKHAIR_IMG}/barrel-detail.jpg`,
+        alt: 'Close-up of ThermoSave insulation jackets on Al-Khair extruder',
+        caption: 'Labeled ThermoSave sections on heated barrel',
+      },
+      {
+        src: `${ALKHAIR_IMG}/extruder-line.jpg`,
+        alt: 'Foam extruder with ThermoSave jackets and hopper at Al-Khair',
+        caption: 'Extruder line with hopper — Lahore foam plant',
+      },
+      {
+        src: `${ALKHAIR_IMG}/plant-floor-1.jpg`,
+        alt: 'Plant floor at Al-Khair Five Star Foam with jacketed extruder',
+        caption: 'Plant floor — jackets on the production line',
+      },
+      {
+        src: `${ALKHAIR_IMG}/plant-floor-2.jpg`,
+        alt: 'Al-Khair foam plant with ThermoSave insulated extruder',
+        caption: 'Warehouse-scale foam extrusion with insulated barrel',
+      },
+      {
+        src: `${ALKHAIR_IMG}/plant-floor-3.jpg`,
+        alt: 'Operator beside ThermoSave jacketed extruder at Al-Khair',
+        caption: 'On the floor with the jacketed extruder',
+      },
+      {
+        src: `${ALKHAIR_IMG}/plant-floor-4.jpg`,
+        alt: 'Al-Khair Five Star Foam Lahore extruder with ThermoSave jackets',
+        caption: 'Long extruder barrel — heat kept in the melt',
+      },
+      {
+        src: `${ALKHAIR_IMG}/plant-floor-5.jpg`,
+        alt: 'Foam extrusion equipment with ThermoSave insulation at Al-Khair',
+        caption: 'Hopper end of the jacketed foam line',
+      },
+      {
+        src: `${ALKHAIR_IMG}/hopper-line-1.jpg`,
+        alt: 'Hopper and jacketed barrel at Al-Khair Five Star Foam',
+        caption: 'Hopper + barrel jackets — Multizone process heat',
+      },
+      {
+        src: `${ALKHAIR_IMG}/hopper-line-2.jpg`,
+        alt: 'Al-Khair foam line control area with insulated extruder',
+        caption: 'Control side of the insulated extruder line',
+      },
+    ],
+    offerTitle: 'What we deliver for plants like Al-Khair',
+    offerBullets: [
+      'Custom removable insulation jackets sized to extruder barrels and heated zones',
+      'Free energy-loss assessment — Call / WhatsApp, no fake checkout',
+      'Same removable fit Al-Khair runs — maintenance without cutting jackets',
+      'Measured client proof where we have it (200k+ PKR / month on 8 machines here)',
+    ],
+    faqs: [
+      {
+        q: 'Are the 200k+ PKR savings real?',
+        a: 'Yes — Al-Khair’s owner reported over 200k PKR monthly saved across 8 machines after running ThermoSave jackets for years. We don’t invent figures; we cite measured client proof.',
+      },
+      {
+        q: 'Do foam extruders need different jackets than plastics injection?',
+        a: 'Same physics — keep process heat in the barrel. Foam lines are often long continuous barrels; we size removable sections zone by zone so heaters cycle less and the hall stays cooler.',
+      },
+      {
+        q: 'How do we get the same assessment for our foam or plastics line?',
+        a: 'Call / WhatsApp for a free energy-loss assessment. Share machine photos or a short site visit — we size jackets and typically ship in 7–10 days.',
+      },
+    ],
+  },
+  {
+    slug: 'major-electrical-sargodha',
+    name: 'Major Electrical Sargodha',
+    shortName: 'Major Electrical',
+    location: 'Sargodha',
+    benefit:
+      'Plant-floor install in Sargodha — ThermoSave jackets on heated industrial equipment, video on the floor.',
+    coverImage: `https://image.mux.com/${MAJOR_PLAYBACK}/thumbnail.jpg?time=5&width=1280`,
+    seoTitle: 'Major Electrical Sargodha Case Study | ThermoSave',
+    seoDescription:
+      'ThermoSave insulation jackets at Major Electrical, Sargodha — plant video of a real install. Free energy-loss assessment for industrial plants in Pakistan.',
+    headline: 'Sargodha floor — jackets on heated equipment, heat stays in the process.',
+    subhead:
+      'Major Electrical Sargodha runs ThermoSave removable insulation on plant equipment. Watch the 27-second clip, then get the same sizing conversation for your line.',
+    storyTitle: 'Named Sargodha plant. Real machine. Short clip.',
+    story:
+      'At Major Electrical in Sargodha, ThermoSave jackets wrap heated process surfaces so radiant loss drops. Same removable approach we install across Pakistan — sized to the machine, off for maintenance.',
+    stats: [
+      { value: 'Sargodha', label: 'Plant location' },
+      { value: '0:27', label: 'Plant video length' },
+      { value: 'Jackets', label: 'Insulation on process heat' },
+      { value: 'Assess', label: 'Same path for your floor' },
+    ],
+    mediaTitle: 'Plant video from Major Electrical Sargodha',
+    mediaSubhead: 'Phone-shot floor footage — jackets on real equipment, not a showroom.',
+    videos: [
+      {
+        playbackId: MAJOR_PLAYBACK,
+        title: 'Major Electrical Sargodha — plant install',
+        durationLabel: '0:27',
+      },
+    ],
+    gallery: [],
+    offerTitle: 'What we deliver for plants like Major Electrical',
+    offerBullets: [
+      'Custom removable insulation jackets sized to heated barrels, vessels, or process sections',
+      'Free energy-loss assessment — Call / WhatsApp, no fake checkout',
+      'Installs across Pakistan — Sargodha included, not only Lahore',
+      'Measured savings language when we have meter data — never invented PKR figures',
+    ],
+    faqs: [
+      {
+        q: 'Do you only serve plastics plants in big cities?',
+        a: 'No. Major Electrical in Sargodha is one example — we size and ship jackets across Pakistan. Assessment starts on Call / WhatsApp.',
+      },
+      {
+        q: 'Can jackets work outside plastics extrusion?',
+        a: 'Same physics anywhere you throw electricity away as surface heat. We size to your equipment — plastics, foam, or other heated industrial process gear.',
+      },
+      {
+        q: 'Any stills for this plant?',
+        a: 'This case is video-led for now. Drop plant photos anytime and we’ll add them to the same tile grid.',
       },
     ],
   },
