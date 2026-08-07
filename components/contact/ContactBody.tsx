@@ -7,6 +7,7 @@ import { ContactForm } from './ContactForm'
 import {
   CITIES,
   EMAIL,
+  FOUNDER,
   PHONE_DISPLAY,
   PHONE_TEL,
   WHATSAPP_URL,
@@ -120,6 +121,28 @@ export function ContactBody() {
 
             <div className="mt-10 space-y-3">
               <p className="text-xs font-medium uppercase tracking-[0.14em] text-stone-500">
+                Who you speak with
+              </p>
+              <div className="rounded-sm border border-stone-200/80 bg-white px-4 py-4">
+                <p className="font-[family-name:var(--font-display)] text-lg font-semibold text-[#0c1014]">
+                  {FOUNDER.name}
+                  <span className="font-normal text-stone-500"> · {FOUNDER.role}</span>
+                </p>
+                <p className="mt-1 text-sm leading-relaxed text-stone-600">
+                  {FOUNDER.location}. Heaters and jackets for plastic plants. Call or WhatsApp the
+                  number below.
+                </p>
+                <a
+                  href={FOUNDER.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-block text-sm font-medium text-[#c45c1a] transition-colors hover:text-[#a84c14]"
+                >
+                  LinkedIn profile
+                </a>
+              </div>
+
+              <p className="pt-2 text-xs font-medium uppercase tracking-[0.14em] text-stone-500">
                 Direct lines
               </p>
               <a href={`tel:${PHONE_TEL}`} className={channelClass}>

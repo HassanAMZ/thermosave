@@ -5,6 +5,14 @@ export const EMAIL = 'thermosavenasir@gmail.com'
 /** CC on assessment mailto drafts (owner / ops). */
 export const EMAIL_CC = 'reactjswebdev@gmail.com'
 
+/** Named plant contact. Brand carries track record; person answers the phone. */
+export const FOUNDER = {
+  name: 'Irfan Nasir',
+  role: 'CEO',
+  location: 'Gujrat, Pakistan',
+  linkedin: 'https://www.linkedin.com/in/irfan-nasir-16aa5bb6/',
+} as const
+
 export const TRUST_STATS = [
   { value: '10+', label: 'Years' },
   { value: '200+', label: 'Clients' },

@@ -120,6 +120,7 @@ Industry pages **hook by process**; clientele pages **prove with named plants**;
 | Phone tel | `+923340250893` |
 | WhatsApp | `https://wa.me/923340250893` |
 | Email | `thermosavenasir@gmail.com` |
+| Founder (`FOUNDER`) | Irfan Nasir · CEO · Gujrat · LinkedIn `irfan-nasir-16aa5bb6` |
 
 ---
 
@@ -414,11 +415,11 @@ Same visual rule as industry pages: **do not** stack text-only PAS. Pair every s
 Commitment rung — assessment conversation. Order via `components/contact/*`:
 
 1. ContactHero — dark ink + plant video/photo plane, brand + assessment H1 + Call / WhatsApp + TrustBar (nav transparent over hero)  
-2. ContactBody — plant still strip (4:3 tiles) + how-it-works steps + direct lines (phone / WhatsApp / email from `constants.ts`) + assessment form (WhatsApp primary submit, email alternate)  
+2. ContactBody — plant still strip (4:3 tiles) + how-it-works steps + **who you speak with** (`FOUNDER` in `constants.ts`: Irfan Nasir, CEO, Gujrat + LinkedIn) + direct lines (phone / WhatsApp / email) + assessment form (WhatsApp primary submit, email alternate)  
 3. LandingProof  
 4. StickyContact  
 
-Do **not** use the old AuthorLayout / PortfolioIntroductionSummary stub. Form opens WhatsApp (or mailto) with plant details. No fake checkout. Plain English (§1d): no em dashes in customer-facing copy.
+**Founder vs brand:** Lead with ThermoSave track record (10+ years since ~2016). Name Irfan as the plant contact on Contact + Footer. Do **not** ship a dedicated About / author page unless we later need optional depth. Do **not** use the old AuthorLayout / PortfolioIntroductionSummary stub. Form opens WhatsApp (or mailto) with plant details. No fake checkout. Plain English (§1d): no em dashes in customer-facing copy.
 
 ### Products collection (`/products`)
 

@@ -4,10 +4,14 @@ import { Mail, Phone } from 'lucide-react'
 import { BsLinkedin, BsWhatsapp } from 'react-icons/bs'
 
 import Logo from '@/components/Logo'
-import { EMAIL, PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL } from '@/components/landing/constants'
+import {
+  EMAIL,
+  FOUNDER,
+  PHONE_DISPLAY,
+  PHONE_TEL,
+  WHATSAPP_URL,
+} from '@/components/landing/constants'
 import { cn } from '@/components/lib/utils'
-
-const LINKEDIN_URL = 'https://www.linkedin.com/in/irfan-nasir-16aa5bb6/'
 
 const navigation = {
   company: [
@@ -114,9 +118,21 @@ export default function Footer() {
           </p>
           <p className="mt-2 text-xs leading-relaxed text-stone-400 md:text-sm">
             Industrial heaters and thermal insulation for plastic plants across Pakistan. We help
-            factories stop electricity waste thrown away as heat — measured savings for injection
+            factories stop electricity waste thrown away as heat. Measured savings for injection
             molding, blow molding, and extrusion lines. 10+ years · 200+ plants · 20%+ average energy
             saved.
+          </p>
+          <p className="mt-3 text-xs leading-relaxed text-stone-400 md:text-sm">
+            Talk to{' '}
+            <a
+              href={FOUNDER.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium text-stone-300 transition-colors hover:text-[#f0a060]"
+            >
+              {FOUNDER.name}
+            </a>
+            , {FOUNDER.role}. {FOUNDER.location}.
           </p>
         </div>
       </div>
@@ -148,10 +164,10 @@ export default function Footer() {
           <BsWhatsapp className="h-4 w-4" />
         </a>
         <a
-          href={LINKEDIN_URL}
+          href={FOUNDER.linkedin}
           target="_blank"
           rel="noreferrer"
-          aria-label="ThermoSave on LinkedIn"
+          aria-label={`${FOUNDER.name} on LinkedIn`}
           className={socialIconClass}
         >
           <BsLinkedin className="h-4 w-4" />
