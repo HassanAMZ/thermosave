@@ -23,7 +23,7 @@ const faqs = [
 
 export function LandingFAQ() {
   return (
-    <section className="bg-[#f4f2ee] py-20 md:py-28">
+    <section id="faq" className="bg-[#f4f2ee] py-20 md:py-28">
       <div className="container mx-auto max-w-3xl px-4">
         <motion.div
           className="text-center"
