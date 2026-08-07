@@ -55,7 +55,9 @@ export type ClientCase = {
 
 const BUHADER_PLAYBACK = 'bLcNlAcFRAoU83Vm7bkmzUiTWUr6GyyOzoHjjLpoSyA'
 const EAGRY_PLAYBACK = '0101j2IZzUa3e7MusvCYxQsrTK2PptM8vfua02qLTSuBMU'
+const SHAIGAN_PLAYBACK = 'zEyP4vjITj022ZxZKqiPh901xGUoIMG4HjTLPFkiwvWiQ'
 const EAGRY_IMG = '/static/clients/eagry-force-multan'
+const SHAIGAN_IMG = '/static/clients/shaigan-pharma-rpi'
 
 export const clients: ClientCase[] = [
   {
@@ -186,6 +188,77 @@ export const clients: ClientCase[] = [
       {
         q: 'Do you invent savings numbers for the case study?',
         a: 'No. We show plant media and factual install details. PKR or kWh claims only when the plant has measured data we can cite.',
+      },
+    ],
+  },
+  {
+    slug: 'shaigan-pharma-rpi',
+    name: 'Shaigan Pharma RPI',
+    shortName: 'Shaigan Pharma',
+    location: 'Pakistan',
+    benefit:
+      'ThermoSave jackets on pharma / RPI process equipment — labeled barrel fit, plant video included.',
+    coverImage: `${SHAIGAN_IMG}/plant-floor-1.jpg`,
+    seoTitle: 'Shaigan Pharma RPI Case Study | ThermoSave',
+    seoDescription:
+      'ThermoSave insulation jackets at Shaigan Pharma RPI — plant photos and video of a real install. Free energy-loss assessment for process plants in Pakistan.',
+    headline: 'Pharma process heat — jackets on the line, not lost to the hall.',
+    subhead:
+      'Shaigan Pharma RPI runs ThermoSave removable insulation on heated process equipment. See the plant stills and 1:07 clip, then get the same sizing for your floor.',
+    storyTitle: 'Named pharma plant. Jackets on the machine.',
+    story:
+      'At Shaigan Pharma RPI, ThermoSave quilted jackets wrap heated barrel sections so process heat stays in the melt instead of cooking the room. Removable, labeled, maintenance-friendly — same install pattern as our plastics plants.',
+    stats: [
+      { value: 'Pharma', label: 'Process plant type' },
+      { value: 'RPI', label: 'Named line / site' },
+      { value: '1:07', label: 'Plant video length' },
+      { value: 'Jackets', label: 'Barrel insulation fit' },
+    ],
+    mediaTitle: 'Plant proof from Shaigan Pharma RPI',
+    mediaSubhead: 'Floor photos plus Mux clip — ThermoSave labels on real equipment.',
+    videos: [
+      {
+        playbackId: SHAIGAN_PLAYBACK,
+        title: 'Shaigan Pharma RPI — plant install',
+        durationLabel: '1:07',
+      },
+    ],
+    gallery: [
+      {
+        src: `${SHAIGAN_IMG}/plant-floor-1.jpg`,
+        alt: 'ThermoSave insulation jackets on process equipment at Shaigan Pharma RPI',
+        caption: 'Jacketed barrel on blue frame — Shaigan Pharma RPI',
+      },
+      {
+        src: `${SHAIGAN_IMG}/plant-floor-2.jpg`,
+        alt: 'Plant floor with ThermoSave jackets at Shaigan Pharma',
+        caption: 'Labeled ThermoSave jackets on heated sections',
+      },
+      {
+        src: `${SHAIGAN_IMG}/plant-floor-3.jpg`,
+        alt: 'ThermoSave energy-saving insulation at Shaigan Pharma RPI plant',
+        caption: 'Hopper line with removable barrel jackets',
+      },
+    ],
+    offerTitle: 'What we deliver for plants like Shaigan Pharma',
+    offerBullets: [
+      'Custom removable insulation jackets sized to barrels and heated process sections',
+      'Free energy-loss assessment — Call / WhatsApp, no fake checkout',
+      'Labeled, strap-fit jackets that come off for maintenance without cutting',
+      'Named plant proof (pharma + plastics) — measured PKR only when we have meter data',
+    ],
+    faqs: [
+      {
+        q: 'Do you only work with plastics plants?',
+        a: 'Most of our installs are plastics — injection, extrusion, blow moulding, hoppers. Shaigan Pharma RPI shows the same jacket approach on heated process equipment in a pharma / RPI setting.',
+      },
+      {
+        q: 'Can jackets meet plant hygiene / access needs?',
+        a: 'Jackets are removable with straps — take them off for cleaning or service, put them back. We size to your machine so covers don’t block required access points.',
+      },
+      {
+        q: 'How do we start for a pharma or specialty line?',
+        a: 'Same path as plastics: free assessment, photos or a short site call, then sized jackets. Call / WhatsApp — no gated brochure.',
       },
     ],
   },

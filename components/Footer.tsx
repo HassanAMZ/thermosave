@@ -32,6 +32,7 @@ const navigation = {
     { name: 'Proof & Clients', href: '/clients' },
     { name: 'Buhader Ind LHR', href: '/clients/buhader-ind-lhr' },
     { name: 'Eagry Force Multan', href: '/clients/eagry-force-multan' },
+    { name: 'Shaigan Pharma RPI', href: '/clients/shaigan-pharma-rpi' },
     { name: `Call ${PHONE_DISPLAY}`, href: `tel:${PHONE_TEL}` },
   ],
 } as const
