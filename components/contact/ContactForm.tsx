@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
-import { EMAIL, WHATSAPP_URL } from '@/components/landing/constants'
+import { EMAIL, EMAIL_CC, WHATSAPP_URL } from '@/components/landing/constants'
 
 const PROCESSES = [
   'Injection molding',
@@ -90,7 +90,9 @@ export function ContactForm() {
 
     const subject = encodeURIComponent('ThermoSave — energy-loss assessment')
     const body = encodeURIComponent(buildMessage(data))
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`
+    const cc = encodeURIComponent(EMAIL_CC)
+    window.location.href = `mailto:${EMAIL}?cc=${cc}&subject=${subject}&body=${body}`
+
   }
 
   const fieldClass =
