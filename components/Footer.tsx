@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import Link from 'next/link'
-import { Linkedin, Mail, Phone } from 'lucide-react'
-import { BsWhatsapp } from 'react-icons/bs'
+import { Mail, Phone } from 'lucide-react'
+import { BsLinkedin, BsWhatsapp } from 'react-icons/bs'
 
 import Logo from '@/components/Logo'
 import { EMAIL, PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL } from '@/components/landing/constants'
@@ -19,8 +19,7 @@ const navigation = {
   products: [
     { name: 'Mica Band Heaters', href: '/products/mica-band-heaters' },
     { name: 'Ceramic Band Heaters', href: '/products/ceramic-band-heater' },
-    { name: 'Thermal Insulation', href: '/products/thermal-insolations' },
-    { name: 'Insulated Heaters', href: '/products/insulated-heaters' },
+    { name: 'Thermal Insulation Jackets', href: '/products/thermal-insolations' },
     { name: 'All Products', href: '/products' },
   ],
   plant: [
@@ -145,7 +144,7 @@ export default function Footer() {
           aria-label="ThermoSave on LinkedIn"
           className={socialIconClass}
         >
-          <Linkedin className="h-4 w-4" strokeWidth={1.5} />
+          <BsLinkedin className="h-4 w-4" />
         </a>
       </div>
 
