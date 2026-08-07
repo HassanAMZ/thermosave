@@ -13,6 +13,7 @@ import {
   PHONE_TEL,
   WHATSAPP_URL,
 } from '@/components/landing/constants'
+import { clients } from '@/data/clients'
 import { Button } from '@/components/ui/button'
 import {
   NavigationMenu,
@@ -25,34 +26,40 @@ import {
 } from '@/components/ui/navigation-menu'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 
-const products: { title: string; href: string; description: string; image: string }[] = [
+type NavItem = {
+  title: string
+  href: string
+  description: string
+  image: string
+  /** Product cutouts need a white pad; plant photos use cover. */
+  imageFit?: 'contain' | 'cover'
+}
+
+const products: NavItem[] = [
   {
     title: 'Mica Band Heaters',
     href: '/products/mica-band-heaters',
     description: 'SS-jacketed mica bands with Ni20Cr80 winding — fast heat-up for barrels and nozzles.',
-    image: '/static/products/00001.png',
+    image: '/static/products/cutouts/00001.png',
+    imageFit: 'contain',
   },
   {
     title: 'Ceramic Band Heaters',
     href: '/products/ceramic-band-heater',
     description: 'High-temp ceramic bands up to 1600°F — Made in Japan, open for install.',
-    image: '/static/products/00002.png',
+    image: '/static/products/cutouts/00002.png',
+    imageFit: 'contain',
   },
   {
     title: 'Thermal Insulation Jackets',
     href: '/products/thermal-insolations',
     description: 'Removable jackets that keep heat in the melt — cut hall heat and kWh.',
-    image: '/static/products/00003.jpeg',
-  },
-  {
-    title: 'All Products',
-    href: '/products',
-    description: 'Browse mica, ceramic, and insulation jackets for plastic plants.',
-    image: '/static/products/00001.png',
+    image: '/static/products/cutouts/00003.png',
+    imageFit: 'contain',
   },
 ]
 
-const industries = [
+const industries: NavItem[] = [
   {
     title: 'Extrusion Blow Moulding',
     href: '/industries/extrusion-blow-moulding',
@@ -71,25 +78,86 @@ const industries = [
     description: 'Jackets for hopper dryer shells — keep drying heat in the resin bed.',
     image: '/static/industries/hoppers/machine-full.jpg',
   },
-  {
-    title: 'All Industries',
-    href: '/industries',
-    description: 'Browse processes we outfit — start with the machine on your floor.',
-    image: '/static/industries/extrusion-blow-moulding/head-jackets.jpg',
-  },
 ]
+
+const clientNavItems: NavItem[] = clients.map((client) => ({
+  title: client.shortName,
+  href: `/clients/${client.slug}`,
+  description: client.benefit,
+  image: client.coverImage,
+}))
 
 const mobileLinks = [
   { href: '/', title: 'Home' },
   { href: '/products', title: 'All Products' },
-  { href: '/industries', title: 'Industries' },
-  { href: '/clients', title: 'Clientele' },
+  { href: '/industries', title: 'All Industries' },
+  { href: '/clients', title: 'All Clientele' },
   { href: '/image-gallery', title: 'Gallery' },
   { href: '/contact', title: 'Contact Us' },
 ]
 
 const navLinkClass =
   'bg-transparent text-stone-300 hover:bg-white/10 hover:text-white focus:bg-white/10 focus:text-white data-[active]:bg-white/10 data-[state=open]:bg-white/10 data-[state=open]:text-white'
+
+function MegaFeature({
+  href,
+  title,
+  description,
+  image,
+  imageAlt,
+  imageFit = 'cover',
+  rowSpan,
+}: {
+  href: string
+  title: string
+  description: string
+  image: string
+  imageAlt: string
+  imageFit?: 'contain' | 'cover'
+  rowSpan: number
+}) {
+  const isContain = imageFit === 'contain'
+  return (
+    <li
+      className={cn(
+        'md:col-span-2 lg:col-span-1',
+        rowSpan === 6 ? 'row-span-6 lg:row-span-6' : 'row-span-3 lg:row-span-3'
+      )}
+    >
+      <NavigationMenuLink asChild>
+        <Link
+          href={href}
+          className="flex h-full min-h-[200px] w-full select-none flex-col overflow-hidden rounded-sm border border-white/10 bg-[#12161c] no-underline outline-none transition-colors hover:border-white/20 focus:border-white/20"
+        >
+          <div
+            className={cn(
+              'relative min-h-[120px] w-full flex-1',
+              isContain ? 'bg-white' : 'bg-[#0c1014]'
+            )}
+          >
+            <Image
+              src={image}
+              alt={imageAlt}
+              fill
+              className={isContain ? 'object-contain p-6 sm:p-8' : 'object-cover'}
+              sizes="280px"
+              unoptimized={image.includes('image.mux.com')}
+            />
+            {!isContain && (
+              <div className="absolute inset-0 bg-gradient-to-t from-[#12161c] via-[#12161c]/30 to-transparent" />
+            )}
+          </div>
+          <div className="p-5 pt-3">
+            <div className="mb-1.5 font-[family-name:var(--font-display)] text-base font-semibold tracking-tight text-stone-100">
+              {title}
+            </div>
+            <p className="text-sm leading-snug text-stone-400">{description}</p>
+          </div>
+        </Link>
+      </NavigationMenuLink>
+    </li>
+  )
+}
 
 export function Navbar() {
   const pathname = usePathname()
@@ -159,45 +227,26 @@ export function Navbar() {
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid gap-2 p-3 md:w-[500px] md:grid-cols-2 lg:w-[580px]">
-                    <li className="row-span-3 md:col-span-2 lg:col-span-1 lg:row-span-3">
-                      <NavigationMenuLink asChild>
-                        <Link
-                          href="/products"
-                          className="flex h-full min-h-[180px] w-full select-none flex-col justify-end overflow-hidden rounded-sm border border-white/10 bg-[#12161c] no-underline outline-none transition-colors hover:border-white/20 focus:border-white/20"
-                        >
-                          <div className="relative h-28 w-full">
-                            <Image
-                              src="/static/products/00001.png"
-                              alt="ThermoSave products"
-                              fill
-                              className="object-cover"
-                              sizes="240px"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#12161c] via-[#12161c]/40 to-transparent" />
-                          </div>
-                          <div className="p-5 pt-3">
-                            <div className="mb-1.5 font-[family-name:var(--font-display)] text-base font-semibold tracking-tight text-stone-100">
-                              All Products
-                            </div>
-                            <p className="text-sm leading-snug text-stone-400">
-                              Mica, ceramic, and insulation jackets sized for plastic plants.
-                            </p>
-                          </div>
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    {products
-                      .filter((p) => p.href !== '/products')
-                      .map((product) => (
-                        <ListItem
-                          key={product.title}
-                          title={product.title}
-                          href={product.href}
-                          image={product.image}
-                        >
-                          {product.description}
-                        </ListItem>
-                      ))}
+                    <MegaFeature
+                      href="/products"
+                      title="All Products"
+                      description="Mica, ceramic, and insulation jackets sized for plastic plants."
+                      image="/static/products/cutouts/00001.png"
+                      imageAlt="ThermoSave products"
+                      imageFit="contain"
+                      rowSpan={3}
+                    />
+                    {products.map((product) => (
+                      <ListItem
+                        key={product.title}
+                        title={product.title}
+                        href={product.href}
+                        image={product.image}
+                        imageFit={product.imageFit}
+                      >
+                        {product.description}
+                      </ListItem>
+                    ))}
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
@@ -207,7 +256,16 @@ export function Navbar() {
                   Industries
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[340px] gap-1 p-3">
+                  <ul className="grid gap-2 p-3 md:w-[500px] md:grid-cols-2 lg:w-[580px]">
+                    <MegaFeature
+                      href="/industries"
+                      title="All Industries"
+                      description="Browse processes we outfit — start with the machine on your floor."
+                      image="/static/industries/extrusion-blow-moulding/head-jackets.jpg"
+                      imageAlt="ThermoSave industries"
+                      imageFit="cover"
+                      rowSpan={3}
+                    />
                     {industries.map((industry) => (
                       <ListItem
                         key={industry.title}
@@ -223,14 +281,32 @@ export function Navbar() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link
-                    href="/clients"
-                    className={cn(navigationMenuTriggerStyle(), navLinkClass, 'rounded-sm')}
-                  >
-                    Clientele
-                  </Link>
-                </NavigationMenuLink>
+                <NavigationMenuTrigger className={cn(navLinkClass, 'rounded-sm')}>
+                  Clientele
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid gap-2 p-3 md:w-[540px] md:grid-cols-2 lg:w-[640px]">
+                    <MegaFeature
+                      href="/clients"
+                      title="All Clientele"
+                      description="Named Pakistan plants with jackets on the floor — photos and Mux proof."
+                      image="/static/clients/eagry-force-multan/barrel-jacket.jpg"
+                      imageAlt="ThermoSave client plants"
+                      imageFit="cover"
+                      rowSpan={6}
+                    />
+                    {clientNavItems.map((client) => (
+                      <ListItem
+                        key={client.href}
+                        title={client.title}
+                        href={client.href}
+                        image={client.image}
+                      >
+                        {client.description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
@@ -295,7 +371,7 @@ export function Navbar() {
                   <span className="text-[#f0a060]">ThermoSave</span>
                 </SheetTitle>
               </SheetHeader>
-              <nav className="mt-8 flex flex-col gap-1">
+              <nav className="mt-8 flex flex-col gap-1 overflow-y-auto pb-8">
                 {mobileLinks.map((link) => (
                   <Link
                     key={link.href}
@@ -307,57 +383,21 @@ export function Navbar() {
                   </Link>
                 ))}
 
-                <div className="mt-4 border-t border-white/10 pt-4">
-                  <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">
-                    Products
-                  </p>
-                  {products
-                    .filter((p) => p.href !== '/products')
-                    .map((product) => (
-                      <Link
-                        key={product.href}
-                        href={product.href}
-                        onClick={() => setOpen(false)}
-                        className="flex items-center gap-3 rounded-sm px-3 py-2 text-sm text-stone-200 hover:bg-white/10 hover:text-white"
-                      >
-                        <span className="relative size-10 shrink-0 overflow-hidden rounded-sm border border-white/10 bg-[#12161c]">
-                          <Image
-                            src={product.image}
-                            alt={product.title}
-                            fill
-                            className="object-cover"
-                            sizes="40px"
-                          />
-                        </span>
-                        <span>{product.title}</span>
-                      </Link>
-                    ))}
-                </div>
-
-                <div className="mt-4 border-t border-white/10 pt-4">
-                  <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">
-                    Industries
-                  </p>
-                  {industries.map((industry) => (
-                    <Link
-                      key={industry.href}
-                      href={industry.href}
-                      onClick={() => setOpen(false)}
-                      className="flex items-center gap-3 rounded-sm px-3 py-2 text-sm text-stone-200 hover:bg-white/10 hover:text-white"
-                    >
-                      <span className="relative size-10 shrink-0 overflow-hidden rounded-sm border border-white/10 bg-[#12161c]">
-                        <Image
-                          src={industry.image}
-                          alt={industry.title}
-                          fill
-                          className="object-cover"
-                          sizes="40px"
-                        />
-                      </span>
-                      <span>{industry.title}</span>
-                    </Link>
-                  ))}
-                </div>
+                <MobileNavGroup
+                  label="Products"
+                  items={products}
+                  onNavigate={() => setOpen(false)}
+                />
+                <MobileNavGroup
+                  label="Industries"
+                  items={industries}
+                  onNavigate={() => setOpen(false)}
+                />
+                <MobileNavGroup
+                  label="Clientele"
+                  items={clientNavItems}
+                  onNavigate={() => setOpen(false)}
+                />
 
                 <div className="mt-6 flex flex-col gap-2 border-t border-white/10 pt-4">
                   <Button
@@ -401,13 +441,61 @@ export function Navbar() {
   )
 }
 
+function MobileNavGroup({
+  label,
+  items,
+  onNavigate,
+}: {
+  label: string
+  items: NavItem[]
+  onNavigate: () => void
+}) {
+  return (
+    <div className="mt-4 border-t border-white/10 pt-4">
+      <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">
+        {label}
+      </p>
+      {items.map((item) => {
+        const isContain = item.imageFit === 'contain'
+        return (
+          <Link
+            key={item.href}
+            href={item.href}
+            onClick={onNavigate}
+            className="flex items-center gap-3 rounded-sm px-3 py-2 text-sm text-stone-200 hover:bg-white/10 hover:text-white"
+          >
+            <span
+              className={cn(
+                'relative size-10 shrink-0 overflow-hidden rounded-sm border border-white/10',
+                isContain ? 'bg-white' : 'bg-[#12161c]'
+              )}
+            >
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                className={isContain ? 'object-contain p-1' : 'object-cover'}
+                sizes="40px"
+                unoptimized={item.image.includes('image.mux.com')}
+              />
+            </span>
+            <span>{item.title}</span>
+          </Link>
+        )
+      })}
+    </div>
+  )
+}
+
 type ListItemProps = React.ComponentPropsWithoutRef<'a'> & {
   title: string
   image: string
+  imageFit?: 'contain' | 'cover'
 }
 
 const ListItem = React.forwardRef<React.ElementRef<'a'>, ListItemProps>(
-  ({ className, title, children, href, image, ...props }, ref) => {
+  ({ className, title, children, href, image, imageFit = 'cover', ...props }, ref) => {
+    const isContain = imageFit === 'contain'
     return (
       <li>
         <NavigationMenuLink asChild>
@@ -420,8 +508,20 @@ const ListItem = React.forwardRef<React.ElementRef<'a'>, ListItemProps>(
             )}
             {...props}
           >
-            <span className="relative size-12 shrink-0 overflow-hidden rounded-sm border border-white/10 bg-[#12161c]">
-              <Image src={image} alt={title ?? ''} fill className="object-cover" sizes="48px" />
+            <span
+              className={cn(
+                'relative size-12 shrink-0 overflow-hidden rounded-sm border border-white/10',
+                isContain ? 'bg-white' : 'bg-[#12161c]'
+              )}
+            >
+              <Image
+                src={image}
+                alt={title ?? ''}
+                fill
+                className={isContain ? 'object-contain p-1.5' : 'object-cover'}
+                sizes="48px"
+                unoptimized={image.includes('image.mux.com')}
+              />
             </span>
             <span className="min-w-0 space-y-1.5">
               <span className="block text-sm font-medium leading-none text-stone-100">{title}</span>

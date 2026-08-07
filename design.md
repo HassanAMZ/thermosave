@@ -333,9 +333,9 @@ Nav is part of the **industrial dark chrome**, not a white strip floating above 
 | Label | Route | Pattern |
 |-------|-------|---------|
 | Home | `/` | Simple link |
-| Products | `/products` + PDP dropdown | Mega-menu (mica / ceramic / jackets + All Products) |
-| Industries | `/industries` + slug dropdown | Mega-menu (process pages + All Industries) |
-| Clientele | `/clients` | Simple link (case grid; detail at `/clients/[slug]`) |
+| Products | `/products` + PDP dropdown | Mega-menu (feature card + PDPs; cutouts on white pad) |
+| Industries | `/industries` + slug dropdown | Mega-menu (feature card + process pages + All Industries) |
+| Clientele | `/clients` + slug dropdown | Mega-menu (feature card + named plants + All Clientele) |
 | Gallery | `/image-gallery` | Simple link |
 | Contact | `/contact` | Simple link |
 | Get Assessment | `/contact` | Heat primary CTA (desktop); also in mobile sheet |
