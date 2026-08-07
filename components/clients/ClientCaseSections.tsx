@@ -97,16 +97,52 @@ export function ClientCaseHero({ client }: ClientProps) {
   )
 }
 
+function StoryImage({
+  photo,
+  priority = false,
+}: {
+  photo: { src: string; alt: string; caption: string }
+  priority?: boolean
+}) {
+  return (
+    <figure className="overflow-hidden rounded-sm border border-stone-200 bg-[#0c1014]">
+      <div className="relative aspect-[4/5] w-full sm:aspect-[5/6]">
+        <Image
+          src={photo.src}
+          alt={photo.alt}
+          fill
+          priority={priority}
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          unoptimized={photo.src.includes('image.mux.com')}
+        />
+      </div>
+      <figcaption className="border-t border-stone-200 bg-[#faf9f7] px-4 py-3 text-sm text-stone-600">
+        {photo.caption}
+      </figcaption>
+    </figure>
+  )
+}
+
 export function ClientCaseStory({ client }: ClientProps) {
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="container mx-auto max-w-7xl px-4">
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-14">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <motion.div
             initial={{ opacity: 0.4, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.5 }}
+          >
+            <StoryImage photo={client.storyImage} />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0.4, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5, delay: 0.06 }}
           >
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">
               Plant story
@@ -117,26 +153,19 @@ export function ClientCaseStory({ client }: ClientProps) {
             <p className="mt-5 text-base leading-relaxed text-stone-600 md:text-lg">
               {client.story}
             </p>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-2 gap-4"
-            initial={{ opacity: 0.4, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.5, delay: 0.06 }}
-          >
-            {client.stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-sm border border-stone-200 bg-[#faf9f7] px-4 py-5"
-              >
-                <p className="font-[family-name:var(--font-display)] text-2xl font-semibold text-[#c45c1a] md:text-3xl">
-                  {stat.value}
-                </p>
-                <p className="mt-1 text-xs leading-snug text-stone-500">{stat.label}</p>
-              </div>
-            ))}
+            <div className="mt-8 grid grid-cols-2 gap-4">
+              {client.stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-sm border border-stone-200 bg-[#faf9f7] px-4 py-5"
+                >
+                  <p className="font-[family-name:var(--font-display)] text-2xl font-semibold text-[#c45c1a] md:text-3xl">
+                    {stat.value}
+                  </p>
+                  <p className="mt-1 text-xs leading-snug text-stone-500">{stat.label}</p>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>
@@ -213,6 +242,7 @@ export function ClientCaseMedia({ client }: ClientProps) {
                     fill
                     className="object-cover"
                     sizes="(max-width: 640px) 100vw, 50vw"
+                    unoptimized={tile.src.includes('image.mux.com')}
                   />
                 </div>
               )}

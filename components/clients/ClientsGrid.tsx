@@ -28,8 +28,8 @@ export function ClientsGrid({ clients }: ClientsGridProps) {
             Open a plant. See the jackets. Call us for yours.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-stone-600 md:text-lg">
-            Each case is a real ThermoSave install — plant video first, short engineer copy, then
-            assessment / Call / WhatsApp.
+            Each case is a real ThermoSave install. Plant photos and video first, short engineer
+            copy, then assessment / Call / WhatsApp.
           </p>
         </motion.div>
 

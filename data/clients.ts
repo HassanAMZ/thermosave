@@ -1,10 +1,10 @@
 /**
- * Clientele / case studies — named plant proof (Hormozi likelihood lever).
+ * Clientele / case studies - named plant proof (Hormozi likelihood lever).
  * Mux Playback IDs (not Asset IDs) from asset → Playback and Thumbnails.
  */
 
 export type ClientVideo = {
-  /** Mux Playback ID — not Asset ID */
+  /** Mux Playback ID - not Asset ID */
   playbackId: string
   title: string
   durationLabel: string
@@ -35,18 +35,20 @@ export type ClientCase = {
   benefit: string
   /** Local plant still or Mux thumbnail for covers */
   coverImage: string
+  /** Plant still for the story split (photo + short copy) */
+  storyImage: ClientPhoto
   seoTitle: string
   seoDescription: string
   headline: string
   subhead: string
-  /** Short plant story — ≤2 sentences */
+  /** Short plant story - ≤2 sentences */
   storyTitle: string
   story: string
   stats: ClientStat[]
   mediaTitle: string
   mediaSubhead: string
   videos: ClientVideo[]
-  /** Extra gallery stills — same 4:3 tile grid as videos */
+  /** Extra gallery stills - same 4:3 tile grid as videos */
   gallery: ClientPhoto[]
   offerTitle: string
   offerBullets: string[]
@@ -64,6 +66,10 @@ const SHAIGAN_IMG = '/static/clients/shaigan-pharma-rpi'
 const TIMESTAR_IMG = '/static/clients/time-star-lhr'
 const ALKHAIR_IMG = '/static/clients/al-khair-five-star-foam-lhr'
 
+function muxThumb(playbackId: string, time = 1) {
+  return `https://image.mux.com/${playbackId}/thumbnail.jpg?time=${time}&width=1280`
+}
+
 export const clients: ClientCase[] = [
   {
     slug: 'buhader-ind-lhr',
@@ -71,17 +77,22 @@ export const clients: ClientCase[] = [
     shortName: 'Buhader',
     location: 'Lahore',
     benefit:
-      'Plant-floor install on a Lahore plastics line — jackets that keep process heat in the machine, not the hall.',
-    coverImage: `https://image.mux.com/${BUHADER_PLAYBACK}/thumbnail.jpg?time=1&width=1280`,
+      'Plant-floor install on a Lahore plastics line. Jackets keep process heat in the machine, not the hall.',
+    coverImage: muxThumb(BUHADER_PLAYBACK, 1),
+    storyImage: {
+      src: muxThumb(BUHADER_PLAYBACK, 2),
+      alt: 'ThermoSave insulation jackets on process equipment at Buhader Ind Lahore',
+      caption: 'Jackets on the machine at Buhader Ind, Lahore',
+    },
     seoTitle: 'Buhader Ind LHR Case Study | ThermoSave',
     seoDescription:
-      'ThermoSave insulation jackets at Buhader Ind, Lahore — plant video of a real install. Free energy-loss assessment for plastic manufacturers in Pakistan.',
-    headline: 'Jackets on a Lahore plastics floor — heat stays in the melt.',
+      'ThermoSave insulation jackets at Buhader Ind, Lahore. Plant video of a real install. Free energy-loss assessment for plastic manufacturers in Pakistan.',
+    headline: 'Jackets on a Lahore plastics floor. Heat stays in the melt.',
     subhead:
-      'Buhader Ind LHR runs with ThermoSave insulation on plant equipment. Watch the install, then get the same sizing conversation for your line.',
+      'Buhader Ind LHR runs with ThermoSave insulation on plant equipment. Watch the install, then get the same sizing talk for your line.',
     storyTitle: 'Named plant. Real machine. No stock footage.',
     story:
-      'Buhader Ind in Lahore fitted ThermoSave removable insulation jackets on process equipment so radiant heat stays in the melt instead of cooking the hall. Same approach we use across 200+ plants — sized to the machine, removable for maintenance.',
+      'Buhader Ind in Lahore fitted ThermoSave removable jackets on process equipment so heat stays in the melt, not the hall. Same fit across 200+ plants: sized to the machine, off for maintenance.',
     stats: [
       { value: 'Lahore', label: 'Plant location' },
       { value: 'Jackets', label: 'Insulation on process heat' },
@@ -89,34 +100,45 @@ export const clients: ClientCase[] = [
       { value: 'Assess', label: 'Same path for your floor' },
     ],
     mediaTitle: 'Plant video from Buhader Ind LHR',
-    mediaSubhead: 'Phone-shot floor footage — jackets on real equipment, not a showroom.',
+    mediaSubhead: 'Phone-shot floor footage. Jackets on real equipment, not a showroom.',
     videos: [
       {
         playbackId: BUHADER_PLAYBACK,
-        title: 'Buhader Ind LHR — plant install',
+        title: 'Buhader Ind LHR plant install',
         durationLabel: 'Plant clip',
       },
     ],
-    gallery: [],
+    gallery: [
+      {
+        src: muxThumb(BUHADER_PLAYBACK, 1),
+        alt: 'ThermoSave jackets on plant equipment at Buhader Ind Lahore',
+        caption: 'Floor still from the Buhader install clip',
+      },
+      {
+        src: muxThumb(BUHADER_PLAYBACK, 3),
+        alt: 'Close view of ThermoSave insulation at Buhader Ind',
+        caption: 'Jacket detail on process heat at Buhader',
+      },
+    ],
     offerTitle: 'What we deliver for plants like Buhader',
     offerBullets: [
       'Custom removable insulation jackets sized to your barrels, die heads, or hoppers',
-      'Free energy-loss assessment — Call / WhatsApp, no fake checkout',
-      'Made-in-Japan materials; install guidance so jackets come off for maintenance',
-      'Measured savings language when we have meter data — never invented PKR figures',
+      'Free energy-loss assessment. Call or WhatsApp. No fake checkout',
+      'Made in Pakistan. Install guidance so jackets come off for maintenance',
+      'Measured savings language when we have meter data. Never invented PKR figures',
     ],
     faqs: [
       {
         q: 'Can we visit or call another plant that runs ThermoSave?',
-        a: 'We share named references and plant media where clients allow it. Start with a free assessment — we’ll match you to similar machines and cities.',
+        a: 'We share named references and plant media where clients allow it. Start with a free assessment. We will match you to similar machines and cities.',
       },
       {
         q: 'Do jackets change process settings?',
-        a: 'No. Jackets keep heat in the melt so heaters cycle less. Output and recipes stay yours; surface temps and hall heat drop.',
+        a: 'No. Jackets keep heat in the melt so heaters cycle less. Output and recipes stay yours. Surface temps and hall heat drop.',
       },
       {
         q: 'How fast from assessment to install?',
-        a: 'Typical lead time is about 7–10 days after sizing. Removable fit — maintenance teams can take jackets off without cutting.',
+        a: 'Typical lead time is about 7 to 10 days after sizing. Removable fit. Maintenance teams can take jackets off without cutting.',
       },
     ],
   },
@@ -126,17 +148,22 @@ export const clients: ClientCase[] = [
     shortName: 'Eagry Force',
     location: 'Multan',
     benefit:
-      'Barrel jackets on a Multan plastics line — ThermoSave labels on the machine, heat kept in the melt.',
+      'Barrel jackets on a Multan plastics line. ThermoSave labels on the machine. Heat kept in the melt.',
     coverImage: `${EAGRY_IMG}/barrel-jacket.jpg`,
+    storyImage: {
+      src: `${EAGRY_IMG}/barrel-jacket.jpg`,
+      alt: 'ThermoSave insulation jacket on barrel at Eagry Force Multan',
+      caption: 'Barrel jacket with ThermoSave label at Eagry Force, Multan',
+    },
     seoTitle: 'Eagry Force Multan Case Study | ThermoSave',
     seoDescription:
-      'ThermoSave insulation jackets at Eagry Force, Multan — plant photos and video of a real barrel install. Free energy-loss assessment for plastic plants in Pakistan.',
-    headline: 'Multan plant, jackets on the barrel — heat stays in the process.',
+      'ThermoSave insulation jackets at Eagry Force, Multan. Plant photos and video of a real barrel install. Free energy-loss assessment for plastic plants in Pakistan.',
+    headline: 'Multan plant, jackets on the barrel. Heat stays in the process.',
     subhead:
       'Eagry Force Multan runs ThermoSave removable insulation on process equipment. See the plant stills and clip, then size the same jackets for your line.',
-    storyTitle: 'Jackets on the machine — not a brochure render.',
+    storyTitle: 'Jackets on the machine. Not a brochure render.',
     story:
-      'At Eagry Force in Multan, ThermoSave quilted jackets wrap the heated barrel so radiant loss drops and the hall stays cooler. Labels on the fit, straps for maintenance — the same removable approach we install across Pakistan.',
+      'At Eagry Force in Multan, ThermoSave quilted jackets wrap the heated barrel so radiant loss drops and the hall stays cooler. Labels and straps for a removable fit, same approach we install across Pakistan.',
     stats: [
       { value: 'Multan', label: 'Plant location' },
       { value: 'Barrel', label: 'Jacketed process heat' },
@@ -144,11 +171,11 @@ export const clients: ClientCase[] = [
       { value: 'Removable', label: 'Straps for maintenance' },
     ],
     mediaTitle: 'Plant proof from Eagry Force Multan',
-    mediaSubhead: 'Floor photos plus Mux clip — jackets on real equipment.',
+    mediaSubhead: 'Floor photos plus Mux clip. Jackets on real equipment.',
     videos: [
       {
         playbackId: EAGRY_PLAYBACK,
-        title: 'Eagry Force Multan — plant install',
+        title: 'Eagry Force Multan plant install',
         durationLabel: 'Plant clip',
       },
     ],
@@ -156,7 +183,7 @@ export const clients: ClientCase[] = [
       {
         src: `${EAGRY_IMG}/barrel-jacket.jpg`,
         alt: 'ThermoSave insulation jacket on barrel at Eagry Force Multan',
-        caption: 'Barrel jacket with ThermoSave label — Multan plant',
+        caption: 'Barrel jacket with ThermoSave label. Multan plant',
       },
       {
         src: `${EAGRY_IMG}/plant-floor-1.jpg`,
@@ -171,24 +198,24 @@ export const clients: ClientCase[] = [
       {
         src: `${EAGRY_IMG}/plant-floor-3.jpg`,
         alt: 'ThermoSave energy-saving insulation jacket at Multan plastics plant',
-        caption: 'Plant install — heat kept in the melt',
+        caption: 'Plant install. Heat kept in the melt',
       },
     ],
     offerTitle: 'What we deliver for plants like Eagry Force',
     offerBullets: [
       'Custom removable insulation jackets sized to barrels, die heads, or hoppers',
-      'Free energy-loss assessment — Call / WhatsApp, no fake checkout',
-      'Plant-ready fit with straps — jackets come off for maintenance without cutting',
-      'Named Multan proof plus 200+ installs — measured PKR only when we have meter data',
+      'Free energy-loss assessment. Call or WhatsApp. No fake checkout',
+      'Plant-ready fit with straps. Jackets come off for maintenance without cutting',
+      'Named Multan proof plus 200+ installs. Measured PKR only when we have meter data',
     ],
     faqs: [
       {
         q: 'Is Multan far for install or service?',
-        a: 'We already run installs across Pakistan — Multan included. Assessment starts on Call / WhatsApp; jackets ship sized to your machine.',
+        a: 'We already run installs across Pakistan, Multan included. Assessment starts on Call or WhatsApp. Jackets ship sized to your machine.',
       },
       {
         q: 'Will jackets block access for maintenance?',
-        a: 'No. Removable straps and labeled sections — take jackets off, service the barrel, put them back. Same pattern as Eagry Force.',
+        a: 'No. Removable straps and labeled sections. Take jackets off, service the barrel, put them back. Same pattern as Eagry Force.',
       },
       {
         q: 'Do you invent savings numbers for the case study?',
@@ -202,17 +229,22 @@ export const clients: ClientCase[] = [
     shortName: 'Shaigan Pharma',
     location: 'Pakistan',
     benefit:
-      'ThermoSave jackets on pharma / RPI process equipment — labeled barrel fit, plant video included.',
+      'ThermoSave jackets on pharma / RPI process equipment. Labeled barrel fit, plant video included.',
     coverImage: `${SHAIGAN_IMG}/plant-floor-1.jpg`,
+    storyImage: {
+      src: `${SHAIGAN_IMG}/plant-floor-1.jpg`,
+      alt: 'ThermoSave insulation jackets on process equipment at Shaigan Pharma RPI',
+      caption: 'Jacketed barrel on blue frame at Shaigan Pharma RPI',
+    },
     seoTitle: 'Shaigan Pharma RPI Case Study | ThermoSave',
     seoDescription:
-      'ThermoSave insulation jackets at Shaigan Pharma RPI — plant photos and video of a real install. Free energy-loss assessment for process plants in Pakistan.',
-    headline: 'Pharma process heat — jackets on the line, not lost to the hall.',
+      'ThermoSave insulation jackets at Shaigan Pharma RPI. Plant photos and video of a real install. Free energy-loss assessment for process plants in Pakistan.',
+    headline: 'Pharma process heat. Jackets on the line, not lost to the hall.',
     subhead:
       'Shaigan Pharma RPI runs ThermoSave removable insulation on heated process equipment. See the plant stills and 1:07 clip, then get the same sizing for your floor.',
     storyTitle: 'Named pharma plant. Jackets on the machine.',
     story:
-      'At Shaigan Pharma RPI, ThermoSave quilted jackets wrap heated barrel sections so process heat stays in the melt instead of cooking the room. Removable, labeled, maintenance-friendly — same install pattern as our plastics plants.',
+      'At Shaigan Pharma RPI, ThermoSave quilted jackets wrap heated barrel sections so process heat stays in the melt instead of cooking the room. Removable, labeled, easy for maintenance, same pattern as our plastics plants.',
     stats: [
       { value: 'Pharma', label: 'Process plant type' },
       { value: 'RPI', label: 'Named line / site' },
@@ -220,11 +252,11 @@ export const clients: ClientCase[] = [
       { value: 'Jackets', label: 'Barrel insulation fit' },
     ],
     mediaTitle: 'Plant proof from Shaigan Pharma RPI',
-    mediaSubhead: 'Floor photos plus Mux clip — ThermoSave labels on real equipment.',
+    mediaSubhead: 'Floor photos plus Mux clip. ThermoSave labels on real equipment.',
     videos: [
       {
         playbackId: SHAIGAN_PLAYBACK,
-        title: 'Shaigan Pharma RPI — plant install',
+        title: 'Shaigan Pharma RPI plant install',
         durationLabel: '1:07',
       },
     ],
@@ -232,7 +264,7 @@ export const clients: ClientCase[] = [
       {
         src: `${SHAIGAN_IMG}/plant-floor-1.jpg`,
         alt: 'ThermoSave insulation jackets on process equipment at Shaigan Pharma RPI',
-        caption: 'Jacketed barrel on blue frame — Shaigan Pharma RPI',
+        caption: 'Jacketed barrel on blue frame. Shaigan Pharma RPI',
       },
       {
         src: `${SHAIGAN_IMG}/plant-floor-2.jpg`,
@@ -248,22 +280,22 @@ export const clients: ClientCase[] = [
     offerTitle: 'What we deliver for plants like Shaigan Pharma',
     offerBullets: [
       'Custom removable insulation jackets sized to barrels and heated process sections',
-      'Free energy-loss assessment — Call / WhatsApp, no fake checkout',
+      'Free energy-loss assessment. Call or WhatsApp. No fake checkout',
       'Labeled, strap-fit jackets that come off for maintenance without cutting',
-      'Named plant proof (pharma + plastics) — measured PKR only when we have meter data',
+      'Named plant proof (pharma + plastics). Measured PKR only when we have meter data',
     ],
     faqs: [
       {
         q: 'Do you only work with plastics plants?',
-        a: 'Most of our installs are plastics — injection, extrusion, blow moulding, hoppers. Shaigan Pharma RPI shows the same jacket approach on heated process equipment in a pharma / RPI setting.',
+        a: 'Most of our installs are plastics: injection, extrusion, blow moulding, hoppers. Shaigan Pharma RPI shows the same jacket approach on heated process equipment in a pharma / RPI setting.',
       },
       {
         q: 'Can jackets meet plant hygiene / access needs?',
-        a: 'Jackets are removable with straps — take them off for cleaning or service, put them back. We size to your machine so covers don’t block required access points.',
+        a: 'Jackets are removable with straps. Take them off for cleaning or service, put them back. We size to your machine so covers do not block required access points.',
       },
       {
         q: 'How do we start for a pharma or specialty line?',
-        a: 'Same path as plastics: free assessment, photos or a short site call, then sized jackets. Call / WhatsApp — no gated brochure.',
+        a: 'Same path as plastics: free assessment, photos or a short site call, then sized jackets. Call or WhatsApp. No gated brochure.',
       },
     ],
   },
@@ -273,17 +305,22 @@ export const clients: ClientCase[] = [
     shortName: 'Time Star',
     location: 'Lahore',
     benefit:
-      'Barrel jackets on a Lahore plastics line — ThermoSave labels on the machine, heat kept in the melt.',
+      'Barrel jackets on a Lahore plastics line. ThermoSave labels on the machine. Heat kept in the melt.',
     coverImage: `${TIMESTAR_IMG}/barrel-jacket.jpg`,
+    storyImage: {
+      src: `${TIMESTAR_IMG}/barrel-jacket.jpg`,
+      alt: 'ThermoSave insulation jacket on barrel at Time Star Lahore',
+      caption: 'Barrel jacket with ThermoSave label at Time Star, Lahore',
+    },
     seoTitle: 'Time Star LHR Case Study | ThermoSave',
     seoDescription:
-      'ThermoSave insulation jackets at Time Star, Lahore — plant photos of a real barrel install. Free energy-loss assessment for plastic manufacturers in Pakistan.',
-    headline: 'Lahore floor, jackets on the barrel — heat stays in the process.',
+      'ThermoSave insulation jackets at Time Star, Lahore. Plant photos of a real barrel install. Free energy-loss assessment for plastic manufacturers in Pakistan.',
+    headline: 'Lahore floor, jackets on the barrel. Heat stays in the process.',
     subhead:
       'Time Star LHR runs ThermoSave removable insulation on process equipment. See the plant stills, then size the same jackets for your line.',
     storyTitle: 'Labeled jackets on a real Lahore machine.',
     story:
-      'At Time Star in Lahore, ThermoSave quilted jackets wrap the heated barrel so radiant loss drops and the hall stays cooler. Same removable, labeled fit we install across 200+ plants — sized to the machine, off for maintenance.',
+      'At Time Star in Lahore, ThermoSave quilted jackets wrap the heated barrel so radiant loss drops and the hall stays cooler. Same removable, labeled fit across 200+ plants: sized to the machine, off for maintenance.',
     stats: [
       { value: 'Lahore', label: 'Plant location' },
       { value: 'Barrel', label: 'Jacketed process heat' },
@@ -291,13 +328,13 @@ export const clients: ClientCase[] = [
       { value: 'Removable', label: 'Maintenance-friendly' },
     ],
     mediaTitle: 'Plant proof from Time Star LHR',
-    mediaSubhead: 'Floor photos — jackets on real equipment, ThermoSave labels visible.',
+    mediaSubhead: 'Floor photos. Jackets on real equipment, ThermoSave labels visible.',
     videos: [],
     gallery: [
       {
         src: `${TIMESTAR_IMG}/barrel-jacket.jpg`,
         alt: 'ThermoSave insulation jacket on barrel at Time Star Lahore',
-        caption: 'Barrel jacket with ThermoSave label — Lahore plant',
+        caption: 'Barrel jacket with ThermoSave label. Lahore plant',
       },
       {
         src: `${TIMESTAR_IMG}/plant-floor-1.jpg`,
@@ -312,28 +349,28 @@ export const clients: ClientCase[] = [
       {
         src: `${TIMESTAR_IMG}/packing-floor.jpg`,
         alt: 'Time Star packing floor with injection machines in Lahore',
-        caption: 'Time Star packing line — Lahore plant',
+        caption: 'Time Star packing line. Lahore plant',
       },
     ],
     offerTitle: 'What we deliver for plants like Time Star',
     offerBullets: [
       'Custom removable insulation jackets sized to barrels, die heads, or hoppers',
-      'Free energy-loss assessment — Call / WhatsApp, no fake checkout',
-      'Plant-ready labeled fit — jackets come off for maintenance without cutting',
-      'Named Lahore proof plus 200+ installs — measured PKR only when we have meter data',
+      'Free energy-loss assessment. Call or WhatsApp. No fake checkout',
+      'Plant-ready labeled fit. Jackets come off for maintenance without cutting',
+      'Named Lahore proof plus 200+ installs. Measured PKR only when we have meter data',
     ],
     faqs: [
       {
         q: 'Do you have video for every plant?',
-        a: 'Where clients allow it, we add Mux plant clips. Time Star is photo-led for now — same jackets, same sizing path. Send a clip anytime and we’ll wire it in.',
+        a: 'Where clients allow it, we add Mux plant clips. Time Star is photo-led for now. Same jackets, same sizing path. Send a clip anytime and we will wire it in.',
       },
       {
         q: 'Will jackets block access for maintenance?',
-        a: 'No. Removable fit — take jackets off, service the barrel, put them back. Same pattern across our Lahore installs.',
+        a: 'No. Removable fit. Take jackets off, service the barrel, put them back. Same pattern across our Lahore installs.',
       },
       {
         q: 'How do we get jackets sized for our machine?',
-        a: 'Free assessment via Call / WhatsApp. Share machine photos or a short site visit — we size jackets to your barrel and ship typically in 7–10 days.',
+        a: 'Free assessment via Call or WhatsApp. Share machine photos or a short site visit. We size jackets to your barrel and ship typically in 7 to 10 days.',
       },
     ],
   },
@@ -343,17 +380,22 @@ export const clients: ClientCase[] = [
     shortName: 'Al-Khair',
     location: 'Lahore',
     benefit:
-      'Foam extrusion jackets in Lahore — 200k+ PKR / month saved across 8 machines, plant video included.',
+      'Foam extrusion jackets in Lahore. 200k+ PKR / month saved across 8 machines. Plant video included.',
     coverImage: `${ALKHAIR_IMG}/extruder-jackets-1.jpg`,
+    storyImage: {
+      src: `${ALKHAIR_IMG}/extruder-jackets-1.jpg`,
+      alt: 'ThermoSave jackets on foam extruder barrel at Al-Khair Lahore',
+      caption: 'Full barrel run of ThermoSave jackets on the foam extruder',
+    },
     seoTitle: 'Al-Khair Five Star Foam LHR Case Study | ThermoSave',
     seoDescription:
-      'ThermoSave insulation jackets at Al-Khair Five Star Foam, Lahore — 200k+ PKR monthly savings across 8 machines. Plant photos and video of a real extruder install.',
-    headline: 'Lahore foam line — jackets on the extruder, 200k+ PKR / month saved.',
+      'ThermoSave insulation jackets at Al-Khair Five Star Foam, Lahore. 200k+ PKR monthly savings across 8 machines. Plant photos and video of a real extruder install.',
+    headline: 'Lahore foam line. Jackets on the extruder. 200k+ PKR / month saved.',
     subhead:
-      'Al-Khair Five Star Foam runs ThermoSave removable insulation across heated barrels. Measured savings on 8 machines — see the plant stills and clips, then size yours.',
+      'Al-Khair Five Star Foam runs ThermoSave removable insulation across heated barrels. Measured savings on 8 machines. See the plant stills and clips, then size yours.',
     storyTitle: 'Named foam plant. Metered savings. Real jackets.',
     story:
-      'At Al-Khair Five Star Foam in Lahore, ThermoSave quilted jackets wrap the extruder barrel so heat stays in the process. Owner-reported savings: over 200k PKR monthly across 8 machines — three years of working together.',
+      'At Al-Khair Five Star Foam in Lahore, ThermoSave quilted jackets wrap the extruder barrel so heat stays in the process. Owner-reported savings: over 200k PKR monthly across 8 machines, three years of working together.',
     stats: [
       { value: '200k+', label: 'PKR / month saved' },
       { value: '8', label: 'Machines jacketed' },
@@ -361,16 +403,16 @@ export const clients: ClientCase[] = [
       { value: '3 yrs', label: 'Working relationship' },
     ],
     mediaTitle: 'Plant proof from Al-Khair Five Star Foam',
-    mediaSubhead: 'Two Mux clips plus floor photos — jackets on a real foam extruder line.',
+    mediaSubhead: 'Two Mux clips plus floor photos. Jackets on a real foam extruder line.',
     videos: [
       {
         playbackId: ALKHAIR_PLAYBACK_1,
-        title: 'Al-Khair Five Star Foam LHR — plant install 1',
+        title: 'Al-Khair Five Star Foam LHR plant install 1',
         durationLabel: '1:11',
       },
       {
         playbackId: ALKHAIR_PLAYBACK_2,
-        title: 'Al-Khair Five Star Foam LHR — plant install 2',
+        title: 'Al-Khair Five Star Foam LHR plant install 2',
         durationLabel: '1:15',
       },
     ],
@@ -378,7 +420,7 @@ export const clients: ClientCase[] = [
       {
         src: `${ALKHAIR_IMG}/extruder-jackets-1.jpg`,
         alt: 'ThermoSave jackets on foam extruder barrel at Al-Khair Lahore',
-        caption: 'Full barrel run — ThermoSave jackets on foam extruder',
+        caption: 'Full barrel run. ThermoSave jackets on foam extruder',
       },
       {
         src: `${ALKHAIR_IMG}/extruder-jackets-2.jpg`,
@@ -393,12 +435,12 @@ export const clients: ClientCase[] = [
       {
         src: `${ALKHAIR_IMG}/extruder-line.jpg`,
         alt: 'Foam extruder with ThermoSave jackets and hopper at Al-Khair',
-        caption: 'Extruder line with hopper — Lahore foam plant',
+        caption: 'Extruder line with hopper. Lahore foam plant',
       },
       {
         src: `${ALKHAIR_IMG}/plant-floor-1.jpg`,
         alt: 'Plant floor at Al-Khair Five Star Foam with jacketed extruder',
-        caption: 'Plant floor — jackets on the production line',
+        caption: 'Plant floor. Jackets on the production line',
       },
       {
         src: `${ALKHAIR_IMG}/plant-floor-2.jpg`,
@@ -413,7 +455,7 @@ export const clients: ClientCase[] = [
       {
         src: `${ALKHAIR_IMG}/plant-floor-4.jpg`,
         alt: 'Al-Khair Five Star Foam Lahore extruder with ThermoSave jackets',
-        caption: 'Long extruder barrel — heat kept in the melt',
+        caption: 'Long extruder barrel. Heat kept in the melt',
       },
       {
         src: `${ALKHAIR_IMG}/plant-floor-5.jpg`,
@@ -423,7 +465,7 @@ export const clients: ClientCase[] = [
       {
         src: `${ALKHAIR_IMG}/hopper-line-1.jpg`,
         alt: 'Hopper and jacketed barrel at Al-Khair Five Star Foam',
-        caption: 'Hopper + barrel jackets — Multizone process heat',
+        caption: 'Hopper and barrel jackets. Multizone process heat',
       },
       {
         src: `${ALKHAIR_IMG}/hopper-line-2.jpg`,
@@ -434,22 +476,22 @@ export const clients: ClientCase[] = [
     offerTitle: 'What we deliver for plants like Al-Khair',
     offerBullets: [
       'Custom removable insulation jackets sized to extruder barrels and heated zones',
-      'Free energy-loss assessment — Call / WhatsApp, no fake checkout',
-      'Same removable fit Al-Khair runs — maintenance without cutting jackets',
+      'Free energy-loss assessment. Call or WhatsApp. No fake checkout',
+      'Same removable fit Al-Khair runs. Maintenance without cutting jackets',
       'Measured client proof where we have it (200k+ PKR / month on 8 machines here)',
     ],
     faqs: [
       {
         q: 'Are the 200k+ PKR savings real?',
-        a: 'Yes — Al-Khair’s owner reported over 200k PKR monthly saved across 8 machines after running ThermoSave jackets for years. We don’t invent figures; we cite measured client proof.',
+        a: 'Yes. Al-Khair’s owner reported over 200k PKR monthly saved across 8 machines after running ThermoSave jackets for years. We do not invent figures. We cite measured client proof.',
       },
       {
         q: 'Do foam extruders need different jackets than plastics injection?',
-        a: 'Same physics — keep process heat in the barrel. Foam lines are often long continuous barrels; we size removable sections zone by zone so heaters cycle less and the hall stays cooler.',
+        a: 'Same physics. Keep process heat in the barrel. Foam lines are often long continuous barrels. We size removable sections zone by zone so heaters cycle less and the hall stays cooler.',
       },
       {
         q: 'How do we get the same assessment for our foam or plastics line?',
-        a: 'Call / WhatsApp for a free energy-loss assessment. Share machine photos or a short site visit — we size jackets and typically ship in 7–10 days.',
+        a: 'Call or WhatsApp for a free energy-loss assessment. Share machine photos or a short site visit. We size jackets and typically ship in 7 to 10 days.',
       },
     ],
   },
@@ -459,17 +501,22 @@ export const clients: ClientCase[] = [
     shortName: 'Major Electrical',
     location: 'Sargodha',
     benefit:
-      'Plant-floor install in Sargodha — ThermoSave jackets on heated industrial equipment, video on the floor.',
-    coverImage: `https://image.mux.com/${MAJOR_PLAYBACK}/thumbnail.jpg?time=5&width=1280`,
+      'Plant-floor install in Sargodha. ThermoSave jackets on heated industrial equipment, video on the floor.',
+    coverImage: muxThumb(MAJOR_PLAYBACK, 5),
+    storyImage: {
+      src: muxThumb(MAJOR_PLAYBACK, 5),
+      alt: 'ThermoSave insulation jackets on heated equipment at Major Electrical Sargodha',
+      caption: 'Jackets on heated equipment at Major Electrical, Sargodha',
+    },
     seoTitle: 'Major Electrical Sargodha Case Study | ThermoSave',
     seoDescription:
-      'ThermoSave insulation jackets at Major Electrical, Sargodha — plant video of a real install. Free energy-loss assessment for industrial plants in Pakistan.',
-    headline: 'Sargodha floor — jackets on heated equipment, heat stays in the process.',
+      'ThermoSave insulation jackets at Major Electrical, Sargodha. Plant video of a real install. Free energy-loss assessment for industrial plants in Pakistan.',
+    headline: 'Sargodha floor. Jackets on heated equipment. Heat stays in the process.',
     subhead:
-      'Major Electrical Sargodha runs ThermoSave removable insulation on plant equipment. Watch the 27-second clip, then get the same sizing conversation for your line.',
+      'Major Electrical Sargodha runs ThermoSave removable insulation on plant equipment. Watch the 27-second clip, then get the same sizing talk for your line.',
     storyTitle: 'Named Sargodha plant. Real machine. Short clip.',
     story:
-      'At Major Electrical in Sargodha, ThermoSave jackets wrap heated process surfaces so radiant loss drops. Same removable approach we install across Pakistan — sized to the machine, off for maintenance.',
+      'At Major Electrical in Sargodha, ThermoSave jackets wrap heated process surfaces so radiant loss drops. Same removable fit across Pakistan: sized to the machine, off for maintenance.',
     stats: [
       { value: 'Sargodha', label: 'Plant location' },
       { value: '0:27', label: 'Plant video length' },
@@ -477,34 +524,45 @@ export const clients: ClientCase[] = [
       { value: 'Assess', label: 'Same path for your floor' },
     ],
     mediaTitle: 'Plant video from Major Electrical Sargodha',
-    mediaSubhead: 'Phone-shot floor footage — jackets on real equipment, not a showroom.',
+    mediaSubhead: 'Phone-shot floor footage. Jackets on real equipment, not a showroom.',
     videos: [
       {
         playbackId: MAJOR_PLAYBACK,
-        title: 'Major Electrical Sargodha — plant install',
+        title: 'Major Electrical Sargodha plant install',
         durationLabel: '0:27',
       },
     ],
-    gallery: [],
+    gallery: [
+      {
+        src: muxThumb(MAJOR_PLAYBACK, 5),
+        alt: 'ThermoSave jackets on heated equipment at Major Electrical Sargodha',
+        caption: 'Floor still from the Sargodha install clip',
+      },
+      {
+        src: muxThumb(MAJOR_PLAYBACK, 12),
+        alt: 'Close view of ThermoSave insulation at Major Electrical',
+        caption: 'Jacket detail on process heat in Sargodha',
+      },
+    ],
     offerTitle: 'What we deliver for plants like Major Electrical',
     offerBullets: [
       'Custom removable insulation jackets sized to heated barrels, vessels, or process sections',
-      'Free energy-loss assessment — Call / WhatsApp, no fake checkout',
-      'Installs across Pakistan — Sargodha included, not only Lahore',
-      'Measured savings language when we have meter data — never invented PKR figures',
+      'Free energy-loss assessment. Call or WhatsApp. No fake checkout',
+      'Installs across Pakistan. Sargodha included, not only Lahore',
+      'Measured savings language when we have meter data. Never invented PKR figures',
     ],
     faqs: [
       {
         q: 'Do you only serve plastics plants in big cities?',
-        a: 'No. Major Electrical in Sargodha is one example — we size and ship jackets across Pakistan. Assessment starts on Call / WhatsApp.',
+        a: 'No. Major Electrical in Sargodha is one example. We size and ship jackets across Pakistan. Assessment starts on Call or WhatsApp.',
       },
       {
         q: 'Can jackets work outside plastics extrusion?',
-        a: 'Same physics anywhere you throw electricity away as surface heat. We size to your equipment — plastics, foam, or other heated industrial process gear.',
+        a: 'Same physics anywhere you throw electricity away as surface heat. We size to your equipment: plastics, foam, or other heated industrial process gear.',
       },
       {
         q: 'Any stills for this plant?',
-        a: 'This case is video-led for now. Drop plant photos anytime and we’ll add them to the same tile grid.',
+        a: 'This case is video-led. We pull stills from the plant clip into the same tile grid. Drop more photos anytime and we will add them.',
       },
     ],
   },

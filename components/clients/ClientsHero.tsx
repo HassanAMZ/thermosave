@@ -35,7 +35,7 @@ export function ClientsHero() {
             ThermoSave
           </p>
           <h1 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl lg:text-[3.25rem]">
-            Clientele — named plants, floor footage, measured work.
+            Clientele. Named plants, floor footage, measured work.
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-stone-300 md:text-lg">
             Case studies from factories that run our jackets. Start with a plant like yours, then
@@ -58,7 +58,7 @@ export function ClientsHero() {
             >
               <a href={`tel:${PHONE_TEL}`}>
                 <Phone className="h-4 w-4" />
-                Call Now — {PHONE_DISPLAY}
+                Call Now {PHONE_DISPLAY}
               </a>
             </Button>
           </div>

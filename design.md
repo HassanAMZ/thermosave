@@ -492,14 +492,14 @@ Job: raise **perceived likelihood** (Hormozi) with named factories and plant vid
 **Section order:**
 
 1. ClientCaseHero — full-bleed plant/Mux still, brand, **client name**, outcome H1, Assessment / Call / WhatsApp  
-2. ClientCaseStory — short plant copy + factual callout tiles (location / product type; measured PKR only when we have it)  
-3. ClientCaseMedia — Mux plant videos in the same **4:3 tile** pattern as industry media  
+2. ClientCaseStory — **plant photo + short copy** split (like industry story sections) + factual callout tiles (location / product type; measured PKR only when we have it). Never text-only.  
+3. ClientCaseMedia — Mux plant videos **and** gallery stills in the same **4:3 tile** pattern as industry media (video is a grid cell). Video-only cases should still pull Mux thumbnails into the tile grid.  
 4. Offer stack + CTAs  
 5. LandingProof  
 6. Client FAQ  
 7. FinalCTA + StickyContact  
 
-Wire Mux **Playback** IDs in `data/clients.ts`. Prefer plant stills under `/public/static/clients/[slug]/` when available; Mux thumbnail URLs (`image.mux.com`) are fine as interim covers.
+Wire Mux **Playback** IDs in `data/clients.ts`. Prefer plant stills under `/public/static/clients/[slug]/` when available; Mux thumbnail URLs (`image.mux.com`) are fine as interim covers / story images. Plain English (§1d): no em dashes in customer-facing copy.
 
 ### Gallery (`/image-gallery`)
 
