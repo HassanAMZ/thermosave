@@ -31,6 +31,69 @@ Trust and numbers beat hype. CTA is always a conversation (assessment, call, Wha
 - Don’t gate basic product info behind forms  
 - Phone + WhatsApp must stay visible (especially mobile)
 
+---
+
+## 1b. Conversion Ideology (Hormozi × Brunson)
+
+Use these frameworks whenever writing landing, product, or **industry** pages. Adapt the language to engineer-to-engineer tone — never hypey “guru” voice.
+
+### Alex Hormozi — value & offer
+
+**Value Equation** (raise left side, shrink right side):
+
+\[
+\text{Value} \approx \frac{\text{Dream Outcome} \times \text{Perceived Likelihood of Achievement}}{\text{Time Delay} \times \text{Effort \& Sacrifice}}
+\]
+
+| Lever | ThermoSave application |
+|-------|------------------------|
+| Dream Outcome | Lower kWh / cooler hall / safer touch surfaces / longer heater life — *without* changing output |
+| Perceived Likelihood | Named plants, measured PKR/units, photos & Mux plant video, Made in Japan materials, 200+ installs |
+| Time Delay | Months payback (not years); typical 7–10 day lead time; assessment → sized jackets |
+| Effort & Sacrifice | Removable jackets; no process change; Call / WhatsApp / free assessment — no fake checkout |
+
+**Grand Slam Offer stack** (list concrete deliverables, not vague “solutions”):
+
+1. Core product (e.g. custom jackets sized to barrel + die head)  
+2. Bonuses that remove risk (free energy-loss assessment, sizing help, install guidance)  
+3. Proof that makes belief easy (plant video, photos, client numbers)  
+4. Scarcity/urgency only if *real* (lead time, site visit windows) — **never** fake countdown  
+
+**One-liner for agents:** Lead with the dream outcome in plant language, prove it with numbers and media, then stack the offer so the only remaining friction is “call us.”
+
+### Russell Brunson — Hook → Story → Offer
+
+Every marketing surface should resolve this sequence:
+
+1. **Hook** — Industry- or machine-specific pain/outcome in the first viewport (headline + one supporting line). Brand stays hero-level (`ThermoSave`), not buried.  
+2. **Story / Epiphany Bridge** — Move the buyer through: *I didn’t know → I have this problem → there’s a mechanism → people like me fixed it.* Use PAS sections + mechanism (how jackets keep heat in the melt).  
+3. **Offer** — Clear next step: Assessment + Call + WhatsApp. Stack bullets. FAQ kills remaining objections.
+
+**Value ladder (site structure):**
+
+| Rung | URL pattern | Job |
+|------|-------------|-----|
+| Awareness / industry | `/industries`, `/industries/[slug]` | “This is *my* machine / process” |
+| Product tools | `/products`, `/products/[slug]` | Choose mica / ceramic / jackets |
+| Commitment | `/contact` | Assessment conversation |
+
+Industry pages **hook by process**; product pages **sell the tool**; contact **closes**. Cross-link both ways.
+
+### How this maps to our section order
+
+| Brunson / Hormozi | Our section |
+|-------------------|-------------|
+| Hook | Dark hero: brand + outcome H1 + CTA + dominant plant visual |
+| Story — problem | Light “Problem” |
+| Story — agitate | Dark “Agitate” with PKR / kWh |
+| Epiphany / mechanism | White “How it works” |
+| Proof / likelihood | Photos, Mux videos, LandingProof |
+| Grand Slam Offer | Offer bullets + CTAs |
+| Objection kill | FAQ |
+| Close | FinalCTA + StickyContact |
+
+**Do not** invent parallel funnels. Extend PAS with Hormozi value levers and Brunson Hook/Story/Offer — same tone, same CTAs.
+
 **Contact constants** (single source: `components/landing/constants.ts`):
 
 | Channel | Value |
@@ -209,7 +272,7 @@ Nav is part of the **industrial dark chrome**, not a white strip floating above 
 
 | State | Treatment |
 |-------|-----------|
-| Homepage, top of hero | Transparent over the hero plane — hero uses `-mt-16` so ink/video runs under the sticky header (one composition) |
+| Homepage or industry detail, top of hero | Transparent over the hero plane — hero uses `-mt-16` so ink/photo/video runs under the sticky header (one composition) |
 | Scrolled, or other routes | Solid `bg-[#0c1014]/95` + backdrop blur + `border-white/10` |
 | Links | Light stone / white; hover: white / soft wash |
 | Primary nav CTA | Heat fill (“Get Assessment”), not default blue |
@@ -276,18 +339,45 @@ Order in `layouts/ProductLayout.tsx`:
 
 First viewport: **brand + one headline + one supporting sentence + CTA group + dominant visual**. No stats strips, schedules, or promo chips overlaid on hero media. Trust bar may sit *under* the CTA group as part of the first composition.
 
+### Industries collection (`/industries`)
+
+Order via `components/industries/*` + `data/industries.ts`:
+
+1. Dark Collection-style hero (brand + “by process” H1 + CTA)  
+2. Industry grid (benefit tiles → industry page)  
+3. LandingProof (optional shared proof)  
+4. FinalCTA + StickyContact  
+
+Job: route buyers who think in **machine / process** language (extrusion blow moulding, injection, film, etc.) into a dedicated Hook → Story → Offer page.
+
+### Industry page (`/industries/[slug]`)
+
+Order (Hormozi value + Brunson Hook/Story/Offer, PAS body):
+
+1. IndustryHero — full-bleed plant photo/video, brand, outcome H1, Assessment / Call / WhatsApp, TrustBar  
+2. Problem → Agitate → Mechanism (process-specific copy)  
+3. Plant media — Mux videos + application photo grid (real installs)  
+4. Offer stack + CTAs + linked products (jackets / heaters)  
+5. LandingProof  
+6. Industry FAQ  
+7. FinalCTA + StickyContact  
+
+Conversion copy + Mux playback IDs live in `data/industries.ts`. Prefer Mux for plant video; keep local MP4 only for generic homepage atmosphere if needed.
+
 ---
 
 ## 9. Imagery & Media
 
 | Asset | Path / notes |
 |-------|----------------|
-| Hero video | `/static/videos/00001.mp4` — low opacity under dark overlays |
+| Hero video (homepage) | `/static/videos/00001.mp4` — low opacity under dark overlays |
 | Products | `/static/products/` |
+| Industry photos | `/static/industries/[slug]/` |
+| Industry plant video | Mux playback IDs in `data/industries.ts` via `@mux/mux-player-react` |
 | Client logos | `/static/previousClients/` (AlKhair, ParagonPlastics, GondalPrecast) |
 | Logo | `/static/images/logo.png` |
 
-Product photography on light tiles; hero/final CTA stay atmospheric dark.
+Product photography on light tiles; hero/final CTA stay atmospheric dark. Industry pages lead with **real plant** stills and Mux clips — not stock.
 
 ---
 
@@ -308,6 +398,9 @@ Product photography on light tiles; hero/final CTA stay atmospheric dark.
 | Design system (this doc) | `/design.md` |
 | Agent enforcement | `.cursor/rules/thermosave-design.mdc` |
 | Landing sections | `components/landing/` |
+| Product marketing UI | `components/products/` |
+| Industry marketing UI | `components/industries/` |
+| Industry copy + Mux IDs | `data/industries.ts` |
 | Contact/stats constants | `components/landing/constants.ts` |
 | Global nav | `components/ui/navbar-1.tsx` |
 | Fonts | `app/layout.tsx` |
@@ -347,4 +440,4 @@ When you ship a new pattern that should become standard:
 3. Prefer extracting a shared component under `components/landing/` or `components/ui/`  
 4. Keep this file and the Cursor rule in sync  
 
-Last aligned with: homepage PAS funnel + products collection/PDP conversion pages (2026).
+Last aligned with: homepage PAS funnel + products/industry conversion pages + Hormozi×Brunson ideology (2026).

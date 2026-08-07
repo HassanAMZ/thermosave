@@ -13,6 +13,7 @@ const navigation = {
   company: [
     { name: 'Home', href: '/' },
     { name: 'Products', href: '/products' },
+    { name: 'Industries', href: '/industries' },
     { name: 'Gallery', href: '/image-gallery' },
     { name: 'Contact', href: '/contact' },
   ],
@@ -23,9 +24,9 @@ const navigation = {
     { name: 'All Products', href: '/products' },
   ],
   plant: [
+    { name: 'Extrusion Blow Moulding', href: '/industries/extrusion-blow-moulding' },
     { name: 'Get Assessment', href: '/contact' },
     { name: 'Proof & Clients', href: '/#proof' },
-    { name: 'FAQ', href: '/#faq' },
     { name: `Call ${PHONE_DISPLAY}`, href: `tel:${PHONE_TEL}` },
   ],
 } as const
@@ -116,7 +117,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-8 py-10 sm:grid-cols-3 md:flex md:flex-row md:justify-between">
           <NavColumn title="Company" items={navigation.company} />
           <NavColumn title="Products" items={navigation.products} />
-          <NavColumn title="Plant support" items={navigation.plant} />
+          <NavColumn title="Industries & support" items={navigation.plant} />
         </div>
         <div className="border-b border-dotted border-white/15" />
       </div>

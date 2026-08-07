@@ -47,9 +47,25 @@ const products: { title: string; href: string; description: string; image: strin
   },
 ]
 
+const industries = [
+  {
+    title: 'Extrusion Blow Moulding',
+    href: '/industries/extrusion-blow-moulding',
+    description: 'Insulation jackets for EBM barrels and die heads — cut continuous heat loss.',
+    image: '/static/industries/extrusion-blow-moulding/machine-full.jpg',
+  },
+  {
+    title: 'All Industries',
+    href: '/industries',
+    description: 'Browse processes we outfit — start with the machine on your floor.',
+    image: '/static/industries/extrusion-blow-moulding/head-jackets.jpg',
+  },
+]
+
 const mobileLinks = [
   { href: '/', title: 'Home' },
   { href: '/products', title: 'All Products' },
+  { href: '/industries', title: 'Industries' },
   { href: '/image-gallery', title: 'Gallery' },
   { href: '/contact', title: 'Contact Us' },
 ]
@@ -60,7 +76,9 @@ export function Navbar() {
   const [scrolled, setScrolled] = React.useState(false)
 
   const isHome = pathname === '/'
-  const overHero = isHome && !scrolled
+  const isIndustryDetail =
+    pathname.startsWith('/industries/') && pathname !== '/industries'
+  const overHero = (isHome || isIndustryDetail) && !scrolled
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -149,6 +167,26 @@ export function Navbar() {
                         image={product.image}
                       >
                         {product.description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="bg-transparent text-stone-200 hover:bg-white/10 hover:text-white focus:bg-white/10 focus:text-white data-[state=open]:bg-white/10 data-[state=open]:text-white">
+                  Industries
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[320px] gap-2 p-4">
+                    {industries.map((industry) => (
+                      <ListItem
+                        key={industry.title}
+                        title={industry.title}
+                        href={industry.href}
+                        image={industry.image}
+                      >
+                        {industry.description}
                       </ListItem>
                     ))}
                   </ul>
@@ -246,6 +284,30 @@ export function Navbar() {
                         />
                       </span>
                       <span>{product.title}</span>
+                    </Link>
+                  ))}
+                </div>
+                <div className="mt-4 border-t border-white/10 pt-4">
+                  <p className="mb-2 px-3 text-xs font-medium uppercase tracking-wide text-stone-500">
+                    Industries
+                  </p>
+                  {industries.map((industry) => (
+                    <Link
+                      key={industry.href}
+                      href={industry.href}
+                      onClick={() => setOpen(false)}
+                      className="flex items-center gap-3 rounded-sm px-3 py-2 text-sm text-stone-200 hover:bg-white/10 hover:text-white"
+                    >
+                      <span className="relative size-10 shrink-0 overflow-hidden rounded-sm border border-white/10 bg-white/5">
+                        <Image
+                          src={industry.image}
+                          alt={industry.title}
+                          fill
+                          className="object-cover"
+                          sizes="40px"
+                        />
+                      </span>
+                      <span>{industry.title}</span>
                     </Link>
                   ))}
                 </div>
