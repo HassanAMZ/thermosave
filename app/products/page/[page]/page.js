@@ -21,7 +21,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function ProductsPagePage({ params }) {
-  const pageNumber = parseInt(params.page)
+  const { page } = await params
+  const pageNumber = parseInt(page)
   const posts = await getAllFilesFrontMatter('products')
   const initialDisplayPosts = posts.slice(
     POSTS_PER_PAGE * (pageNumber - 1),

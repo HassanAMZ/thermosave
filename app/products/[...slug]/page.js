@@ -19,7 +19,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const slug = params?.slug ? params.slug.join('/') : ''
+  const resolvedParams = await params
+  const slug = resolvedParams?.slug ? resolvedParams.slug.join('/') : ''
 
   try {
     const post = await getFileBySlug('products', slug)
@@ -43,7 +44,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function ProductPage({ params }) {
-  const slug = params?.slug ? params.slug.join('/') : ''
+  const resolvedParams = await params
+  const slug = resolvedParams?.slug ? resolvedParams.slug.join('/') : ''
 
   try {
     const allPosts = await getAllFilesFrontMatter('products')
@@ -89,6 +91,7 @@ export default async function ProductPage({ params }) {
       />
     )
   } catch (error) {
+    console.error('Product page error:', error)
     notFound()
   }
 }

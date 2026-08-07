@@ -6,11 +6,10 @@ import Testimonial from '@/components/Testimonial'
 import Statistics from '@/components/Statistics'
 import FeaturesNew from '@/components/FeaturesNew'
 import ProductCard from '@/components/ProductCard'
-import { HeroSection } from '@/components/ui/hero-section-1'
+import { CommerceHero } from '@/components/ui/commerce-hero'
 import type { Metadata } from 'next'
 
 export const POSTS_PER_PAGE = 5
-const MAX_DISPLAY = 5
 
 export const metadata: Metadata = {
   title: siteMetadata.title,
@@ -26,15 +25,52 @@ async function getData() {
     totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
   }
 
-  return { initialDisplayProducts, posts, pagination, tags }
+  const published = posts.filter((product) => product.draft !== true)
+
+  const preferredSlugs = [
+    'mica-band-heaters',
+    'ceramic-band-heater',
+    'thermal-insolations',
+    'insulated-heaters',
+  ]
+
+  const featuredFromPreferred = preferredSlugs
+    .map((slug) => published.find((product) => product.slug === slug))
+    .filter(Boolean)
+
+  const featuredCategories = (
+    featuredFromPreferred.length >= 4
+      ? featuredFromPreferred.slice(0, 4)
+      : [
+          ...featuredFromPreferred,
+          ...published.filter(
+            (product) => !featuredFromPreferred.some((item) => item.slug === product.slug)
+          ),
+        ].slice(0, 4)
+  ).map((product) => ({
+    title: product.title as string,
+    image: product.coverImage as string,
+    href: `/products/${product.slug}`,
+  }))
+
+  // Keep a full 4-up grid: if fewer than 4 published products, add an All Products card
+  if (featuredCategories.length < 4) {
+    featuredCategories.push({
+      title: 'All Products',
+      image: '/static/products/00001.png',
+      href: '/products',
+    })
+  }
+
+  return { initialDisplayProducts, posts, pagination, tags, featuredCategories }
 }
 
 export default async function Home() {
-  const { initialDisplayProducts, posts, pagination, tags } = await getData()
+  const { initialDisplayProducts, featuredCategories } = await getData()
 
   return (
     <div>
-      <HeroSection />
+      <CommerceHero categories={featuredCategories} />
 
       <div>
         <Features />

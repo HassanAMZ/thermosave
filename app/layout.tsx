@@ -6,6 +6,7 @@ import siteMetadata from '@/data/siteMetadata'
 import Footer from '@/components/Footer'
 import { Inter } from 'next/font/google'
 import { Navbar } from '@/components/ui/navbar-1'
+import { Toaster } from '@/components/ui/sonner'
 import type { Metadata } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -75,6 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

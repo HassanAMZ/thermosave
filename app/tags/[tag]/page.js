@@ -19,7 +19,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const tag = params.tag
+  const { tag } = await params
   return {
     title: `${tag} - ${siteMetadata.author}`,
     description: `${tag} tags - ${siteMetadata.author}`,
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function TagPage({ params }) {
-  const tag = params.tag
+  const { tag } = await params
   const allPosts = await getAllFilesFrontMatter('products')
   const filteredPosts = allPosts.filter(
     (post) => post.draft !== true && post.tags.map((t) => kebabCase(t)).includes(tag)
