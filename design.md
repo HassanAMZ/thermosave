@@ -438,7 +438,7 @@ On mobile: image/video above copy. Never a full-width text block with no adjacen
 | Hero video (homepage) | `/static/videos/00001.mp4` — low opacity under dark overlays |
 | Products | `/static/products/` — published PDPs use transparent cutouts in `/static/products/cutouts/` |
 | Industry photos | `/static/industries/[slug]/` |
-| Industry plant video | Mux **Playback** IDs (not Asset IDs) in `data/industries.ts` via `@mux/mux-player-react`; source is portrait `239/425`, displayed as **4:3 tiles** in the IndustryMedia grid |
+| Industry plant video | Mux **Playback** IDs (not Asset IDs) in `data/industries.ts` via `@mux/mux-player-react`; source is portrait `239/425`, shown in **4:3 tiles** with `object-fit: contain` (ink letterbox/pillarbox — never crop) |
 | Client case studies | `data/clients.ts` + Mux Playback IDs; optional stills in `/static/clients/[slug]/`; Mux thumbnails via `image.mux.com` |
 | Client logos | `/static/previousClients/` (AlKhair, ParagonPlastics, GondalPrecast) |
 | Logo | `/static/images/logo.png` |
@@ -449,7 +449,7 @@ Product photography on light tiles; hero/final CTA stay atmospheric dark. Indust
 
 - After hero: story splits (problem → agitate → mechanism), then the plant proof dump  
 - Story sections always pair with a dedicated plant still — never text-only PAS  
-- In IndustryMedia, Mux clips share the **same 4:3 tile grid** as gallery photos (no oversized portrait video)  
+- In IndustryMedia, Mux clips share the **same 4:3 tile grid** as gallery photos (no oversized portrait video); portrait footage uses contain + ink bars, not cover crop  
 - Prefer short captions under images over long body paragraphs  
 - Stat tiles > multi-sentence agitate blocks  
 - Homepage may keep shorter text PAS (shared pattern); industry pages are stricter about visual density

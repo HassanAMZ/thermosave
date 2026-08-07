@@ -21,11 +21,13 @@ export function IndustryMuxPlayer({
   variant = 'portrait',
 }: IndustryMuxPlayerProps) {
   if (variant === 'tile') {
+    // Portrait phone clips (239:425) sit in a 4:3 grid cell — contain + ink bars, never crop.
     const tileStyle: MuxCSSProperties = {
       width: '100%',
       height: '100%',
-      '--media-object-fit': 'cover',
+      '--media-object-fit': 'contain',
       '--media-object-position': 'center',
+      '--media-background-color': '#0c1014',
     }
 
     return (
