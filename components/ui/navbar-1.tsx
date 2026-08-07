@@ -54,8 +54,8 @@ const products: NavItem[] = [
     title: 'Thermal Insulation Jackets',
     href: '/products/thermal-insolations',
     description: 'Removable jackets that keep heat in the melt — cut hall heat and kWh.',
-    image: '/static/products/cutouts/00003.png',
-    imageFit: 'contain',
+    image: '/static/products/00003.jpeg',
+    imageFit: 'cover',
   },
 ]
 

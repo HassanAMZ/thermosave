@@ -437,7 +437,7 @@ Order in `layouts/ProductLayout.tsx` — same story rhythm as industry pages:
 
 1. ProductHero (main image + **TrustBar-style image tiles** under it + outcome H1 + Assessment / Call / WhatsApp + TrustBar)  
 2. Problem / Agitate / Mechanism as **split layouts**: product or plant photo + short headline + ≤2 sentences (+ stat tiles on Agitate)  
-3. **ProductMedia** — gallery dump in a uniform 4:3 tile grid (transparent cutouts + plant stills)  
+3. **ProductMedia** — gallery dump in a uniform 4:3 tile grid (band heater cutouts + plant stills for jackets)  
 4. Specs (features / details / applications)  
 5. Offer stack + proof points + CTAs  
 6. LandingProof  
@@ -445,7 +445,7 @@ Order in `layouts/ProductLayout.tsx` — same story rhythm as industry pages:
 8. Product FAQ  
 9. FinalCTA + StickyContact  
 
-Hero carousel images live under `/static/products/cutouts/` — transparent PNGs, no third-party branding. Do **not** stack three text-only PAS sections.  
+Hero carousel: mica/ceramic use `/static/products/cutouts/` (transparent PNGs). **Insulation jackets keep original plant photos** under `/static/products/00003*.jpeg` — do **not** swap jackets to background-removed cutouts. Do **not** stack three text-only PAS sections.  
 
 ### Hero budget (marketing)
 
@@ -532,7 +532,7 @@ On mobile: image/video above copy. Never a full-width text block with no adjacen
 | Asset | Path / notes |
 |-------|----------------|
 | Hero video (homepage) | `/static/videos/00001.mp4` — low opacity under dark overlays |
-| Products | `/static/products/` — published PDPs use transparent cutouts in `/static/products/cutouts/` |
+| Products | `/static/products/` — band heaters use transparent cutouts in `/static/products/cutouts/`; jackets use plant JPEGs (`00003*.jpeg`) with backgrounds intact |
 | Industry photos | `/static/industries/[slug]/` |
 | Industry plant video | Mux **Playback** IDs (not Asset IDs) in `data/industries.ts` via `@mux/mux-player-react`; source is portrait `239/425`, shown in **4:3 tiles** with `object-fit: contain` (ink letterbox/pillarbox — never crop) |
 | Client case studies | `data/clients.ts` + Mux Playback IDs; optional stills in `/static/clients/[slug]/`; Mux thumbnails via `image.mux.com` |

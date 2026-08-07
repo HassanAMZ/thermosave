@@ -369,15 +369,27 @@ export function ProductRelated({ neighbors, relatedCta }: ProductRelatedProps) {
                 href={`/products/${item.slug}`}
                 className="group flex gap-4 border border-stone-200 bg-[#faf9f7] p-4 transition-colors hover:border-[#c45c1a]/40 sm:p-5"
               >
-                <div className="relative flex h-24 w-24 shrink-0 items-center justify-center bg-white">
-                  <Image
-                    src={item.coverImage}
-                    alt={item.title}
-                    width={96}
-                    height={96}
-                    className="h-auto max-h-20 w-auto object-contain"
-                  />
-                </div>
+                {item.coverImage.includes('/cutouts/') ? (
+                  <div className="relative flex h-24 w-24 shrink-0 items-center justify-center bg-white">
+                    <Image
+                      src={item.coverImage}
+                      alt={item.title}
+                      width={96}
+                      height={96}
+                      className="h-auto max-h-20 w-auto object-contain"
+                    />
+                  </div>
+                ) : (
+                  <div className="relative h-24 w-24 shrink-0 overflow-hidden bg-stone-900">
+                    <Image
+                      src={item.coverImage}
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                      sizes="96px"
+                    />
+                  </div>
+                )}
                 <div className="flex min-w-0 flex-1 flex-col justify-center">
                   <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-stone-900">
                     {item.title}

@@ -308,20 +308,20 @@ export const productMarketing: Record<string, ProductMarketing> = {
       caption: 'Custom jackets on barrel and head',
     },
     mediaTitle: 'Jackets on real machines',
-    mediaSubhead: 'Plant installs and transparent product tiles — what operators see on the floor.',
+    mediaSubhead: 'Plant installs — jackets on barrels and heads the way operators see them on the floor.',
     gallery: [
       {
-        src: `${CUT}/00003.png`,
-        alt: 'Thermal insulation jacket cutout',
-        caption: 'Jacket on barrel — product view',
+        src: '/static/products/00003.jpeg',
+        alt: 'Thermal insulation jacket on barrel in plant',
+        caption: 'Jacket on barrel — plant view',
       },
       {
-        src: `${CUT}/00003-4.png`,
-        alt: 'Grey thermal jacket segments',
+        src: '/static/products/00003-4.jpeg',
+        alt: 'Grey thermal jacket segments on machine',
         caption: 'Segmented removable jacket',
       },
       {
-        src: `${CUT}/00003-7.png`,
+        src: '/static/products/00003-7.jpeg',
         alt: 'Thermal jacket install detail',
         caption: 'Straps and zone coverage',
       },

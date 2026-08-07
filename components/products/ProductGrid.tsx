@@ -48,15 +48,27 @@ export function ProductGrid({ products }: ProductGridProps) {
                   href={`/products/${product.slug}`}
                   className="group flex h-full flex-col border border-stone-200 bg-[#faf9f7] transition-colors hover:border-[#c45c1a]/40"
                 >
-                  <div className="relative flex h-48 items-center justify-center bg-white p-6">
-                    <Image
-                      src={product.coverImage}
-                      alt={title}
-                      width={180}
-                      height={180}
-                      className="h-auto max-h-40 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
+                  {product.coverImage.includes('/cutouts/') ? (
+                    <div className="relative flex h-48 items-center justify-center bg-white p-6">
+                      <Image
+                        src={product.coverImage}
+                        alt={title}
+                        width={180}
+                        height={180}
+                        className="h-auto max-h-40 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  ) : (
+                    <div className="relative h-48 overflow-hidden bg-stone-900">
+                      <Image
+                        src={product.coverImage}
+                        alt={title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                    </div>
+                  )}
                   <div className="flex flex-1 flex-col p-5">
                     <h3 className="font-[family-name:var(--font-display)] text-xl font-semibold text-stone-900">
                       {title}

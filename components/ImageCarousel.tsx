@@ -22,13 +22,14 @@ export default function ImageCarousel({ images = [], className }: ImageCarouselP
 
   const current = images[currentIndex]!
   const hasMultiple = images.length > 1
+  const isCutout = current.src.includes('/cutouts/')
 
   const next = () => setCurrentIndex((prev) => (prev + 1) % images.length)
   const prev = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
 
   return (
     <div className={cn('w-full', className)}>
-      <div className="relative overflow-hidden bg-white">
+      <div className={cn('relative overflow-hidden', isCutout ? 'bg-white' : 'bg-stone-900')}>
         <div className="relative aspect-[4/3] w-full">
           <Image
             key={current.src}
@@ -36,7 +37,7 @@ export default function ImageCarousel({ images = [], className }: ImageCarouselP
             alt={current.alt}
             fill
             priority
-            className="object-contain p-4 sm:p-6"
+            className={isCutout ? 'object-contain p-4 sm:p-6' : 'object-cover'}
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
         </div>
@@ -76,6 +77,7 @@ export default function ImageCarousel({ images = [], className }: ImageCarouselP
         >
           {images.map((image, index) => {
             const selected = index === currentIndex
+            const thumbCutout = image.src.includes('/cutouts/')
             return (
               <button
                 key={image.src}
@@ -85,10 +87,13 @@ export default function ImageCarousel({ images = [], className }: ImageCarouselP
                 aria-label={`View image ${index + 1}`}
                 onClick={() => setCurrentIndex(index)}
                 className={cn(
-                  'relative flex aspect-square items-center justify-center bg-white/90 p-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#c45c1a]',
+                  'relative flex aspect-square items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#c45c1a]',
+                  thumbCutout ? 'bg-white/90 p-2' : 'bg-stone-900 p-0',
                   selected
                     ? 'bg-white ring-2 ring-inset ring-[#c45c1a]'
-                    : 'hover:bg-white'
+                    : thumbCutout
+                      ? 'hover:bg-white'
+                      : 'hover:opacity-90'
                 )}
               >
                 <Image
@@ -96,7 +101,10 @@ export default function ImageCarousel({ images = [], className }: ImageCarouselP
                   alt=""
                   width={96}
                   height={96}
-                  className="h-full w-full object-contain"
+                  className={cn(
+                    'h-full w-full',
+                    thumbCutout ? 'object-contain' : 'object-cover'
+                  )}
                   sizes="96px"
                 />
               </button>
