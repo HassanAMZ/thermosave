@@ -9,7 +9,7 @@ import { LandingFinalCTA, LandingProof, StickyContact } from '@/components/landi
 export const metadata: Metadata = {
   title: 'Industries — Heat Loss by Process | ThermoSave',
   description:
-    'Thermal insulation and heaters by plastic process — start with extrusion blow moulding, then size jackets and bands for your line in Pakistan.',
+    'Thermal insulation and heaters by plastic process — extrusion blow moulding, extrusion lines, and more. Size jackets and bands for your plant in Pakistan.',
 }
 
 export default function IndustriesPage() {

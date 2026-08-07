@@ -25,6 +25,7 @@ const navigation = {
   ],
   plant: [
     { name: 'Extrusion Blow Moulding', href: '/industries/extrusion-blow-moulding' },
+    { name: 'Extrusion Lines', href: '/industries/extrusion-lines' },
     { name: 'Get Assessment', href: '/contact' },
     { name: 'Proof & Clients', href: '/#proof' },
     { name: `Call ${PHONE_DISPLAY}`, href: `tel:${PHONE_TEL}` },
