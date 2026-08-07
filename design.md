@@ -288,13 +288,13 @@ Nav is part of the **industrial dark chrome**, not a white strip floating above 
 
 | State | Treatment |
 |-------|-----------|
-| Homepage, industry detail, or client case detail, top of hero | Transparent over the hero plane — hero uses `-mt-16` so ink/photo/video runs under the sticky header (one composition) |
-| Scrolled, or other routes | Solid `bg-[#0c1014]/95` + backdrop blur + `border-white/10` |
-| Links | Light stone / white; hover: white / soft wash |
+| Dark-hero routes at top of page (`/`, `/products`, `/industries`, `/industries/[slug]`, `/clients`, `/clients/[slug]`) | Transparent over the hero plane — hero uses `-mt-16` so ink/photo/video runs under the sticky header (one composition) |
+| Scrolled, or light-interior routes (e.g. product PDPs) | Solid `bg-[#0c1014]/95` + backdrop blur + `border-white/10` |
+| Links | Light stone / white; hover: white / soft wash — include **Clientele** (`/clients`) alongside Products / Industries |
 | Primary nav CTA | Heat fill (“Get Assessment”), not default blue |
 | Mobile sheet | Dark ink panel, light text, heat CTA |
 
-Interior pages that open with a light background still use the solid dark nav (brand chrome). Homepage and industry detail heroes may pull content under a transparent bar.
+Interior pages that open with a light background (product PDPs) keep the solid dark nav (brand chrome). All dark collection and case heroes pull content under a transparent bar.
 
 Logo + wordmark stay readable on dark. Do not reintroduce a solid white header on marketing pages.
 

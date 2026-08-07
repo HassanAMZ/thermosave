@@ -96,18 +96,22 @@ export function Navbar() {
   const [open, setOpen] = React.useState(false)
   const [scrolled, setScrolled] = React.useState(false)
 
-  const isHome = pathname === '/'
-  const isIndustryDetail =
-    pathname.startsWith('/industries/') && pathname !== '/industries'
-  const isClientDetail = pathname.startsWith('/clients/') && pathname !== '/clients'
-  const overHero = (isHome || isIndustryDetail || isClientDetail) && !scrolled
+  // Transparent over dark heroes; solid on light interiors (e.g. product PDPs) or when scrolled.
+  const hasDarkHero =
+    pathname === '/' ||
+    pathname === '/products' ||
+    pathname === '/industries' ||
+    pathname.startsWith('/industries/') ||
+    pathname === '/clients' ||
+    pathname.startsWith('/clients/')
+  const overHero = hasDarkHero && !scrolled
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [pathname])
 
   React.useEffect(() => {
     setOpen(false)
