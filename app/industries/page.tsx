@@ -7,9 +7,9 @@ import {
 import { LandingFinalCTA, LandingProof, StickyContact } from '@/components/landing'
 
 export const metadata: Metadata = {
-  title: 'Industries — Heat Loss by Process | ThermoSave',
+  title: 'Industries | Heat Loss by Process | ThermoSave',
   description:
-    'Thermal insulation and heaters by plastic process — extrusion blow moulding, extrusion lines, and more. Size jackets and bands for your plant in Pakistan.',
+    'Thermal insulation and heaters by plastic process: extrusion blow moulding, extrusion lines, and more. Size jackets and bands for your plant in Pakistan.',
 }
 
 export default function IndustriesPage() {

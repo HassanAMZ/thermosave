@@ -35,10 +35,10 @@ export function IndustriesHero() {
             ThermoSave
           </p>
           <h1 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl lg:text-[3.25rem]">
-            Heat loss by industry — start with your process.
+            Heat loss by industry. Start with your process.
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-stone-300 md:text-lg">
-            Same physics, different machines. Pick your line — we show where jackets and heaters cut
+            Same physics, different machines. Pick your line. We show where jackets and heaters cut
             kWh on equipment you actually run.
           </p>
 
@@ -58,7 +58,7 @@ export function IndustriesHero() {
             >
               <a href={`tel:${PHONE_TEL}`}>
                 <Phone className="h-4 w-4" />
-                Call Now — {PHONE_DISPLAY}
+                Call Now {PHONE_DISPLAY}
               </a>
             </Button>
           </div>

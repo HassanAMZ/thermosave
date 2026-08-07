@@ -58,7 +58,7 @@ export function IndustryMedia({ industry }: IndustryProps) {
   }
 
   return (
-    <section className="bg-[#f4f2ee] py-16 md:py-24">
+    <section className="bg-[#f4f2ee] py-20 md:py-28">
       <div className="container mx-auto max-w-7xl px-4">
         <motion.div
           className="max-w-2xl"
@@ -127,7 +127,7 @@ export function IndustryMedia({ industry }: IndustryProps) {
 
 export function IndustryProblem({ industry }: IndustryProps) {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-20 md:py-28">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <motion.div
@@ -162,7 +162,7 @@ export function IndustryProblem({ industry }: IndustryProps) {
 
 export function IndustryAgitate({ industry }: IndustryProps) {
   return (
-    <section className="bg-[#161b22] py-16 text-stone-100 md:py-24">
+    <section className="bg-[#161b22] py-20 text-stone-100 md:py-28">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <motion.div
@@ -225,7 +225,7 @@ export function IndustryAgitate({ industry }: IndustryProps) {
 
 export function IndustryMechanism({ industry }: IndustryProps) {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-20 md:py-28">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <motion.div
@@ -261,7 +261,7 @@ export function IndustryMechanism({ industry }: IndustryProps) {
 
 export function IndustryOffer({ industry }: IndustryProps) {
   return (
-    <section className="bg-[#f4f2ee] py-16 md:py-24">
+    <section className="bg-[#f4f2ee] py-20 md:py-28">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <motion.div
@@ -320,7 +320,7 @@ export function IndustryOffer({ industry }: IndustryProps) {
 
 export function IndustryFaq({ industry }: IndustryProps) {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-20 md:py-28">
       <div className="container mx-auto max-w-3xl px-4">
         <motion.div
           initial={{ opacity: 0.4, y: 16 }}

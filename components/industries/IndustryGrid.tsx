@@ -28,8 +28,8 @@ export function IndustryGrid({ industries }: IndustryGridProps) {
             Choose the process that matches your floor.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-stone-600 md:text-lg">
-            Process pages hook the story; product pages sell the tool. Start here if you think in
-            machines — not catalog SKUs.
+            Process pages hook the story. Product pages sell the tool. Start here if you think in
+            machines, not catalog SKUs.
           </p>
         </motion.div>
 
