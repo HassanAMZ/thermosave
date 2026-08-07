@@ -170,6 +170,7 @@ export function Navbar() {
   const hasDarkHero =
     pathname === '/' ||
     pathname === '/products' ||
+    pathname.startsWith('/products/') ||
     pathname === '/industries' ||
     pathname.startsWith('/industries/') ||
     pathname === '/clients' ||

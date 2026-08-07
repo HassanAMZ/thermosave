@@ -351,7 +351,7 @@ When you add a **top-level** marketing section, update all three: desktop `Navig
 | State | Treatment |
 |-------|-----------|
 | Dark-hero route at top of page (see registry below) | Transparent over the hero — hero uses `-mt-16` so ink/photo/video runs under the sticky header (one composition) |
-| Scrolled, or light-interior routes (e.g. product PDPs) | Solid `bg-[#0c1014]/95` + backdrop blur + `border-white/10` |
+| Scrolled, or light-interior routes (no dark hero) | Solid `bg-[#0c1014]/95` + backdrop blur + `border-white/10` |
 | Links | Light stone / white; hover: white / soft wash |
 | Primary nav CTA | Heat fill (“Get Assessment”), not default blue |
 | Mobile sheet | Dark ink panel, light text, heat CTA |
@@ -362,16 +362,17 @@ Logo + wordmark stay readable on dark. Do not reintroduce a solid white header o
 
 | Route | Hero component | Notes |
 |-------|----------------|-------|
-| `/` | `components/landing/Hero.tsx` | Full-bleed video |
-| `/products` | `CollectionHero` | Collection only — **not** `/products/[slug]` |
-| `/industries` | `IndustriesHero` | |
-| `/industries/[slug]` | `IndustryHero` | |
-| `/clients` | `ClientsHero` | |
-| `/clients/[slug]` | `ClientCaseSections` hero | |
-| `/image-gallery` | `GalleryHero` | |
-| `/contact` | `ContactHero` | |
+| `/` | `components/landing/Hero.tsx` | Compact dark band + plant video |
+| `/products` | `CollectionHero` | Compact dark band (same rhythm as industries/clients/gallery) |
+| `/products/[slug]` | `ProductHero` | Compact dark hook, then light carousel + product copy split |
+| `/industries` | `IndustriesHero` | Compact dark band (canonical short hero) |
+| `/industries/[slug]` | `IndustryHero` | Full-bleed plant photo (detail pages) |
+| `/clients` | `ClientsHero` | Compact dark band |
+| `/clients/[slug]` | `ClientCaseSections` hero | Full-bleed plant/Mux still |
+| `/image-gallery` | `GalleryHero` | Compact dark band |
+| `/contact` | `ContactHero` | Compact dark band + plant video |
 
-**Solid by default (no transparent top):** product PDPs and any future page that opens on a light (`--ts-surface`) hero.
+**Collection / marketing index heroes** (home, products, industries, clients, gallery, contact, PDP hook): compact padding band (`pt-24 pb-16 md:pt-28 md:pb-20`), **not** full-viewport `min-h`. Detail industry/client case heroes may still use taller full-bleed media.
 
 ### Agent checklist — new marketing page
 
@@ -389,7 +390,7 @@ Logo + wordmark stay readable on dark. Do not reintroduce a solid white header o
 
 Order in `app/page.tsx`:
 
-1. Hero + dual CTA + trust bar (full-bleed plant video)  
+1. Hero + dual CTA + trust bar (compact dark band + plant video)  
 2. Problem — **story split**: plant photo + short copy (+ compact pain list)  
 3. Agitate — **story split**: plant photo + short copy + **stat tiles**  
 4. Solution / mechanism — **story split**: install photo + how-it-works + CTAs, then 3 steps + product tools  
@@ -425,7 +426,7 @@ Commitment rung — assessment conversation. Order via `components/contact/*`:
 
 Order in `app/products/page.tsx` via `components/products/*`:
 
-1. Dark ink CollectionHero + dual CTA + TrustBar  
+1. Dark ink CollectionHero — compact band (same as industries/clients/gallery) + dual CTA + TrustBar  
 2. ProductChooser (which offer / value ladder)  
 3. ProductGrid (benefit tiles → PDP)  
 4. Proof (shared LandingProof)  
@@ -438,7 +439,7 @@ Conversion copy: `data/productMarketing.ts`. Catalog specs/images: `data/product
 
 Order in `layouts/ProductLayout.tsx` — same story rhythm as industry pages:
 
-1. ProductHero (main image + **TrustBar-style image tiles** under it + outcome H1 + Assessment / Call / WhatsApp + TrustBar)  
+1. ProductHero — compact dark band (brand + outcome H1 + Assessment / Call / WhatsApp + TrustBar), then light split: carousel + product name / benefit / proof points / CTAs  
 2. Problem / Agitate / Mechanism as **split layouts**: product or plant photo + short headline + ≤2 sentences (+ stat tiles on Agitate)  
 3. **ProductMedia** — gallery dump in a uniform 4:3 tile grid (band heater cutouts + plant stills for jackets)  
 4. Specs (features / details / applications)  
@@ -452,13 +453,13 @@ Hero carousel: mica/ceramic use `/static/products/cutouts/` (transparent PNGs). 
 
 ### Hero budget (marketing)
 
-First viewport: **brand + one headline + one supporting sentence + CTA group + dominant visual**. No stats strips, schedules, or promo chips overlaid on hero media. Trust bar may sit *under* the CTA group as part of the first composition.
+First viewport: **brand + one headline + one supporting sentence + CTA group**. Collection/index heroes and PDP hooks use a **compact dark band** (padding only — match `IndustriesHero` / `ClientsHero` / `GalleryHero`). Optional plant video under the band on home/contact. No full-viewport `min-h` on those routes. No stats strips or promo chips overlaid on hero media. Trust bar may sit *under* the CTA group. Detail industry/client pages may keep taller full-bleed plant heroes.
 
 ### Industries collection (`/industries`)
 
 Order via `components/industries/*` + `data/industries.ts`:
 
-1. Dark Collection-style hero (brand + “by process” H1 + CTA)  
+1. Dark compact IndustriesHero (brand + “by process” H1 + CTA + TrustBar) — canonical short collection hero  
 2. Industry grid (benefit tiles → industry page)  
 3. LandingProof (optional shared proof)  
 4. FinalCTA + StickyContact  
@@ -483,7 +484,7 @@ Do **not** stack three text-only PAS sections — every story split pairs with a
 
 Order via `components/clients/*` + `data/clients.ts`:
 
-1. Dark ClientsHero (brand + “named plants” H1 + CTA + TrustBar)  
+1. Dark ClientsHero (compact band + brand + “named plants” H1 + CTA + TrustBar)  
 2. ClientsGrid (case tiles → `/clients/[slug]`)  
 3. LandingProof (shared logos / quotes)  
 4. FinalCTA + StickyContact  
@@ -510,7 +511,7 @@ Hormozi **perceived likelihood** page — not a product taxonomy. Soft filters o
 
 Order via `components/gallery/*` + `data/gallery.ts`:
 
-1. Dark GalleryHero (brand + “plant proof” H1 + Assessment / Call + TrustBar)  
+1. Dark GalleryHero (compact band + brand + “plant proof” H1 + Assessment / Call + TrustBar)  
 2. GalleryGrid — soft filter chips + **one uniform 4:3 tile grid** (Mux videos + plant stills; videos are grid cells)  
 3. GalleryOffer + CTAs  
 4. LandingProof  
