@@ -1,7 +1,7 @@
 'use client'
 
-import type { CSSProperties } from 'react'
 import MuxPlayer from '@mux/mux-player-react'
+import type { MuxCSSProperties } from '@mux/mux-player-react'
 
 type IndustryMuxPlayerProps = {
   playbackId: string
@@ -21,12 +21,12 @@ export function IndustryMuxPlayer({
   variant = 'portrait',
 }: IndustryMuxPlayerProps) {
   if (variant === 'tile') {
-    const tileStyle = {
+    const tileStyle: MuxCSSProperties = {
       width: '100%',
       height: '100%',
       '--media-object-fit': 'cover',
       '--media-object-position': 'center',
-    } as CSSProperties
+    }
 
     return (
       <div className={`relative aspect-[4/3] w-full overflow-hidden bg-[#0c1014] ${className}`}>
@@ -44,6 +44,12 @@ export function IndustryMuxPlayer({
     )
   }
 
+  const portraitStyle: MuxCSSProperties = {
+    aspectRatio: PORTRAIT_ASPECT,
+    width: '100%',
+    height: 'auto',
+  }
+
   return (
     <div
       className={`mx-auto w-full max-w-sm overflow-hidden rounded-sm border border-stone-200 bg-[#0c1014] sm:max-w-md ${className}`}
@@ -56,7 +62,7 @@ export function IndustryMuxPlayer({
         secondaryColor="#0c1014"
         streamType="on-demand"
         className="w-full"
-        style={{ aspectRatio: PORTRAIT_ASPECT, width: '100%', height: 'auto' }}
+        style={portraitStyle}
       />
     </div>
   )
