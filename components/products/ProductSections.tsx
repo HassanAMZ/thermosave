@@ -6,29 +6,60 @@ import { motion } from 'framer-motion'
 import { ArrowUpRight, Check } from 'lucide-react'
 import { ProductCtas } from './ProductCtas'
 import type { Product } from '@/data/products'
-import type { ProductMarketing } from '@/data/productMarketing'
+import type { ProductMarketing, ProductPhoto } from '@/data/productMarketing'
 import type { ProductNeighbor } from '@/data/products'
 
 type ProductStoryProps = {
   marketing: ProductMarketing
 }
 
+function StoryImage({ photo, priority = false }: { photo: ProductPhoto; priority?: boolean }) {
+  const isCutout = photo.src.includes('/cutouts/')
+  return (
+    <figure className="overflow-hidden rounded-sm border border-stone-200 bg-[#faf9f7]">
+      <div className={`relative w-full ${isCutout ? 'aspect-[4/3] bg-white' : 'aspect-[4/5] sm:aspect-[5/6]'}`}>
+        <Image
+          src={photo.src}
+          alt={photo.alt}
+          fill
+          priority={priority}
+          className={isCutout ? 'object-contain p-6' : 'object-cover'}
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+      </div>
+      <figcaption className="border-t border-stone-200 bg-[#faf9f7] px-4 py-3 text-sm text-stone-600">
+        {photo.caption}
+      </figcaption>
+    </figure>
+  )
+}
+
 export function ProductProblem({ marketing }: ProductStoryProps) {
   return (
-    <section className="bg-white py-20 md:py-28">
-      <div className="container mx-auto max-w-3xl px-4">
-        <motion.div
-          initial={{ opacity: 0.4, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.5 }}
-        >
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">Problem</p>
-          <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">
-            The heat you pay for isn&apos;t all reaching the melt.
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-stone-600 md:text-lg">{marketing.problem}</p>
-        </motion.div>
+    <section className="bg-white py-16 md:py-24">
+      <div className="container mx-auto max-w-7xl px-4">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <motion.div
+            initial={{ opacity: 0.4, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5 }}
+          >
+            <StoryImage photo={marketing.problemImage} />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0.4, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5, delay: 0.06 }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">Problem</p>
+            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">
+              {marketing.problemTitle}
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-stone-600 md:text-lg">{marketing.problem}</p>
+          </motion.div>
+        </div>
       </div>
     </section>
   )
@@ -36,20 +67,60 @@ export function ProductProblem({ marketing }: ProductStoryProps) {
 
 export function ProductAgitate({ marketing }: ProductStoryProps) {
   return (
-    <section className="bg-[#161b22] py-20 text-stone-100 md:py-28">
-      <div className="container mx-auto max-w-3xl px-4">
-        <motion.div
-          initial={{ opacity: 0.4, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.5 }}
-        >
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#f0a060]">Cost of inaction</p>
-          <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight md:text-4xl">
-            Numbers beat guesses.
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-stone-300 md:text-lg">{marketing.agitate}</p>
-        </motion.div>
+    <section className="bg-[#161b22] py-16 text-stone-100 md:py-24">
+      <div className="container mx-auto max-w-7xl px-4">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <motion.div
+            className="order-2 lg:order-1"
+            initial={{ opacity: 0.4, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#f0a060]">
+              Cost of inaction
+            </p>
+            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight md:text-4xl">
+              {marketing.agitateTitle}
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-stone-300 md:text-lg">{marketing.agitate}</p>
+            <div className="mt-8 grid grid-cols-2 gap-4">
+              {marketing.agitateStats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-sm border border-white/10 bg-[#0c1014]/60 px-4 py-4"
+                >
+                  <p className="font-[family-name:var(--font-display)] text-2xl font-semibold text-[#f0a060] md:text-3xl">
+                    {stat.value}
+                  </p>
+                  <p className="mt-1 text-xs leading-snug text-stone-400">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+          <motion.div
+            className="order-1 lg:order-2"
+            initial={{ opacity: 0.4, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5, delay: 0.06 }}
+          >
+            <figure className="overflow-hidden rounded-sm border border-white/10">
+              <div className="relative aspect-[4/5] w-full sm:aspect-[5/6]">
+                <Image
+                  src={marketing.agitateImage.src}
+                  alt={marketing.agitateImage.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              <figcaption className="border-t border-white/10 bg-[#0c1014] px-4 py-3 text-sm text-stone-400">
+                {marketing.agitateImage.caption}
+              </figcaption>
+            </figure>
+          </motion.div>
+        </div>
       </div>
     </section>
   )
@@ -57,20 +128,86 @@ export function ProductAgitate({ marketing }: ProductStoryProps) {
 
 export function ProductMechanism({ marketing }: ProductStoryProps) {
   return (
-    <section className="bg-white py-20 md:py-28">
-      <div className="container mx-auto max-w-3xl px-4">
+    <section className="bg-white py-16 md:py-24">
+      <div className="container mx-auto max-w-7xl px-4">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <motion.div
+            initial={{ opacity: 0.4, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5 }}
+          >
+            <StoryImage photo={marketing.mechanismImage} />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0.4, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5, delay: 0.06 }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">How it works</p>
+            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">
+              {marketing.mechanismTitle}
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-stone-600 md:text-lg">{marketing.mechanism}</p>
+            <ProductCtas tone="light" className="mt-8" />
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/** Product photo dump — after story splits, uniform tile grid (matches IndustryMedia) */
+export function ProductMedia({ marketing }: ProductStoryProps) {
+  const tiles = marketing.gallery
+  if (!tiles.length) return null
+
+  return (
+    <section className="bg-[#f4f2ee] py-16 md:py-24">
+      <div className="container mx-auto max-w-7xl px-4">
         <motion.div
+          className="max-w-2xl"
           initial={{ opacity: 0.4, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">How it works</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">Product proof</p>
           <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">
-            The mechanism — not the brochure line.
+            {marketing.mediaTitle}
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-stone-600 md:text-lg">{marketing.mechanism}</p>
+          <p className="mt-3 text-base leading-relaxed text-stone-600 md:text-lg">{marketing.mediaSubhead}</p>
         </motion.div>
+
+        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          {tiles.map((photo, index) => {
+            const isCutout = photo.src.includes('/cutouts/')
+            return (
+              <motion.figure
+                key={photo.src}
+                className="overflow-hidden rounded-sm border border-stone-200 bg-[#faf9f7]"
+                initial={{ opacity: 0.4, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: index * 0.04 }}
+              >
+                <div className={`relative aspect-[4/3] w-full ${isCutout ? 'bg-white' : ''}`}>
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    className={isCutout ? 'object-contain p-6' : 'object-cover'}
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                  />
+                </div>
+                <figcaption className="border-t border-stone-200 px-4 py-3 text-sm text-stone-600">
+                  {photo.caption}
+                </figcaption>
+              </motion.figure>
+            )
+          })}
+        </div>
       </div>
     </section>
   )
@@ -82,7 +219,7 @@ type ProductSpecsProps = {
 
 export function ProductSpecs({ product }: ProductSpecsProps) {
   return (
-    <section className="bg-[#f4f2ee] py-20 md:py-28">
+    <section className="bg-white py-16 md:py-24">
       <div className="container mx-auto max-w-7xl px-4">
         <motion.div
           className="max-w-2xl"
@@ -139,64 +276,51 @@ function SpecBlock({ title, items }: { title: string; items: string[] }) {
 
 export function ProductOffer({ marketing }: ProductStoryProps) {
   return (
-    <section className="bg-white py-20 md:py-28">
-      <div className="container mx-auto max-w-3xl px-4">
-        <motion.div
-          initial={{ opacity: 0.4, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.5 }}
-        >
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">Offer</p>
-          <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">
-            What you get — stacked for plant managers.
-          </h2>
-          <ul className="mt-8 space-y-4">
-            {marketing.offerBullets.map((bullet) => (
-              <li key={bullet} className="flex gap-3 text-base text-stone-700">
-                <Check className="mt-1 h-5 w-5 shrink-0 text-[#c45c1a]" aria-hidden />
-                <span>{bullet}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 text-sm text-stone-500">Typical delivery: 7–10 business days after sizing.</p>
-          <ProductCtas tone="light" className="mt-8" />
-        </motion.div>
-      </div>
-    </section>
-  )
-}
-
-export function ProductProofPoints({ marketing }: ProductStoryProps) {
-  return (
-    <section className="bg-[#f4f2ee] py-20 md:py-28">
+    <section className="bg-[#f4f2ee] py-16 md:py-24">
       <div className="container mx-auto max-w-7xl px-4">
-        <motion.div
-          className="max-w-2xl"
-          initial={{ opacity: 0.4, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.5 }}
-        >
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">Proof</p>
-          <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">
-            Why plants like yours believe the outcome.
-          </h2>
-        </motion.div>
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <motion.div
+            initial={{ opacity: 0.4, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">Offer</p>
+            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">
+              What you get — stacked for plant managers.
+            </h2>
+            <ul className="mt-8 space-y-4">
+              {marketing.offerBullets.map((bullet) => (
+                <li key={bullet} className="flex gap-3 text-base leading-relaxed text-stone-700">
+                  <Check className="mt-1 h-5 w-5 shrink-0 text-[#c45c1a]" aria-hidden />
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-sm text-stone-500">Typical delivery: 7–10 business days after sizing.</p>
+            <ProductCtas tone="light" className="mt-8" />
+          </motion.div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {marketing.proofPoints.map((point, index) => (
-            <motion.div
-              key={point}
-              className="border border-stone-200 bg-white p-5"
-              initial={{ opacity: 0.4, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.4, delay: index * 0.06 }}
-            >
-              <p className="text-[15px] leading-relaxed text-stone-700">{point}</p>
-            </motion.div>
-          ))}
+          <motion.div
+            className="rounded-sm border border-stone-200 bg-[#faf9f7] p-6 md:p-8"
+            initial={{ opacity: 0.4, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.08 }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#c45c1a]">Proof points</p>
+            <p className="mt-3 font-[family-name:var(--font-display)] text-xl font-semibold text-stone-900">
+              Why plants believe the outcome
+            </p>
+            <ul className="mt-6 space-y-3">
+              {marketing.proofPoints.map((point) => (
+                <li key={point} className="flex gap-3 text-sm leading-relaxed text-stone-700">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#c45c1a]" aria-hidden />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -290,10 +414,9 @@ type ProductFaqProps = {
 
 export function ProductFaq({ faqs }: ProductFaqProps) {
   return (
-    <section className="bg-[#f4f2ee] py-20 md:py-28">
+    <section className="bg-white py-16 md:py-24">
       <div className="container mx-auto max-w-3xl px-4">
         <motion.div
-          className="text-center"
           initial={{ opacity: 0.4, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
@@ -305,30 +428,19 @@ export function ProductFaq({ faqs }: ProductFaqProps) {
           </h2>
         </motion.div>
 
-        <motion.div
-          className="mt-10 divide-y divide-stone-300 border-y border-stone-300"
-          initial={{ opacity: 0.4, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.5, delay: 0.08 }}
-        >
+        <div className="mt-10 divide-y divide-stone-300 border-y border-stone-300">
           {faqs.map((item) => (
-            <details key={item.q} className="group py-1">
-              <summary className="cursor-pointer list-none py-5 text-left text-base font-semibold text-stone-900 marker:content-none [&::-webkit-details-marker]:hidden">
-                <span className="flex items-center justify-between gap-4">
+            <details key={item.q} className="group py-5">
+              <summary className="cursor-pointer list-none font-[family-name:var(--font-display)] text-lg font-semibold text-stone-900 marker:content-none [&::-webkit-details-marker]:hidden">
+                <span className="flex items-start justify-between gap-4">
                   {item.q}
-                  <span
-                    className="shrink-0 text-stone-400 transition-transform group-open:rotate-45"
-                    aria-hidden
-                  >
-                    +
-                  </span>
+                  <span className="mt-1 text-stone-400 transition group-open:rotate-45">+</span>
                 </span>
               </summary>
-              <p className="pb-5 text-[15px] leading-relaxed text-stone-600">{item.a}</p>
+              <p className="mt-3 text-base leading-relaxed text-stone-600">{item.a}</p>
             </details>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   )

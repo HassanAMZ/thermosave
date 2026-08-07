@@ -6,9 +6,9 @@ import {
   ProductProblem,
   ProductAgitate,
   ProductMechanism,
+  ProductMedia,
   ProductSpecs,
   ProductOffer,
-  ProductProofPoints,
   ProductRelated,
   ProductFaq,
 } from '@/components/products'
@@ -61,9 +61,9 @@ export default function ProductLayout({ product, children }: ProductLayoutProps)
           <ProductProblem marketing={marketing} />
           <ProductAgitate marketing={marketing} />
           <ProductMechanism marketing={marketing} />
+          <ProductMedia marketing={marketing} />
           <ProductSpecs product={product} />
           <ProductOffer marketing={marketing} />
-          <ProductProofPoints marketing={marketing} />
           <LandingProof />
           <ProductRelated neighbors={neighbors} relatedCta={marketing.relatedCta} />
           <ProductFaq faqs={marketing.faqs} />

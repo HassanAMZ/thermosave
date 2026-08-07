@@ -18,12 +18,12 @@ export function ProductHero({ displayTitle, marketing, images }: ProductHeroProp
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-14">
           <motion.div
-            className="border border-stone-200 bg-white p-4 sm:p-6"
+            className="border border-stone-200 bg-white p-3 sm:p-4"
             initial={{ opacity: 0.4, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <ImageCarousel images={images} className="" />
+            <ImageCarousel images={images} />
           </motion.div>
 
           <motion.div

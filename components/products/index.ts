@@ -8,9 +8,9 @@ export {
   ProductProblem,
   ProductAgitate,
   ProductMechanism,
+  ProductMedia,
   ProductSpecs,
   ProductOffer,
-  ProductProofPoints,
   ProductRelated,
   ProductFaq,
 } from './ProductSections'
