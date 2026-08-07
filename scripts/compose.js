@@ -1,6 +1,5 @@
 const fs = require('fs')
 const path = require('path')
-const inquirer = require('inquirer')
 const dedent = require('dedent')
 
 const root = process.cwd()
@@ -51,8 +50,11 @@ const genFrontMatter = (answers) => {
   return frontMatter
 }
 
-inquirer
-  .prompt([
+async function main() {
+  // inquirer v14 is ESM-only
+  const { default: inquirer } = await import('inquirer')
+
+  const answers = await inquirer.prompt([
     {
       name: 'title',
       message: 'Enter post title:',
@@ -93,29 +95,30 @@ inquirer
       choices: getLayouts,
     },
   ])
-  .then((answers) => {
-    // Remove special characters and replace space with -
-    const fileName = answers.title
-      .toLowerCase()
-      .replace(/[^a-zA-Z0-9 ]/g, '')
-      .replace(/ /g, '-')
-      .replace(/-+/g, '-')
-    const frontMatter = genFrontMatter(answers)
-    const filePath = `data/products/${fileName ? fileName : 'untitled'}.${
-      answers.extension ? answers.extension : 'md'
-    }`
-    fs.writeFile(filePath, frontMatter, { flag: 'wx' }, (err) => {
-      if (err) {
-        throw err
-      } else {
-        console.log(`Products post generated successfully at ${filePath}`)
-      }
-    })
-  })
-  .catch((error) => {
-    if (error.isTtyError) {
-      console.log("Prompt couldn't be rendered in the current environment")
+
+  // Remove special characters and replace space with -
+  const fileName = answers.title
+    .toLowerCase()
+    .replace(/[^a-zA-Z0-9 ]/g, '')
+    .replace(/ /g, '-')
+    .replace(/-+/g, '-')
+  const frontMatter = genFrontMatter(answers)
+  const filePath = `data/products/${fileName ? fileName : 'untitled'}.${
+    answers.extension ? answers.extension : 'md'
+  }`
+  fs.writeFile(filePath, frontMatter, { flag: 'wx' }, (err) => {
+    if (err) {
+      throw err
     } else {
-      console.log('Something went wrong, sorry!')
+      console.log(`Products post generated successfully at ${filePath}`)
     }
   })
+}
+
+main().catch((error) => {
+  if (error.isTtyError) {
+    console.log("Prompt couldn't be rendered in the current environment")
+  } else {
+    console.log('Something went wrong, sorry!')
+  }
+})
