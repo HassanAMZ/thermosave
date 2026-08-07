@@ -17,7 +17,9 @@ function StoryImage({ photo, priority = false }: { photo: ProductPhoto; priority
   const isCutout = photo.src.includes('/cutouts/')
   return (
     <figure className="overflow-hidden rounded-sm border border-stone-200 bg-[#faf9f7]">
-      <div className={`relative w-full ${isCutout ? 'aspect-[4/3] bg-white' : 'aspect-[4/5] sm:aspect-[5/6]'}`}>
+      <div
+        className={`relative w-full ${isCutout ? 'aspect-[4/3] bg-white' : 'aspect-[4/5] sm:aspect-[5/6]'}`}
+      >
         <Image
           src={photo.src}
           alt={photo.alt}
@@ -53,11 +55,15 @@ export function ProductProblem({ marketing }: ProductStoryProps) {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.5, delay: 0.06 }}
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">Problem</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">
+              Problem
+            </p>
             <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">
               {marketing.problemTitle}
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-stone-600 md:text-lg">{marketing.problem}</p>
+            <p className="mt-5 text-base leading-relaxed text-stone-600 md:text-lg">
+              {marketing.problem}
+            </p>
           </motion.div>
         </div>
       </div>
@@ -83,7 +89,9 @@ export function ProductAgitate({ marketing }: ProductStoryProps) {
             <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight md:text-4xl">
               {marketing.agitateTitle}
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-stone-300 md:text-lg">{marketing.agitate}</p>
+            <p className="mt-5 text-base leading-relaxed text-stone-300 md:text-lg">
+              {marketing.agitate}
+            </p>
             <div className="mt-8 grid grid-cols-2 gap-4">
               {marketing.agitateStats.map((stat) => (
                 <div
@@ -145,11 +153,15 @@ export function ProductMechanism({ marketing }: ProductStoryProps) {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.5, delay: 0.06 }}
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">How it works</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">
+              How it works
+            </p>
             <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">
               {marketing.mechanismTitle}
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-stone-600 md:text-lg">{marketing.mechanism}</p>
+            <p className="mt-5 text-base leading-relaxed text-stone-600 md:text-lg">
+              {marketing.mechanism}
+            </p>
             <ProductCtas tone="light" className="mt-8" />
           </motion.div>
         </div>
@@ -173,11 +185,15 @@ export function ProductMedia({ marketing }: ProductStoryProps) {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">Product proof</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">
+            Product proof
+          </p>
           <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">
             {marketing.mediaTitle}
           </h2>
-          <p className="mt-3 text-base leading-relaxed text-stone-600 md:text-lg">{marketing.mediaSubhead}</p>
+          <p className="mt-3 text-base leading-relaxed text-stone-600 md:text-lg">
+            {marketing.mediaSubhead}
+          </p>
         </motion.div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -297,7 +313,9 @@ export function ProductOffer({ marketing }: ProductStoryProps) {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm text-stone-500">Typical delivery: 7-10 business days after sizing.</p>
+            <p className="mt-6 text-sm text-stone-500">
+              Typical delivery: 7-10 business days after sizing.
+            </p>
             <ProductCtas tone="light" className="mt-8" />
           </motion.div>
 
@@ -308,7 +326,9 @@ export function ProductOffer({ marketing }: ProductStoryProps) {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.08 }}
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#c45c1a]">Proof points</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#c45c1a]">
+              Proof points
+            </p>
             <p className="mt-3 font-[family-name:var(--font-display)] text-xl font-semibold text-stone-900">
               Why plants believe the outcome
             </p>

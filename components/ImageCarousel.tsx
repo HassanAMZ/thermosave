@@ -101,10 +101,7 @@ export default function ImageCarousel({ images = [], className }: ImageCarouselP
                   alt=""
                   width={96}
                   height={96}
-                  className={cn(
-                    'h-full w-full',
-                    thumbCutout ? 'object-contain' : 'object-cover'
-                  )}
+                  className={cn('h-full w-full', thumbCutout ? 'object-contain' : 'object-cover')}
                   sizes="96px"
                 />
               </button>

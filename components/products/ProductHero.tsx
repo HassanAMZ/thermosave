@@ -91,8 +91,14 @@ export function ProductHero({ displayTitle, marketing, images }: ProductHeroProp
               {marketing.proofPoints.length > 0 ? (
                 <ul className="mt-6 space-y-3 border-t border-stone-200 pt-6">
                   {marketing.proofPoints.map((point) => (
-                    <li key={point} className="flex gap-3 text-sm leading-relaxed text-stone-700 md:text-base">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-sm bg-[#c45c1a]" aria-hidden />
+                    <li
+                      key={point}
+                      className="flex gap-3 text-sm leading-relaxed text-stone-700 md:text-base"
+                    >
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-sm bg-[#c45c1a]"
+                        aria-hidden
+                      />
                       <span>{point}</span>
                     </li>
                   ))}

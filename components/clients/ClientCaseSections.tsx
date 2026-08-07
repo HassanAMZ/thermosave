@@ -229,11 +229,7 @@ export function ClientCaseMedia({ client }: ClientProps) {
               transition={{ duration: 0.45, delay: index * 0.04 }}
             >
               {tile.kind === 'video' ? (
-                <IndustryMuxPlayer
-                  playbackId={tile.playbackId}
-                  title={tile.title}
-                  variant="tile"
-                />
+                <IndustryMuxPlayer playbackId={tile.playbackId} title={tile.title} variant="tile" />
               ) : (
                 <div className="relative aspect-[4/3] w-full">
                   <Image

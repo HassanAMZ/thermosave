@@ -6,7 +6,6 @@ const Card = ({ title, description, imgSrc, href, pid, price }) => (
   <Flex direction="column" pb="5">
     {href ? (
       <Link href={href} aria-label={`Link to ${title}`}>
-
         <Image
           alt={title}
           src={imgSrc}
@@ -15,7 +14,6 @@ const Card = ({ title, description, imgSrc, href, pid, price }) => (
           layout="responsive"
           objectFit="contain"
         />
-
       </Link>
     ) : (
       <Image
@@ -32,9 +30,7 @@ const Card = ({ title, description, imgSrc, href, pid, price }) => (
       {href ? (
         <>
           <Link href={href} aria-label={`Link to ${title}`}>
-
             <Text>{title}</Text>
-
           </Link>
         </>
       ) : (
@@ -47,7 +43,6 @@ const Card = ({ title, description, imgSrc, href, pid, price }) => (
 
     {href && (
       <Link href={href} aria-label={`Link to ${title}`}>
-
         <Button
           m="3"
           rounded={'full'}
@@ -61,7 +56,6 @@ const Card = ({ title, description, imgSrc, href, pid, price }) => (
         >
           Continue ({price}) &rarr;
         </Button>
-
       </Link>
     )}
   </Flex>

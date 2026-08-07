@@ -86,7 +86,13 @@ function FooterLink({
   )
 }
 
-function NavColumn({ title, items }: { title: string; items: readonly { name: string; href: string }[] }) {
+function NavColumn({
+  title,
+  items,
+}: {
+  title: string
+  items: readonly { name: string; href: string }[]
+}) {
   return (
     <div>
       <h3 className="mb-3 font-[family-name:var(--font-display)] text-xs font-semibold uppercase tracking-[0.18em] text-[#f0a060]">
@@ -119,8 +125,8 @@ export default function Footer() {
           <p className="mt-2 text-xs leading-relaxed text-stone-400 md:text-sm">
             Industrial heaters and thermal insulation for plastic plants across Pakistan. We help
             factories stop electricity waste thrown away as heat. Measured savings for injection
-            molding, blow molding, and extrusion lines. 10+ years · 200+ plants · 20%+ average energy
-            saved.
+            molding, blow molding, and extrusion lines. 10+ years · 200+ plants · 20%+ average
+            energy saved.
           </p>
           <p className="mt-3 text-xs leading-relaxed text-stone-400 md:text-sm">
             Talk to{' '}
@@ -148,7 +154,11 @@ export default function Footer() {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-3 px-4 pb-8 md:gap-4">
-        <a href={`tel:${PHONE_TEL}`} aria-label={`Call ${PHONE_DISPLAY}`} className={socialIconClass}>
+        <a
+          href={`tel:${PHONE_TEL}`}
+          aria-label={`Call ${PHONE_DISPLAY}`}
+          className={socialIconClass}
+        >
           <Phone className="h-4 w-4" strokeWidth={1.5} />
         </a>
         <a href={`mailto:${EMAIL}`} aria-label="Email ThermoSave" className={socialIconClass}>
@@ -177,12 +187,17 @@ export default function Footer() {
       <div className="mx-auto mb-10 flex max-w-7xl flex-col items-center justify-center gap-1 px-4 text-center text-xs text-stone-500">
         <p>
           <span>© {year} </span>
-          <Link href="/" className="font-medium text-stone-300 transition-colors hover:text-[#f0a060]">
+          <Link
+            href="/"
+            className="font-medium text-stone-300 transition-colors hover:text-[#f0a060]"
+          >
             ThermoSave
           </Link>
           <span>. All rights reserved.</span>
         </p>
-        <p className="text-stone-600">Energy-saving heaters &amp; insulation for plastic manufacturers in Pakistan.</p>
+        <p className="text-stone-600">
+          Energy-saving heaters &amp; insulation for plastic manufacturers in Pakistan.
+        </p>
       </div>
     </footer>
   )

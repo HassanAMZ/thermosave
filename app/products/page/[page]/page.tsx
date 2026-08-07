@@ -5,11 +5,7 @@ export function generateStaticParams() {
 }
 
 /** Pagination retired — collection is a single conversion page. */
-export default async function ProductsPagePage({
-  params,
-}: {
-  params: Promise<{ page: string }>
-}) {
+export default async function ProductsPagePage({ params }: { params: Promise<{ page: string }> }) {
   await params
   redirect('/products')
 }

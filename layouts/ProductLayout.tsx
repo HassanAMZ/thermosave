@@ -93,7 +93,9 @@ function FallbackProduct({
   return (
     <div className="bg-[#f4f2ee] pt-24 pb-20">
       <div className="container mx-auto max-w-3xl px-4">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">Coming soon</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">
+          Coming soon
+        </p>
         <h1 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold text-stone-900 md:text-4xl">
           {displayTitle}
         </h1>

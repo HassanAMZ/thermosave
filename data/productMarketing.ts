@@ -106,7 +106,8 @@ export const productMarketing: Record<string, ProductMarketing> = {
       caption: 'SS-jacketed mica band. Product view.',
     },
     mediaTitle: 'Mica band views',
-    mediaSubhead: 'Angles, clamps, cutouts, and nozzle styles. Click any tile on the hero to enlarge.',
+    mediaSubhead:
+      'Angles, clamps, cutouts, and nozzle styles. Click any tile on the hero to enlarge.',
     gallery: [
       {
         src: `${CUT}/00001-1.png`,
@@ -165,7 +166,8 @@ export const productMarketing: Record<string, ProductMarketing> = {
       },
     ],
     chooserLabel: 'Fast heat-up & custom nozzles',
-    chooserWhen: 'Choose mica when you need thin, precise bands and nozzle heaters that respond quickly.',
+    chooserWhen:
+      'Choose mica when you need thin, precise bands and nozzle heaters that respond quickly.',
     relatedCta: 'Pair with insulation jackets to keep heat in the melt, not the hall.',
   },
 
@@ -210,7 +212,8 @@ export const productMarketing: Record<string, ProductMarketing> = {
       caption: 'Ceramic tiles inside stainless sheath',
     },
     mediaTitle: 'Ceramic band views',
-    mediaSubhead: 'Tile interiors, clamps, and leads. Transparent cutouts with no third-party branding.',
+    mediaSubhead:
+      'Tile interiors, clamps, and leads. Transparent cutouts with no third-party branding.',
     gallery: [
       {
         src: `${CUT}/00002-1.png`,
@@ -264,7 +267,8 @@ export const productMarketing: Record<string, ProductMarketing> = {
       },
     ],
     chooserLabel: 'High temp + built-in efficiency',
-    chooserWhen: 'Choose ceramic for higher temps, high watt density, and bands that open fully for install.',
+    chooserWhen:
+      'Choose ceramic for higher temps, high watt density, and bands that open fully for install.',
     relatedCta: 'Add thermal insulation jackets for the largest cut in radiant heat loss.',
   },
 
@@ -309,7 +313,8 @@ export const productMarketing: Record<string, ProductMarketing> = {
       caption: 'Custom jackets on barrel and head',
     },
     mediaTitle: 'Jackets on real machines',
-    mediaSubhead: 'Plant installs. Jackets on barrels and heads the way operators see them on the floor.',
+    mediaSubhead:
+      'Plant installs. Jackets on barrels and heads the way operators see them on the floor.',
     gallery: [
       {
         src: '/static/products/00003.jpeg',
@@ -374,7 +379,8 @@ export const productMarketing: Record<string, ProductMarketing> = {
       },
     ],
     chooserLabel: 'Biggest kWh cut',
-    chooserWhen: 'Choose jackets when open bands are heating the hall and you want measured PKR savings.',
+    chooserWhen:
+      'Choose jackets when open bands are heating the hall and you want measured PKR savings.',
     relatedCta: 'Run jackets over mica or ceramic bands. Heat the melt, not the floor.',
   },
 }

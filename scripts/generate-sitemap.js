@@ -31,11 +31,7 @@ const siteMetadata = require('../data/siteMetadata')
                   path = '/'
                 }
                 const route = path === '/index' ? '' : path
-                if (
-                  page.includes('[') ||
-                  page.includes('not-found') ||
-                  page.includes('404')
-                ) {
+                if (page.includes('[') || page.includes('not-found') || page.includes('404')) {
                   return ''
                 }
                 return `

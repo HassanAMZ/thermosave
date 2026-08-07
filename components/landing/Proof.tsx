@@ -70,7 +70,9 @@ export function LandingProof() {
                 height={48}
                 className="rounded-sm object-cover"
               />
-              <span className="text-sm font-medium text-stone-700">{item.client.split(',')[0]}</span>
+              <span className="text-sm font-medium text-stone-700">
+                {item.client.split(',')[0]}
+              </span>
             </div>
           ))}
           <p className="text-sm text-stone-500">+ 200 more plants across Pakistan</p>
@@ -93,7 +95,9 @@ export function LandingProof() {
                 {item.unit}
               </p>
               <p className="mt-1 text-sm text-stone-600">{item.detail}</p>
-              <p className="mt-5 flex-1 text-[15px] leading-relaxed text-stone-700">&ldquo;{item.quote}&rdquo;</p>
+              <p className="mt-5 flex-1 text-[15px] leading-relaxed text-stone-700">
+                &ldquo;{item.quote}&rdquo;
+              </p>
               <p className="mt-4 text-sm font-semibold text-stone-900">
                 {item.client === 'Al Khair Five Star Forms, Lahore' ? (
                   <Link

@@ -84,13 +84,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                 </Box> */}
 
                 <Link href={`/products/${slug}`}>
-
-                  <Flex
-                    direction="row"
-                    alignItems="center"
-                    justifyContent="space-between"
-                    gap="2"
-                  >
+                  <Flex direction="row" alignItems="center" justifyContent="space-between" gap="2">
                     <Flex
                       direction="row"
                       alignItems="center"
@@ -109,7 +103,6 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                     </Flex>
                     <ExternalLinkIcon />
                   </Flex>
-
                 </Link>
 
                 {/* <div className="flex flex-wrap">
@@ -123,9 +116,9 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
               </ListItem>
               <Divider />
             </Box>
-          );
+          )
         })}
       </UnorderedList>
     </>
-  );
+  )
 }

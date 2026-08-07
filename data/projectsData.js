@@ -7,8 +7,7 @@ const projectsData = [
     The setup requires a cloud hosting for GTM server container.`,
     price: '$400',
     imgSrc: '/static/images/projectImages/FacebookCAPIServerTracking.png',
-    href:
-      'https://www.upwork.com/services/product/facebook-conversion-api-server-tracking-for-your-lead-generation-wesbite-1439356248607649792',
+    href: 'https://www.upwork.com/services/product/facebook-conversion-api-server-tracking-for-your-lead-generation-wesbite-1439356248607649792',
   },
   {
     pid: '002',
@@ -18,8 +17,7 @@ const projectsData = [
     The setup requires a cloud hosting for GTM server container.`,
     price: '$400',
     imgSrc: '/static/images/projectImages/GA4&FbPixelTrackingForEcommerceStore.png',
-    href:
-      'https://www.upwork.com/services/product/facebook-conversion-api-server-tracking-for-your-ecommerce-store-1395715167350927360',
+    href: 'https://www.upwork.com/services/product/facebook-conversion-api-server-tracking-for-your-ecommerce-store-1395715167350927360',
   },
   {
     pid: '003',
@@ -29,8 +27,7 @@ const projectsData = [
     The setup requires a cloud hosting for GTM server container.`,
     price: '$400',
     imgSrc: '/static/images/projectImages/FacebookCAPIServerTracking.png',
-    href:
-      'https://www.upwork.com/services/product/facebook-conversion-api-server-tracking-via-gtm-for-your-wordpress-store-1449786898515054592',
+    href: 'https://www.upwork.com/services/product/facebook-conversion-api-server-tracking-via-gtm-for-your-wordpress-store-1449786898515054592',
   },
   {
     pid: '004',
@@ -40,8 +37,7 @@ const projectsData = [
     The setup requires a cloud hosting for GTM server container.`,
     price: '$400',
     imgSrc: '/static/images/projectImages/GA4&FbPixelTrackingForEcommerceStore.png',
-    href:
-      'https://www.upwork.com/services/product/facebook-conversion-api-server-tracking-via-gtm-for-your-shopify-store-1449784162842787840',
+    href: 'https://www.upwork.com/services/product/facebook-conversion-api-server-tracking-via-gtm-for-your-shopify-store-1449784162842787840',
   },
 ]
 

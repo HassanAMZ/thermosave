@@ -38,8 +38,8 @@ export function GalleryHero() {
             Plant proof. Jackets on real machines.
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-stone-300 md:text-lg">
-            Floor video and photos from Pakistan plants. Filter by video, plants, or process.
-            See it, then book the same assessment.
+            Floor video and photos from Pakistan plants. Filter by video, plants, or process. See
+            it, then book the same assessment.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">

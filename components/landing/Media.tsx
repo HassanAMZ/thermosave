@@ -118,7 +118,10 @@ export function LandingMedia() {
                   />
                   <figcaption className="border-t border-stone-200 px-4 py-3 text-sm text-stone-600">
                     {tile.href ? (
-                      <Link href={tile.href} className="font-medium text-stone-800 hover:text-[#c45c1a]">
+                      <Link
+                        href={tile.href}
+                        className="font-medium text-stone-800 hover:text-[#c45c1a]"
+                      >
                         {tile.title}
                       </Link>
                     ) : (

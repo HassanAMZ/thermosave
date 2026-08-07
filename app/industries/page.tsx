@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
 import { getAllIndustries } from '@/data/industries'
-import {
-  IndustriesHero,
-  IndustryGrid,
-} from '@/components/industries'
+import { IndustriesHero, IndustryGrid } from '@/components/industries'
 import { LandingFinalCTA, LandingProof, StickyContact } from '@/components/landing'
 
 export const metadata: Metadata = {

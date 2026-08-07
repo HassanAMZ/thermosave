@@ -29,8 +29,8 @@ export function ProductChooser({ products }: ProductChooserProps) {
             Match the plant problem to the right offer.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-stone-600 md:text-lg">
-            Start with the heat source you need. Then stop the leak. Most plants that care about
-            PKR end on insulation jackets over the bands.
+            Start with the heat source you need. Then stop the leak. Most plants that care about PKR
+            end on insulation jackets over the bands.
           </p>
         </motion.div>
 

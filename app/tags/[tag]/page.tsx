@@ -22,11 +22,7 @@ export async function generateMetadata({
   }
 }
 
-export default async function TagPage({
-  params,
-}: {
-  params: Promise<{ tag: string }>
-}) {
+export default async function TagPage({ params }: { params: Promise<{ tag: string }> }) {
   const { tag } = await params
   const filteredPosts = getProductsByTag(tag)
 

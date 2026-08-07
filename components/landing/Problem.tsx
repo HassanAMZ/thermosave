@@ -57,8 +57,8 @@ export function LandingProblem() {
               If you run plastic machines, this will sound familiar.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-stone-600 md:text-lg">
-              Heat escapes from barrels and dies into the hall. You still pay for that
-              electricity. Output does not go up.
+              Heat escapes from barrels and dies into the hall. You still pay for that electricity.
+              Output does not go up.
             </p>
 
             <ul className="mt-8 space-y-5 border-t border-stone-300 pt-8">

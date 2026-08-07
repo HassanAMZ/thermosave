@@ -8,11 +8,7 @@ import { Menu, Phone } from 'lucide-react'
 
 import { cn } from '@/components/lib/utils'
 import Logo from '@/components/Logo'
-import {
-  PHONE_DISPLAY,
-  PHONE_TEL,
-  WHATSAPP_URL,
-} from '@/components/landing/constants'
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL } from '@/components/landing/constants'
 import { clients } from '@/data/clients'
 import { Button } from '@/components/ui/button'
 import {
@@ -39,7 +35,8 @@ const products: NavItem[] = [
   {
     title: 'Mica Band Heaters',
     href: '/products/mica-band-heaters',
-    description: 'SS-jacketed mica bands with Ni20Cr80 winding — fast heat-up for barrels and nozzles.',
+    description:
+      'SS-jacketed mica bands with Ni20Cr80 winding — fast heat-up for barrels and nozzles.',
     image: '/static/products/cutouts/00001.png',
     imageFit: 'contain',
   },
@@ -280,9 +277,7 @@ export function Navbar() {
                   <ul
                     className={cn(
                       'grid gap-2 p-3 md:w-[540px] md:grid-cols-2',
-                      clientMegaCols >= 3
-                        ? 'lg:w-[860px] lg:grid-cols-3'
-                        : 'lg:w-[640px]'
+                      clientMegaCols >= 3 ? 'lg:w-[860px] lg:grid-cols-3' : 'lg:w-[640px]'
                     )}
                   >
                     <MegaFeature

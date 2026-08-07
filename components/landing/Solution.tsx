@@ -85,8 +85,8 @@ export function LandingSolution() {
               We measure first. Then we fix the loss.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-stone-600 md:text-lg">
-              Jackets and band heaters keep heat in the melt. Your process stays the same. Your
-              bill goes down.
+              Jackets and band heaters keep heat in the melt. Your process stays the same. Your bill
+              goes down.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

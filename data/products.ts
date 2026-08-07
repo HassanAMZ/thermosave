@@ -50,7 +50,11 @@ export const products: Product[] = [
     unit: 'Sq - Inch',
     currency: 'PKR',
     features: ['Made in Pakistan', 'Fast heat-up', 'Custom lengths', 'Nozzle heaters available'],
-    details: { 'Nozzle Heaters': 'All types', Length: 'Custom length', Construction: 'SS jacket, Ni20Cr80 winding' },
+    details: {
+      'Nozzle Heaters': 'All types',
+      Length: 'Custom length',
+      Construction: 'SS jacket, Ni20Cr80 winding',
+    },
     applications: [
       'Injection Molding',
       'Blow Molding',
@@ -293,9 +297,7 @@ function dateSortDesc(a: string, b: string) {
 /** Published products for catalog / landing / tags (ladder order, then newest). */
 export function getPublishedProducts(): Product[] {
   const published = products.filter((product) => !product.draft)
-  const orderIndex = new Map(
-    PUBLISHED_PRODUCT_ORDER.map((slug, index) => [slug, index] as const)
-  )
+  const orderIndex = new Map(PUBLISHED_PRODUCT_ORDER.map((slug, index) => [slug, index] as const))
 
   return published.sort((a, b) => {
     const ai = orderIndex.get(a.slug as (typeof PUBLISHED_PRODUCT_ORDER)[number])

@@ -1,12 +1,7 @@
 import { getPublishedProducts } from '@/data/products'
 import { PageSEO } from '@/components/SEO'
 import { StickyContact, LandingFinalCTA, LandingProof } from '@/components/landing'
-import {
-  CollectionHero,
-  ProductChooser,
-  ProductGrid,
-  CollectionFAQ,
-} from '@/components/products'
+import { CollectionHero, ProductChooser, ProductGrid, CollectionFAQ } from '@/components/products'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {

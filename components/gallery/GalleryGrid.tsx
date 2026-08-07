@@ -41,11 +41,7 @@ export function GalleryGrid({ tiles }: GalleryGridProps) {
           </p>
         </motion.div>
 
-        <div
-          className="mt-8 flex flex-wrap gap-2"
-          role="tablist"
-          aria-label="Gallery filters"
-        >
+        <div className="mt-8 flex flex-wrap gap-2" role="tablist" aria-label="Gallery filters">
           {GALLERY_CHIPS.map((item) => {
             const active = chip === item.id
             return (
@@ -115,10 +111,7 @@ export function GalleryGrid({ tiles }: GalleryGridProps) {
                       </span>
                     </>
                   ) : tile.href ? (
-                    <Link
-                      href={tile.href}
-                      className="transition-colors hover:text-[#c45c1a]"
-                    >
+                    <Link href={tile.href} className="transition-colors hover:text-[#c45c1a]">
                       {tile.caption}
                     </Link>
                   ) : (
