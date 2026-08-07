@@ -99,6 +99,7 @@ export function Navbar() {
   // Transparent over dark heroes; solid on light interiors (e.g. product PDPs) or when scrolled.
   const hasDarkHero =
     pathname === '/' ||
+    pathname === '/contact' ||
     pathname === '/products' ||
     pathname === '/industries' ||
     pathname.startsWith('/industries/') ||

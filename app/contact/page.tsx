@@ -1,15 +1,20 @@
-import AuthorLayout from '@/layouts/AuthorLayout'
 import type { Metadata } from 'next'
+import { ContactHero, ContactBody } from '@/components/contact'
+import { LandingProof, StickyContact } from '@/components/landing'
 
 export const metadata: Metadata = {
-  title: 'Contact',
-  description: 'Contact ThermoSave',
+  title: 'Contact — Free Energy Loss Assessment',
+  description:
+    'Book a free ThermoSave energy-loss assessment for your plastic plant in Pakistan. Call, WhatsApp, or send plant details — heaters and insulation jackets sized to your machines.',
 }
 
 export default function ContactPage() {
   return (
-    <div className="container mx-auto max-w-7xl">
-      <AuthorLayout frontMatter={{ name: 'Thermosave' }} />
+    <div>
+      <ContactHero />
+      <ContactBody />
+      <LandingProof />
+      <StickyContact />
     </div>
   )
 }

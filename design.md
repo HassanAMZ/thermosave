@@ -90,10 +90,11 @@ Every marketing surface should resolve this sequence:
 |------|-------------|-----|
 | Awareness / industry | `/industries`, `/industries/[slug]` | “This is *my* machine / process” |
 | Social proof / clientele | `/clients`, `/clients/[slug]` | “Plants like mine already run this” |
+| Proof dump / gallery | `/image-gallery` | Wall of plant Mux + photos (likelihood) |
 | Product tools | `/products`, `/products/[slug]` | Choose mica / ceramic / jackets |
 | Commitment | `/contact` | Assessment conversation |
 
-Industry pages **hook by process**; clientele pages **prove with named plants**; product pages **sell the tool**; contact **closes**. Cross-link both ways.
+Industry pages **hook by process**; clientele pages **prove with named plants**; gallery **dumps plant media**; product pages **sell the tool**; contact **closes**. Cross-link both ways.
 
 ### How this maps to our section order
 
@@ -324,6 +325,7 @@ Reference: `components/landing/*`
 - Prefer `--ts-surface` / white section rhythm  
 - Lead with outcome or clear technical title; keep contact paths obvious  
 - Reuse product benefit lines from landing where possible  
+- Gallery (`/image-gallery`) is a **proof dump** with soft filters — see Gallery template below  
 
 ### Products collection (`/products`)
 
@@ -408,6 +410,20 @@ Job: raise **perceived likelihood** (Hormozi) with named factories and plant vid
 
 Wire Mux **Playback** IDs in `data/clients.ts`. Prefer plant stills under `/public/static/clients/[slug]/` when available; Mux thumbnail URLs (`image.mux.com`) are fine as interim covers.
 
+### Gallery (`/image-gallery`)
+
+Hormozi **perceived likelihood** page — not a product taxonomy. Soft filters only (`All` · `Video` · `Plants` · `Process`); no hard SKU/city folders.
+
+Order via `components/gallery/*` + `data/gallery.ts`:
+
+1. Dark GalleryHero (brand + “plant proof” H1 + Assessment / Call + TrustBar)  
+2. GalleryGrid — soft filter chips + **one uniform 4:3 tile grid** (Mux videos + plant stills; videos are grid cells)  
+3. GalleryOffer + CTAs  
+4. LandingProof  
+5. FinalCTA + StickyContact  
+
+Aggregate from `data/industries.ts` + `data/clients.ts` (+ verified Mux depot extras). Deduplicate by playback ID / image `src`. **Exclude** product cutouts — those stay on PDPs. Caption links to `/clients/[slug]` or `/industries/[slug]` when sourced.
+
 ### Visual-first section pattern
 
 ```
@@ -467,6 +483,8 @@ Product photography on light tiles; hero/final CTA stay atmospheric dark. Indust
 | Industry copy + Mux IDs | `data/industries.ts` |
 | Clientele / case study UI | `components/clients/` |
 | Client case copy + Mux IDs | `data/clients.ts` |
+| Gallery UI | `components/gallery/` |
+| Gallery tile aggregator | `data/gallery.ts` |
 | Contact/stats constants | `components/landing/constants.ts` |
 | Global nav | `components/ui/navbar-1.tsx` |
 | Fonts | `app/layout.tsx` |
