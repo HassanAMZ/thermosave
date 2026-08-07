@@ -30,5 +30,6 @@ When adding or rewriting an **industry / process page**, **do research online** 
 3. Translate findings into short, plant-language copy and **callout stats** — never paste long research prose into the page.
 4. Keep Pakistan buyer preference: **story splits with plant photos after hero, then Mux + gallery dump**; ≤ ~2 sentences per story section (`design.md` §1 / §1b). Videos share the gallery tile grid.
 5. Wire Mux **Playback** IDs (not Asset IDs) in `data/industries.ts`; add the route under `app/industries/[slug]/` and nav/footer links.
+6. **Plain English** (`design.md` §1d): ~5th-grade reading level; no em dashes; no AI-slop words (*leverage, seamless, unlock…*). Hormozi/Brunson frameworks stay — the *words* stay simple for Pakistan plant buyers.
 
 If research contradicts an existing number on the site, flag it and align with measured ThermoSave client proof where we have it.

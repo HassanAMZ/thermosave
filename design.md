@@ -31,6 +31,7 @@ Many decision-makers skim on phone and trust **what they can see on a real machi
 - Use plant language: injection molding, barrel heaters, extruders, watt density, downtime  
 - Agitate with numbers, not fear language — pull stats into **callout tiles**, not walls of text  
 - On industry / process pages: **≤ ~2 short sentences** per story section; image or video does the explaining  
+- **Write at ~5th-grade English** (see §1d) — simple words convert; fancy AI prose does not  
 - No fake scarcity (“Only 3 spots left!”)  
 - Don’t gate basic product info behind forms  
 - Phone + WhatsApp must stay visible (especially mobile)
@@ -39,7 +40,7 @@ Many decision-makers skim on phone and trust **what they can see on a real machi
 
 ## 1b. Conversion Ideology (Hormozi × Brunson)
 
-Use these frameworks whenever writing landing, product, or **industry** pages. Adapt the language to engineer-to-engineer tone — never hypey “guru” voice.
+Use these frameworks whenever writing landing, product, or **industry** pages. Adapt the language to engineer-to-engineer tone — never hypey “guru” voice. Keep the *ideas* from Hormozi/Brunson; say them in **simple English** (§1d).
 
 ### Alex Hormozi — value & offer
 
@@ -119,6 +120,44 @@ Industry pages **hook by process**; clientele pages **prove with named plants**;
 | Phone tel | `+923340250893` |
 | WhatsApp | `https://wa.me/923340250893` |
 | Email | `thermosavenasir@gmail.com` |
+
+---
+
+## 1d. Plain English (anti–AI-slop)
+
+**Why this exists:** Alex Hormozi and Russell Brunson both push the same rule — **simple English sells**. If a fifth-grader can get the point, a busy factory owner will too. Fancy words feel smart to the writer and slow to the buyer.
+
+**Why it matters for ThermoSave (Pakistan):**  
+Our buyer is a plant owner / GM / maintenance lead. Many are strong on machines and weak on long English marketing. They skim on a phone between shifts. Complex sentences, “literary” punctuation, and AI-sounding vocabulary make them bounce — not because the offer is wrong, but because the copy feels hard or fake.
+
+**Target:** Headlines and body marketing copy at about a **grade 5 reading level**. Short words. Short sentences. One idea per sentence. Plant terms they already use (extruder, barrel, heater band) are fine — those are *their* words, not jargon for show.
+
+### Hard rules for agents
+
+1. **No em dashes (`—`)** in customer-facing copy. Classic AI tell. Use a period, comma, or rewrite as two short sentences. (Hyphens in compound words like `heat-loss` are fine.)  
+2. **No AI-slop vocabulary.** Ban or replace: *delve, leverage, utilize, seamless, robust, cutting-edge, transformative, unlock, elevate, streamline, empower, holistic, paradigm, journey, tapestry, landscape* (of X), *in today’s fast-paced…*, *it’s important to note*, *when it comes to*.  
+3. **Prefer small words.** Say *use* not *utilize*, *help* not *facilitate*, *cut waste* not *optimize thermal efficiency*, *keep heat in* not *mitigate radiative losses*.  
+4. **Short beats long.** Aim ≤ ~15–20 words per sentence on marketing surfaces. If you need a second thought, start a new sentence.  
+5. **Sound like a plant visit, not a blog.** Talk how you’d talk on the shop floor with the owner — clear, direct, numbers first.  
+6. **Engineer-to-engineer ≠ academic.** We respect the buyer’s skill. We do **not** write like a white paper abstract.
+
+### Bad → good
+
+| Avoid (AI / hard English) | Prefer (plain / plant) |
+|---------------------------|-------------------------|
+| “Our jackets mitigate heat loss — unlocking measurable kWh savings.” | “Jackets keep heat in the barrel. You use less power.” |
+| “Seamlessly elevate operational efficiency across your extrusion landscape.” | “Extruders run cooler on the outside. Bills go down.” |
+| “A comprehensive solution designed to optimize thermal performance.” | “Custom jackets sized to your machine. Less wasted heat.” |
+| “In today’s energy-conscious manufacturing environment…” | (Delete. Start with the machine or the number.) |
+
+### Quick self-check before shipping copy
+
+- Would a plant supervisor who learned English at work understand this on first read?  
+- Can I say the same thing in fewer, smaller words?  
+- Did I use an em dash or a banned “smart” word? Fix it.  
+- Is a photo or number doing more work than this paragraph? If yes, cut the paragraph.
+
+Also enforce in `.cursor/rules/thermosave-design.mdc` and `AGENTS.md`.
 
 ---
 
@@ -558,6 +597,7 @@ Product photography on light tiles; hero/final CTA stay atmospheric dark. Indust
 - Keep desktop nav, `mobileLinks`, and Footer IA in sync when adding top-level pages  
 - Alternate dark / light section rhythm  
 - Offer Call + WhatsApp + assessment form path  
+- Write ~5th-grade English; short sentences; plant words they already use  
 
 **Don’t**
 
@@ -568,6 +608,7 @@ Product photography on light tiles; hero/final CTA stay atmospheric dark. Indust
 - Purple SaaS gradients or Inter-by-default  
 - Fake urgency / squeeze pages for pricing  
 - Emotional “bleeding money!!” copy  
+- AI-slop English: em dashes (`—`), “leverage / seamless / unlock / elevate,” long fancy sentences  
 - Heavy card grids in the hero  
 - Hide the phone number  
 
@@ -582,4 +623,4 @@ When you ship a new pattern that should become standard:
 3. Prefer extracting a shared component under `components/landing/` or `components/ui/`  
 4. Keep this file and the Cursor rule in sync  
 
-Last aligned with: homepage PAS funnel + products/industry conversion pages + Hormozi×Brunson ideology + hoppers industry + agent online-research rule (2026).
+Last aligned with: homepage PAS funnel + products/industry conversion pages + Hormozi×Brunson ideology + plain-English / anti-AI-slop rule (§1d) + hoppers industry + agent online-research rule (2026).
