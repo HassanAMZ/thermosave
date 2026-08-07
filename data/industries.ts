@@ -1,5 +1,6 @@
 /**
  * Industry pages — Hook by process (Brunson) + Hormozi value stack.
+ * Visual-first for Pakistan plant buyers: media before long copy.
  * Product tools stay in `data/products.ts` / `data/productMarketing.ts`.
  */
 
@@ -20,6 +21,11 @@ export type IndustryPhoto = {
   caption: string
 }
 
+export type IndustryStat = {
+  value: string
+  label: string
+}
+
 export type IndustryRelatedProduct = {
   slug: string
   label: string
@@ -37,18 +43,24 @@ export type Industry = {
   headline: string
   subhead: string
   problemTitle: string
+  /** Keep to ~2 short sentences — image carries the story */
   problem: string
+  problemImage: IndustryPhoto
   agitateTitle: string
   agitate: string
+  agitateImage: IndustryPhoto
+  agitateStats: IndustryStat[]
   mechanismTitle: string
   mechanism: string
+  mechanismImage: IndustryPhoto
   mediaTitle: string
   mediaSubhead: string
   offerTitle: string
   offerBullets: string[]
   relatedProducts: IndustryRelatedProduct[]
   videos: IndustryVideo[]
-  photos: IndustryPhoto[]
+  /** Extra gallery stills (not used in story split layouts) */
+  gallery: IndustryPhoto[]
   faqs: IndustryFaq[]
 }
 
@@ -68,25 +80,45 @@ export const industries: Industry[] = [
     headline: 'Stop heating the hall on your extrusion blow moulding line.',
     subhead:
       'Custom-fit ThermoSave jackets wrap the extruder barrel and head so process heat stays in the melt — not on your operators and your electricity bill.',
-    problemTitle: 'Open bands on a continuous extruder throw heat all shift.',
+    problemTitle: 'Open bands throw heat all shift.',
     problem:
-      'Extrusion blow moulding runs barrel and die-head zones hot for hours. Uninsulated mica or ceramic bands radiate a large share of that energy into the room. Controllers compensate by cycling heaters harder. You still pay for every kilowatt that never reached the parison — and the hall stays hotter than it needs to be.',
-    agitateTitle: 'On EBM, wasted heat is a line item — not a side effect.',
+      'EBM barrels and die heads stay hot for hours. Uninsulated bands radiate into the hall — you pay for heat that never reaches the melt.',
+    problemImage: {
+      src: `${IMG}/bare-barrel.jpg`,
+      alt: 'Extruder barrel and die head before insulation jackets',
+      caption: 'Bare heated zones — heat leaving the machine',
+    },
+    agitateTitle: 'Wasted heat is a PKR line item.',
     agitate:
-      'Unlike short injection cycles, EBM barrels and heads often hold setpoint continuously. Industry jackets on plasticizing systems commonly cut zone heating energy on the order of 20–40%, with large drops in radiant loss from the barrel surface. Catalog results for ThermoSave jackets reach up to ~40% energy cost savings and ~70% less heat loss on the insulated zone; measured plant examples elsewhere include ~30k PKR/month on five machines and 200k+ PKR/month across eight. Cooler surfaces also reduce burn risk and heat load on nearby controls and hydraulics. Payback is usually months, not years — we model your zones in a free assessment.',
-    mechanismTitle: 'Jackets on barrel + head — heat stays where the melt is.',
+      'Continuous plasticizing means every open zone burns kWh all day. Jackets cut that loss — payback is usually months.',
+    agitateImage: {
+      src: `${IMG}/barrel-partial.jpg`,
+      alt: 'Insulated barrel zones next to exposed heater bands on an extruder',
+      caption: 'Insulated vs open bands on the same barrel',
+    },
+    agitateStats: [
+      { value: '20–40%', label: 'Typical cut in zone heating energy' },
+      { value: '~70%', label: 'Less heat loss on insulated zone' },
+      { value: '30k+', label: 'PKR / month — Paragon (5 machines)' },
+      { value: '200k+', label: 'PKR / month — Al Khair (8 machines)' },
+    ],
+    mechanismTitle: 'Jackets on barrel + head.',
     mechanism:
-      'We size removable, high-temperature cloth jackets to your barrel diameters, zone lengths, and die-head geometry. Straps and buckles let maintenance pull jackets for band or thermocouple work without destroying the insulation package. Heat stays toward the melt; bands cycle less aggressively to hold setpoint; ambient near the machine drops. Pair with correctly sized mica or ceramic bands when zones need replacement — jackets deliver the largest cut in radiant loss either way.',
-    mediaTitle: 'On real extrusion blow moulding machines.',
-    mediaSubhead:
-      'Plant video and install photos from ThermoSave jackets on EBM barrels and heads — not stock.',
-    offerTitle: 'What you get for an EBM line assessment',
+      'Custom removable jackets sized to your diameters and die head. Straps come off for maintenance. Heat stays in the melt; the hall runs cooler.',
+    mechanismImage: {
+      src: `${IMG}/head-jackets.jpg`,
+      alt: 'ThermoSave jackets wrapped around extruder barrel and die head',
+      caption: 'Barrel and die-head coverage on an EBM line',
+    },
+    mediaTitle: 'See it on a real EBM line.',
+    mediaSubhead: 'Plant video and photos — ThermoSave jackets in Pakistan, not stock.',
+    offerTitle: 'What you get for an EBM assessment',
     offerBullets: [
-      'Free energy-loss assessment sized to your extruder barrel and die-head zones',
-      'Custom-fit removable jackets — high-temp cloth systems built for continuous plasticizing heat',
-      'Burn protection and cooler ambient near the machine',
-      'Optional pairing with mica or ceramic band heaters when zones need replacement',
-      'Typical custom lead time 7–10 business days — Call or WhatsApp to start',
+      'Free energy-loss assessment for barrel + die-head zones',
+      'Custom-fit removable jackets for continuous plasticizing heat',
+      'Safer touch surfaces and cooler ambient near the machine',
+      'Optional mica or ceramic bands when zones need replacement',
+      'Typical lead time 7–10 business days — Call or WhatsApp',
     ],
     relatedProducts: [
       {
@@ -108,67 +140,52 @@ export const industries: Industry[] = [
     videos: [
       {
         playbackId: 'auTfUAUZIb6K2DM8jXCwBdWgspDwn8z7wuf004tmN3lY',
-        title: 'Extrusion blow moulding — jackets on barrel & head',
+        title: 'Jackets on barrel & head',
         durationLabel: '0:57',
       },
       {
         playbackId: 'ZVACQot3E02ybvu4gv47AI4j9TglqQjPNzh6MKxHLvEM',
-        title: 'Extrusion blow moulding — plant walkthrough',
+        title: 'Plant walkthrough',
         durationLabel: '0:35',
       },
       {
         playbackId: 'qVcJahoLES00aG9ghmIowcOpAucVL57HhRbkH00WTUcbM',
-        title: 'Extrusion blow moulding — close-up install',
+        title: 'Close-up install',
         durationLabel: '0:18',
       },
     ],
-    photos: [
+    gallery: [
       {
         src: `${IMG}/machine-full.jpg`,
         alt: 'Extrusion blow moulding machine with ThermoSave insulation jackets on the barrel',
-        caption: 'Full line — jackets on the extruder barrel zones',
-      },
-      {
-        src: `${IMG}/head-jackets.jpg`,
-        alt: 'ThermoSave jackets wrapped around extruder barrel and die head',
-        caption: 'Barrel and die-head coverage',
-      },
-      {
-        src: `${IMG}/barrel-partial.jpg`,
-        alt: 'Insulated barrel zones next to exposed heater bands on an extruder',
-        caption: 'Insulated vs open heater bands on the same barrel',
+        caption: 'Full line — jackets on barrel zones',
       },
       {
         src: `${IMG}/install.jpg`,
         alt: 'Technician fitting ThermoSave thermal jackets on blow moulding equipment',
         caption: 'Install on an active EBM line',
       },
-      {
-        src: `${IMG}/bare-barrel.jpg`,
-        alt: 'Extruder barrel and die head before insulation jackets',
-        caption: 'Bare heated zones — where jackets go',
-      },
     ],
     faqs: [
       {
         q: 'Where do jackets go on an extrusion blow moulding machine?',
-        a: 'Typically along heated extruder barrel zones and around the die / head assembly where surface temperatures are high and radiant loss is continuous. We size to your diameters, zone lengths, and clearances after a short assessment.',
+        a: 'Along heated extruder barrel zones and around the die / head. We size to your diameters and clearances after a short assessment.',
       },
       {
-        q: 'Will jackets interfere with maintenance or thermocouples?',
-        a: 'No. Jackets are removable with straps and buckles so your team can access bands and sensors without cutting insulation away. Lead wires are routed as part of the fit.',
+        q: 'Will jackets interfere with maintenance?',
+        a: 'No. Removable straps and buckles — pull jackets for bands and sensors without destroying the insulation.',
       },
       {
         q: 'Do we need new heater bands first?',
-        a: 'Not always. Jackets cut radiant loss over existing bands. If zones are failing or undersized, we can size mica or ceramic replacements at the same time — many plants run both.',
+        a: 'Not always. Jackets work over existing bands. We can size mica or ceramic replacements at the same time if zones are failing.',
       },
       {
         q: 'How fast is payback on EBM?',
-        a: 'Continuous plasticizing heat means wasted kWh adds up every shift. Plants we work with typically see payback from electricity savings within months. We estimate your case from zone kW, hours, and tariff in the free assessment.',
+        a: 'Usually months from electricity savings. We estimate from your zone kW, hours, and tariff in the free assessment.',
       },
       {
         q: 'Can you cover our plant outside Lahore / Rawalpindi?',
-        a: 'Yes. We already support plastic plants across 15 cities in Pakistan. Call or WhatsApp and we will tell you honestly how we can cover you.',
+        a: 'Yes — we support plants across 15 cities in Pakistan. Call or WhatsApp and we will tell you how we can cover you.',
       },
     ],
   },

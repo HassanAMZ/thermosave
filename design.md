@@ -15,6 +15,9 @@ Not heaters. We sell *stopping electricity waste thrown away as heat* for plasti
 **Buyer:** Factory owner / GM / maintenance engineer in Pakistan.  
 Trust and numbers beat hype. CTA is always a conversation (assessment, call, WhatsApp) — never fake checkout urgency.
 
+**Audience media preference (Pakistan plant buyers):**  
+Many decision-makers skim on phone and trust **what they can see on a real machine** more than long English paragraphs. Prefer plant **video + photos first**, then short captions and headlines. Save dense technical prose for FAQ / assessment follow-up — not for the middle of the scroll.
+
 **Funnel tone (PAS for industrial B2B):**
 
 1. I didn’t know I had this problem  
@@ -26,7 +29,8 @@ Trust and numbers beat hype. CTA is always a conversation (assessment, call, Wha
 
 - Confident, factual, slightly understated — engineer to engineer  
 - Use plant language: injection molding, barrel heaters, extruders, watt density, downtime  
-- Agitate with numbers, not fear language  
+- Agitate with numbers, not fear language — pull stats into **callout tiles**, not walls of text  
+- On industry / process pages: **≤ ~2 short sentences** per story section; image or video does the explaining  
 - No fake scarcity (“Only 3 spots left!”)  
 - Don’t gate basic product info behind forms  
 - Phone + WhatsApp must stay visible (especially mobile)
@@ -84,10 +88,10 @@ Industry pages **hook by process**; product pages **sell the tool**; contact **c
 | Brunson / Hormozi | Our section |
 |-------------------|-------------|
 | Hook | Dark hero: brand + outcome H1 + CTA + dominant plant visual |
-| Story — problem | Light “Problem” |
-| Story — agitate | Dark “Agitate” with PKR / kWh |
-| Epiphany / mechanism | White “How it works” |
-| Proof / likelihood | Photos, Mux videos, LandingProof |
+| Proof first (PK audience) | Mux videos + plant photos immediately after hero on industry pages |
+| Story — problem | Split: plant photo + short headline/copy |
+| Story — agitate | Split: photo + short copy + **stat tiles** (PKR / %) |
+| Epiphany / mechanism | Split: install photo + short how-it-works + CTAs |
 | Grand Slam Offer | Offer bullets + CTAs |
 | Objection kill | FAQ |
 | Close | FinalCTA + StickyContact |
@@ -278,7 +282,7 @@ Nav is part of the **industrial dark chrome**, not a white strip floating above 
 | Primary nav CTA | Heat fill (“Get Assessment”), not default blue |
 | Mobile sheet | Dark ink panel, light text, heat CTA |
 
-Interior pages that open with a light background still use the solid dark nav (brand chrome). Only the homepage hero pulls content under a transparent bar.
+Interior pages that open with a light background still use the solid dark nav (brand chrome). Homepage and industry detail heroes may pull content under a transparent bar.
 
 Logo + wordmark stay readable on dark. Do not reintroduce a solid white header on marketing pages.
 
@@ -352,17 +356,27 @@ Job: route buyers who think in **machine / process** language (extrusion blow mo
 
 ### Industry page (`/industries/[slug]`)
 
-Order (Hormozi value + Brunson Hook/Story/Offer, PAS body):
+**Visual-first order** (Pakistan: watch/see before read):
 
-1. IndustryHero — full-bleed plant photo/video, brand, outcome H1, Assessment / Call / WhatsApp, TrustBar  
-2. Problem → Agitate → Mechanism (process-specific copy)  
-3. Plant media — Mux videos + application photo grid (real installs)  
-4. Offer stack + CTAs + linked products (jackets / heaters)  
+1. IndustryHero — full-bleed plant photo, brand, outcome H1, Assessment / Call / WhatsApp, TrustBar  
+2. **IndustryMedia first** — Mux plant videos (featured large + supporting clips) + photo strip  
+3. Problem / Agitate / Mechanism as **split layouts**: real plant photo (≈ half width) + short headline + ≤2 sentences (+ stat tiles on Agitate)  
+4. Offer stack + CTAs + linked products  
 5. LandingProof  
-6. Industry FAQ  
+6. Industry FAQ (ok to be text-heavy — optional reading)  
 7. FinalCTA + StickyContact  
 
-Conversion copy + Mux playback IDs live in `data/industries.ts`. Prefer Mux for plant video; keep local MP4 only for generic homepage atmosphere if needed.
+Do **not** stack three text-only PAS sections before any media. Conversion copy + Mux IDs + story images live in `data/industries.ts`.
+
+### Visual-first section pattern
+
+```
+[ Photo or Mux video — dominant ]
+[ Eyebrow + short H2 + 1–2 sentences ]
+[ Optional: stat tiles / CTAs ]
+```
+
+On mobile: image/video above copy. Never a full-width text block with no adjacent media on industry story sections.
 
 ---
 
@@ -378,6 +392,14 @@ Conversion copy + Mux playback IDs live in `data/industries.ts`. Prefer Mux for 
 | Logo | `/static/images/logo.png` |
 
 Product photography on light tiles; hero/final CTA stay atmospheric dark. Industry pages lead with **real plant** stills and Mux clips — not stock.
+
+**Industry media rules**
+
+- Put Mux / photo proof **immediately after the hero** when plant footage exists  
+- Story sections (problem / agitate / mechanism) always pair with a dedicated plant still  
+- Prefer short captions under images over long body paragraphs  
+- Stat tiles > multi-sentence agitate blocks  
+- Homepage may keep shorter text PAS (shared pattern); industry pages are stricter about visual density
 
 ---
 
@@ -414,6 +436,7 @@ Product photography on light tiles; hero/final CTA stay atmospheric dark. Indust
 **Do**
 
 - Lead with outcomes and measured savings  
+- Lead industry pages with video/photos; keep story copy short  
 - Use Archivo + IBM Plex Sans  
 - Use heat `#c45c1a` for primary actions  
 - Keep nav dark and integrated with heroes  
@@ -422,6 +445,7 @@ Product photography on light tiles; hero/final CTA stay atmospheric dark. Indust
 
 **Don’t**
 
+- Stack text-only Problem → Agitate → Mechanism before plant media on industry pages  
 - White opaque navbar over dark hero  
 - Purple SaaS gradients or Inter-by-default  
 - Fake urgency / squeeze pages for pricing  
