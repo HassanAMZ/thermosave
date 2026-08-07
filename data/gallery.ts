@@ -50,7 +50,7 @@ const galleryExtras: GalleryVideoTile[] = [
     kind: 'video',
     id: 'extra-al-khair-foam-lhr-2',
     playbackId: 'cvzFaxncAbU7b5x4uRj3Oz00uDNFkLpLTZGYXYmxrrTY',
-    title: 'Al Khair Five Star Foam LHR — plant clip',
+    title: 'Al Khair Five Star Foam LHR. Plant clip',
     durationLabel: '1:15',
     source: 'plants',
   },
@@ -60,11 +60,11 @@ function tileKey(tile: GalleryTile): string {
   return tile.kind === 'video' ? `v:${tile.playbackId}` : `p:${tile.src}`
 }
 
-/** Videos first, then photos — stable within each group */
+/** Photos first (instant plant proof), then videos — stable within each group */
 function sortTiles(tiles: GalleryTile[]): GalleryTile[] {
   return [...tiles].sort((a, b) => {
     if (a.kind === b.kind) return 0
-    return a.kind === 'video' ? -1 : 1
+    return a.kind === 'photo' ? -1 : 1
   })
 }
 

@@ -161,7 +161,7 @@ export const industries: Industry[] = [
       {
         src: `${EBM_IMG}/machine-full.jpg`,
         alt: 'Extrusion blow moulding machine with ThermoSave insulation jackets on the barrel',
-        caption: 'Full line — jackets on barrel zones',
+        caption: 'Full line. Jackets on barrel zones',
       },
       {
         src: `${EBM_IMG}/install.jpg`,
@@ -273,22 +273,22 @@ export const industries: Industry[] = [
       {
         src: `${EXT_IMG}/gallery-barrel.jpg`,
         alt: 'Long extruder barrel wrapped in quilted ThermoSave insulation jackets',
-        caption: 'Full barrel run — jackets along heating zones',
+        caption: 'Full barrel run. Jackets along heating zones',
       },
       {
         src: `${EXT_IMG}/gallery-feed.jpg`,
         alt: 'Extruder barrel with ThermoSave jackets and feed chute with recycled material',
-        caption: 'Feed section — jackets stay on during production',
+        caption: 'Feed section. Jackets stay on during production',
       },
       {
         src: `${EXT_IMG}/gallery-hopper.jpg`,
         alt: 'Extrusion line with hopper, ThermoSave jackets, and plant floor view',
-        caption: 'Hopper to die — continuous line coverage',
+        caption: 'Hopper to die. Continuous line coverage',
       },
       {
         src: `${EXT_IMG}/gallery-gauges.jpg`,
         alt: 'Extruder with insulation jackets, pressure gauges, and orange control cabinet',
-        caption: 'Plant floor — jackets beside controls and gauges',
+        caption: 'Plant floor. Jackets beside controls and gauges',
       },
     ],
     faqs: [
@@ -399,7 +399,7 @@ export const industries: Industry[] = [
       {
         src: `${HOP_IMG}/gallery-dryer.jpg`,
         alt: 'Plastic hopper dryer in a Pakistan plastics plant',
-        caption: 'Hopper dryer — shell heat is the target',
+        caption: 'Hopper dryer. Shell heat is the target',
       },
       {
         src: `${HOP_IMG}/gallery-plant-hopper.jpg`,

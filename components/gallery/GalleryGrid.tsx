@@ -37,7 +37,7 @@ export function GalleryGrid({ tiles }: GalleryGridProps) {
             Video and photos from the floor.
           </h2>
           <p className="mt-3 text-base leading-relaxed text-stone-600 md:text-lg">
-            One dump — process lines and named plants. Filter if you want; scroll if you don’t.
+            Process lines and named plants in one place. Filter if you want. Or just scroll.
           </p>
         </motion.div>
 

@@ -6,9 +6,9 @@ import { ProductCtas } from '@/components/products/ProductCtas'
 
 const OFFER_BULLETS = [
   'Custom removable insulation jackets sized to barrels, die heads, or hoppers',
-  'Free energy-loss assessment — Call / WhatsApp, no fake checkout',
-  'Made-in-Japan materials; install guidance so jackets come off for maintenance',
-  'Named plant proof on this page — measured PKR only when we have meter data',
+  'Free energy-loss assessment. Call or WhatsApp. No fake checkout.',
+  'Made in Pakistan. Install guidance so jackets come off for maintenance.',
+  'Named plant proof on this page. Measured PKR only when we have meter data.',
 ]
 
 export function GalleryOffer() {
@@ -27,7 +27,7 @@ export function GalleryOffer() {
             Same jackets. Same path for your floor.
           </h2>
           <p className="mt-3 text-base leading-relaxed text-stone-600 md:text-lg">
-            You saw the machines. Next step is a free assessment — we size jackets to your line.
+            You saw the machines. Next step is a free assessment. We size jackets to your line.
           </p>
           <ul className="mt-8 space-y-4">
             {OFFER_BULLETS.map((bullet) => (

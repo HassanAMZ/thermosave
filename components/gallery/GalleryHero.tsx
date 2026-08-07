@@ -35,10 +35,10 @@ export function GalleryHero() {
             ThermoSave
           </p>
           <h1 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl lg:text-[3.25rem]">
-            Plant proof — jackets on real machines.
+            Plant proof. Jackets on real machines.
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-stone-300 md:text-lg">
-            Floor video and photos from Pakistan plants. Soft filters only — no catalog folders.
+            Floor video and photos from Pakistan plants. Filter by video, plants, or process.
             See it, then book the same assessment.
           </p>
 
@@ -58,7 +58,7 @@ export function GalleryHero() {
             >
               <a href={`tel:${PHONE_TEL}`}>
                 <Phone className="h-4 w-4" />
-                Call Now — {PHONE_DISPLAY}
+                Call {PHONE_DISPLAY}
               </a>
             </Button>
           </div>

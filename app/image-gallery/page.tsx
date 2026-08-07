@@ -4,9 +4,9 @@ import { GalleryHero, GalleryGrid, GalleryOffer } from '@/components/gallery'
 import { LandingFinalCTA, LandingProof, StickyContact } from '@/components/landing'
 
 export const metadata: Metadata = {
-  title: 'Plant Gallery — Jackets on Real Machines | ThermoSave',
+  title: 'Plant Gallery. Jackets on Real Machines | ThermoSave',
   description:
-    'Plant video and photos from ThermoSave installs across Pakistan — extrusion lines, hoppers, named factories. Free energy-loss assessment.',
+    'Plant video and photos from ThermoSave installs across Pakistan. Extrusion lines, hoppers, named factories. Free energy-loss assessment.',
 }
 
 export default function ImageGalleryPage() {
