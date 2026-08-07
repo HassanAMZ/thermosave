@@ -8,37 +8,37 @@ import { ArrowUpRight, ClipboardCheck, LineChart, ShieldCheck } from 'lucide-rea
 const steps = [
   {
     icon: ClipboardCheck,
-    title: 'Analyze the Root Cause',
-    body: 'We walk the floor, inspect barrel heaters and insulation, and quantify where heat — and rupees — are escaping.',
+    title: 'Find the heat leak',
+    body: 'We walk the floor. We check barrel heaters and insulation. We show where heat and rupees escape.',
   },
   {
     icon: ShieldCheck,
-    title: 'Resolve the Heat Loss',
-    body: 'Fit the right mica or ceramic band heaters and removable thermal jackets sized to your machines — not a one-size catalog dump.',
+    title: 'Fix it with the right parts',
+    body: 'We fit mica or ceramic band heaters and removable jackets sized to your machines. Not a one-size catalog dump.',
   },
   {
     icon: LineChart,
-    title: 'Monitor & Improve',
-    body: 'Confirm savings with your team, tune coverage, and keep performance stable over the long run.',
+    title: 'Check the savings',
+    body: 'We confirm savings with your team. We tune coverage so the fix stays solid.',
   },
 ]
 
 const tools = [
   {
     title: 'Mica Band Heaters',
-    benefit: 'Precision heating — less impair, faster heat-up on barrels and nozzles.',
+    benefit: 'Heat barrels and nozzles fast. Tight fit. Less waste.',
     href: '/products/mica-band-heaters',
     image: '/static/products/00001.png',
   },
   {
     title: 'Ceramic Band Heaters',
-    benefit: 'Up to 1600°F, high watt density, Made in Japan construction.',
+    benefit: 'High heat up to 1600°F. Made in Japan. Built for hard-running zones.',
     href: '/products/ceramic-band-heater',
     image: '/static/products/00002.png',
   },
   {
     title: 'Thermal Insulation Jackets',
-    benefit: 'Removable, self-extinguishing jackets — up to 2000°C rated cloth systems.',
+    benefit: 'Jackets you can take off. Keep heat in the barrel, not the hall.',
     href: '/products/thermal-insolations',
     image: '/static/products/00003.jpeg',
   },
@@ -59,11 +59,10 @@ export function LandingSolution() {
             How ThermoSave works
           </p>
           <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">
-            A process — not a one-time parts drop.
+            We measure first. Then we fix the loss.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-stone-600">
-            We partner with plastic manufacturers the way a plant engineer would: measure first,
-            fix the loss, then prove the result.
+            We work like a plant engineer. Check the floor. Fix the heat leak. Show you the result.
           </p>
         </motion.div>
 

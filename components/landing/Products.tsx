@@ -33,7 +33,7 @@ export function LandingProducts({ products }: LandingProductsProps) {
               Products
             </p>
             <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">
-              Specs live on the product pages — here&apos;s what matters first.
+              See what each product does. Full specs are on the product pages.
             </h2>
           </div>
           <Button asChild variant="outline" className="rounded-sm border-stone-300">
@@ -74,7 +74,7 @@ export function LandingProducts({ products }: LandingProductsProps) {
                     {product.benefit}
                   </p>
                   <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[#c45c1a]">
-                    View Details
+                    View details
                     <ArrowUpRight className="h-4 w-4" />
                   </span>
                 </div>

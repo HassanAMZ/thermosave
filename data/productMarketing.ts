@@ -70,7 +70,7 @@ export const productMarketing: Record<string, ProductMarketing> = {
     subhead:
       'SS-jacketed mica with Ni20Cr80 winding — precise lengths, fast heat-up, built for barrels and nozzles that need a thin, reliable band.',
     benefit:
-      'SS-jacketed mica band heaters with Ni20Cr80 winding — faster heat-up, less impair on barrels and nozzles.',
+      'Heat barrels and nozzles fast. Tight SS-jacketed mica bands built for plastic machines.',
     seoTitle: 'Mica Band Heaters — Custom Barrel & Nozzle Heat | ThermoSave',
     seoDescription:
       'Made in Japan mica band heaters sized to your barrel and nozzle. Fast heat-up, custom lengths. Free energy loss assessment for plastic plants in Pakistan.',
@@ -174,7 +174,7 @@ export const productMarketing: Record<string, ProductMarketing> = {
     subhead:
       'Interlocking ceramic tiles and a stainless sheath — up to 1600°F and 45 W/in², Made in Japan, opens fully for install, repairable in the field.',
     benefit:
-      'Ceramic band heaters up to 1600°F and 45 W/in² — Made in Japan, built for demanding plastic machines.',
+      'High heat up to 1600°F and 45 W/in². Made in Japan. Built for hard-running plastic machines.',
     seoTitle: 'Ceramic Band Heaters — High-Temp Efficient Barrel Heat | ThermoSave',
     seoDescription:
       'Ceramic band heaters up to 1600°F and 45 W/in². Made in Japan, open for install, repairable. For injection, blow, and extrusion plants in Pakistan.',
@@ -273,7 +273,7 @@ export const productMarketing: Record<string, ProductMarketing> = {
     subhead:
       'Removable, self-extinguishing jackets rated for high-temp cloth systems. Up to ~40% energy savings and ~70% less heat loss on the heated zone — we model your PKR in a free assessment.',
     benefit:
-      'Removable, self-extinguishing thermal jackets with high-temp cloth systems rated up to 2000°C.',
+      'Removable jackets that keep heat in the barrel, not the hall. High-temp cloth systems.',
     seoTitle: 'Thermal Insulation Jackets — Cut Barrel Heat Loss | ThermoSave',
     seoDescription:
       'Removable thermal insulation jackets for plastic barrels. Up to 40% energy savings and 70% less heat loss. Free assessment for plants across Pakistan.',

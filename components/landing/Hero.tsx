@@ -53,8 +53,7 @@ export function LandingHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.06, ease: 'easeOut' }}
         >
-          Cut your plant&apos;s electricity bill by 20%+ — without touching your machines&apos;
-          output.
+          Cut your plant&apos;s electricity bill by 20%+. Keep the same output.
         </motion.h1>
 
         <motion.p
@@ -63,8 +62,8 @@ export function LandingHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.12, ease: 'easeOut' }}
         >
-          Industrial heaters and thermal insulation jackets that stop wasted heat loss in
-          injection molding, blow molding, and extrusion machines across Pakistan.
+          Heaters and insulation jackets that keep heat in your machines. For injection, blow
+          molding, and extrusion plants in Pakistan.
         </motion.p>
 
         <motion.div
@@ -78,7 +77,7 @@ export function LandingHero() {
             size="lg"
             className="h-12 rounded-sm bg-[#c45c1a] px-6 text-base font-semibold text-white shadow-none hover:bg-[#a84c14]"
           >
-            <Link href="/contact">Get a Free Energy Loss Assessment</Link>
+            <Link href="/contact">Get a Free Heat Check</Link>
           </Button>
           <Button
             asChild
@@ -88,7 +87,7 @@ export function LandingHero() {
           >
             <a href={`tel:${PHONE_TEL}`}>
               <Phone className="h-4 w-4" />
-              Call Now — {PHONE_DISPLAY}
+              Call {PHONE_DISPLAY}
             </a>
           </Button>
         </motion.div>

@@ -12,7 +12,7 @@ const callouts = [
     detail: 'Saved across 8 machines',
     client: 'Al Khair Five Star Forms, Lahore',
     quote:
-      'Easy to work with. We have been working for about 3 years now — helping us save over 200k PKR monthly on 8 machines.',
+      'Easy to work with. We have been working for about 3 years now. Helping us save over 200k PKR monthly on 8 machines.',
     role: 'Owner',
     avatar: '/static/previousClients/AlKhair.jpg',
   },
@@ -22,7 +22,7 @@ const callouts = [
     detail: '~30k PKR / month on 5 machines',
     client: 'Paragon Plastic Industries, Rawalpindi',
     quote:
-      'Our engineering team confirmed 1.3 units saved per hour on an injection molding machine — about 20 units/hour across 5 machines, with ~30k PKR monthly savings.',
+      'Our engineering team confirmed 1.3 units saved per hour on an injection molding machine. About 20 units/hour across 5 machines, with ~30k PKR monthly savings.',
     role: 'General Manager',
     avatar: '/static/previousClients/ParagonPlastics.png',
   },
@@ -105,7 +105,7 @@ export function LandingProof() {
                 ) : (
                   item.client
                 )}
-                <span className="font-normal text-stone-500"> — {item.role}</span>
+                <span className="font-normal text-stone-500">, {item.role}</span>
               </p>
             </motion.article>
           ))}

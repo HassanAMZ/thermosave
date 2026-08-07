@@ -1,9 +1,9 @@
 const siteMetadata = {
-  title: 'ThermoSave — Energy-Saving Heaters & Insulation for Plastic Plants',
+  title: 'ThermoSave. Heaters and jackets that cut plant power bills.',
   author: 'ThermoSave',
   headerTitle: 'ThermoSave',
   description:
-    'Cut plant electricity bills by 20%+ with industrial heaters and thermal insulation jackets for injection molding, blow molding, and extrusion machines across Pakistan.',
+    'Cut plant power bills by 20%+ with heaters and insulation jackets. For injection, blow molding, and extrusion plants in Pakistan.',
   language: 'en-us',
   siteUrl: 'https://thermosave.pk',
   siteDomain: 'thermosave.pk',

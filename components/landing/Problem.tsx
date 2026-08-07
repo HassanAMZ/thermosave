@@ -6,18 +6,18 @@ import { Flame, Gauge, Wrench } from 'lucide-react'
 const pains = [
   {
     icon: Flame,
-    title: 'Your machines are losing heat you already paid for.',
-    body: 'Old or damaged barrel insulation means electricity turns into ambient heat every cycle — on injection molders, extruders, and blow molders alike.',
+    title: 'Your machines throw away heat you already paid for.',
+    body: 'Bad or missing barrel insulation lets heat escape into the hall. That heat came from electricity you paid for.',
   },
   {
     icon: Wrench,
-    title: 'Your maintenance team fights the same heater failures every few months.',
-    body: 'Cheap band heaters burn out under watt density stress, cause unplanned downtime, and keep your spare-parts spend climbing.',
+    title: 'The same heaters keep failing.',
+    body: 'Cheap band heaters burn out. Machines stop. Spare parts keep adding up.',
   },
   {
     icon: Gauge,
-    title: "You don't actually know how much this is costing you.",
-    body: 'Most plants have never measured heat loss per machine. Without numbers, the leak stays invisible on the electricity bill.',
+    title: 'You may not know what this costs.',
+    body: 'Most plants never measure heat loss per machine. The leak stays hidden on the bill.',
   },
 ]
 

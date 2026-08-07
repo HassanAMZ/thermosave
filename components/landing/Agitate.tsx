@@ -21,17 +21,17 @@ export function LandingAgitate() {
               What this actually costs
             </p>
             <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight md:text-4xl">
-              One worn machine. Five of them. Two shifts. Real PKR.
+              One worn machine. Five machines. Two shifts. Real PKR.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-stone-300 md:text-lg">
-              A single injection molding machine with worn insulation can waste{' '}
-              <strong className="font-semibold text-white">1.3+ units/hour</strong>. Across 5
-              machines running 2 shifts, that&apos;s roughly{' '}
-              <strong className="font-semibold text-white">~30,000 PKR/month</strong> — gone. Every
-              month you wait, the loss compounds. No drama — just the meter.
+              One injection machine with bad insulation can waste{' '}
+              <strong className="font-semibold text-white">1.3+ units per hour</strong>. On 5
+              machines, 2 shifts, that is about{' '}
+              <strong className="font-semibold text-white">30,000 PKR a month</strong>. Gone. Every
+              month you wait costs more. No drama. Just the meter.
             </p>
             <p className="mt-4 text-sm text-stone-400">
-              Numbers from a measured plant test at Paragon Plastic Industries, Rawalpindi.
+              Numbers from a plant test at Paragon Plastic Industries, Rawalpindi.
             </p>
           </motion.div>
 

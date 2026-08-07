@@ -25,11 +25,10 @@ export function LandingFinalCTA() {
             ThermoSave
           </p>
           <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight md:text-4xl">
-            Stop paying for electricity you&apos;re throwing away as heat.
+            Stop paying for electricity that turns into wasted heat.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-stone-300">
-            Book a free energy loss assessment. No hard sell — just a clear picture of what your
-            plant is losing and how to fix it.
+            Book a free heat check. No hard sell. We show what your plant loses and how to fix it.
           </p>
         </motion.div>
 
@@ -45,7 +44,7 @@ export function LandingFinalCTA() {
             size="lg"
             className="h-12 rounded-sm bg-[#c45c1a] px-6 text-base font-semibold text-white hover:bg-[#a84c14]"
           >
-            <Link href="/contact">Get a Free Energy Loss Assessment</Link>
+            <Link href="/contact">Get a Free Heat Check</Link>
           </Button>
           <Button
             asChild
@@ -55,7 +54,7 @@ export function LandingFinalCTA() {
           >
             <a href={`tel:${PHONE_TEL}`}>
               <Phone className="h-4 w-4" />
-              Call — {PHONE_DISPLAY}
+              Call {PHONE_DISPLAY}
             </a>
           </Button>
           <Button

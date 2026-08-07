@@ -5,19 +5,19 @@ import { motion } from 'framer-motion'
 const faqs = [
   {
     q: 'How long does installation / delivery take?',
-    a: 'Typical lead time is 7–10 business days for custom-sized heaters and jackets, depending on machine count and dimensions. We confirm timelines when we size your order.',
+    a: 'Typical lead time is 7 to 10 business days for custom-sized heaters and jackets. It depends on how many machines you have and their size. We confirm timelines when we size your order.',
   },
   {
     q: 'Will this work on our specific machine brand and size?',
-    a: 'Yes. We size mica and ceramic band heaters and insulation jackets to your barrel diameter, length, wattage, and voltage — across injection molding, blow molding, and extrusion equipment of most brands.',
+    a: 'Yes. We size mica and ceramic band heaters and insulation jackets to your barrel diameter, length, wattage, and voltage. That covers injection molding, blow molding, and extrusion machines of most brands.',
   },
   {
-    q: "What's the actual ROI — how fast does this pay for itself?",
-    a: 'Plants we work with typically see payback from electricity savings within months, not years. Measured examples include ~30k PKR/month on five machines (Paragon) and 200k+ PKR/month across eight machines (Al Khair). We can model your case in a free assessment.',
+    q: "What's the actual ROI? How fast does this pay for itself?",
+    a: 'Plants we work with usually see payback from power savings in months, not years. Measured examples include about 30k PKR per month on five machines (Paragon) and 200k+ PKR per month across eight machines (Al Khair). We can model your case in a free heat check.',
   },
   {
     q: 'Do you service outside Lahore / Rawalpindi?',
-    a: 'Yes. We already support plants across 15 cities in Pakistan, and we are expanding capacity through international collaboration. If your plant is elsewhere, call or WhatsApp — we will tell you honestly how we can cover you.',
+    a: 'Yes. We already support plants across 15 cities in Pakistan. We are expanding capacity through international collaboration. If your plant is elsewhere, call or WhatsApp. We will tell you honestly how we can cover you.',
   },
 ]
 
