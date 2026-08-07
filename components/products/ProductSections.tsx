@@ -36,7 +36,7 @@ function StoryImage({ photo, priority = false }: { photo: ProductPhoto; priority
 
 export function ProductProblem({ marketing }: ProductStoryProps) {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-20 md:py-28">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <motion.div
@@ -67,7 +67,7 @@ export function ProductProblem({ marketing }: ProductStoryProps) {
 
 export function ProductAgitate({ marketing }: ProductStoryProps) {
   return (
-    <section className="bg-[#161b22] py-16 text-stone-100 md:py-24">
+    <section className="bg-[#161b22] py-20 text-stone-100 md:py-28">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <motion.div
@@ -128,7 +128,7 @@ export function ProductAgitate({ marketing }: ProductStoryProps) {
 
 export function ProductMechanism({ marketing }: ProductStoryProps) {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-20 md:py-28">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <motion.div
@@ -158,13 +158,13 @@ export function ProductMechanism({ marketing }: ProductStoryProps) {
   )
 }
 
-/** Product photo dump — after story splits, uniform tile grid (matches IndustryMedia) */
+/** Product photo dump. After story splits, uniform tile grid (matches IndustryMedia). */
 export function ProductMedia({ marketing }: ProductStoryProps) {
   const tiles = marketing.gallery
   if (!tiles.length) return null
 
   return (
-    <section className="bg-[#f4f2ee] py-16 md:py-24">
+    <section className="bg-[#f4f2ee] py-20 md:py-28">
       <div className="container mx-auto max-w-7xl px-4">
         <motion.div
           className="max-w-2xl"
@@ -219,7 +219,7 @@ type ProductSpecsProps = {
 
 export function ProductSpecs({ product }: ProductSpecsProps) {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-20 md:py-28">
       <div className="container mx-auto max-w-7xl px-4">
         <motion.div
           className="max-w-2xl"
@@ -276,7 +276,7 @@ function SpecBlock({ title, items }: { title: string; items: string[] }) {
 
 export function ProductOffer({ marketing }: ProductStoryProps) {
   return (
-    <section className="bg-[#f4f2ee] py-16 md:py-24">
+    <section className="bg-[#f4f2ee] py-20 md:py-28">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <motion.div
@@ -287,7 +287,7 @@ export function ProductOffer({ marketing }: ProductStoryProps) {
           >
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c45c1a]">Offer</p>
             <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">
-              What you get — stacked for plant managers.
+              What you get with this order.
             </h2>
             <ul className="mt-8 space-y-4">
               {marketing.offerBullets.map((bullet) => (
@@ -297,7 +297,7 @@ export function ProductOffer({ marketing }: ProductStoryProps) {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm text-stone-500">Typical delivery: 7–10 business days after sizing.</p>
+            <p className="mt-6 text-sm text-stone-500">Typical delivery: 7-10 business days after sizing.</p>
             <ProductCtas tone="light" className="mt-8" />
           </motion.div>
 
@@ -426,7 +426,7 @@ type ProductFaqProps = {
 
 export function ProductFaq({ faqs }: ProductFaqProps) {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-20 md:py-28">
       <div className="container mx-auto max-w-3xl px-4">
         <motion.div
           initial={{ opacity: 0.4, y: 16 }}

@@ -32,7 +32,7 @@ export function ProductCtas({ tone = 'light', className = '' }: ProductCtasProps
       >
         <a href={`tel:${PHONE_TEL}`}>
           <Phone className="h-4 w-4" />
-          Call — {PHONE_DISPLAY}
+          Call {PHONE_DISPLAY}
         </a>
       </Button>
       <Button

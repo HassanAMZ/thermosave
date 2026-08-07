@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Phone } from 'lucide-react'
@@ -7,24 +8,35 @@ import { Button } from '@/components/ui/button'
 import { TrustBar } from '@/components/landing/TrustBar'
 import { PHONE_DISPLAY, PHONE_TEL } from '@/components/landing/constants'
 
+const HERO_IMAGE = '/static/industries/extrusion-blow-moulding/head-jackets.jpg'
+
 export function CollectionHero() {
   return (
-    <section className="relative isolate -mt-16 overflow-hidden bg-[#0c1014] pt-24 pb-16 text-stone-100 md:pt-28 md:pb-20">
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(196,92,26,0.22),transparent_55%)]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.07]"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.35) 1px, transparent 1px)',
-          backgroundSize: '48px 48px',
-        }}
-        aria-hidden
-      />
+    <section className="relative isolate -mt-16 min-h-[min(100svh,820px)] overflow-hidden bg-[#0c1014] text-stone-100">
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src={HERO_IMAGE}
+          alt=""
+          fill
+          priority
+          className="object-cover opacity-45"
+          sizes="100vw"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-[#0c1014] via-[#0c1014]/92 to-[#0c1014]/55"
+          aria-hidden
+        />
+        <div
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_35%,rgba(196,92,26,0.28),transparent_55%)]"
+          aria-hidden
+        />
+        <div
+          className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:48px_48px]"
+          aria-hidden
+        />
+      </div>
 
-      <div className="container relative mx-auto max-w-7xl px-4">
+      <div className="container relative mx-auto flex min-h-[min(100svh,820px)] max-w-7xl flex-col justify-center px-4 pb-16 pt-24 md:pb-20 md:pt-28">
         <motion.div
           className="max-w-3xl"
           initial={{ opacity: 0.4, y: 16 }}
@@ -38,8 +50,8 @@ export function CollectionHero() {
             Tools that stop barrel heat waste.
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-stone-300 md:text-lg">
-            Mica and ceramic band heaters for precise heat — and removable insulation jackets
-            that keep kilowatts in the melt instead of your production hall.
+            Mica and ceramic band heaters for precise heat. Removable insulation jackets keep
+            kilowatts in the melt instead of your production hall.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -58,7 +70,7 @@ export function CollectionHero() {
             >
               <a href={`tel:${PHONE_TEL}`}>
                 <Phone className="h-4 w-4" />
-                Call Now — {PHONE_DISPLAY}
+                Call {PHONE_DISPLAY}
               </a>
             </Button>
           </div>

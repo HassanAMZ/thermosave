@@ -10,7 +10,7 @@ import {
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Products — Heaters & Insulation That Stop Barrel Heat Waste',
+  title: 'Products | Heaters & Insulation That Stop Barrel Heat Waste',
   description:
     'Mica and ceramic band heaters plus removable thermal insulation jackets for plastic plants in Pakistan. Free energy loss assessment.',
 }
@@ -21,7 +21,7 @@ export default function ProductsPage() {
   return (
     <>
       <PageSEO
-        title="Products — Heaters & Insulation That Stop Barrel Heat Waste | ThermoSave"
+        title="Products | Heaters & Insulation That Stop Barrel Heat Waste | ThermoSave"
         description="Mica and ceramic band heaters plus removable thermal insulation jackets for plastic plants in Pakistan. Free energy loss assessment."
         pathname="/products"
       />

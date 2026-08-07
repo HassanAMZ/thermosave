@@ -26,7 +26,7 @@ export function ProductGrid({ products }: ProductGridProps) {
             Products
           </p>
           <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">
-            Specs live on each page — here&apos;s what matters first.
+            Specs live on each page. Here&apos;s what matters first.
           </h2>
         </motion.div>
 

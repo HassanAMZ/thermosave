@@ -2,6 +2,7 @@
  * Conversion copy for published products (Hormozi value + Brunson Hook/Story/Offer).
  * Specs and carousel paths stay in `data/products.ts`.
  * Story splits follow industry pages: photo + short copy, then media dump.
+ * Plain English (~5th grade). No em dashes in customer-facing strings.
  */
 
 export type ProductFaq = {
@@ -28,7 +29,7 @@ export type ProductMarketing = {
   seoTitle: string
   seoDescription: string
   problemTitle: string
-  /** Keep to ~2 short sentences — image carries the story */
+  /** Keep to ~2 short sentences. Image carries the story. */
   problem: string
   problemImage: ProductPhoto
   agitateTitle: string
@@ -68,23 +69,23 @@ export const productMarketing: Record<string, ProductMarketing> = {
     displayTitle: 'Mica Band Heaters',
     headline: 'Tight, custom mica bands that heat barrels and nozzles fast.',
     subhead:
-      'SS-jacketed mica with Ni20Cr80 winding — precise lengths, fast heat-up, built for barrels and nozzles that need a thin, reliable band.',
+      'SS-jacketed mica with Ni20Cr80 winding. Precise lengths, fast heat-up. Built for barrels and nozzles that need a thin, reliable band.',
     benefit:
       'Heat barrels and nozzles fast. Tight SS-jacketed mica bands built for plastic machines.',
-    seoTitle: 'Mica Band Heaters — Custom Barrel & Nozzle Heat | ThermoSave',
+    seoTitle: 'Mica Band Heaters | Custom Barrel & Nozzle Heat | ThermoSave',
     seoDescription:
-      'Made in Japan mica band heaters sized to your barrel and nozzle. Fast heat-up, custom lengths. Free energy loss assessment for plastic plants in Pakistan.',
+      'Made in Pakistan mica band heaters sized to your barrel and nozzle. Fast heat-up, custom lengths. Free energy loss assessment for plastic plants in Pakistan.',
     problemTitle: 'Loose or slow bands cost cycles.',
     problem:
-      'When a band runs loose, burns out early, or takes too long to reach set point, you lose cycles — and you still pay for kilowatts that never reached the melt.',
+      'When a band runs loose, burns out early, or takes too long to reach set point, you lose cycles. You still pay for kilowatts that never reached the melt.',
     problemImage: {
       src: PLANT.bare,
       alt: 'Open heater bands on an extruder barrel',
-      caption: 'Open bands — heat leaving the machine',
+      caption: 'Open bands. Heat leaving the machine.',
     },
     agitateTitle: 'Fit first. Then stop the leak.',
     agitate:
-      'Mica is the workhorse for standard temps and tight clearances. Size the band right — then add jackets where radiant loss still shows up on the meter.',
+      'Mica is the workhorse for standard temps and tight clearances. Size the band right. Then add jackets where radiant loss still shows up on the meter.',
     agitateImage: {
       src: PLANT.partial,
       alt: 'Insulated zones next to open heater bands',
@@ -92,20 +93,20 @@ export const productMarketing: Record<string, ProductMarketing> = {
     },
     agitateStats: [
       { value: 'Custom', label: 'Lengths & nozzle heaters' },
-      { value: '7–10', label: 'Day typical lead time' },
-      { value: 'Japan', label: 'Mica construction' },
+      { value: '7-10', label: 'Day typical lead time' },
+      { value: 'Pakistan', label: 'Made & sized here' },
       { value: 'Fast', label: 'Heat-up response' },
     ],
-    mechanismTitle: 'Conduction into the barrel — not the hall.',
+    mechanismTitle: 'Heat into the barrel, not the hall.',
     mechanism:
       'Non-magnetic stainless sheath with Ni20Cr80 winding transfers heat by conduction. We cut OD, width, wattage, and voltage so the clamp stays tight.',
     mechanismImage: {
       src: `${CUT}/00001.png`,
-      alt: 'Mica band heater cutout — stainless sheath and clamp',
-      caption: 'SS-jacketed mica band — transparent product view',
+      alt: 'Mica band heater cutout with stainless sheath and clamp',
+      caption: 'SS-jacketed mica band. Product view.',
     },
     mediaTitle: 'Mica band views',
-    mediaSubhead: 'Angles, clamps, cutouts, and nozzle styles — click any tile on the hero to enlarge.',
+    mediaSubhead: 'Angles, clamps, cutouts, and nozzle styles. Click any tile on the hero to enlarge.',
     gallery: [
       {
         src: `${CUT}/00001-1.png`,
@@ -135,10 +136,10 @@ export const productMarketing: Record<string, ProductMarketing> = {
     ],
     offerBullets: [
       'Custom length and nozzle heaters for your machine',
-      'Made in Japan mica construction',
+      'Made in Pakistan mica construction',
       'Sized to barrel diameter, wattage, and voltage',
-      'Typical lead time 7–10 business days',
-      'Free energy loss assessment — Call or WhatsApp',
+      'Typical lead time 7-10 business days',
+      'Free energy loss assessment. Call or WhatsApp.',
     ],
     proofPoints: [
       '200+ plastic plants across Pakistan',
@@ -148,7 +149,7 @@ export const productMarketing: Record<string, ProductMarketing> = {
     faqs: [
       {
         q: 'When should I choose mica over ceramic?',
-        a: 'Mica fits standard process temperatures, thin profiles, custom cutouts, and nozzle heaters where fast conduction and a tight clamp matter most. For higher temps or built-in insulation toward the barrel, look at ceramic bands — and add jackets when you want the largest cut in heat loss to the room.',
+        a: 'Choose mica for standard temps, thin profiles, custom cutouts, and nozzle heaters. For higher temps, look at ceramic. Add jackets when you want the biggest cut in heat loss to the room.',
       },
       {
         q: 'Can you match our existing machine brands and zones?',
@@ -156,39 +157,39 @@ export const productMarketing: Record<string, ProductMarketing> = {
       },
       {
         q: 'How fast can we get replacements?',
-        a: 'Typical lead time is 7–10 business days for custom-sized heaters, confirmed when we size your order.',
+        a: 'Typical lead time is 7-10 business days for custom-sized heaters. We confirm when we size your order.',
       },
       {
         q: 'How do we cut electricity after we replace bands?',
-        a: 'New mica bands fix heat delivery. Removable insulation jackets cut radiant loss into the hall — often the larger PKR line item. We model both in a free assessment.',
+        a: 'New mica bands fix heat delivery. Removable insulation jackets cut radiant loss into the hall. That is often the larger PKR line item. We model both in a free assessment.',
       },
     ],
     chooserLabel: 'Fast heat-up & custom nozzles',
     chooserWhen: 'Choose mica when you need thin, precise bands and nozzle heaters that respond quickly.',
-    relatedCta: 'Pair with insulation jackets to keep heat in the melt — not the hall.',
+    relatedCta: 'Pair with insulation jackets to keep heat in the melt, not the hall.',
   },
 
   'ceramic-band-heater': {
     displayTitle: 'Ceramic Band Heaters',
     headline: 'High-temp barrel heat with less waste to the room.',
     subhead:
-      'Interlocking ceramic tiles and a stainless sheath — up to 1600°F and 45 W/in², Made in Japan, opens fully for install, repairable in the field.',
+      'Interlocking ceramic tiles and a stainless sheath. Up to 1600°F and 45 W/in². Made in Pakistan. Opens fully for install. Repairable in the field.',
     benefit:
-      'High heat up to 1600°F and 45 W/in². Made in Japan. Built for hard-running plastic machines.',
-    seoTitle: 'Ceramic Band Heaters — High-Temp Efficient Barrel Heat | ThermoSave',
+      'High heat up to 1600°F and 45 W/in². Made in Pakistan. Built for hard-running plastic machines.',
+    seoTitle: 'Ceramic Band Heaters | High-Temp Barrel Heat | ThermoSave',
     seoDescription:
-      'Ceramic band heaters up to 1600°F and 45 W/in². Made in Japan, open for install, repairable. For injection, blow, and extrusion plants in Pakistan.',
+      'Ceramic band heaters up to 1600°F and 45 W/in². Made in Pakistan, open for install, repairable. For injection, blow, and extrusion plants in Pakistan.',
     problemTitle: 'High-temp zones eat thin bands.',
     problem:
       'Hard-running zones burn through thin uninsulated bands. Heat that should stay in the melt raises hall temperature and electric bills.',
     problemImage: {
       src: PLANT.hopBare,
       alt: 'Bare heated equipment before insulation',
-      caption: 'Bare heated surfaces — loss you can feel',
+      caption: 'Bare heated surfaces. Loss you can feel.',
     },
-    agitateTitle: 'Direct heat inward — then add jackets.',
+    agitateTitle: 'Direct heat inward. Then add jackets.',
     agitate:
-      'Ceramic with fiber insulation typically cuts power draw versus bare mica-style bands by directing more energy into the barrel. On a multi-machine line, that shows up every month.',
+      'Ceramic with fiber insulation typically cuts power draw versus bare mica-style bands. More energy goes into the barrel. On a multi-machine line, that shows up every month.',
     agitateImage: {
       src: PLANT.extPartial,
       alt: 'Partially insulated extrusion barrel',
@@ -202,14 +203,14 @@ export const productMarketing: Record<string, ProductMarketing> = {
     ],
     mechanismTitle: 'Tiles inside a stainless sheath.',
     mechanism:
-      'Resistance coils thread through interlocking steatite ceramic tiles. Heat moves by conduction and radiation — the band opens fully and still drives high watt density.',
+      'Resistance coils thread through interlocking steatite ceramic tiles. Heat moves by conduction and radiation. The band opens fully and still drives high watt density.',
     mechanismImage: {
       src: `${CUT}/00002.png`,
       alt: 'Ceramic band heater showing interlocking tiles',
       caption: 'Ceramic tiles inside stainless sheath',
     },
     mediaTitle: 'Ceramic band views',
-    mediaSubhead: 'Tile interiors, clamps, leads — transparent cutouts with no third-party branding.',
+    mediaSubhead: 'Tile interiors, clamps, and leads. Transparent cutouts with no third-party branding.',
     gallery: [
       {
         src: `${CUT}/00002-1.png`,
@@ -234,32 +235,32 @@ export const productMarketing: Record<string, ProductMarketing> = {
     ],
     offerBullets: [
       'Up to 1600°F operating class, up to 45 W/in²',
-      'Made in Japan — repairable; replacement spiral wire available',
+      'Made in Pakistan. Repairable. Replacement spiral wire available.',
       'Fully opens for installation and removal',
       'Custom length sized to your zones',
-      'Free assessment + Call / WhatsApp support',
+      'Free assessment. Call or WhatsApp support.',
     ],
     proofPoints: [
       'Built for injection, blow, blown film, granulators, and extruders',
       'Better heat retention toward the process than thin uninsulated bands',
-      '200+ clients; heaters and materials Made in Japan',
+      '200+ clients. Heaters and materials made in Pakistan.',
     ],
     faqs: [
       {
         q: 'What temperatures and watt densities can ceramic handle?',
-        a: 'Our ceramic bands are specified up to 1600°F and watt densities up to 45 W/in² — suited to demanding plastic machines and higher-temp resins. We confirm ratings against your zone setpoints when we size the order.',
+        a: 'Our ceramic bands are specified up to 1600°F and up to 45 W/in². That suits hard-running plastic machines and higher-temp resins. We confirm ratings against your zone setpoints when we size the order.',
       },
       {
         q: 'Are they repairable on site?',
-        a: 'Yes. Construction is repairable and replacement spiral wire is available, which cuts downtime versus throwing away a whole band after a single failure.',
+        a: 'Yes. Construction is repairable and replacement spiral wire is available. That cuts downtime versus throwing away a whole band after a single failure.',
       },
       {
         q: 'Will ceramic alone stop heat loss into the hall?',
-        a: 'Ceramic construction already directs more heat inward than thin uninsulated mica. Removable insulation jackets add another layer of savings on radiant loss — many plants run both. We can size the stack in an assessment.',
+        a: 'Ceramic already directs more heat inward than thin uninsulated mica. Removable insulation jackets add more savings on radiant loss. Many plants run both. We can size the stack in an assessment.',
       },
       {
         q: 'How long to delivery?',
-        a: 'Typical lead time is 7–10 business days for custom-sized bands, depending on machine count and dimensions.',
+        a: 'Typical lead time is 7-10 business days for custom-sized bands. It depends on machine count and dimensions.',
       },
     ],
     chooserLabel: 'High temp + built-in efficiency',
@@ -269,17 +270,17 @@ export const productMarketing: Record<string, ProductMarketing> = {
 
   'thermal-insolations': {
     displayTitle: 'Thermal Insulation Jackets',
-    headline: 'Keep the heat in the melt — not in your production hall.',
+    headline: 'Keep the heat in the melt, not in your production hall.',
     subhead:
-      'Removable, self-extinguishing jackets rated for high-temp cloth systems. Up to ~40% energy savings and ~70% less heat loss on the heated zone — we model your PKR in a free assessment.',
+      'Removable, self-extinguishing jackets for high-temp cloth systems. Up to ~40% energy savings and ~70% less heat loss on the heated zone. We model your PKR in a free assessment.',
     benefit:
       'Removable jackets that keep heat in the barrel, not the hall. High-temp cloth systems.',
-    seoTitle: 'Thermal Insulation Jackets — Cut Barrel Heat Loss | ThermoSave',
+    seoTitle: 'Thermal Insulation Jackets | Cut Barrel Heat Loss | ThermoSave',
     seoDescription:
       'Removable thermal insulation jackets for plastic barrels. Up to 40% energy savings and 70% less heat loss. Free assessment for plants across Pakistan.',
     problemTitle: 'Open bands heat the hall.',
     problem:
-      'Uninsulated heater bands radiate a large share of energy into the room. You pay to heat the melt — then again to live with a hotter hall.',
+      'Uninsulated heater bands radiate a large share of energy into the room. You pay to heat the melt. Then you live with a hotter hall.',
     problemImage: {
       src: PLANT.bare,
       alt: 'Bare extruder barrel and die head',
@@ -287,11 +288,11 @@ export const productMarketing: Record<string, ProductMarketing> = {
     },
     agitateTitle: 'Wasted heat is a PKR line item.',
     agitate:
-      'On a 10 kW load, jackets often save on the order of 1 kW/hour when heat stays on the barrel. Measured plants see ~30k–200k+ PKR/month — payback in months.',
+      'On a 10 kW load, jackets often save about 1 kW/hour when heat stays on the barrel. Measured plants see ~30k to 200k+ PKR/month. Payback is often in months.',
     agitateImage: {
       src: PLANT.partial,
       alt: 'Partially jacketed barrel zones',
-      caption: 'Jacketed vs open bands — same machine',
+      caption: 'Jacketed vs open bands on the same machine',
     },
     agitateStats: [
       { value: '~40%', label: 'Energy cost cut (zone)' },
@@ -301,19 +302,19 @@ export const productMarketing: Record<string, ProductMarketing> = {
     ],
     mechanismTitle: 'Removable high-temp cloth systems.',
     mechanism:
-      'Self-extinguishing cloths — ceramic systems up to 1,250°C and silicon-coated alumina up to 2,000°C — wrap the zone so radiant loss drops and bands cycle less.',
+      'Self-extinguishing cloths wrap the zone. Ceramic systems go up to 1,250°C. Silicon-coated alumina goes up to 2,000°C. Radiant loss drops and bands cycle less.',
     mechanismImage: {
       src: PLANT.jackets,
       alt: 'Insulation jackets on extruder die head',
       caption: 'Custom jackets on barrel and head',
     },
     mediaTitle: 'Jackets on real machines',
-    mediaSubhead: 'Plant installs — jackets on barrels and heads the way operators see them on the floor.',
+    mediaSubhead: 'Plant installs. Jackets on barrels and heads the way operators see them on the floor.',
     gallery: [
       {
         src: '/static/products/00003.jpeg',
         alt: 'Thermal insulation jacket on barrel in plant',
-        caption: 'Jacket on barrel — plant view',
+        caption: 'Jacket on barrel. Plant view.',
       },
       {
         src: '/static/products/00003-4.jpeg',
@@ -344,9 +345,9 @@ export const productMarketing: Record<string, ProductMarketing> = {
     offerBullets: [
       'Custom-fit removable jackets for your barrel zones',
       'High-temp cloth systems up to 1,250°C / 2,000°C class',
-      'Burn protection for operators; cooler ambient near the machine',
+      'Burn protection for operators. Cooler ambient near the machine.',
       'Helps protect nearby PLC and hydraulic oil from excess heat',
-      'Free energy loss assessment — Call or WhatsApp',
+      'Free energy loss assessment. Call or WhatsApp.',
     ],
     proofPoints: [
       'Up to ~40% saving in energy costs on the heated zone',
@@ -361,11 +362,11 @@ export const productMarketing: Record<string, ProductMarketing> = {
       },
       {
         q: 'Can jackets come off for maintenance?',
-        a: 'Yes. They are designed to be removable so maintenance teams can access bands and thermocouples without destroying the insulation package.',
+        a: 'Yes. They come off so maintenance can reach bands and thermocouples without destroying the insulation package.',
       },
       {
         q: 'Will this work on our machine brand and size?',
-        a: 'Yes. We size jackets to your barrel diameter, zone lengths, and layout — across injection molding, blow molding, film, tape lines, woven sack, monofilament, and extrusion equipment.',
+        a: 'Yes. We size jackets to your barrel diameter, zone lengths, and layout. That covers injection molding, blow molding, film, tape lines, woven sack, monofilament, and extrusion equipment.',
       },
       {
         q: 'Do you only cover Lahore / Rawalpindi?',
@@ -374,7 +375,7 @@ export const productMarketing: Record<string, ProductMarketing> = {
     ],
     chooserLabel: 'Biggest kWh cut',
     chooserWhen: 'Choose jackets when open bands are heating the hall and you want measured PKR savings.',
-    relatedCta: 'Run jackets over mica or ceramic bands — heat the melt, not the floor.',
+    relatedCta: 'Run jackets over mica or ceramic bands. Heat the melt, not the floor.',
   },
 }
 

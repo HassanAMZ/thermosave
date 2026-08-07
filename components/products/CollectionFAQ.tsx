@@ -9,7 +9,7 @@ const collectionFaqs = [
   },
   {
     q: 'Do you publish fixed prices online?',
-    a: 'Bands and jackets are custom-sized to barrel diameter, length, wattage, and voltage. We quote after a short sizing call or WhatsApp — no fake checkout urgency.',
+    a: 'Bands and jackets are custom-sized to barrel diameter, length, wattage, and voltage. We quote after a short sizing call or WhatsApp. No fake checkout urgency.',
   },
   {
     q: "What's a realistic ROI?",
@@ -17,7 +17,7 @@ const collectionFaqs = [
   },
   {
     q: 'How long is delivery?',
-    a: 'Typical lead time is 7–10 business days for custom-sized heaters and jackets, confirmed when we size your order.',
+    a: 'Typical lead time is 7-10 business days for custom-sized heaters and jackets, confirmed when we size your order.',
   },
 ]
 
