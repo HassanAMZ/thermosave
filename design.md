@@ -387,7 +387,7 @@ On mobile: image/video above copy. Never a full-width text block with no adjacen
 | Hero video (homepage) | `/static/videos/00001.mp4` — low opacity under dark overlays |
 | Products | `/static/products/` |
 | Industry photos | `/static/industries/[slug]/` |
-| Industry plant video | Mux playback IDs in `data/industries.ts` via `@mux/mux-player-react` |
+| Industry plant video | Mux **Playback** IDs (not Asset IDs) in `data/industries.ts` via `@mux/mux-player-react`; plant clips are portrait `239/425` |
 | Client logos | `/static/previousClients/` (AlKhair, ParagonPlastics, GondalPrecast) |
 | Logo | `/static/images/logo.png` |
 

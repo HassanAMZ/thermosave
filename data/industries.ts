@@ -10,6 +10,7 @@ export type IndustryFaq = {
 }
 
 export type IndustryVideo = {
+  /** Mux Playback ID (not Asset ID) — from asset → Playback and Thumbnails */
   playbackId: string
   title: string
   durationLabel: string
@@ -140,17 +141,17 @@ export const industries: Industry[] = [
     ],
     videos: [
       {
-        playbackId: 'auTfUAUZIb6K2DM8jXCwBdWgspDwn8z7wuf004tmN3lY',
+        playbackId: 'Bx7v1bO4zmFv8027xQfDotu3UR1p02So8ZnYwmexsthKc',
         title: 'Jackets on barrel & head',
         durationLabel: '0:57',
       },
       {
-        playbackId: 'ZVACQot3E02ybvu4gv47AI4j9TglqQjPNzh6MKxHLvEM',
+        playbackId: 'mqjZFDe00nfCZm6U6cw3MHe4jo5U3dbN9MKese7HY7VE',
         title: 'Plant walkthrough',
         durationLabel: '0:35',
       },
       {
-        playbackId: 'qVcJahoLES00aG9ghmIowcOpAucVL57HhRbkH00WTUcbM',
+        playbackId: '5gbbIXuOyToOm7D2XTbtzrICbjqXlQbcfqQEXAP5EHs',
         title: 'Close-up install',
         durationLabel: '0:18',
       },
@@ -262,7 +263,7 @@ export const industries: Industry[] = [
     ],
     videos: [
       {
-        playbackId: 'eBofCPLkcVwGnn9dC865yXov2xoC3Qxfv02HRVp8d5gE',
+        playbackId: 'tnGetGeoU900XbdKME02WbpmN7sw00GsvTsfwXzzYHb2EM',
         title: 'Extrusion line jackets',
         durationLabel: '0:19',
       },

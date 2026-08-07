@@ -60,7 +60,7 @@ export function IndustryMedia({ industry }: IndustryProps) {
 
         {featured ? (
           <motion.div
-            className="mt-10"
+            className="mt-10 flex flex-col items-center text-center"
             initial={{ opacity: 0.4, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -77,10 +77,11 @@ export function IndustryMedia({ industry }: IndustryProps) {
         ) : null}
 
         {rest.length > 0 ? (
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 sm:justify-items-center">
             {rest.map((video, index) => (
               <motion.div
                 key={video.playbackId}
+                className="flex w-full max-w-md flex-col items-center text-center"
                 initial={{ opacity: 0.4, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

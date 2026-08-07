@@ -8,9 +8,14 @@ type IndustryMuxPlayerProps = {
   className?: string
 }
 
+/** Plant clips are phone-shot portrait (Mux 239:425). */
+const PORTRAIT_ASPECT = '239 / 425'
+
 export function IndustryMuxPlayer({ playbackId, title, className = '' }: IndustryMuxPlayerProps) {
   return (
-    <div className={`overflow-hidden rounded-sm border border-stone-200 bg-[#0c1014] ${className}`}>
+    <div
+      className={`mx-auto w-full max-w-sm overflow-hidden rounded-sm border border-stone-200 bg-[#0c1014] sm:max-w-md ${className}`}
+    >
       <MuxPlayer
         playbackId={playbackId}
         metadata={{ video_title: title }}
@@ -18,8 +23,8 @@ export function IndustryMuxPlayer({ playbackId, title, className = '' }: Industr
         primaryColor="#f4f2ee"
         secondaryColor="#0c1014"
         streamType="on-demand"
-        className="aspect-video w-full"
-        style={{ aspectRatio: '16 / 9', width: '100%' }}
+        className="w-full"
+        style={{ aspectRatio: PORTRAIT_ASPECT, width: '100%', height: 'auto' }}
       />
     </div>
   )
