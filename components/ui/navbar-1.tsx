@@ -87,8 +87,12 @@ const clientNavItems: NavItem[] = clients.map((client) => ({
   image: client.coverImage,
 }))
 
+/** Beside the feature pane: 1 list column up to 5 items, 2 list columns (3-col mega) above that. */
+const clientListCols = clientNavItems.length > 5 ? 2 : 1
+const clientMegaCols = 1 + clientListCols
+const clientRowSpan = Math.max(3, Math.ceil(clientNavItems.length / clientListCols))
+
 const mobileLinks = [
-  { href: '/', title: 'Home' },
   { href: '/products', title: 'All Products' },
   { href: '/industries', title: 'All Industries' },
   { href: '/clients', title: 'All Clientele' },
@@ -119,10 +123,8 @@ function MegaFeature({
   const isContain = imageFit === 'contain'
   return (
     <li
-      className={cn(
-        'md:col-span-2 lg:col-span-1',
-        rowSpan === 6 ? 'row-span-6 lg:row-span-6' : 'row-span-3 lg:row-span-3'
-      )}
+      className="md:col-span-2 lg:col-span-1"
+      style={{ gridRow: `span ${rowSpan} / span ${rowSpan}` }}
     >
       <NavigationMenuLink asChild>
         <Link
@@ -211,17 +213,6 @@ export function Navbar() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link
-                    href="/"
-                    className={cn(navigationMenuTriggerStyle(), navLinkClass, 'rounded-sm')}
-                  >
-                    Home
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
                 <NavigationMenuTrigger className={cn(navLinkClass, 'rounded-sm')}>
                   Products
                 </NavigationMenuTrigger>
@@ -285,7 +276,14 @@ export function Navbar() {
                   Clientele
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid gap-2 p-3 md:w-[540px] md:grid-cols-2 lg:w-[640px]">
+                  <ul
+                    className={cn(
+                      'grid gap-2 p-3 md:w-[540px] md:grid-cols-2',
+                      clientMegaCols >= 3
+                        ? 'lg:w-[860px] lg:grid-cols-3'
+                        : 'lg:w-[640px]'
+                    )}
+                  >
                     <MegaFeature
                       href="/clients"
                       title="All Clientele"
@@ -293,7 +291,7 @@ export function Navbar() {
                       image="/static/clients/eagry-force-multan/barrel-jacket.jpg"
                       imageAlt="ThermoSave client plants"
                       imageFit="cover"
-                      rowSpan={6}
+                      rowSpan={clientRowSpan}
                     />
                     {clientNavItems.map((client) => (
                       <ListItem
