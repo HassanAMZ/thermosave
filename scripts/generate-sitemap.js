@@ -7,10 +7,10 @@ const siteMetadata = require('../data/siteMetadata')
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js')
   const pages = await globby([
     'app/**/page.js',
-    'data/products/**/*.mdx',
-    'data/products/**/*.md',
+    'app/**/page.tsx',
     'public/tags/**/*.xml',
     '!app/**/_*.js',
+    '!app/**/_*.tsx',
     '!app/api',
   ])
 
@@ -22,20 +22,17 @@ const siteMetadata = require('../data/siteMetadata')
                 let path = page
                   .replace('app/', '/')
                   .replace('/page.js', '')
-                  .replace('data/products', '/products')
+                  .replace('/page.tsx', '')
                   .replace('public/', '/')
                   .replace('.js', '')
-                  .replace('.mdx', '')
-                  .replace('.md', '')
+                  .replace('.tsx', '')
                   .replace('/feed.xml', '')
-                // Handle index route
                 if (path === '/' || path === '') {
                   path = '/'
                 }
                 const route = path === '/index' ? '' : path
-                // Skip dynamic routes and 404
                 if (
-                  page.includes('[...slug]') ||
+                  page.includes('[') ||
                   page.includes('not-found') ||
                   page.includes('404')
                 ) {

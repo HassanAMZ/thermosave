@@ -3,9 +3,9 @@
   "version": "1.1.2",
   "private": true,
   "scripts": {
-    "start": "next-remote-watch ./data",
     "dev": "next dev",
     "build": "next build --turbopack && node ./scripts/generate-sitemap",
+    "start": "next start",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts",
@@ -35,15 +35,9 @@
     "@radix-ui/react-tooltip": "^1.2.16",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "esbuild": "^0.28.1",
     "framer-motion": "^13.0.0",
-    "github-slugger": "^2.0.0",
     "googleapis": "^174.0.1",
-    "gray-matter": "^4.0.3",
-    "hast-util-to-string": "^3.0.1",
-    "image-size": "2.0.2",
     "lucide-react": "^1.30.0",
-    "mdx-bundler": "^10.1.1",
     "motion": "^13.0.0",
     "next": "^16.3.0",
     "next-themes": "^0.4.6",
@@ -51,20 +45,12 @@
     "react-dom": "19.2.8",
     "react-hook-form": "^7.84.0",
     "react-icons": "^5.7.0",
-    "reading-time": "1.5.0",
-    "rehype-autolink-headings": "^7.1.0",
-    "rehype-katex": "^7.0.1",
-    "rehype-prism-plus": "^2.0.2",
-    "rehype-slug": "^6.0.0",
-    "remark-gfm": "^4.0.1",
-    "remark-math": "^6.0.0",
     "sharp": "^0.35.3",
     "smoothscroll-polyfill": "^0.4.4",
     "sonner": "^2.0.7",
     "swr": "^2.5.0",
     "tailwind-merge": "^3.6.0",
     "tailwindcss-animate": "^1.0.7",
-    "unist-util-visit": "^5.1.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {
@@ -86,7 +72,6 @@
     "husky": "^9.1.7",
     "inquirer": "^14.0.2",
     "lint-staged": "^17.3.0",
-    "next-remote-watch": "^2.0.0",
     "postcss": "^8.5.26",
     "prettier": "3.9.6",
     "tailwindcss": "^4.3.3"
@@ -95,7 +80,7 @@
     "*.+(js|jsx|ts|tsx)": [
       "eslint --fix"
     ],
-    "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
+    "*.+(js|jsx|ts|tsx|json|css|md)": [
       "prettier --write"
     ]
   }

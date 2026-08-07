@@ -1,5 +1,5 @@
 import siteMetadata from '@/data/siteMetadata'
-import { getAllFilesFrontMatter } from '@/lib/mdx'
+import { getPublishedProducts } from '@/data/products'
 import {
   LandingAgitate,
   LandingFAQ,
@@ -37,10 +37,8 @@ const PRODUCT_COPY: Record<string, { benefit: string; title?: string }> = {
 
 const PRODUCT_ORDER = ['mica-band-heaters', 'ceramic-band-heater', 'thermal-insolations'] as const
 
-async function getLandingProducts(): Promise<LandingProduct[]> {
-  const posts = await getAllFilesFrontMatter('products')
-  const published = posts.filter((product) => product.draft !== true)
-
+function getLandingProducts(): LandingProduct[] {
+  const published = getPublishedProducts()
   const products: LandingProduct[] = []
 
   for (const slug of PRODUCT_ORDER) {
@@ -48,17 +46,17 @@ async function getLandingProducts(): Promise<LandingProduct[]> {
     if (!product) continue
     products.push({
       slug,
-      title: PRODUCT_COPY[slug]?.title ?? (product.title as string),
-      coverImage: product.coverImage as string,
-      benefit: PRODUCT_COPY[slug]?.benefit ?? (product.summary as string),
+      title: PRODUCT_COPY[slug]?.title ?? product.title,
+      coverImage: product.coverImage,
+      benefit: PRODUCT_COPY[slug]?.benefit ?? product.summary,
     })
   }
 
   return products
 }
 
-export default async function Home() {
-  const products = await getLandingProducts()
+export default function Home() {
+  const products = getLandingProducts()
 
   return (
     <div className="landing-page">

@@ -1,4 +1,4 @@
-import { getAllFilesFrontMatter } from '@/lib/mdx'
+import { getPublishedProducts } from '@/data/products'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayout'
 import { PageSEO } from '@/components/SEO'
@@ -11,19 +11,13 @@ export const metadata: Metadata = {
   description: siteMetadata.description,
 }
 
-async function getData() {
-  const posts = await getAllFilesFrontMatter('products')
+export default function ProductsPage() {
+  const posts = getPublishedProducts()
   const initialDisplayPosts = posts.slice(0, POSTS_PER_PAGE)
   const pagination = {
     currentPage: 1,
     totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
   }
-
-  return { initialDisplayPosts, posts, pagination }
-}
-
-export default async function ProductsPage() {
-  const { posts, initialDisplayPosts, pagination } = await getData()
 
   return (
     <>
