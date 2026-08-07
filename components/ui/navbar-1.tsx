@@ -83,6 +83,7 @@ const mobileLinks = [
   { href: '/', title: 'Home' },
   { href: '/products', title: 'All Products' },
   { href: '/industries', title: 'Industries' },
+  { href: '/clients', title: 'Clientele' },
   { href: '/image-gallery', title: 'Gallery' },
   { href: '/contact', title: 'Contact Us' },
 ]
@@ -98,7 +99,8 @@ export function Navbar() {
   const isHome = pathname === '/'
   const isIndustryDetail =
     pathname.startsWith('/industries/') && pathname !== '/industries'
-  const overHero = (isHome || isIndustryDetail) && !scrolled
+  const isClientDetail = pathname.startsWith('/clients/') && pathname !== '/clients'
+  const overHero = (isHome || isIndustryDetail || isClientDetail) && !scrolled
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -212,6 +214,17 @@ export function Navbar() {
                     ))}
                   </ul>
                 </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="/clients"
+                    className={cn(navigationMenuTriggerStyle(), navLinkClass, 'rounded-sm')}
+                  >
+                    Clientele
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>

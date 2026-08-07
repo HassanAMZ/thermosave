@@ -89,10 +89,11 @@ Every marketing surface should resolve this sequence:
 | Rung | URL pattern | Job |
 |------|-------------|-----|
 | Awareness / industry | `/industries`, `/industries/[slug]` | “This is *my* machine / process” |
+| Social proof / clientele | `/clients`, `/clients/[slug]` | “Plants like mine already run this” |
 | Product tools | `/products`, `/products/[slug]` | Choose mica / ceramic / jackets |
 | Commitment | `/contact` | Assessment conversation |
 
-Industry pages **hook by process**; product pages **sell the tool**; contact **closes**. Cross-link both ways.
+Industry pages **hook by process**; clientele pages **prove with named plants**; product pages **sell the tool**; contact **closes**. Cross-link both ways.
 
 ### How this maps to our section order
 
@@ -287,7 +288,7 @@ Nav is part of the **industrial dark chrome**, not a white strip floating above 
 
 | State | Treatment |
 |-------|-----------|
-| Homepage or industry detail, top of hero | Transparent over the hero plane — hero uses `-mt-16` so ink/photo/video runs under the sticky header (one composition) |
+| Homepage, industry detail, or client case detail, top of hero | Transparent over the hero plane — hero uses `-mt-16` so ink/photo/video runs under the sticky header (one composition) |
 | Scrolled, or other routes | Solid `bg-[#0c1014]/95` + backdrop blur + `border-white/10` |
 | Links | Light stone / white; hover: white / soft wash |
 | Primary nav CTA | Heat fill (“Get Assessment”), not default blue |
@@ -382,6 +383,31 @@ Job: route buyers who think in **machine / process** language (extrusion blow mo
 
 Do **not** stack three text-only PAS sections — every story split pairs with a plant still. Conversion copy + Mux IDs + story images live in `data/industries.ts`.
 
+### Clientele collection (`/clients`)
+
+Order via `components/clients/*` + `data/clients.ts`:
+
+1. Dark ClientsHero (brand + “named plants” H1 + CTA + TrustBar)  
+2. ClientsGrid (case tiles → `/clients/[slug]`)  
+3. LandingProof (shared logos / quotes)  
+4. FinalCTA + StickyContact  
+
+Job: raise **perceived likelihood** (Hormozi) with named factories and plant video — not anonymous testimonials.
+
+### Client case study (`/clients/[slug]`)
+
+**Section order:**
+
+1. ClientCaseHero — full-bleed plant/Mux still, brand, **client name**, outcome H1, Assessment / Call / WhatsApp  
+2. ClientCaseStory — short plant copy + factual callout tiles (location / product type; measured PKR only when we have it)  
+3. ClientCaseMedia — Mux plant videos in the same **4:3 tile** pattern as industry media  
+4. Offer stack + CTAs  
+5. LandingProof  
+6. Client FAQ  
+7. FinalCTA + StickyContact  
+
+Wire Mux **Playback** IDs in `data/clients.ts`. Prefer plant stills under `/public/static/clients/[slug]/` when available; Mux thumbnail URLs (`image.mux.com`) are fine as interim covers.
+
 ### Visual-first section pattern
 
 ```
@@ -402,6 +428,7 @@ On mobile: image/video above copy. Never a full-width text block with no adjacen
 | Products | `/static/products/` — published PDPs use transparent cutouts in `/static/products/cutouts/` |
 | Industry photos | `/static/industries/[slug]/` |
 | Industry plant video | Mux **Playback** IDs (not Asset IDs) in `data/industries.ts` via `@mux/mux-player-react`; source is portrait `239/425`, displayed as **4:3 tiles** in the IndustryMedia grid |
+| Client case studies | `data/clients.ts` + Mux Playback IDs; optional stills in `/static/clients/[slug]/`; Mux thumbnails via `image.mux.com` |
 | Client logos | `/static/previousClients/` (AlKhair, ParagonPlastics, GondalPrecast) |
 | Logo | `/static/images/logo.png` |
 
@@ -438,6 +465,8 @@ Product photography on light tiles; hero/final CTA stay atmospheric dark. Indust
 | Product marketing UI | `components/products/` |
 | Industry marketing UI | `components/industries/` |
 | Industry copy + Mux IDs | `data/industries.ts` |
+| Clientele / case study UI | `components/clients/` |
+| Client case copy + Mux IDs | `data/clients.ts` |
 | Contact/stats constants | `components/landing/constants.ts` |
 | Global nav | `components/ui/navbar-1.tsx` |
 | Fonts | `app/layout.tsx` |

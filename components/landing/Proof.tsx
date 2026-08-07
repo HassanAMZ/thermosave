@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { CITIES } from './constants'
 
@@ -52,6 +53,11 @@ export function LandingProof() {
           <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-stone-900 md:text-4xl">
             200+ factories. Measured savings. Names you can call.
           </h2>
+          <p className="mt-4 text-base text-stone-600">
+            <Link href="/clients" className="font-semibold text-[#c45c1a] hover:underline">
+              Browse clientele &amp; case studies
+            </Link>
+          </p>
         </motion.div>
 
         <div className="mt-10 flex flex-wrap items-center gap-8 border-y border-stone-300/80 py-8">

@@ -14,6 +14,7 @@ const navigation = {
     { name: 'Home', href: '/' },
     { name: 'Products', href: '/products' },
     { name: 'Industries', href: '/industries' },
+    { name: 'Clientele', href: '/clients' },
     { name: 'Gallery', href: '/image-gallery' },
     { name: 'Contact', href: '/contact' },
   ],
@@ -28,7 +29,9 @@ const navigation = {
     { name: 'Extrusion Lines', href: '/industries/extrusion-lines' },
     { name: 'Hoppers & Hopper Dryers', href: '/industries/hoppers' },
     { name: 'Get Assessment', href: '/contact' },
-    { name: 'Proof & Clients', href: '/#proof' },
+    { name: 'Proof & Clients', href: '/clients' },
+    { name: 'Buhader Ind LHR', href: '/clients/buhader-ind-lhr' },
+    { name: 'Eagry Force Multan', href: '/clients/eagry-force-multan' },
     { name: `Call ${PHONE_DISPLAY}`, href: `tel:${PHONE_TEL}` },
   ],
 } as const

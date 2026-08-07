@@ -7,6 +7,14 @@ const nextConfig = {
   experimental: {
     esmExternals: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'image.mux.com',
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig
