@@ -190,16 +190,6 @@ export const clients: ClientCase[] = [
         alt: 'Plant floor with ThermoSave jacketed barrel at Eagry Force',
         caption: 'Jacketed barrel on the production floor',
       },
-      {
-        src: `${EAGRY_IMG}/plant-floor-2.jpg`,
-        alt: 'ThermoSave insulation install at Eagry Force Multan',
-        caption: 'Removable quilted jacket on process equipment',
-      },
-      {
-        src: `${EAGRY_IMG}/plant-floor-3.jpg`,
-        alt: 'ThermoSave energy-saving insulation jacket at Multan plastics plant',
-        caption: 'Plant install. Heat kept in the melt',
-      },
     ],
     offerTitle: 'What we deliver for plants like Eagry Force',
     offerBullets: [
@@ -266,16 +256,6 @@ export const clients: ClientCase[] = [
         alt: 'ThermoSave insulation jackets on process equipment at Shaigan Pharma RPI',
         caption: 'Jacketed barrel on blue frame. Shaigan Pharma RPI',
       },
-      {
-        src: `${SHAIGAN_IMG}/plant-floor-2.jpg`,
-        alt: 'Plant floor with ThermoSave jackets at Shaigan Pharma',
-        caption: 'Labeled ThermoSave jackets on heated sections',
-      },
-      {
-        src: `${SHAIGAN_IMG}/plant-floor-3.jpg`,
-        alt: 'ThermoSave energy-saving insulation at Shaigan Pharma RPI plant',
-        caption: 'Hopper line with removable barrel jackets',
-      },
     ],
     offerTitle: 'What we deliver for plants like Shaigan Pharma',
     offerBullets: [
@@ -340,11 +320,6 @@ export const clients: ClientCase[] = [
         src: `${TIMESTAR_IMG}/plant-floor-1.jpg`,
         alt: 'Plant floor with ThermoSave jacketed barrel at Time Star LHR',
         caption: 'Jacketed barrel on the production floor',
-      },
-      {
-        src: `${TIMESTAR_IMG}/plant-floor-2.jpg`,
-        alt: 'ThermoSave insulation install at Time Star Lahore',
-        caption: 'Removable quilted jacket on process equipment',
       },
       {
         src: `${TIMESTAR_IMG}/packing-floor.jpg`,
@@ -443,34 +418,14 @@ export const clients: ClientCase[] = [
         caption: 'Plant floor. Jackets on the production line',
       },
       {
-        src: `${ALKHAIR_IMG}/plant-floor-2.jpg`,
-        alt: 'Al-Khair foam plant with ThermoSave insulated extruder',
-        caption: 'Warehouse-scale foam extrusion with insulated barrel',
-      },
-      {
-        src: `${ALKHAIR_IMG}/plant-floor-3.jpg`,
-        alt: 'Operator beside ThermoSave jacketed extruder at Al-Khair',
-        caption: 'On the floor with the jacketed extruder',
-      },
-      {
         src: `${ALKHAIR_IMG}/plant-floor-4.jpg`,
         alt: 'Al-Khair Five Star Foam Lahore extruder with ThermoSave jackets',
         caption: 'Long extruder barrel. Heat kept in the melt',
       },
       {
-        src: `${ALKHAIR_IMG}/plant-floor-5.jpg`,
-        alt: 'Foam extrusion equipment with ThermoSave insulation at Al-Khair',
-        caption: 'Hopper end of the jacketed foam line',
-      },
-      {
         src: `${ALKHAIR_IMG}/hopper-line-1.jpg`,
         alt: 'Hopper and jacketed barrel at Al-Khair Five Star Foam',
         caption: 'Hopper and barrel jackets. Multizone process heat',
-      },
-      {
-        src: `${ALKHAIR_IMG}/hopper-line-2.jpg`,
-        alt: 'Al-Khair foam line control area with insulated extruder',
-        caption: 'Control side of the insulated extruder line',
       },
     ],
     offerTitle: 'What we deliver for plants like Al-Khair',
