@@ -10,7 +10,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # ThermoSave agent notes
 
-Also follow **`design.md`** and **`.cursor/rules/thermosave-design.mdc`**.
+Before changing or adding UI, read **`design.md`**: it is the source of truth for brand, color, type, section rhythm, CTAs and nav. When a change conflicts with it, match the doc, or update `design.md` on purpose when you set a new standard.
 
 ## Global navbar (required for every marketing page)
 

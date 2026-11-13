@@ -75,7 +75,7 @@ When creating or expanding an **industry / process** page (`/industries/[slug]`,
 3. Compress into Hormozi/Brunson structure: short headlines, callout stats, plant video/photos — not essay-length research dumps.
 4. Mux **Playback** ID + stills in `public/static/industries/[slug]/`; register nav + footer links.
 
-Also noted in `AGENTS.md` and `.cursor/rules/thermosave-design.mdc`.
+Also noted in `AGENTS.md`.
 
 ### Russell Brunson — Hook → Story → Offer
 
@@ -158,7 +158,7 @@ Our buyer is a plant owner / GM / maintenance lead. Many are strong on machines 
 - Did I use an em dash or a banned “smart” word? Fix it.
 - Is a photo or number doing more work than this paragraph? If yes, cut the paragraph.
 
-Also enforce in `.cursor/rules/thermosave-design.mdc` and `AGENTS.md`.
+Also enforced in `AGENTS.md`.
 
 ---
 
@@ -571,7 +571,7 @@ Product photography on light tiles; hero/final CTA stay atmospheric dark. Indust
 | Concern                    | Location                                                   |
 | -------------------------- | ---------------------------------------------------------- |
 | Design system (this doc)   | `/design.md`                                               |
-| Agent enforcement          | `.cursor/rules/thermosave-design.mdc`                      |
+| Agent enforcement          | `AGENTS.md`                                                |
 | Landing sections           | `components/landing/` (incl. `Media.tsx` plant proof dump) |
 | Product marketing UI       | `components/products/`                                     |
 | Industry marketing UI      | `components/industries/`                                   |
